@@ -477,7 +477,7 @@ async function handleWithdrawal(f) {
   }
 }
 
-const db = getFirestore();
+const secondaryDb = getFirestore();
 
 async function requestWithdrawal(userId, userEmail, requestedAmount, phone) {
   try {
