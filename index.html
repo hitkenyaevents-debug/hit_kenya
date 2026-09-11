@@ -378,7 +378,104 @@ function humanRequestType(f){const h=f.closest('.tab-pane')?.previousElementSibl
 async function sendHITEmail(f,vals,requestType){if(!window.emailjs)throw new Error('EmailJS is not loaded');const user=auth.currentUser;const toEmail=vals.email||vals.emailAddress||vals.contactEmail||Object.entries(vals).find(([k])=>/email/i.test(k))?.[1]||user?.email||'';const toName=vals.fullName||vals.name||vals.full_name||Object.entries(vals).find(([k])=>/full.?name|name/i.test(k))?.[1]||user?.displayName||'HIT Kenya Client';const phone=vals.phone||vals.phoneNumber||vals.whatsapp||vals['WhatsApp number']||'';const lines=Object.entries(vals).map(([k,v])=>`${k}: ${v}`).join('\n');const params={to_email:toEmail,to_name:toName,phone,email:toEmail,request_type:requestType,message:lines||'No form fields captured.'};let adminError=null;try{await emailjs.send('service_quv06am','template_x7blrek',{...params,to_email:'hitkenyaevents@gmail.com',to_name:'HIT Kenya Team'});}catch(err){adminError=err;}if(toEmail&&toEmail!=='hitkenyaevents@gmail.com'){try{await emailjs.send('service_quv06am','template_x7blrek',params);}catch(err){console.warn('Customer confirmation email failed:',err);}}if(adminError)throw adminError;}
 function getWithdrawalFee(amount){return amount>0?10:0;}
 function updateWithdrawalPreview(){const input=document.getElementById('withdrawalAmount'),net=document.getElementById('withdrawalNetAmount');if(!input||!net)return;const amount=Number(input.value||0),fee=getWithdrawalFee(amount),payout=Math.max(0,amount-fee);net.textContent='KSh '+payout.toLocaleString('en-KE');}
-async function handleWithdrawal(f){const r=document.getElementById('withdrawalResult'),user=auth.currentUser;if(!user){r.style.display='block';r.textContent='Please sign in to your influencer account before requesting a withdrawal.';return;}const amount=Number(document.getElementById('withdrawalAmount').value||0),fee=getWithdrawalFee(amount),netPayout=Math.max(0,amount-fee);if(!amount||amount<=0){r.style.display='block';r.textContent='Enter a valid withdrawal amount.';return;}if(amount<=fee){r.style.display='block';r.textContent='The withdrawal amount must be greater than the KSh 10 transaction fee.';return;}const name=document.getElementById('withdrawalName').value.trim(),email=document.getElementById('withdrawalEmail').value.trim()||user.email||'',method=document.getElementById('withdrawalMethod').value,reference=document.getElementById('withdrawalReference').value.trim();r.style.display='block';r.textContent='Checking your commission balance...';const infRef=doc(db,'influencers',user.uid),wdRef=doc(collection(db,'withdrawalRequests'));let remaining=0;try{await runTransaction(db,async tx=>{const snap=await tx.get(infRef);if(!snap.exists())throw new Error('Influencer account not found.');const d=snap.data(),available=Number(d.availableBalance??d.withdrawableBalance??0);if(amount>available)throw new Error(`Insufficient balance. Available: KSh ${available.toLocaleString('en-KE')}.`);remaining=available-amount;tx.update(infRef,{availableBalance:remaining,withdrawableBalance:remaining,updatedAt:serverTimestamp()});tx.set(wdRef,{userId:user.uid,influencerId:user.uid,fullName:name,email,withdrawalMethod:method,amount,transactionFee:fee,netPayout,paymentReference:reference,paymentStatus:'REQUESTED',status:'pending',remainingBalance:remaining,createdAt:serverTimestamp()});});await sendHITEmail(f,{fullName:name,email,withdrawalMethod:method,amount:`KSh ${amount.toLocaleString('en-KE')}`,transactionFee:`KSh ${fee.toLocaleString('en-KE')}`,netPayout:`KSh ${netPayout.toLocaleString('en-KE')}`,paymentReference:reference,remainingBalance:`KSh ${remaining.toLocaleString('en-KE')}`,influencerId:user.uid},'Influencer Commission Withdrawal');document.getElementById('availableBalance').textContent='KSh '+remaining.toLocaleString('en-KE');document.getElementById('remainingBalance').textContent='KSh '+remaining.toLocaleString('en-KE');r.innerHTML=`<b>Withdrawal request submitted ✓</b><br>Requested: KSh ${amount.toLocaleString('en-KE')}<br>Transaction fee: <b>KSh ${fee.toLocaleString('en-KE')}</b><br>Net payout: <b>KSh ${netPayout.toLocaleString('en-KE')}</b><br>Remaining balance: <b>KSh ${remaining.toLocaleString('en-KE')}</b>`;f.reset();updateWithdrawalPreview();}catch(err){r.textContent='Withdrawal not completed: '+err.message;}}import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+async function handleWithdrawal(f) {
+  const r = document.getElementById('withdrawalResult');
+  const user = auth.currentUser;
+
+  if (!user) {
+    r.style.display = 'block';
+    r.textContent = 'Please sign in to your influencer account before requesting a withdrawal.';
+    return;
+  }
+
+  const amount = Number(document.getElementById('withdrawalAmount').value || 0);
+  const fee = getWithdrawalFee(amount);
+  const netPayout = Math.max(0, amount - fee);
+
+  if (!amount || amount <= 0) {
+    r.style.display = 'block';
+    r.textContent = 'Enter a valid withdrawal amount.';
+    return;
+  }
+
+  if (amount <= fee) {
+    r.style.display = 'block';
+    r.textContent = 'The withdrawal amount must be greater than the KSh 10 transaction fee.';
+    return;
+  }
+
+  const name = document.getElementById('withdrawalName').value.trim();
+  const email = document.getElementById('withdrawalEmail').value.trim() || user.email || '';
+  const method = document.getElementById('withdrawalMethod').value;
+  const reference = document.getElementById('withdrawalReference').value.trim();
+
+  r.style.display = 'block';
+  r.textContent = 'Checking your commission balance...';
+
+  const infRef = doc(db, 'influencers', user.uid);
+  const wdRef = doc(collection(db, 'withdrawalRequests'));
+  let remaining = 0;
+
+  try {
+    await runTransaction(db, async (tx) => {
+      const snap = await tx.get(infRef);
+      if (!snap.exists()) throw new Error('Influencer account not found.');
+
+      const d = snap.data();
+      const available = Number(d.availableBalance ?? d.withdrawableBalance ?? 0);
+
+      if (amount > available) {
+        throw new Error(`Insufficient balance. Available: KSh ${available.toLocaleString('en-KE')}.`);
+      }
+
+      remaining = available - amount;
+
+      tx.update(infRef, {
+        availableBalance: remaining,
+        withdrawableBalance: remaining,
+        updatedAt: serverTimestamp()
+      });
+
+      tx.set(wdRef, {
+        userId: user.uid,
+        influencerId: user.uid,
+        fullName: name,
+        email,
+        withdrawalMethod: method,
+        amount,
+        transactionFee: fee,
+        netPayout,
+        paymentReference: reference,
+        paymentStatus: 'REQUESTED',
+        status: 'pending',
+        remainingBalance: remaining,
+        createdAt: serverTimestamp()
+      });
+    });
+
+    await sendHITEmail(f, {
+      fullName: name,
+      email,
+      withdrawalMethod: method,
+      amount: `KSh ${amount.toLocaleString('en-KE')}`,
+      transactionFee: `KSh ${fee.toLocaleString('en-KE')}`,
+      netPayout: `KSh ${netPayout.toLocaleString('en-KE')}`,
+      paymentReference: reference,
+      remainingBalance: `KSh ${remaining.toLocaleString('en-KE')}`,
+      influencerId: user.uid
+    }, 'Influencer Commission Withdrawal');
+
+    document.getElementById('availableBalance').textContent = 'KSh ' + remaining.toLocaleString('en-KE');
+    document.getElementById('remainingBalance').textContent = 'KSh ' + remaining.toLocaleString('en-KE');
+
+    r.innerHTML = `<b>Withdrawal request submitted ✓</b><br>Requested: KSh ${amount.toLocaleString('en-KE')}<br>Transaction fee: <b>KSh ${fee.toLocaleString('en-KE')}</b><br>Net payout: <b>KSh ${netPayout.toLocaleString('en-KE')}</b><br>Remaining balance: <b>KSh ${remaining.toLocaleString('en-KE')}</b>`;
+    
+    f.reset();
+    updateWithdrawalPreview();
+  } catch (err) {
+    r.textContent = 'Withdrawal not completed: ' + err.message;
+  }
+}
 
 const db = getFirestore();
 
