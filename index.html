@@ -678,6 +678,7 @@ onAuthStateChanged(auth,user=>{window.HITK.currentUser=user||null;if(user)setTim
     });
   }
 
+
   // 2. Envoi de la demande de paiement
   async function envoyerPaiementMpesa(phone, amount) {
     const statusEl = document.getElementById('mpesaStatus');
