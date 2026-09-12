@@ -661,5 +661,101 @@ function bindTicketCompany() {
 document.addEventListener('click',e=>{if(e.target.id==='confirmCampaign')joinCampaign();});
 window.HITK={...window.HITK,auth,db,doc,setDoc,addDoc,getDocs,query,where,collection,serverTimestamp,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,sendHITEmail};
 onAuthStateChanged(auth,user=>{window.HITK.currentUser=user||null;if(user)setTimeout(loadInfluencerWallet,100);});
+<script type="module">
+  // Importation de Firebase Firestore (déjà présent dans votre projet)
+  import { db } from './firebaseConfig.js'; 
+  import { doc, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+  // 1. Détection du clic sur le bouton de paiement M-Pesa
+  const form = document.getElementById('mpesaDonationForm');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const phone = document.getElementById('mpesaPhone').value.trim();
+      const amount = document.getElementById('mpesaAmount').value.trim();
+
+      await envoyerPaiementMpesa(phone, amount);
+    });
+  }
+
+  // 2. Envoi de la demande de paiement
+  async function envoyerPaiementMpesa(phone, amount) {
+    const statusEl = document.getElementById('mpesaStatus');
+    const btn = document.getElementById('mpesaSubmitBtn');
+
+    btn.disabled = true;
+    btn.textContent = 'Envoi de la demande...';
+
+    try {
+      // Appelle votre serveur backend qui déclenche le menu M-Pesa sur le téléphone
+      const response = await fetch('/api/mpesa/stkpush', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ phone, amount })
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.docId) {
+        statusEl.innerHTML = '<span style="color: #d79a2e;">Demande envoyée ! Entrez votre code PIN sur votre téléphone.</span>';
+        
+        // Écoute en temps réel la base de données Firebase
+        ecouterStatutPaiement(data.docId);
+      } else {
+        throw new Error(data.error || 'Échec de l\'envoi');
+      }
+    } catch (err) {
+      statusEl.textContent = 'Erreur : ' + err.message;
+      btn.disabled = false;
+      btn.textContent = 'Payer avec M-Pesa';
+    }
+  }
+
+  // 3. Écouteur Firebase en temps réel (Déclenche le pop-up automatiquement)
+  function ecouterStatutPaiement(docId) {
+    const docRef = doc(db, 'mpesaTransactions', docId);
+
+    // Dès que la base de données change, ce code s'exécute automatiquement
+    const unsubscribe = onSnapshot(docRef, (snapshot) => {
+      if (!snapshot.exists()) return;
+
+      const data = snapshot.data();
+      const statusEl = document.getElementById('mpesaStatus');
+      const btn = document.getElementById('mpesaSubmitBtn');
+
+      if (data.status === 'COMPLETED') {
+        unsubscribe(); // Arrête d'écouter une fois payé
+        if (btn) { btn.disabled = false; btn.textContent = 'Payer avec M-Pesa'; }
+        
+        // Affiche la fenêtre contextuelle de succès
+        afficherModalSucces(data);
+      } else if (data.status === 'FAILED') {
+        unsubscribe();
+        if (btn) { btn.disabled = false; btn.textContent = 'Payer avec M-Pesa'; }
+        statusEl.textContent = 'Paiement échoué ou annulé.';
+      }
+    });
+  }
+
+  // 4. Fenêtre contextuelle (Modal) de succès
+  function afficherModalSucces(details) {
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modalContent');
+
+    if (!modal || !modalContent) return;
+
+    modalContent.innerHTML = `
+      <div style="text-align: center; padding: 20px; color: #fff;">
+        <h2 style="color: #2ecc71;">Paiement Reçu ! ✓</h2>
+        <p><strong>Reçu M-Pesa :</strong> ${details.mpesaReceiptNumber}</p>
+        <p><strong>Montant :</strong> KSh ${details.amountPaid}</p>
+        <button onclick="window.closeModal?.()" style="margin-top:15px; padding: 10px 20px; background: #d79a2e; border:none; font-weight:bold; cursor:pointer;">
+          Fermer
+        </button>
+      </div>
+    `;
+
+    modal.classList.add('open');
+  }
 </script>
 </body></html>
