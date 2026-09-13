@@ -663,7 +663,7 @@ window.HITK={...window.HITK,auth,db,doc,setDoc,addDoc,getDocs,query,where,collec
 onAuthStateChanged(auth,user=>{window.HITK.currentUser=user||null;if(user)setTimeout(loadInfluencerWallet,100);});
 <script type="module">
   // Importation de Firebase Firestore (déjà présent dans votre projet)
-  import { db } from './firebaseConfig.js'; 
+  import { db } from '/firebaseConfig.js';
   import { doc, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
   // 1. Détection du clic sur le bouton de paiement M-Pesa
@@ -758,5 +758,47 @@ onAuthStateChanged(auth,user=>{window.HITK.currentUser=user||null;if(user)setTim
 
     modal.classList.add('open');
   }
+<script type="module">
+  import { db } from '/firebaseConfig.js'; 
+  import { doc, setDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+  // 1. Fonction pour traiter la demande de retrait M-Pesa
+  async function traiterDemandeRetrait() {
+    // Récupération des paramètres transmis dans l'URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const method = urlParams.get('withdrawalMethod');
+    const amount = urlParams.get('amount');
+    const reference = urlParams.get('paymentReference');
+
+    // Vérifie si l'URL contient bien une demande de retrait M-Pesa
+    if (method === 'M-Pesa' && reference && amount) {
+      console.log(`Demande de retrait M-Pesa détectée : ${amount} KES (Réf: ${reference})`);
+
+      try {
+        // Enregistre ou met à jour la transaction de retrait dans Firestore
+        const withdrawalRef = doc(db, 'withdrawals', reference);
+        await setDoc(withdrawalRef, {
+          method: method,
+          amount: parseFloat(amount),
+          reference: reference,
+          status: 'PENDING', // Statut initial : En attente
+          createdAt: serverTimestamp()
+        }, { merge: true });
+
+        console.log('Retrait M-Pesa enregistré avec succès dans Firestore !');
+        
+        // Optionnel : Notification visuelle pour l'utilisateur
+        alert(`Votre demande de retrait de ${amount} KES via M-Pesa (${reference}) a été prise en compte.`);
+
+      } catch (error) {
+        console.error("Erreur lors de l'enregistrement du retrait :", error);
+      }
+    }
+  }
+
+  // 2. Exécution automatique dès le chargement de la page
+  window.addEventListener('DOMContentLoaded', () => {
+    traiterDemandeRetrait();
+  });
 </script>
 </body></html>
