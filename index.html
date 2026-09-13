@@ -663,7 +663,7 @@ window.HITK={...window.HITK,auth,db,doc,setDoc,addDoc,getDocs,query,where,collec
 onAuthStateChanged(auth,user=>{window.HITK.currentUser=user||null;if(user)setTimeout(loadInfluencerWallet,100);});
 <script type="module">
   // 1. Imports Firebase regroupés au tout début
-  import { db } from '/firebaseConfig.js';
+  import { db } from './firebaseConfig.js';
   import { doc, onSnapshot, setDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
   // 2. Traitement automatique du retrait M-Pesa depuis l'URL
