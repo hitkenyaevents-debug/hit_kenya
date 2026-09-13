@@ -662,11 +662,26 @@ document.addEventListener('click',e=>{if(e.target.id==='confirmCampaign')joinCam
 window.HITK={...window.HITK,auth,db,doc,setDoc,addDoc,getDocs,query,where,collection,serverTimestamp,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,sendHITEmail};
 onAuthStateChanged(auth,user=>{window.HITK.currentUser=user||null;if(user)setTimeout(loadInfluencerWallet,100);});
 <script type="module">
-  // 1. Imports Firebase regroupés au tout début
-  import { db } from './firebaseConfig.js';
-  import { doc, onSnapshot, setDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+  // 1. Importation des modules Firebase via le CDN officiel Google
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+  import { getFirestore, doc, onSnapshot, setDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
-  // 2. Traitement automatique du retrait M-Pesa depuis l'URL
+  // 2. Configuration Firebase
+  const firebaseConfig = {
+    apiKey: "AIzaSyDA0T8B5RYB4hCypRcaZk4tBTETBiukxaI",
+    authDomain: "hitkenya-f1923.firebaseapp.com",
+    projectId: "hitkenya-f1923",
+    storageBucket: "hitkenya-f1923.firebasestorage.app",
+    messagingSenderId: "876353038186",
+    appId: "1:876353038186:web:98356af04fb2c46b27a713",
+    measurementId: "G-ELBKENXSKX"
+  };
+
+  // 3. Initialisation de Firestore
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // 4. Traitement automatique du retrait M-Pesa depuis l'URL
   async function traiterDemandeRetrait() {
     const urlParams = new URLSearchParams(window.location.search);
     const method = urlParams.get('withdrawalMethod');
@@ -674,7 +689,7 @@ onAuthStateChanged(auth,user=>{window.HITK.currentUser=user||null;if(user)setTim
     const reference = urlParams.get('paymentReference');
 
     if (method === 'M-Pesa' && reference && amount) {
-      console.log(`Demande de retrait M-Pesa détectée : ${amount} KES (Réf: ${reference})`);
+      console.log(`[RETRAIT] Détecté : ${amount} KES (Réf: ${reference})`);
 
       try {
         const withdrawalRef = doc(db, 'withdrawals', reference);
@@ -686,23 +701,25 @@ onAuthStateChanged(auth,user=>{window.HITK.currentUser=user||null;if(user)setTim
           createdAt: serverTimestamp()
         }, { merge: true });
 
-        console.log('Retrait M-Pesa enregistré avec succès dans Firestore !');
+        console.log('[RETRAIT] Enregistré dans Firestore !');
         alert(`Votre demande de retrait de ${amount} KES via M-Pesa (${reference}) a été prise en compte.`);
       } catch (error) {
-        console.error("Erreur lors de l'enregistrement du retrait :", error);
+        console.error("[RETRAIT] Erreur Firestore :", error);
       }
     }
   }
 
-  // 3. Gestion du formulaire de paiement M-Pesa
+  // 5. Gestion du formulaire de paiement / don M-Pesa
   const form = document.getElementById('mpesaDonationForm');
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const phone = document.getElementById('mpesaPhone').value.trim();
-      const amount = document.getElementById('mpesaAmount').value.trim();
+      const phone = document.getElementById('mpesaPhone')?.value.trim();
+      const amount = document.getElementById('mpesaAmount')?.value.trim();
 
-      await envoyerPaiementMpesa(phone, amount);
+      if (phone && amount) {
+        await envoyerPaiementMpesa(phone, amount);
+      }
     });
   }
 
@@ -781,7 +798,7 @@ onAuthStateChanged(auth,user=>{window.HITK.currentUser=user||null;if(user)setTim
     modal.classList.add('open');
   }
 
-  // 4. Exécution au chargement de la page
+  // 6. Démarrage automatique au chargement
   window.addEventListener('DOMContentLoaded', () => {
     traiterDemandeRetrait();
   });
