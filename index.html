@@ -223,8 +223,106 @@ function formatTicketEventDate(dateStr){if(!dateStr)return '';const d=new Date(d
 function refreshTicketEventHistory(){const activeGrid=document.getElementById('ticketEventGrid'),historyGrid=document.getElementById('ticketHistoryGrid'),countEl=document.getElementById('ticketHistoryCount'),emptyEl=document.getElementById('ticketHistoryEmpty');if(!activeGrid||!historyGrid)return;historyGrid.innerHTML='';let past=0;Array.from(activeGrid.querySelectorAll('.ticket-event-card')).forEach(card=>{if(ticketEventIsPast(card.dataset.date)){past++;const copy=card.cloneNode(true);copy.removeAttribute('data-past');const btn=copy.querySelector('.ticket-pick');if(btn){btn.disabled=true;btn.textContent='EVENT ENDED';btn.removeAttribute('data-event-id');btn.classList.remove('ticket-pick');}const body=copy.querySelector('.body');if(body){const note=document.createElement('div');note.className='past-event-note';note.textContent='This event has passed and is now in event history.';body.appendChild(note);}historyGrid.appendChild(copy);card.dataset.past='true';card.style.display='none';}else{card.dataset.past='false';card.style.display='block';}});if(countEl)countEl.textContent=past+' PAST EVENT'+(past===1?'':'S');if(emptyEl)emptyEl.style.display=past?'none':'block';}
 function filterTicketEvents(q){const v=(q||'').toLowerCase().trim();document.querySelectorAll('#ticketEventGrid .ticket-event-card').forEach(c=>{if(c.dataset.past==='true')return;const hay=((c.dataset.search||'')+' '+(c.dataset.city||'')+' '+(c.dataset.category||'')).toLowerCase();c.style.display=!v||hay.includes(v)?'block':'none';});}
 
-function bindTicketMarketplace(){refreshTicketEventHistory();document.querySelectorAll('.ticket-filter[data-filter]').forEach(b=>b.onclick=()=>{document.querySelectorAll('.ticket-filter[data-filter]').forEach(x=>x.classList.remove('active'));b.classList.add('active');const f=(b.dataset.filter||'all').toLowerCase();document.querySelectorAll('#ticketEventGrid .ticket-event-card').forEach(c=>{const hay=((c.dataset.city||'')+' '+(c.dataset.category||'')).toLowerCase();c.style.display=f==='all'||hay.includes(f)?'block':'none';});});document.querySelectorAll('.ticket-pick').forEach(b=>b.onclick=()=>{const id=b.dataset.eventId;open('ticketCheckout');setTimeout(()=>{const e=document.getElementById('ticketEvent');if(e){e.value=id;e.dispatchEvent(new Event('change'));}},80);});}
-function bindFoundationDashboard(){const a=document.getElementById('fdAmount'),sum=document.getElementById('fdSummary'),tot=document.getElementById('fdTotal'),method=document.getElementById('fdMethod');if(!a)return;const render=()=>{const n=Math.max(10,Number(a.textContent||100));sum.textContent='KSh '+n.toLocaleString('en-KE');tot.textContent='KSh '+n.toLocaleString('en-KE');};document.getElementById('fdPlus').onclick=()=>{a.textContent=Number(a.textContent||100)+50;render()};document.getElementById('fdMinus').onclick=()=>{a.textContent=Math.max(10,Number(a.textContent||100)-50);render()};document.querySelectorAll('.fd-preset').forEach(b=>b.onclick=()=>{document.querySelectorAll('.fd-preset').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(b.dataset.amount==='custom'){const v=Number(prompt('Enter your donation amount in KSh (minimum 10):','100'));if(Number.isFinite(v)&&v>=10)a.textContent=Math.round(v);else if(v){alert('Please enter an amount of at least KSh 10.');}}else a.textContent=b.dataset.amount;render();});document.querySelectorAll('.fd-method').forEach(b=>b.onclick=()=>{document.querySelectorAll('.fd-method').forEach(x=>x.classList.remove('active'));b.classList.add('active');method.value=b.dataset.fdMethod;const title=document.getElementById('fdSideTitle');if(title)title.textContent=b.dataset.fdMethod==='M-PESA'?'M-PESA PAYMENT':b.dataset.fdMethod==='BANK'?'BANK TRANSFER DETAILS':'CARD PAYMENT';const note=document.querySelector('.fd-side-card .muted');if(note)note.textContent=b.dataset.fdMethod==='M-PESA'?'Use the Foundation Paybill/Till shown below, then enter your payment reference.':b.dataset.fdMethod==='BANK'?'Use the Foundation bank details provided by HIT Kenya and enter your payment reference.':'Card payment is selected. A live card gateway must be connected before a card transaction can be processed.';});const form=document.getElementById('foundationDonationForm');if(form)form.onsubmit=async e=>{e.preventDefault();const success=document.getElementById('fdSuccess');success.style.display='block';const data={fullName:document.getElementById('fdName').value.trim(),email:document.getElementById('fdEmail').value.trim(),phone:document.getElementById('fdPhone').value.trim(),amount:Number(a.textContent||100),paymentMethod:method.value,paymentReference:document.getElementById('fdReference').value.trim(),requestType:'HIT Kenya Foundation Donation'};success.textContent='Recording your donation request...';try{await window.HITK.addDoc(window.HITK.collection(window.HITK.db,'donations'),{...data,createdAt:window.HITK.serverTimestamp()});try{await window.HITK.sendHITEmail(form,data,'HIT Kenya Foundation Donation');}catch(mailErr){console.warn('Foundation email failed:',mailErr);}success.innerHTML='<b>Donation request received ✓</b><br>Amount: KSh '+data.amount.toLocaleString('en-KE')+'<br>Method: '+data.paymentMethod+'<br><small>Please complete payment using the displayed Foundation payment details. A receipt can only be issued after payment is confirmed.</small>';}catch(err){success.textContent='Unable to record donation: '+err.message;}};document.querySelector('[data-fd-copy]')?.addEventListener('click',async()=>{const v=document.querySelector('[data-fd-copy]').dataset.fdCopy;try{await navigator.clipboard.writeText(v);alert('Foundation number copied: '+v);}catch(_){alert(v);}});document.querySelector('[data-fd-close]')?.addEventListener('click',closeModal);render();}
+function bindTicketMarketplace(){refreshTicketEventHistory();document.querySelectorAll('.ticket-filter[data-filter]').forEach(b=>b.onclick=()=>{document.querySelectorAll('.ticket-filter[data-filter]').forEach(x=>x.classList.remove('active'));b.classList.add('active');const f=(b.dataset.filter||'all').toLowerCase();document.querySelectorAll('#ticketEventGrid .ticket-event-card').forEach(c=>{const hay=((c.dataset.city||'')+' '+(c.dataset.category||'')).toLowerCase();c.style.display=f==='all'||hay.includes(f)?'block':'none';});});document.querySelectorAll('.ticket-pick').forEach(b=>b.onclick=()=>{const id=b.dataset.eventId;open('ticketCheckout');setTimeout(()=>{const e=document.getElementById('ticketEvent');if(e){e.value=id;e.dispatchEvent(new Event('change'));}},80);}
+function bindFoundationDashboard() {
+  const a = document.getElementById('fdAmount'),
+        sum = document.getElementById('fdSummary'),
+        tot = document.getElementById('fdTotal'),
+        method = document.getElementById('fdMethod');
+  if (!a) return;
+
+  const render = () => {
+    const n = Math.max(10, Number(a.textContent || 100));
+    sum.textContent = 'KSh ' + n.toLocaleString('en-KE');
+    tot.textContent = 'KSh ' + n.toLocaleString('en-KE');
+  };
+
+  document.getElementById('fdPlus').onclick = () => {
+    a.textContent = Number(a.textContent || 100) + 50;
+    render();
+  };
+
+  document.getElementById('fdMinus').onclick = () => {
+    a.textContent = Math.max(10, Number(a.textContent || 100) - 50);
+    render();
+  };
+
+  document.querySelectorAll('.fd-preset').forEach(b => b.onclick = () => {
+    document.querySelectorAll('.fd-preset').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    if (b.dataset.amount === 'custom') {
+      const v = Number(prompt('Enter your donation amount in KSh (minimum 10):', '100'));
+      if (Number.isFinite(v) && v >= 10) a.textContent = Math.round(v);
+      else if (v) { alert('Please enter an amount of at least KSh 10.'); }
+    } else a.textContent = b.dataset.amount;
+    render();
+  });
+
+  document.querySelectorAll('.fd-method').forEach(b => b.onclick = () => {
+    document.querySelectorAll('.fd-method').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    method.value = b.dataset.fdMethod;
+    const title = document.getElementById('fdSideTitle');
+    if (title) title.textContent = b.dataset.fdMethod === 'M-PESA' ? 'M-PESA PAYMENT' : b.dataset.fdMethod === 'BANK' ? 'BANK TRANSFER DETAILS' : 'CARD PAYMENT';
+    const note = document.querySelector('.fd-side-card .muted');
+    if (note) note.textContent = b.dataset.fdMethod === 'M-PESA' ? 'Use the Foundation Paybill/Till shown below, then enter your payment reference.' : b.dataset.fdMethod === 'BANK' ? 'Use the Foundation bank details provided by HIT Kenya and enter your payment reference.' : 'Card payment is selected. A live card gateway must be connected before a card transaction can be processed.';
+  });
+
+  const form = document.getElementById('foundationDonationForm');
+  if (form) form.onsubmit = async e => {
+    e.preventDefault();
+    const success = document.getElementById('fdSuccess');
+    success.style.display = 'block';
+    const data = {
+      fullName: document.getElementById('fdName').value.trim(),
+      email: document.getElementById('fdEmail').value.trim(),
+      phone: document.getElementById('fdPhone').value.trim(),
+      amount: Number(a.textContent || 100),
+      paymentMethod: method.value,
+      paymentReference: document.getElementById('fdReference').value.trim(),
+      requestType: 'HIT Kenya Foundation Donation'
+    };
+    success.textContent = 'Recording your donation request...';
+    try {
+      await window.HITK.addDoc(window.HITK.collection(window.HITK.db, 'donations'), {
+        ...data,
+        createdAt: window.HITK.serverTimestamp()
+      });
+      try {
+        await window.HITK.sendHITEmail(form, data, 'HIT Kenya Foundation Donation');
+      } catch (mailErr) {
+        console.warn('Foundation email failed:', mailErr);
+      }
+      success.innerHTML = '<b>Donation request received ✓</b><br>Amount: KSh ' + data.amount.toLocaleString('en-KE') + '<br>Method: ' + data.paymentMethod + '<br><small>Please complete payment using the displayed Foundation payment details. A receipt can only be issued after payment is confirmed.</small>';
+    } catch (err) {
+      success.textContent = 'Unable to record donation: ' + err.message;
+    }
+  };
+
+  document.querySelector('[data-fd-copy]')?.addEventListener('click', async () => {
+    const v = document.querySelector('[data-fd-copy]').dataset.fdCopy;
+    try {
+      await navigator.clipboard.writeText(v);
+      alert('Foundation number copied: ' + v);
+    } catch (_) {
+      alert(v);
+    }
+  });
+
+  document.querySelector('[data-fd-close]')?.addEventListener('click', () => {
+    if (typeof window.closeModal === 'function') {
+      window.closeModal();
+    } else {
+      const modal = document.getElementById('modal');
+      if (modal) {
+        modal.classList.remove('open');
+        modal.style.display = 'none';
+      }
+    }
+  });
+
+  render();
+}
 function bindFoundationCoordinator(){const f=document.getElementById('foundationCoordinatorForm');if(!f)return;populateCountrySelect('fcCountry');const u=window.HITK?.auth?.currentUser;if(u){document.getElementById('fcEmail').value=u.email||'';document.getElementById('fcEmail').readOnly=true;}f.onsubmit=async e=>{e.preventDefault();const r=document.getElementById('fcResult');r.style.display='block';r.textContent='Creating coordinator profile...';try{let user=window.HITK.auth.currentUser;if(!user){const email=document.getElementById('fcEmail').value.trim(),pw=document.getElementById('fcPassword').value;if(pw.length<6)throw new Error('Password must be at least 6 characters.');const cred=await window.HITK.createUserWithEmailAndPassword(window.HITK.auth,email,pw);user=cred.user;}const countrySel=document.getElementById('fcCountry'),country=countrySel.options[countrySel.selectedIndex]?.dataset.name||countrySel.value;const cid='HKC-'+user.uid.slice(0,8).toUpperCase();await window.HITK.setDoc(window.HITK.doc(window.HITK.db,'foundationCoordinators',user.uid),{uid:user.uid,coordinatorId:cid,fullName:document.getElementById('fcName').value.trim(),email:user.email||document.getElementById('fcEmail').value.trim(),phone:document.getElementById('fcPhone').value.trim(),country,callingCode:countrySel.value,region:document.getElementById('fcRegion').value.trim(),socialLinks:document.getElementById('fcSocial').value.trim(),areaOfInterest:document.getElementById('fcArea').value.trim(),bio:document.getElementById('fcBio').value.trim(),status:'PENDING',level:'NEW / VERIFIED',commissionRate:5,createdAt:window.HITK.serverTimestamp(),updatedAt:window.HITK.serverTimestamp()},{merge:true});r.innerHTML='<b>Coordinator profile created ✓</b><br>Coordinator ID: <strong>'+cid+'</strong><br>Status: PENDING REVIEW<br>Commission starts at 5% and can increase with verified performance.';f.querySelector('button[type="submit"]').disabled=true;}catch(err){r.textContent='Unable to create profile: '+err.message;}};enhanceInternationalForms(f);}
 function bindMerchOrder(){const f=document.getElementById('merchOrderForm');if(!f)return;populateCountrySelect('moCountry');const q=document.getElementById('moQty'),p=Number(document.getElementById('moPrice').value||0),sum=document.getElementById('moSummary'),tot=document.getElementById('moTotal');const render=()=>{const n=Math.max(1,Number(q.value||1)),t=p*n;sum.textContent=document.getElementById('moProduct').value+' × '+n;tot.textContent='KSh '+t.toLocaleString('en-KE');};render();q.oninput=render;f.onsubmit=async e=>{e.preventDefault();const r=document.getElementById('moResult');r.style.display='block';r.textContent='Saving your merchandise order...';try{const data={product:document.getElementById('moProduct').value,unitPrice:p,quantity:Number(q.value||1),totalAmount:p*Number(q.value||1),fullName:document.getElementById('moName').value.trim(),email:document.getElementById('moEmail').value.trim(),phone:document.getElementById('moPhone').value.trim(),country:document.getElementById('moCountry').selectedOptions[0]?.dataset.name||'',callingCode:document.getElementById('moCountry').value,size:document.getElementById('moSize').value,deliveryLocation:document.getElementById('moLocation').value.trim(),deliveryAddress:document.getElementById('moAddress').value.trim(),paymentMethod:document.getElementById('moPayment').value,paymentStatus:'PENDING',orderStatus:'NEW'};const orderNo='HKM-'+Date.now().toString(36).toUpperCase();data.orderNumber=orderNo;await window.HITK.addDoc(window.HITK.collection(window.HITK.db,'merchandiseOrders'),{...data,createdAt:window.HITK.serverTimestamp(),userId:window.HITK.auth.currentUser?.uid||null});try{await window.HITK.sendHITEmail(f,data,'HIT Kenya Merchandise Order');}catch(mailErr){console.warn(mailErr);}r.innerHTML='<b>ORDER RECEIVED ✓</b><br>Order Number: <strong>'+orderNo+'</strong><br>Total: KSh '+data.totalAmount.toLocaleString('en-KE')+'<br>Payment status: PENDING';f.reset();document.getElementById('moCountry').value='+254';q.value=1;render();}catch(err){r.textContent='Unable to save order: '+err.message;}};enhanceInternationalForms(f);}
 function bindMerchLookup(){const f=document.getElementById('merchLookupForm');if(!f)return;f.onsubmit=async e=>{e.preventDefault();const r=document.getElementById('merchOrdersResult');r.style.display='block';r.textContent='Loading orders...';try{const email=document.getElementById('merchLookupEmail').value.trim();const s=await window.HITK.getDocs(window.HITK.query(window.HITK.collection(window.HITK.db,'merchandiseOrders'),window.HITK.where('email','==',email)));if(s.empty){r.textContent='No orders found for this email.';return;}r.innerHTML='<b>YOUR ORDERS</b>'+s.docs.map(x=>{const d=x.data();return '<div style="padding:10px 0;border-top:1px solid #222"><strong>'+escapeHtml(d.orderNumber||'')+'</strong> · '+escapeHtml(d.product||'')+' × '+escapeHtml(String(d.quantity||1))+'<br>Total: KSh '+Number(d.totalAmount||0).toLocaleString('en-KE')+' · '+escapeHtml(d.paymentStatus||'PENDING')+'</div>';}).join('');}catch(err){r.textContent='Unable to load orders: '+err.message;}};}
@@ -733,5 +831,13 @@ onAuthStateChanged(auth,user=>{window.HITK.currentUser=user||null;if(user)setTim
   window.addEventListener('DOMContentLoaded', () => {
     traiterDemandeRetrait();
   });
+  
+window.closeModal = function() {
+  const modal = document.getElementById('modal');
+  if (modal) {
+    modal.classList.remove('open');
+    modal.style.display = 'none';
+  }
+};
 </script>
 </body></html>
