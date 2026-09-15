@@ -217,17 +217,35 @@ ticketCheckout:()=>`<div class="ticket-checkout"><h2>HIT KENYA TICKETING CHECKOU
 ticketStatus:()=>`<div class="ticket-status"><h2>CHECK TICKET ORDER</h2><p class="muted">Enter your HIT Kenya order number.</p><form class="form" id="ticketStatusForm"><input id="statusOrderId" required placeholder="HK-20260905-ABC123"><button class="btn goldbtn">CHECK STATUS</button></form><div id="ticketStatusResult" class="notice" style="display:none"></div></div>`,
 };
 
-// Functional ticket marketplace and dashboard helpers
 function ticketEventIsPast(dateStr){if(!dateStr)return false;const d=new Date(dateStr+'T23:59:59');return !isNaN(d.getTime())&&d.getTime()<Date.now();}
 function formatTicketEventDate(dateStr){if(!dateStr)return '';const d=new Date(dateStr+'T12:00:00');return isNaN(d)?'':d.toLocaleDateString('en-KE',{day:'2-digit',month:'short',year:'numeric'});}
 function refreshTicketEventHistory(){const activeGrid=document.getElementById('ticketEventGrid'),historyGrid=document.getElementById('ticketHistoryGrid'),countEl=document.getElementById('ticketHistoryCount'),emptyEl=document.getElementById('ticketHistoryEmpty');if(!activeGrid||!historyGrid)return;historyGrid.innerHTML='';let past=0;Array.from(activeGrid.querySelectorAll('.ticket-event-card')).forEach(card=>{if(ticketEventIsPast(card.dataset.date)){past++;const copy=card.cloneNode(true);copy.removeAttribute('data-past');const btn=copy.querySelector('.ticket-pick');if(btn){btn.disabled=true;btn.textContent='EVENT ENDED';btn.removeAttribute('data-event-id');btn.classList.remove('ticket-pick');}const body=copy.querySelector('.body');if(body){const note=document.createElement('div');note.className='past-event-note';note.textContent='This event has passed and is now in event history.';body.appendChild(note);}historyGrid.appendChild(copy);card.dataset.past='true';card.style.display='none';}else{card.dataset.past='false';card.style.display='block';}});if(countEl)countEl.textContent=past+' PAST EVENT'+(past===1?'':'S');if(emptyEl)emptyEl.style.display=past?'none':'block';}
 function filterTicketEvents(q){const v=(q||'').toLowerCase().trim();document.querySelectorAll('#ticketEventGrid .ticket-event-card').forEach(c=>{if(c.dataset.past==='true')return;const hay=((c.dataset.search||'')+' '+(c.dataset.city||'')+' '+(c.dataset.category||'')).toLowerCase();c.style.display=!v||hay.includes(v)?'block':'none';});}
+function bindTicketMarketplace(){
+  refreshTicketEventHistory();
+  document.querySelectorAll('.ticket-filter[data-filter]').forEach(b=>b.onclick=()=>{
+    document.querySelectorAll('.ticket-filter[data-filter]').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    const f=(b.dataset.filter||'all').toLowerCase();
+    document.querySelectorAll('#ticketEventGrid .ticket-event-card').forEach(c=>{
+      const hay=((c.dataset.city||'')+' '+(c.dataset.category||'')).toLowerCase();
+      c.style.display=f==='all'||hay.includes(f)?'block':'none';
+    });
+  });
+  document.querySelectorAll('.ticket-pick').forEach(b=>b.onclick=()=>{
+    const id=b.dataset.eventId;
+    open('ticketCheckout');
+    setTimeout(()=>{
+      const e=document.getElementById('ticketEvent');
+      if(e){
+        e.value=id;
+        e.dispatchEvent(new Event('change'));
+      }
+    },80);
+  }); 
+} 
 
-function bindTicketMarketplace(){refreshTicketEventHistory();document.querySelectorAll('.ticket-filter[data-filter]').forEach(b=>b.onclick=()=>{document.querySelectorAll('.ticket-filter[data-filter]').forEach(x=>x.classList.remove('active'));b.classList.add('active');const f=(b.dataset.filter||'all').toLowerCase();document.querySelectorAll('#ticketEventGrid .ticket-event-card').forEach(c=>{const hay=((c.dataset.city||'')+' '+(c.dataset.category||'')).toLowerCase();c.style.display=f==='all'||hay.includes(f)?'block':'none';});});document.querySelectorAll('.ticket-pick').forEach(b=>b.onclick=()=>{const id=b.dataset.eventId;open('ticketCheckout');setTimeout(()=>{const e=document.getElementById('ticketEvent');if(e){e.value=id;e.dispatchEvent(new Event('change'));}},80);}
-function bindFoundationDashboard() {
-  const a = document.getElementById('fdAmount'),
-        sum = document.getElementById('fdSummary'),
-        tot = document.getElementById('fdTotal'),
+function bindFoundationDashboard() {       
         method = document.getElementById('fdMethod');
   if (!a) return;
 
