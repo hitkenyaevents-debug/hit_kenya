@@ -661,9 +661,17 @@ function bindTicketCompany() {
 document.addEventListener('click',e=>{if(e.target.id==='confirmCampaign')joinCampaign();});
 window.HITK={...window.HITK,auth,db,doc,setDoc,addDoc,getDocs,query,where,collection,serverTimestamp,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,sendHITEmail};
 onAuthStateChanged(auth,user=>{window.HITK.currentUser=user||null;if(user)setTimeout(loadInfluencerWallet,100);});
-  // 1. Importation des modules Firebase via le CDN officiel Google
+<script type="module">
+  // 1. Importations Firebase depuis le CDN
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-  import { getFirestore, doc, onSnapshot, setDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+  import { 
+    getFirestore, doc, onSnapshot, setDoc, addDoc, getDocs, 
+    query, where, collection, serverTimestamp 
+  } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+  import { 
+    getAuth, onAuthStateChanged, createUserWithEmailAndPassword, 
+    signInWithEmailAndPassword, signOut 
+  } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 
   // 2. Configuration Firebase
   const firebaseConfig = {
@@ -676,11 +684,32 @@ onAuthStateChanged(auth,user=>{window.HITK.currentUser=user||null;if(user)setTim
     measurementId: "G-ELBKENXSKX"
   };
 
-  // 3. Initialisation de Firestore
+  // 3. Initialisations
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
+  const auth = getAuth(app);
 
-  // 4. Traitement automatique du retrait M-Pesa depuis l'URL
+  // 4. Vos objets et écouteurs globaux (DÉPLACÉS ICI)
+  window.HITK = { 
+    ...window.HITK, auth, db, doc, setDoc, addDoc, getDocs, 
+    query, where, collection, serverTimestamp, 
+    createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut 
+  };
+
+  onAuthStateChanged(auth, user => {
+    window.HITK.currentUser = user || null;
+    if (user && typeof loadInfluencerWallet === 'function') {
+      setTimeout(loadInfluencerWallet, 100);
+    }
+  });
+
+  document.addEventListener('click', e => {
+    if (e.target.id === 'confirmCampaign' && typeof joinCampaign === 'function') {
+      joinCampaign();
+    }
+  });
+
+  // 5. Traitement des retraits M-Pesa depuis l'URL
   async function traiterDemandeRetrait() {
     const urlParams = new URLSearchParams(window.location.search);
     const method = urlParams.get('withdrawalMethod');
@@ -688,8 +717,6 @@ onAuthStateChanged(auth,user=>{window.HITK.currentUser=user||null;if(user)setTim
     const reference = urlParams.get('paymentReference');
 
     if (method === 'M-Pesa' && reference && amount) {
-      console.log(`[RETRAIT] Détecté : ${amount} KES (Réf: ${reference})`);
-
       try {
         const withdrawalRef = doc(db, 'withdrawals', reference);
         await setDoc(withdrawalRef, {
@@ -700,104 +727,13 @@ onAuthStateChanged(auth,user=>{window.HITK.currentUser=user||null;if(user)setTim
           createdAt: serverTimestamp()
         }, { merge: true });
 
-        console.log('[RETRAIT] Enregistré dans Firestore !');
-        alert(`Votre demande de retrait de ${amount} KES via M-Pesa (${reference}) a été prise en compte.`);
+        alert(`Votre demande de retrait de ${amount} KES via M-Pesa (${reference}) a été enregistrée.`);
       } catch (error) {
-        console.error("[RETRAIT] Erreur Firestore :", error);
+        console.error("[RETRAIT] Erreur :", error);
       }
     }
   }
 
-  // 5. Gestion du formulaire de paiement / don M-Pesa
-  const form = document.getElementById('mpesaDonationForm');
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const phone = document.getElementById('mpesaPhone')?.value.trim();
-      const amount = document.getElementById('mpesaAmount')?.value.trim();
-
-      if (phone && amount) {
-        await envoyerPaiementMpesa(phone, amount);
-      }
-    });
-  }
-
-  async function envoyerPaiementMpesa(phone, amount) {
-    const statusEl = document.getElementById('mpesaStatus');
-    const btn = document.getElementById('mpesaSubmitBtn');
-
-    if (btn) {
-      btn.disabled = true;
-      btn.textContent = 'Envoi de la demande...';
-    }
-
-    try {
-      const response = await fetch('/api/mpesa/stkpush', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phone, amount })
-      });
-
-      const data = await response.json();
-
-      if (response.ok && data.docId) {
-        if (statusEl) statusEl.innerHTML = '<span style="color: #d79a2e;">Demande envoyée ! Entrez votre code PIN sur votre téléphone.</span>';
-        ecouterStatutPaiement(data.docId);
-      } else {
-        throw new Error(data.error || 'Échec de l\'envoi');
-      }
-    } catch (err) {
-      if (statusEl) statusEl.textContent = 'Erreur : ' + err.message;
-      if (btn) {
-        btn.disabled = false;
-        btn.textContent = 'Payer avec M-Pesa';
-      }
-    }
-  }
-
-  function ecouterStatutPaiement(docId) {
-    const docRef = doc(db, 'mpesaTransactions', docId);
-
-    const unsubscribe = onSnapshot(docRef, (snapshot) => {
-      if (!snapshot.exists()) return;
-
-      const data = snapshot.data();
-      const statusEl = document.getElementById('mpesaStatus');
-      const btn = document.getElementById('mpesaSubmitBtn');
-
-      if (data.status === 'COMPLETED') {
-        unsubscribe();
-        if (btn) { btn.disabled = false; btn.textContent = 'Payer avec M-Pesa'; }
-        afficherModalSucces(data);
-      } else if (data.status === 'FAILED') {
-        unsubscribe();
-        if (btn) { btn.disabled = false; btn.textContent = 'Payer avec M-Pesa'; }
-        if (statusEl) statusEl.textContent = 'Paiement échoué ou annulé.';
-      }
-    });
-  }
-
-  function afficherModalSucces(details) {
-    const modal = document.getElementById('modal');
-    const modalContent = document.getElementById('modalContent');
-
-    if (!modal || !modalContent) return;
-
-    modalContent.innerHTML = `
-      <div style="text-align: center; padding: 20px; color: #fff;">
-        <h2 style="color: #2ecc71;">Paiement Reçu ! ✓</h2>
-        <p><strong>Reçu M-Pesa :</strong> ${details.mpesaReceiptNumber}</p>
-        <p><strong>Montant :</strong> KSh ${details.amountPaid}</p>
-        <button onclick="window.closeModal?.()" style="margin-top:15px; padding: 10px 20px; background: #d79a2e; border:none; font-weight:bold; cursor:pointer;">
-          Fermer
-        </button>
-      </div>
-    `;
-
-    modal.classList.add('open');
-  }
-
-  // 6. Démarrage automatique au chargement
   window.addEventListener('DOMContentLoaded', () => {
     traiterDemandeRetrait();
   });
