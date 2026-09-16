@@ -292,9 +292,13 @@ function bindTicketMarketplace(){
   }); 
 } 
 
-function bindFoundationDashboard() {       
-        method = document.getElementById('fdMethod');
-  if (!a) return;
+function bindFoundationDashboard() {
+  const a = document.getElementById('fdAmount');
+  const sum = document.getElementById('fdSummary');
+  const tot = document.getElementById('fdTotal');
+  const method = document.getElementById('fdMethod');
+
+  if (!a || !sum || !tot || !method) return;
 
   const render = () => {
     const n = Math.max(10, Number(a.textContent || 100));
