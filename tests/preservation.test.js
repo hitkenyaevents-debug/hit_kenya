@@ -9,7 +9,8 @@ test('original supplied HTML remains unchanged and new photo navigation is narro
   const original = read('ORIGINAL-UNMODIFIED.html');
   const homepage = read('public/index.html');
   assert.match(original, /openServiceDetail\('media'\)/);
-  assert.equal((homepage.match(/window.location.href='photography.html'/g)||[]).length,2);
+  assert.equal((homepage.match(/onclick="openHitPhotography\(\)"/g)||[]).length,2);
+  assert.equal((homepage.match(/event.stopPropagation/g)||[]).length,2);
   assert.equal((homepage.match(/onclick="openServiceDetail\('media'\)"/g)||[]).length,0);
   assert.match(homepage,/assets\/hit-kenya-paystack-addon\.js/);
   const front=read('public/photography.html');
@@ -20,6 +21,9 @@ test('original supplied HTML remains unchanged and new photo navigation is narro
   assert.match(portfolio,/PAST EVENTS &amp; PROJECTS/);
   assert.match(portfolio,/href="photography\.html"/);
   assert.match(homepage,/openPartnerFlow\('media'\)/);
+  assert.match(homepage,/hk-photo-front-template/);
+  assert.match(homepage,/hk-photo-portfolio-template/);
+  assert.match(homepage,/frame.srcdoc=tpl.innerHTML/);
 });
 
 test('extra checkout script uses selected size and preserves the existing cart handler', () => {

@@ -1,0 +1,19 @@
+HIT KENYA — EXACT PHOTOGRAPHY CLICK FIX
+
+THE PROBLEM
+The earlier ZIP had a secondary photography.html file, but the original HTML still contained the "PAST EVENTS & PROJECTS" service detail data. Clicking/loading an older entrypoint still showed the wrong portfolio popup. In addition, uploading ONLY the old index.html did not upload the new photography.html.
+
+THE FIX
+The public/index.html file NOW CONTAINS the entire photography services page and the secondary portfolio screen (and styles). No separate photography file needs to be uploaded for this homepage interaction.
+
+TEST IT WITHOUT DEPLOYMENT:
+1. Open public/index.html in your browser.
+2. Scroll down to the services row and click the Photography & Videography CARD OR ARROW.
+3. The full-screen photography services page must appear, headed "CAPTURE. CREATE. TELL YOUR STORY.", with four photo/video service cards, NOT "PAST EVENTS & PROJECTS".
+4. Only if you click VIEW PORTFOLIO on this page will the Past Events & Projects view appear.
+5. Use its Back link to return or the X button to close.
+
+TO DEPLOY A SINGLE HTML FILE:
+Upload JUST public/index.html to replace the current public home page file. It includes the embedded page and styles. The existing Paystack backend/add-on, if already deployed, are not changed by this fix. If you deploy a new site, upload all project files so the checkout can function.
+
+The original HTML is also backed up as ORIGINAL-UNMODIFIED.html and other site sections remain unchanged.
