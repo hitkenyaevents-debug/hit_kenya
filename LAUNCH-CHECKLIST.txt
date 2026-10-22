@@ -1,0 +1,30 @@
+HIT KENYA | READY-TO-CONNECT PAYMENT PACKAGE
+
+WHAT IS FINISHED:
+  [x] Original site preserved with premium finishing
+  [x] Shop cards, size selection and cart corrected
+  [x] Paystack hosted checkout backend created
+  [x] KES pricing checked on server
+  [x] Shipping zone included in total
+  [x] D1 order storage + verified payment status
+  [x] Webhook signature verification
+  [x] Payment return page
+  [x] Sample event/influencer data visibly labelled
+  [x] Analytics now opt-in
+  [x] Automated backend tests passed (mocked)
+
+YOUR FINAL ACTIVATION STEPS:
+  [ ] Confirm products, prices, actual stock and delivery rates
+  [ ] Create/verify own HIT KENYA Paystack business account
+  [ ] Create Cloudflare D1 orders database and run schema
+  [ ] Bind DB to your existing Cloudflare Pages project
+  [ ] Deploy the complete project via Wrangler/Git (NOT dashboard drag/drop)
+  [ ] Set Paystack TEST secret on Cloudflare (never share publicly)
+  [ ] Activate confirmed products and enter actual shipping fees
+  [ ] Set CHECKOUT_ENABLED=true and redeploy
+  [ ] Set Paystack webhook to /api/paystack/webhook
+  [ ] Carry out TEST purchase and check database record
+  [ ] Enable LIVE key only after successful test and legal/operations checks
+  [ ] Add customer fulfilment notifications and operations procedures
+
+SEE README.md FOR EVERY STEP, COMMAND AND SECURITY DETAIL.

@@ -1,0 +1,6 @@
+{
+  "name": "hit-kenya-premium",
+  "private": true,
+  "type": "module",
+  "description": "Cloudflare Pages website with Paystack merchandise checkout"
+}
