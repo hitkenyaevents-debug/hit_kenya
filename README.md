@@ -1,16 +1,18 @@
-# HIT KENYA — Event Promotion Strategy click correction
+# HIT KENYA — Vendor Facilitation correction
 
 ## What changed
-- Event Promotion Strategy card and gold arrow now open the new full premium marketing services page, **not** the Marketing Strategies & Resources popup.
-- The marketing page is embedded into `public/index.html` and also available separately as `public/event-promotion.html`.
-- The page includes hero, service offerings, strategy section, illustrative campaign cards and calls-to-action.
-- Support/quote actions reuse the homepage's existing marketing enquiry workflow.
-- Both the original Photography & Videography navigation and the original homepage and Paystack add-on files are preserved.
+Clicking the **Vendor Facilitation** card (or its gold arrow) now opens the complete **Turn Your Products & Services Into Opportunities** page shown in your latest third screenshot. It does not open the old vendor popup and does not redirect to merchandise.
 
-## To use
-Replace the deployed `index.html` with the one inside `public/`. If Cloudflare Pages is your host, deploy the whole project folder using your existing Git/CLI method to retain Functions and payment files. Don't drag-and-drop only the HTML if you need Paystack Functions.
+The new vendor page is embedded in the corrected `index.html`, works via `#vendor-facilitation`, and contains three actionable services: vendor registration, vendor discovery, and vendor management requests. These reuse the existing HIT KENYA frontend forms and marketplace functions; they are not a live verified vendor database.
 
-## Important
-- The marketing showcase photos are illustrative until HIT KENYA's verified project photos are supplied. No invented client counts or testimonials are presented as true.
-- Front-end page interactions are implemented; production booking/email handling still depends on completing the existing application backend.
-- Test the website in a browser on mobile and desktop before deploying.
+## Installation
+Replace your current site's root `index.html` with this one and copy `assets/vendor` into the same website's `assets/vendor` directory. Preserve every other file and backend component already on your server. If deploying the whole package, note the included `assets/merch` pictures are kept from your prior merchandise design. Browser hard refresh: Ctrl+Shift+R.
+
+## Preserved
+Previously revised merchandise layout, photography page and portfolio, Event Promotion page, rest of site navigation and Paystack frontend JS are retained. No unrelated action handler is modified.
+
+## Source image quality
+For layout fidelity, vendor hero and card photos were cropped from the supplied screenshot (720px original). Higher-resolution vendor photos should replace them before final production publication.
+
+## Testing
+Static route checks can be performed against the HTML locally. Always test desktop and mobile click behaviour in your actual deployed browser. The existing partner registration forms are frontend demonstrations and require backend connection before they can accept live registrations.
