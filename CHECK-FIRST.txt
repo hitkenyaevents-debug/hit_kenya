@@ -1,0 +1,17 @@
+HIT KENYA — CORRECTED ORIGINAL-PRESERVING EDITION
+
+1. Your original HTML: ORIGINAL-UNMODIFIED.html (identical to supplied HTML).
+2. Original design + minimal Paystack connection: public/index.html.
+3. The exact HTML alterations are shown in EXACT-HTML-CHANGES.diff.
+4. Secure checkout add-on: public/assets/hit-kenya-paystack-addon.js.
+5. Deployment and payment configuration: README.md.
+
+NO visual redesign was done. Six merchandise purchase button handlers
+were corrected and one extra script was linked; all other original
+HTML is retained, including pictures, colours, navigation, Firebase
+and other original sections.
+
+PAYMENTS ARE OFF until merchant confirms real SKUs, prices, shipping,
+Cloudflare D1, and Paystack keys, then enables payment intentionally.
+The original fake ticket-verification demo remains unchanged; do not
+treat it as a working verified ticket system.

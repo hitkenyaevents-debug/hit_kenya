@@ -1,3 +1,9 @@
+## Photography and videography navigation (22 October 2026)
+
+See **PHOTOGRAPHY-CHANGE-SUMMARY.txt**. The original photography popup no longer opens from either photography service card; a new photo/video main page opens first, while portfolio is a second page. Everything else is retained.
+
+---
+
 # HIT KENYA — ORIGINAL DESIGN PRESERVED, PAYSTACK CONNECTOR ADDED
 
 **This is a correction to the earlier redesign, NOT another redesign.**

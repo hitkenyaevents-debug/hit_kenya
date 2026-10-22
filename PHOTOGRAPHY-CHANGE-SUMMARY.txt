@@ -1,0 +1,14 @@
+HIT KENYA — PHOTOGRAPHY PAGE FLOW (ONLY REQUESTED CHANGE)
+
+1. Homepage > Photography & Videography arrow -> photography.html
+   Opens the photo/video SERVICE page first (Capture. Create. Tell Your Story).
+2. Service page > VIEW PORTFOLIO -> photography-portfolio.html
+   Past Events & Projects is a SECONDARY/BACK page only, not an immediate popup.
+3. Service page > GET A QUOTE / EXPLORE DRONE SERVICES -> existing enquiry form on the original homepage.
+4. Portfolio page > Back to Photography & Videography -> photography.html.
+
+The previously existing popup data inside the original website JavaScript is left untouched for preservation but is not invoked by either photo/video service arrow.
+
+Original homepage styling, merchandise Paystack add-on, other service workflows and backend files are retained.
+No real Paystack deployment was performed; payment state is unchanged.
+Portfolio preview photos are illustrative stock images, not authenticated HIT KENYA past projects.

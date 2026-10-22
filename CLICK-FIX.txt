@@ -1,0 +1,1 @@
+Click the Photography & Videography card or its arrow on the homepage: photography.html opens, showing CAPTURE. CREATE. TELL YOUR STORY. Past Events & Projects appears only after View Portfolio. Other pages and Paystack files are retained. Upload the full public folder and ensure photography.html is deployed beside index.html. Hard refresh after deployment.

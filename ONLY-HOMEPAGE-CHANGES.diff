@@ -1,0 +1,35 @@
+--- previous-preserved/public/index.html
++++ new/public/index.html
+@@ -330,7 +330,7 @@
+     </div>
+     <div class="services">
+       <article class="card service service-click"><div class="ico">▦</div><h3>Event Promotion Strategy</h3><p>Marketing strategies, ideas and resources for events and products.</p><button class="service-arrow" onclick="openServiceDetail('marketing')">→</button></article>
+-      <article class="card service service-click"><div class="ico">▣</div><h3>Photography & Videography</h3><p>View our past event and project photography and video work.</p><button class="service-arrow" onclick="openServiceDetail('media')">→</button></article>
++      <article class="card service service-click"><div class="ico">▣</div><h3>Photography & Videography</h3><p>View our past event and project photography and video work.</p><button class="service-arrow" onclick="window.location.href='photography.html'">→</button></article>
+       <article class="card service service-click"><div class="ico">♢</div><h3>Vendor Facilitation</h3><p>Promote your products or let HIT KENYA manage vendors for your event.</p><button class="service-arrow" onclick="openServiceDetail('vendor-facilitation')">→</button></article>
+       <article class="card service service-click"><div class="ico">♢</div><h3>Artist Booking</h3><p>Discover artists by genre and location and request bookings through our agency.</p><button class="service-arrow" onclick="openServiceDetail('artists')">→</button></article>
+       <article class="card service service-click"><div class="ico">↗</div><h3>Content & Digital</h3><p>Creative campaigns, social content and digital growth support.</p><button class="service-arrow" onclick="openServiceDetail('digital')">→</button></article>
+@@ -733,7 +733,7 @@
+   </div>
+ </div>
+ <!-- SERVICES -->
+-<div class="modal" id="serviceModal"><div class="modal-box card"><button class="close" onclick="closeModal('serviceModal')">×</button><div class="eyebrow">BOOK HIT KENYA</div><h2>CHOOSE A SERVICE.</h2><p class="muted">Every service opens its own information, portfolio, marketplace or request workflow.</p><div class="services" style="margin-top:15px"><article class="card service service-click"><div class="ico">▦</div><h3>Event Promotion Strategy</h3><p>Marketing resources and support.</p><button class="service-arrow" onclick="openServiceDetail('marketing')">→</button></article><article class="card service service-click"><div class="ico">▣</div><h3>Photo & Video</h3><p>Past events and project portfolio.</p><button class="service-arrow" onclick="openServiceDetail('media')">→</button></article><article class="card service service-click"><div class="ico">♢</div><h3>Vendor Facilitation</h3><p>Product promotion and vendor management.</p><button class="service-arrow" onclick="openServiceDetail('vendor-facilitation')">→</button></article><article class="card service service-click"><div class="ico">♢</div><h3>Artist Booking</h3><p>Agency artists by genre and location.</p><button class="service-arrow" onclick="openServiceDetail('artists')">→</button></article><article class="card service service-click"><div class="ico">↗</div><h3>Content & Digital</h3><p>Creative and digital campaigns.</p><button class="service-arrow" onclick="openServiceDetail('digital')">→</button></article><article class="card service service-click"><div class="ico">🚗</div><h3>Car Hire & Stays</h3><p>Dealer registration and customer booking.</p><button class="service-arrow" onclick="openServiceDetail('travel')">→</button></article><article class="card service service-click"><div class="ico">⌂</div><h3>Event Venues</h3><p>Venue owner registration and bookings.</p><button class="service-arrow" onclick="openServiceDetail('venues')">→</button></article><article class="card service service-click"><div class="ico">◉</div><h3>Fun Base</h3><p>Members-only community chat.</p><button class="service-arrow" onclick="openServiceDetail('funbase')">→</button></article></div></div></div>
++<div class="modal" id="serviceModal"><div class="modal-box card"><button class="close" onclick="closeModal('serviceModal')">×</button><div class="eyebrow">BOOK HIT KENYA</div><h2>CHOOSE A SERVICE.</h2><p class="muted">Every service opens its own information, portfolio, marketplace or request workflow.</p><div class="services" style="margin-top:15px"><article class="card service service-click"><div class="ico">▦</div><h3>Event Promotion Strategy</h3><p>Marketing resources and support.</p><button class="service-arrow" onclick="openServiceDetail('marketing')">→</button></article><article class="card service service-click"><div class="ico">▣</div><h3>Photo & Video</h3><p>Past events and project portfolio.</p><button class="service-arrow" onclick="window.location.href='photography.html'">→</button></article><article class="card service service-click"><div class="ico">♢</div><h3>Vendor Facilitation</h3><p>Product promotion and vendor management.</p><button class="service-arrow" onclick="openServiceDetail('vendor-facilitation')">→</button></article><article class="card service service-click"><div class="ico">♢</div><h3>Artist Booking</h3><p>Agency artists by genre and location.</p><button class="service-arrow" onclick="openServiceDetail('artists')">→</button></article><article class="card service service-click"><div class="ico">↗</div><h3>Content & Digital</h3><p>Creative and digital campaigns.</p><button class="service-arrow" onclick="openServiceDetail('digital')">→</button></article><article class="card service service-click"><div class="ico">🚗</div><h3>Car Hire & Stays</h3><p>Dealer registration and customer booking.</p><button class="service-arrow" onclick="openServiceDetail('travel')">→</button></article><article class="card service service-click"><div class="ico">⌂</div><h3>Event Venues</h3><p>Venue owner registration and bookings.</p><button class="service-arrow" onclick="openServiceDetail('venues')">→</button></article><article class="card service service-click"><div class="ico">◉</div><h3>Fun Base</h3><p>Members-only community chat.</p><button class="service-arrow" onclick="openServiceDetail('funbase')">→</button></article></div></div></div>
+ 
+ <div class="modal" id="serviceDetailModal"><div class="modal-box card service-detail-box"><button class="close" onclick="closeModal('serviceDetailModal')">×</button><div id="serviceDetailContent"></div></div></div>
+ <div class="modal" id="partnerModal"><div class="modal-box card service-detail-box"><button class="close" onclick="closeModal('partnerModal')">×</button><div id="partnerContent"></div></div></div>
+@@ -1077,6 +1077,14 @@
+ </script>
+ <!-- Daraja STK Push and Grok API require secure server endpoints. No secret keys are exposed in this public HTML. -->
+ 
++<!-- Photography booking deep link: keeps the existing HIT KENYA enquiry workflow. -->
++<script>
++  if (window.location.hash === '#media-booking') {
++    window.addEventListener('DOMContentLoaded', function () {
++      if (typeof window.openPartnerFlow === 'function') window.openPartnerFlow('media');
++    });
++  }
++</script>
+ <script src="assets/hit-kenya-paystack-addon.js" defer></script>
+ </body>
+ </html>

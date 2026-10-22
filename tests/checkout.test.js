@@ -26,7 +26,7 @@ function memoryDB(){
 }
 function env(db){return {CHECKOUT_ENABLED:'true',PAYSTACK_SECRET_KEY:'sk_test_mocksecret123',DELIVERY_NAIROBI_KES:'250',DELIVERY_OTHER_KENYA_KES:'500',ACTIVE_PRODUCT_IDS:'tshirt,crop',DB:db};}
 const requestFor=body=>new Request('https://hitkenya.example/api/store/checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
-const cart={name:'Test Buyer',email:'buyer@example.com',phone:'0712345678',county:'Nairobi',town:'CBD',address:'123 Sample Place',zone:'nairobi',items:[{id:'crop',size:'L',qty:2}]};
+const cart={name:'Test Buyer',email:'buyer@example.com',phone:'0712345678',county:'Nairobi',town:'CBD',address:'123 Sample Place',zone:'nairobi',method:'mpesa',items:[{id:'crop',size:'L',qty:2}]};
 
 test('safely disabled until all store settings are provided',()=>{
  assert.equal(checkoutReady({}),false);
@@ -52,6 +52,7 @@ test('server calculates selected variant and exact delivery, not client-supplied
   assert.equal(out.totalKes,3850); // 2 x KES 1800 + KES 250 delivery
   assert.equal(initialized.amount,385000);
   assert.equal(initialized.currency,'KES');
+  assert.deepEqual(initialized.channels,['mobile_money']);
   assert.equal(initialized.callback_url,'https://hitkenya.example/payment-result.html');
   assert.deepEqual(JSON.parse(db.orders.get(out.reference).items_json)[0],{id:'crop',name:"Women's Crop Top",size:'L',qty:2,priceKes:1800});
  }finally{globalThis.fetch=fetchSaved}

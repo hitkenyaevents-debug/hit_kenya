@@ -9,8 +9,8 @@ export async function onRequestPost({request,env}){
   const name=saneString(body.name,120), email=isEmail(body.email)?body.email.trim().toLowerCase():null,
     phone=isKenyanPhone(body.phone)?body.phone.replace(/[\s-]/g,''):null,
     address=saneString(body.address,240),town=saneString(body.town,80),county=saneString(body.county,80),
-    zone=body.zone,items=body.items;
-  if(!name||!email||!phone||!address||!town||!county || !['nairobi','rest_of_kenya'].includes(zone)) return error('Please complete valid buyer and delivery information.');
+    zone=body.zone,items=body.items,method=body.method;
+  if(!name||!email||!phone||!address||!town||!county || !['nairobi','rest_of_kenya'].includes(zone) || !['mpesa','other'].includes(method)) return error('Please complete valid buyer and delivery information.');
   if(zone==='nairobi' && county.toLowerCase()!=='nairobi') return error('Please select the delivery zone matching the delivery county.');
   if(zone==='rest_of_kenya' && county.toLowerCase()==='nairobi') return error('Nairobi County must use the Nairobi delivery zone.');
   if(!Array.isArray(items)||!items.length||items.length>12) return error('Choose between 1 and 12 products.');
@@ -35,7 +35,7 @@ export async function onRequestPost({request,env}){
   }catch(e){console.error('Order DB insert failed',String(e));return error('Unable to prepare an order at this time.',503)}
   try{
     const callback=new URL('/payment-result.html',request.url).href;
-    const txn=await paystackFetch(env,'/transaction/initialize',{method:'POST',body:JSON.stringify({email,amount:total*100,currency:'KES',reference:ref,callback_url:callback,metadata:{site:'HIT_KENYA',purchase_type:'merchandise',reference:ref}})});
+    const txn=await paystackFetch(env,'/transaction/initialize',{method:'POST',body:JSON.stringify({email,amount:total*100,currency:'KES',reference:ref,callback_url:callback,...(method==='mpesa'?{channels:['mobile_money']}:{}),metadata:{site:'HIT_KENYA',purchase_type:'merchandise',reference:ref}})});
     const url=new URL(txn.authorization_url);
     if(url.protocol!=='https:' || !(url.hostname==='paystack.com'||url.hostname.endsWith('.paystack.com')))throw new Error('Unexpected checkout domain');
     return json({ok:true,reference:ref,authorizationUrl:url.href,subtotalKes:subtotal,deliveryKes:delivery,totalKes:total});
