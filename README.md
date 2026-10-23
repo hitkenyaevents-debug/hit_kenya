@@ -1,24 +1,17 @@
-# HIT KENYA — Artist Booking Page Correction
+# HIT KENYA — Vendor Facilitation image-quality update
 
-## Exact change
-- Click **Artist Booking** (either service-card location or the gold arrow) in `index.html` to open the new **CONNECT. BOOK. EXPERIENCE.** Artist & DJ Booking page instead of the old **DISCOVER & BOOK TALENT** popup.
-- This page is contained **inside index.html** as an interactive, responsive HTML/CSS page (not a static image).
-- Opening the homepage at `index.html#artist-booking` opens the artist page directly.
-- The three existing paths are wired: **VIEW ARTISTS** opens the current artist-filtered directory; **REGISTER AS AN ARTIST** opens a separate registration enquiry form; **REQUEST ARTIST BOOKING** opens the existing booking-request enquiry form. These are existing enquiry flows, not a verified booking/payment backend.
-- Photography, Event Promotion, Vendor Facilitation, merchandise and Paystack-related assets are unchanged.
+## What this fixes
+When the visitor clicks **Vendor Facilitation** or its gold arrow on `index.html`, the dedicated interactive **Turn Your Products & Services Into Opportunities** page opens. The previous low-resolution photos have been replaced with cleaner photo crops from the sharper user-supplied design screenshot.
 
-## Files to upload
-Upload **index.html** AND the entire **assets/** directory together. Do not upload only `index.html` because the page requires `assets/artists/` images.
-Other standalone pages are also included and should stay alongside `index.html`.
+The HTML is still interactive. The hero, cards, headings and buttons are **not** replaced by one flat image. The provided original high-resolution screenshot is included under `assets/vendor/vendor-page-reference-high-quality.png` for reference only.
 
-## Preview
-Open `index.html` in a browser; click the Artist Booking tile. Confirm you see CONNECT. BOOK. EXPERIENCE., the three artist cards and the HIT KENYA ARTIST NETWORK strip. Test on a mobile viewport and the back-to-home action.
+## How to upload
+Upload **`index.html` and the entire `assets/` directory** together to the same root folder on your web host. Do not upload `index.html` on its own: it references `assets/vendor/*`, merchandise images, and the Paystack add-on. Preserve any backend payment functions/configuration already on your site.
 
-## Reference limitations
-The supplied artist-page screenshot was **720×480 px**. Its concert/studio/event photographic regions are extracted and upscaled as reference-faithful placeholders. These cannot reproduce the detail of original high-resolution photographs. The page headings, buttons and descriptions are clean HTML/CSS and remain sharp at normal browser resolutions. Replace the image files in `assets/artists/` with original photography for production-quality visuals.
+The vendor service's *Join Vendor*, *Explore Vendors* and *Request Vendor Management* actions are wired to the existing site workflows. Actual registration submissions require the site's production backend and appropriate verification.
 
-## Deployment
-Replace your published `index.html` and upload `assets/artists/`. If using Cloudflare Pages, deploy the project together with existing Functions and Paystack files; do not expose secret API credentials in HTML. Hard refresh with Ctrl+Shift+R after deployment.
+## Scope
+Only vendor-page image assets and a small set of vendor-specific CSS rules were changed. The Photography, Event Promotion, Merchandise and other homepage screens were not deliberately redesigned or redirected.
 
-## Verification
-Source-code/navigation/assets/syntax checks performed. No live deployment or payment/booking transaction was performed.
+## Quality limitation
+This is a source-upgrade from the best screenshot provided (1224x1285); original uncompressed camera photographs would allow still higher quality on very large desktop displays.
