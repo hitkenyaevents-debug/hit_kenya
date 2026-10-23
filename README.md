@@ -1,17 +1,22 @@
-# HIT KENYA — Vendor Facilitation image-quality update
+# HIT KENYA — Artist Booking Click and High-Quality Images
 
-## What this fixes
-When the visitor clicks **Vendor Facilitation** or its gold arrow on `index.html`, the dedicated interactive **Turn Your Products & Services Into Opportunities** page opens. The previous low-resolution photos have been replaced with cleaner photo crops from the sharper user-supplied design screenshot.
+## What was fixed
+The service card displayed as **Content & Digital** in the supplied first screenshot previously called `openServiceDetail('digital')` and could show an unwanted detail popup. Its card body and gold arrow, in both copies on the homepage, now open the premium full **Artist & DJ Booking** page in your third image: **CONNECT. BOOK. EXPERIENCE.**
 
-The HTML is still interactive. The hero, cards, headings and buttons are **not** replaced by one flat image. The provided original high-resolution screenshot is included under `assets/vendor/vendor-page-reference-high-quality.png` for reference only.
+**Artist Booking** itself also opens that full page. Its existing full-page design remains live HTML with links/buttons. The old *Discover & Book Talent* modal is bypassed for these entry points. The sharper image assets are taken from the full-size image the user supplied; they replace the tiny screenshot crops, but original professional photographs would still be even clearer.
 
-## How to upload
-Upload **`index.html` and the entire `assets/` directory** together to the same root folder on your web host. Do not upload `index.html` on its own: it references `assets/vendor/*`, merchandise images, and the Paystack add-on. Preserve any backend payment functions/configuration already on your site.
+## GitHub upload
+- Open the ZIP and upload its **contents**, not the ZIP itself, to the **root** of your GitHub repository. `index.html` must appear in the root beside the `assets/` folder.
+- Keep `assets/artists/*-hq.webp` because the artist page refers to these **new filenames** specifically. Upload all other `assets/` files and the three standalone pages too, keeping their folder structure intact.
+- `ORIGINAL-BEFORE-THIS-FIX.html` is a backup provided only for comparison; it does not need to be published.
+- If using GitHub Pages with a repository site, make sure Pages is configured to deploy from the branch and root containing `index.html`. Your payment backend requires a separate supported server runtime: **GitHub Pages alone cannot run Cloudflare Functions or safely contain Paystack secret keys**.
+- After publishing, press Ctrl+Shift+R to reload. To test the artist page directly, open your site's `index.html#artist-booking`.
 
-The vendor service's *Join Vendor*, *Explore Vendors* and *Request Vendor Management* actions are wired to the existing site workflows. Actual registration submissions require the site's production backend and appropriate verification.
+## Test steps
+1. Open `index.html` and click the **Content & Digital** card or gold arrow: the new **CONNECT. BOOK. EXPERIENCE.** page should display (not a popup).
+2. Return Home and click **Artist Booking**: the same artist booking page should display.
+3. Check the three cards and image quality on desktop and mobile. Confirm `assets/artists/` is published.
+4. **View Artists** opens the existing artist marketplace; **Register as an Artist** and **Request Artist Booking** open forms. Live verification, bookings, and payment still require the appropriate backend.
 
-## Scope
-Only vendor-page image assets and a small set of vendor-specific CSS rules were changed. The Photography, Event Promotion, Merchandise and other homepage screens were not deliberately redesigned or redirected.
-
-## Quality limitation
-This is a source-upgrade from the best screenshot provided (1224x1285); original uncompressed camera photographs would allow still higher quality on very large desktop displays.
+## Preservation
+The original HIT KENYA header, homepage, Photography, Event Promotion, Vendor Facilitation, merchandise, Paystack add-on, and other sections are retained. No prices or payment credentials have been changed.
