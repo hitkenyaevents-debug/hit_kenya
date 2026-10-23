@@ -1,22 +1,17 @@
-# HIT KENYA — Artist Booking Click and High-Quality Images
+# HIT KENYA – Content & Digital Marketing (GitHub upload)
 
-## What was fixed
-The service card displayed as **Content & Digital** in the supplied first screenshot previously called `openServiceDetail('digital')` and could show an unwanted detail popup. Its card body and gold arrow, in both copies on the homepage, now open the premium full **Artist & DJ Booking** page in your third image: **CONNECT. BOOK. EXPERIENCE.**
+## Exact correction
+The **Content & Digital** service card (both on the homepage and inside the services popup) now opens the complete **CREATE. ENGAGE. GROW.** page within `index.html` via the `#content-digital` route. It no longer launches Artist Booking or a generic service popup. The Artist Booking card continues to open the Artist Booking page. Vendor Facilitation, Event Promotion, Photography and Merchandise remain in place.
 
-**Artist Booking** itself also opens that full page. Its existing full-page design remains live HTML with links/buttons. The old *Discover & Book Talent* modal is bypassed for these entry points. The sharper image assets are taken from the full-size image the user supplied; they replace the tiny screenshot crops, but original professional photographs would still be even clearer.
+## GitHub deployment
+1. Extract `HIT-KENYA-CONTENT-DIGITAL-FINAL-GITHUB.zip`.
+2. Upload the **contents** of the extracted folder (not an extra containing folder) to the root of your GitHub website repository.
+3. Replace `index.html` and upload the entire `assets/` directory. Preserve the `assets/digital/` path exactly. Keep any existing Paystack backend files in your repository unchanged.
+4. Wait for your GitHub Pages / connected Cloudflare deployment to finish, then hard-refresh (Ctrl+Shift+R).
+5. Test `https://YOUR-WEBSITE/#content-digital` and clicking **Content & Digital** from both the homepage and service-selection popup. Clicking Artist Booking should still open its separate artist page.
 
-## GitHub upload
-- Open the ZIP and upload its **contents**, not the ZIP itself, to the **root** of your GitHub repository. `index.html` must appear in the root beside the `assets/` folder.
-- Keep `assets/artists/*-hq.webp` because the artist page refers to these **new filenames** specifically. Upload all other `assets/` files and the three standalone pages too, keeping their folder structure intact.
-- `ORIGINAL-BEFORE-THIS-FIX.html` is a backup provided only for comparison; it does not need to be published.
-- If using GitHub Pages with a repository site, make sure Pages is configured to deploy from the branch and root containing `index.html`. Your payment backend requires a separate supported server runtime: **GitHub Pages alone cannot run Cloudflare Functions or safely contain Paystack secret keys**.
-- After publishing, press Ctrl+Shift+R to reload. To test the artist page directly, open your site's `index.html#artist-booking`.
+## Image quality
+The supplied 720×480 reference is low-resolution. The included photographic crops use an enhanced 1536×1024 recreation of the reference; webpage headlines, service descriptions and actions are sharp native HTML, not text baked into the image. Full original images (camera shoot, digital marketing, laptop/product photos) would support even better photographic fidelity. `assets/digital/CONTENT-DIGITAL-HIGH-QUALITY-REFERENCE.png` is a visual reference, **not** a substituted screenshot of the website.
 
-## Test steps
-1. Open `index.html` and click the **Content & Digital** card or gold arrow: the new **CONNECT. BOOK. EXPERIENCE.** page should display (not a popup).
-2. Return Home and click **Artist Booking**: the same artist booking page should display.
-3. Check the three cards and image quality on desktop and mobile. Confirm `assets/artists/` is published.
-4. **View Artists** opens the existing artist marketplace; **Register as an Artist** and **Request Artist Booking** open forms. Live verification, bookings, and payment still require the appropriate backend.
-
-## Preservation
-The original HIT KENYA header, homepage, Photography, Event Promotion, Vendor Facilitation, merchandise, Paystack add-on, and other sections are retained. No prices or payment credentials have been changed.
+## Functionality and payments
+Buttons such as GET CONTENT SOLUTIONS and START A CAMPAIGN open the existing Content & Digital inquiry preview form. The form does not submit to a production customer database yet. Paystack remains separately configured, and this fix does not claim to activate payments.
