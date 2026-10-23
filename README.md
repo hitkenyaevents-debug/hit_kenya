@@ -1,18 +1,17 @@
-# HIT KENYA — Vendor Facilitation correction
+# HIT KENYA — Vendor Facilitation image-quality update
 
-## What changed
-Clicking the **Vendor Facilitation** card (or its gold arrow) now opens the complete **Turn Your Products & Services Into Opportunities** page shown in your latest third screenshot. It does not open the old vendor popup and does not redirect to merchandise.
+## What this fixes
+When the visitor clicks **Vendor Facilitation** or its gold arrow on `index.html`, the dedicated interactive **Turn Your Products & Services Into Opportunities** page opens. The previous low-resolution photos have been replaced with cleaner photo crops from the sharper user-supplied design screenshot.
 
-The new vendor page is embedded in the corrected `index.html`, works via `#vendor-facilitation`, and contains three actionable services: vendor registration, vendor discovery, and vendor management requests. These reuse the existing HIT KENYA frontend forms and marketplace functions; they are not a live verified vendor database.
+The HTML is still interactive. The hero, cards, headings and buttons are **not** replaced by one flat image. The provided original high-resolution screenshot is included under `assets/vendor/vendor-page-reference-high-quality.png` for reference only.
 
-## Installation
-Replace your current site's root `index.html` with this one and copy `assets/vendor` into the same website's `assets/vendor` directory. Preserve every other file and backend component already on your server. If deploying the whole package, note the included `assets/merch` pictures are kept from your prior merchandise design. Browser hard refresh: Ctrl+Shift+R.
+## How to upload
+Upload **`index.html` and the entire `assets/` directory** together to the same root folder on your web host. Do not upload `index.html` on its own: it references `assets/vendor/*`, merchandise images, and the Paystack add-on. Preserve any backend payment functions/configuration already on your site.
 
-## Preserved
-Previously revised merchandise layout, photography page and portfolio, Event Promotion page, rest of site navigation and Paystack frontend JS are retained. No unrelated action handler is modified.
+The vendor service's *Join Vendor*, *Explore Vendors* and *Request Vendor Management* actions are wired to the existing site workflows. Actual registration submissions require the site's production backend and appropriate verification.
 
-## Source image quality
-For layout fidelity, vendor hero and card photos were cropped from the supplied screenshot (720px original). Higher-resolution vendor photos should replace them before final production publication.
+## Scope
+Only vendor-page image assets and a small set of vendor-specific CSS rules were changed. The Photography, Event Promotion, Merchandise and other homepage screens were not deliberately redesigned or redirected.
 
-## Testing
-Static route checks can be performed against the HTML locally. Always test desktop and mobile click behaviour in your actual deployed browser. The existing partner registration forms are frontend demonstrations and require backend connection before they can accept live registrations.
+## Quality limitation
+This is a source-upgrade from the best screenshot provided (1224x1285); original uncompressed camera photographs would allow still higher quality on very large desktop displays.
