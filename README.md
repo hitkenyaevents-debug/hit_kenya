@@ -1,45 +1,43 @@
-# HIT KENYA — Event Promotion high-quality update (GitHub-ready)
+# HIT KENYA | Get a Marketing Plan — final navigation update
 
-This package is based on the latest Fun Base Coming Soon consolidated project and retains other website sections and the existing Paystack backend scaffolding.
+## What was changed
 
-## What changed
+Click **Event Promotion Strategy** on the HIT KENYA homepage, then click **GET A MARKETING PLAN**. The website opens the full **GET YOUR CUSTOM MARKETING PLAN** request page, not the old generic enquiry popup.
 
-- `index.html`: The Event Promotion Strategy homepage card and the Book HIT Kenya service button both open the updated full Event Promotion webpage, rather than the old compact marketing popup.
-- `event-promotion.html`: Standalone version of the same fully styled webpage.
-- `assets/marketing/`: Locally bundled, higher-resolution background and campaign-concept images. The primary concert hero is 1648×928 source pixels and remains a background photograph, not a flattened image of the page.
-- The headings, service cards, navigation, CTAs and forms are real HTML elements, retaining crisp text and interactions at various screen sizes.
+The form includes customer details, promotion type, campaign date, location, budget, campaign goals, description, privacy consent, and **WHAT HAPPENS NEXT?**. The page is built in actual responsive HTML with a higher-resolution illustrative concert image; text, fields, and buttons are not part of a low-quality screenshot.
 
-## Deploy
+The form is both embedded inside `index.html` (for the full-screen click flow) and available as a standalone page at `marketing-plan.html`. The `event-promotion.html` standalone page also links to it. **BACK** returns to Event Promotion.
 
-1. Unzip the archive.
-2. Upload the archive **contents**, not the surrounding directory, to the root of your GitHub repository.
-3. Preserve the `assets` directory, `functions`, `db`, and environment/template files. Files under `functions` work on Cloudflare Pages Functions, not GitHub Pages.
-4. Deploy and hard refresh the browser. Select **Event Promotion Strategy** (either homepage card or Book HIT Kenya menu).
-5. Check `index.html` and `event-promotion.html` on desktop and mobile.
+All other existing website sections, images, and previous merchandise/Paystack source files are preserved.
 
-## Accuracy and production notes
+## How to upload to GitHub
 
-- The concert hero and other image assets are **illustrative/AI-generated** and do not represent documented HIT KENYA client events.
-- The original screenshot contained unverified performance totals and testimonials. Those were not copied into the working page as factual claims. Replace the illustrated categories with real approved campaign imagery, client testimonials and audited outcomes when available.
-- Marketing support CTA uses the existing `openPartnerFlow('marketing')` frontend workflow and still needs a production submission backend.
-- Paystack code is preserved but live processing requires configured credentials, a secure backend, and completed testing. Never put a Paystack secret key into frontend HTML.
+1. Extract this ZIP archive.
+2. Copy **all its contents**, including `index.html`, `event-promotion.html`, `marketing-plan.html`, `assets/`, `functions/`, and `db/`, to the ROOT of your existing HIT KENYA repository. Do not upload the ZIP itself as a single GitHub file.
+3. Commit and redeploy your web host from that repository.
+4. Refresh your live website (Ctrl + Shift + R) and test: **Event Promotion Strategy → Get a Marketing Plan → complete form → Back**.
 
-# HIT KENYA — Fun Base Coming Soon (complete website)
+## To receive customer requests in production
 
-This is the complete HIT KENYA website, updated from the latest realistic Event Venues package. **HIT KENYA Fun Base now opens the new full-screen COMING SOON view** when the user clicks its homepage card, gold arrow, service-menu card or work-section link. The existing site sections and previously prepared Cloudflare/Paystack code are retained.
+The form calls `POST /api/marketing/requests`, implemented as a Cloudflare Pages Function in `functions/api/marketing/requests.js`.
 
-## Publish to GitHub
-1. Extract the ZIP file. Upload **all the contents** of this folder into the root of your repository, rather than uploading the ZIP itself.
-2. Keep `index.html` and `assets/` side by side. Do not forget `assets/funbase/` or the approved photograph fragments will be missing.
-3. Commit the changes and redeploy the hosting service. Then open `index.html#fun-base`, or click the Fun Base card, and confirm the Coming Soon page appears.
-4. Check the website on a phone. Hard refresh if previously cached.
+- Deploy through **Cloudflare Pages with Functions enabled**, connected to your GitHub repository. GitHub Pages alone serves static files and **cannot process these submissions**.
+- Bind a Cloudflare D1 database to the Pages project as `DB` and apply `db/schema.sql`. Store submitted briefs in the `marketing_requests` table.
+- Configure private admin access and a follow-up process to read requests and contact customers; automatic email notifications are not included.
+- Apply appropriate privacy protection and anti-spam/rate limiting before accepting public submissions.
+- Test with a controlled, non-sensitive submission and confirm database storage before going live. If the function or database is unavailable, the page says the request **was not submitted** and does not falsely claim success.
 
-## What changed
-- One new routed HTML section, `#fun-base`, with black/gold Coming Soon design and accessible text.
-- Both visible Fun Base service-card click handlers and the Work-section Fun Base link now open that section.
-- The legacy Fun Base detail handler also routes to the new Coming Soon view rather than exposing the unbuilt member chat.
-- Added `assets/funbase/` with two background image crops from the approved concept design and a smaller copy of the full design for reference.
-- All other existing page sections, commerce files, booking previews, other image assets and backend source files are preserved.
+The Paystack merchandise backend files are preserved, but live payments require separate configuration and live transaction verification. Do not place Paystack secret keys in `index.html` or a public GitHub repository.
 
-## Launch caution
-Fun Base is **COMING SOON** only; live chats, authentication and member messaging have **not** been activated. Paystack integration source files remain included but payments require merchant configuration, server deployment, secrets and independent checkout verification before activation. Cloudflare Pages Functions cannot run on GitHub Pages alone. Never place Paystack secret keys in public HTML or GitHub.
+## Checks completed
+
+- The two-step navigation and Back action were tested in an isolated Chromium browser harness using the actual page templates.
+- Responsive form rendered at 1440px and 390px without horizontal overflow.
+- The Cloudflare marketing endpoint responded correctly to valid requests, invalid email, and unconfigured database scenarios in local unit-style checks.
+- The embedded and standalone marketing-plan markup matches exactly.
+
+**Limit:** The entire HIT KENYA homepage could not be visited at a local URL due to an environment-level browser restriction, and this build has not been tested on your public production domain.
+
+## Latest image revision
+
+The hero background at `assets/marketing/concert-hero.webp` was replaced with the approved more natural-looking concert scene. The complete PNG original is also included as `assets/marketing/concert-hero-full-resolution.png`. Both the embedded marketing-plan view in `index.html` and the standalone `marketing-plan.html` use this WebP asset. The scene is generated illustrative artwork, not documentary photography of a real HIT KENYA event. No other website sections were intentionally redesigned in this revision.
