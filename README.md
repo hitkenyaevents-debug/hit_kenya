@@ -1,34 +1,28 @@
-# HIT KENYA — Car Hire & Stays | GitHub-ready website
+# HIT KENYA | Consolidated website | Event Venues photographic update
 
-## Corrected behaviour
-Click **Car Hire & Stays** (the card body or its gold arrow) on the homepage or in **View All Services**. It now opens the full **TRAVEL. STAY. MOVE.** page, not the old **BOOK OR BECOME A VERIFIED DEALER** popup. URL: `#travel-hire`.
+This is the complete website, based on the latest Event Venues GitHub-ready version, with its **venue images replaced using the more natural-looking approved reference**. It does not replace pages with screenshots: hero copy, cards, navigation, enquiry buttons, and forms remain HTML/JavaScript.
 
-The four cards are real HTML elements, not one flat image:
-- **View Stays** → existing marketplace Stays category (`#stays`)
-- **Explore Cars** → existing marketplace Transport category (`#cars`)
-- **Become a Partner** → a choice of property/stay or car-hire dealer registration
-- **Request Assistance** → a travel enquiry form (frontend prototype)
+## GitHub deployment
 
-The generated photo design is the visual reference. Text, layout, buttons and navigation are native HTML so remain legible and responsive. The `assets/travel/` photographic crops were prepared from the enhanced reference; they are not original property or vehicle listings.
+1. Download and extract the ZIP. Upload the **contents** of the extracted folder to the root of your GitHub repository (not the ZIP file itself).
+2. The root must contain `index.html`, `assets/`, `functions/`, `db/`, `payment-result.html`, and the other supplied files.
+3. Commit changes; trigger a fresh deployment. If you use Cloudflare Pages, connect the repository and set up its Pages Functions and D1 database separately before enabling payments.
+4. Reload the live website (Ctrl+Shift+R). Click the **Event Venues** card: it should open **THE RIGHT SPACE FOR EVERY OCCASION**, not the old “Find or List a Venue” popup.
+5. Test navigation and mobile screens. The photography, vendor, artist, digital, transport, event promotion and merchandise sections are still included.
 
-## Upload to GitHub
-1. Extract `HIT-KENYA-CAR-HIRE-STAYS-GITHUB-READY.zip`.
-2. Upload **all files and directories inside it** into the **repository root** (where your existing `index.html` lives). Do not upload the containing ZIP folder as a nested directory.
-3. Replace existing `index.html` and upload/overwrite `assets/` including `assets/travel/`.
-4. Keep any deployment/backend settings and separate Paystack secret values on your server/Cloudflare, never in GitHub HTML.
-5. Redeploy your host and hard-refresh with Ctrl+Shift+R. Test the Car Hire & Stays card, its arrow, `#travel-hire` directly, and the buttons.
+## Image notes
 
-## Important production limitations
-- Visible marketplace listings and rates are existing demonstration content; **availability, verification and quotes are not live-confirmed**.
-- Dealer forms and travel assistance requests are frontend previews until connected to database and email/CRM services. Do not enter real ID documents or personal data for production use yet.
-- The original Paystack Cloudflare Pages functions (`functions/`), D1 schema (`db/schema.sql`), callback (`payment-result.html`) and browser add-on (`assets/hit-kenya-paystack-addon.js`) are carried over **unchanged** from the earlier preserved Paystack package. **Payments are NOT live by default**. To activate, deploy with Cloudflare Pages Functions (GitHub Pages alone cannot run those endpoints), configure D1 and the environment secrets securely, confirm pricing and stock, and test server-side transaction verification. Never commit keys or customer documents.
-- Other areas—Photography, Event Promotion, Vendor Facilitation, Artist Booking, Content & Digital and merchandise—remain in the code. Their live integrations must be tested independently.
+- `assets/venues/venue-hero.webp` and six venue-card images are exported from the more natural-looking reference design supplied in the conversation. The original reference is included as `assets/venues/EVENT-VENUES-APPROVED-REALISTIC-DESIGN.png`.
+- These are **illustrative concept images**, not authentic listings or photographs proving particular venues exist. Replace with authorized original venue photography before representing any property as genuinely available or verified.
+- The source reference is a flattened image; making some areas clearer through resizing does **not** restore detail that was absent in that source. The navigation and important text remain real HTML.
 
-## Files to confirm after upload
-- `index.html` — the updated homepage with the complete Car Hire & Stays page and all prior sections
-- `assets/travel/` — premium image assets and reference
-- `assets/digital/`, `assets/artists/`, `assets/vendor/`, `assets/merch/` — prior sections' images
-- `functions/`, `db/schema.sql`, `payment-result.html` — unchanged earlier Paystack backend components (Cloudflare Pages only)
-- `CAR-HIRE-STAYS-1440-PREVIEW.png` and `CAR-HIRE-STAYS-390-PREVIEW.png` — screenshots of the isolated HTML travel page
+## Payment and functional status
 
-Note: Hero/card imagery consists of crops from an enhanced/generated design reference, not photographs verified as actual properties or available cars. The visual screenshots are examples, not live listings or booking guarantees.
+Paystack integration code and Cloudflare Pages Functions are retained from the prior project, but **live payments are not enabled** until the merchant config, verified prices, D1 binding, secret keys and live checkout/webhook testing are completed. Do not put Paystack secret keys in the HTML or the GitHub repository. Some directory, onboarding and booking features remain frontend demonstrations.
+
+## Files
+
+- `index.html` — the exact updated main homepage; also downloadable separately
+- `assets/venues/` — approved realistic artwork cropped for the interactive venue page
+- Other `assets/`, `photography.html`, `event-promotion.html`, `photography-portfolio.html` — preserved
+- `functions/`, `db/`, `.dev.vars.example`, `package.json` — prior Paystack backend files preserved
