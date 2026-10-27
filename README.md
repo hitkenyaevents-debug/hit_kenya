@@ -1,28 +1,19 @@
-# HIT KENYA | Consolidated website | Event Venues photographic update
+# HIT KENYA — Fun Base Coming Soon (complete website)
 
-This is the complete website, based on the latest Event Venues GitHub-ready version, with its **venue images replaced using the more natural-looking approved reference**. It does not replace pages with screenshots: hero copy, cards, navigation, enquiry buttons, and forms remain HTML/JavaScript.
+This is the complete HIT KENYA website, updated from the latest realistic Event Venues package. **HIT KENYA Fun Base now opens the new full-screen COMING SOON view** when the user clicks its homepage card, gold arrow, service-menu card or work-section link. The existing site sections and previously prepared Cloudflare/Paystack code are retained.
 
-## GitHub deployment
+## Publish to GitHub
+1. Extract the ZIP file. Upload **all the contents** of this folder into the root of your repository, rather than uploading the ZIP itself.
+2. Keep `index.html` and `assets/` side by side. Do not forget `assets/funbase/` or the approved photograph fragments will be missing.
+3. Commit the changes and redeploy the hosting service. Then open `index.html#fun-base`, or click the Fun Base card, and confirm the Coming Soon page appears.
+4. Check the website on a phone. Hard refresh if previously cached.
 
-1. Download and extract the ZIP. Upload the **contents** of the extracted folder to the root of your GitHub repository (not the ZIP file itself).
-2. The root must contain `index.html`, `assets/`, `functions/`, `db/`, `payment-result.html`, and the other supplied files.
-3. Commit changes; trigger a fresh deployment. If you use Cloudflare Pages, connect the repository and set up its Pages Functions and D1 database separately before enabling payments.
-4. Reload the live website (Ctrl+Shift+R). Click the **Event Venues** card: it should open **THE RIGHT SPACE FOR EVERY OCCASION**, not the old “Find or List a Venue” popup.
-5. Test navigation and mobile screens. The photography, vendor, artist, digital, transport, event promotion and merchandise sections are still included.
+## What changed
+- One new routed HTML section, `#fun-base`, with black/gold Coming Soon design and accessible text.
+- Both visible Fun Base service-card click handlers and the Work-section Fun Base link now open that section.
+- The legacy Fun Base detail handler also routes to the new Coming Soon view rather than exposing the unbuilt member chat.
+- Added `assets/funbase/` with two background image crops from the approved concept design and a smaller copy of the full design for reference.
+- All other existing page sections, commerce files, booking previews, other image assets and backend source files are preserved.
 
-## Image notes
-
-- `assets/venues/venue-hero.webp` and six venue-card images are exported from the more natural-looking reference design supplied in the conversation. The original reference is included as `assets/venues/EVENT-VENUES-APPROVED-REALISTIC-DESIGN.png`.
-- These are **illustrative concept images**, not authentic listings or photographs proving particular venues exist. Replace with authorized original venue photography before representing any property as genuinely available or verified.
-- The source reference is a flattened image; making some areas clearer through resizing does **not** restore detail that was absent in that source. The navigation and important text remain real HTML.
-
-## Payment and functional status
-
-Paystack integration code and Cloudflare Pages Functions are retained from the prior project, but **live payments are not enabled** until the merchant config, verified prices, D1 binding, secret keys and live checkout/webhook testing are completed. Do not put Paystack secret keys in the HTML or the GitHub repository. Some directory, onboarding and booking features remain frontend demonstrations.
-
-## Files
-
-- `index.html` — the exact updated main homepage; also downloadable separately
-- `assets/venues/` — approved realistic artwork cropped for the interactive venue page
-- Other `assets/`, `photography.html`, `event-promotion.html`, `photography-portfolio.html` — preserved
-- `functions/`, `db/`, `.dev.vars.example`, `package.json` — prior Paystack backend files preserved
+## Launch caution
+Fun Base is **COMING SOON** only; live chats, authentication and member messaging have **not** been activated. Paystack integration source files remain included but payments require merchant configuration, server deployment, secrets and independent checkout verification before activation. Cloudflare Pages Functions cannot run on GitHub Pages alone. Never place Paystack secret keys in public HTML or GitHub.
