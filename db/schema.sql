@@ -41,3 +41,22 @@ CREATE TABLE IF NOT EXISTS marketing_requests (
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 CREATE INDEX IF NOT EXISTS idx_marketing_requests_created ON marketing_requests(created_at);
+
+-- Content & digital quotation requests (Cloudflare Pages D1 binding: DB).
+CREATE TABLE IF NOT EXISTS quote_requests (
+  reference TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  business TEXT NOT NULL DEFAULT '',
+  service TEXT NOT NULL,
+  platforms_json TEXT NOT NULL DEFAULT '[]',
+  project_date TEXT NOT NULL,
+  location TEXT NOT NULL,
+  budget TEXT NOT NULL,
+  brief TEXT NOT NULL,
+  consent INTEGER NOT NULL DEFAULT 1,
+  status TEXT NOT NULL DEFAULT 'new',
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_quote_requests_email_created ON quote_requests(email,created_at);

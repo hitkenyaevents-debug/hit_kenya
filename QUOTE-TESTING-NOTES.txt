@@ -1,0 +1,4 @@
+HIT KENYA quote update 2026-10-28
+Changed: embedded and standalone event promotion quote CTAs; new quote page with real submission endpoint; database quote_requests; preview/README.
+Unchanged: previous website sections, Paystack integration files and marketing-plan form route.
+Customer submission requires Cloudflare Pages D1 binding DB; GitHub Pages is static only.
