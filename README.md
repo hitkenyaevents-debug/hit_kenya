@@ -74,3 +74,24 @@ Upload the contents of the ZIP (not the enclosing ZIP itself), including `index.
 - All six category photographs are local bundled assets, not separately fetched remote images.
 - Portfolio content is **illustrative**; do not treat the examples as evidence of completed HIT KENYA campaigns.
 - All other pages and Cloudflare/Paystack code remain as supplied in the previous consolidated ZIP.
+
+
+## October 28, 2026 — Event Promotion: How We Work / Closing Section
+
+The Event Promotion Strategy page now includes three wide process panels:
+Understand Your Brief, Create the Campaign, Measure & Improve. They use
+three high-resolution local assets at `assets/process/`. The closing
+call-to-action has a concert background and three functional links:
+
+- REQUEST SUPPORT → the existing custom marketing plan form.
+- CHAT ON WHATSAPP → the previously configured HIT KENYA WhatsApp account.
+- BOOK A CALL → the existing quote/enquiry form for staff to arrange a call;
+  this is not a live calendar reservation.
+
+Both `index.html` (embedded Event Promotion view) and `event-promotion.html`
+contain the same updated HTML. The rest of the project is unchanged.
+
+The three process images are newly generated illustrative photography; do
+not represent them as documentary photos of actual HIT KENYA operations.
+Publish all ZIP contents, including the `assets` directory, to the site root.
+Paystack still requires separate production keys, configuration and testing.

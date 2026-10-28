@@ -1,0 +1,11 @@
+HIT KENYA — 2026-10-28
+
+Changed: Event Promotion Strategy, How We Work and Closing CTA sections.
+Standalone and embedded page use the same HTML.
+Images: three new local process illustrations and existing concert hero.
+Buttons: Request Support -> Marketing Plan; WhatsApp -> configured account;
+Book a Call -> enquiry form.
+No other homepage/service route changed.
+
+Testing: desktop/tablet/mobile isolated rendering and CTA dispatch passed.
+Live GitHub/Cloudflare deployment was not performed.
