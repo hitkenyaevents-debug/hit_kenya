@@ -65,3 +65,12 @@ The campaign showcase uses bundled event imagery immediately, and asynchronously
 ### GitHub
 
 Upload the contents of the ZIP (not the enclosing ZIP itself), including `index.html`, `campaign-showcase.html` and `assets/`, to your repository root. Existing Cloudflare Pages functions and Paystack integration are retained but not activated by this design-only update.
+
+
+### Campaign Showcase redesign (2026-10-28)
+- `campaign-showcase.html` is the six-category portfolio design based on the supplied reference.
+- In the homepage's embedded Event Promotion page, **ALL OF OUR CAMPAIGNS SHOWCASE →** opens this same design via `hk-campaign-showcase-template`.
+- Each **VIEW CAMPAIGN →** button opens a service-description panel; **GET INVOLVED** opens the existing quote request.
+- All six category photographs are local bundled assets, not separately fetched remote images.
+- Portfolio content is **illustrative**; do not treat the examples as evidence of completed HIT KENYA campaigns.
+- All other pages and Cloudflare/Paystack code remain as supplied in the previous consolidated ZIP.

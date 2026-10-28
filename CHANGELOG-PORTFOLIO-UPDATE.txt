@@ -1,0 +1,8 @@
+2026-10-28 | HIT KENYA Portfolio Update
+
+The Campaign Showcase page has been replaced by the six-card layout from the new reference:
+Festival Campaigns; Artist Launches; Brand Activations; Music & Social Campaigns; Community Outreach; Travel & Tourism Campaigns.
+The desktop hero, mobile grid, service detail interactions and Get Involved CTA are included.
+The standalone page and embedded homepage template use the same HTML.
+No changes were made to the previous Paystack/Cloudflare functions.
+Portfolio images are examples and do not represent verified past HIT KENYA projects.
