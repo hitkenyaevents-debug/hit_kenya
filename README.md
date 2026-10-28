@@ -52,3 +52,16 @@ All the previously packaged website sections and their supporting images are inc
 - Confirm the quote banner image, `assets/` pictures and mobile layout display.
 - Configure D1 and confirm a test quote is stored.
 - Activate merchant payments separately when ready.
+
+
+## October 28, 2026 Campaign Showcase update
+
+On the Event Promotion Strategy page, the top-right action beside **CAMPAIGN SHOWCASE** is now **ALL OF OUR CAMPAIGNS SHOWCASE →**. It opens a complete, full-page showcase matching the design language of the supplied reference, from both the embedded homepage view and the standalone `event-promotion.html`. The new destination is `campaign-showcase.html` for direct links, or the embedded template inside `index.html` for the existing modal/page system. Its Back control returns to Event Promotion. Quote and Marketing Plan actions still lead to their respective forms.
+
+### Photography and claims
+
+The campaign showcase uses bundled event imagery immediately, and asynchronously replaces it with real photographic assets loaded from `images.unsplash.com` when available. These are licensed illustrative event photographs, **not** evidence of actual completed HIT KENYA client campaigns. No unverified customer testimonials or outcome figures are asserted. The Unsplash photographs need an internet connection to load; the provided local fallbacks prevent broken images offline. The photo credits are in the showcase footer. For an authentic published portfolio, replace these with owned/approved images of completed HIT KENYA campaigns.
+
+### GitHub
+
+Upload the contents of the ZIP (not the enclosing ZIP itself), including `index.html`, `campaign-showcase.html` and `assets/`, to your repository root. Existing Cloudflare Pages functions and Paystack integration are retained but not activated by this design-only update.

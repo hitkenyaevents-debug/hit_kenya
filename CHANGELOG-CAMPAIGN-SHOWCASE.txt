@@ -1,0 +1,5 @@
+HIT KENYA CAMPAIGN SHOWCASE — 2026-10-28
+Changed exactly one Campaign Showcase CTA in Event Promotion page and embedded copy.
+Introduced campaign-showcase.html and matching in-index full screen template.
+Preserved all other existing pages and backend files.
+The gallery is illustrative, not verified HIT KENYA historical campaign work.
