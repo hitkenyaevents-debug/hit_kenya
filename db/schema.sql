@@ -115,3 +115,20 @@ CREATE TABLE IF NOT EXISTS drone_booking_requests (
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 CREATE INDEX IF NOT EXISTS idx_drone_booking_email_date ON drone_booking_requests(email, created_at);
+
+-- Brand and Social Content quote enquiries (no charges or confirmed bookings).
+CREATE TABLE IF NOT EXISTS content_requests (
+ reference TEXT PRIMARY KEY,
+ name TEXT NOT NULL,
+ email TEXT NOT NULL,
+ phone TEXT NOT NULL,
+ business TEXT NOT NULL,
+ content_type TEXT NOT NULL,
+ details TEXT NOT NULL,
+ preferred_date TEXT NOT NULL,
+ budget TEXT NOT NULL DEFAULT '',
+ consent INTEGER NOT NULL DEFAULT 1,
+ status TEXT NOT NULL DEFAULT 'new',
+ created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_content_requests_email_date ON content_requests(email,created_at);
