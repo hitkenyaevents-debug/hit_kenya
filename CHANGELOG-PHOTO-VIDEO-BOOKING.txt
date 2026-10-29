@@ -1,0 +1,26 @@
+HIT KENYA — PHOTO & VIDEO BOOKING UPDATE (28 October 2026)
+
+NEW: photo-video-booking.html
+- Customer-friendly three-stage booking interface: Your Booking → Duration & Payment Preference → Review & Submit.
+- Dedicated event, media-services and customer-contact form with validation, optional reference URL/images and confirmation of booking request.
+- M-Pesa and bank transfer recorded as future payment preferences, not immediate charges.
+- Responsive black-and-gold design, sharp real HTML, local bundled images under assets/photo-booking/.
+
+UPDATED: index.html
+- Embedded hk-photo-booking-template and existing photo viewer route now open the new booking process.
+- Clicking Book Photo / Video from the old portfolio stops opening the generic partner modal.
+- The #media-booking deep link now opens the booking process.
+
+UPDATED: photography.html, photography-portfolio.html
+- Direct media-booking links open photo-video-booking.html.
+
+NEW: functions/api/media-bookings.js
+- Cloudflare Pages POST endpoint that validates customer enquiries and stores them only when the D1 DB is bound and initialized.
+- Optional images stored in a private R2 binding MEDIA_UPLOADS when configured.
+- Successful response includes an enquiry reference; no payment processed.
+
+UPDATED: db/schema.sql
+- media_booking_requests table and index added, retaining all prior tables.
+
+UNCHANGED: Existing Paystack merchandise checkout, Event Promotion, Merchandise, Vendor and other site routes.
+IMPORTANT: Real payment activation still requires quoted prices and a verified dedicated payment backend. No money is collected by this booking request form.

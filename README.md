@@ -95,3 +95,17 @@ The three process images are newly generated illustrative photography; do
 not represent them as documentary photos of actual HIT KENYA operations.
 Publish all ZIP contents, including the `assets` directory, to the site root.
 Paystack still requires separate production keys, configuration and testing.
+
+## Photo & Video Booking — new three-stage customer flow (October 28, 2026)
+
+The **BOOK PHOTO / VIDEO** button in the photography portfolio and the front photography page now opens `photo-video-booking.html` in the embedded homepage viewer. Standalone photography pages link to the same file. The booking process has three fully responsive stages:
+
+1. **Your Booking** — event/project information, customer contact details, requested media services, requirements and optional references.
+2. **Duration & Payment Preference** — coverage duration and preferred future payment method (M-Pesa or bank transfer).
+3. **Review & Submit** — editable booking summary and consent checkbox. The form POSTs multipart data to `/api/media-bookings`, a Cloudflare Pages Function. Only a successful D1 insert displays a booking request reference.
+
+**Critical:** No payment is collected, no M-Pesa STK prompt is issued and no booking is confirmed at this stage. Pricing is requested, not predetermined; it would be misleading to initiate a charge or claim payment without an agreed amount. After the team confirms availability and pricing, set up a dedicated payment checkout with a server-side, verified Paystack or M-Pesa integration. Existing Paystack code remains unchanged, and it is for merchandise rather than this booking flow.
+
+**Cloudflare configuration:** Bind a D1 database as `DB`, execute `db/schema.sql` with Wrangler, and redeploy. The new `media_booking_requests` table stores booking enquiries. To enable optional JPG/PNG/WebP reference-photo uploads, bind a **private R2 bucket** to the Pages Functions environment as `MEDIA_UPLOADS`. Without R2, users can submit without images or provide an external reference URL; attempting to submit selected files returns an explicit error and does not claim success. Files: max 3 images, max 4MB each. Restrict D1 and R2 administrative access and establish contact-detail retention/deletion practices and Turnstile/WAF protections before launch.
+
+**GitHub Pages alone** cannot run the Cloudflare Pages Functions. Deploy through Cloudflare Pages using the connected GitHub repository and the actual D1/R2 bindings. Test at least one booking and verify the saved D1 record using a test email. Files and the booking interface are functional as code but do not prove that your live production configuration is completed.
