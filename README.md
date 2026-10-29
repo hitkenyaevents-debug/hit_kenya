@@ -109,3 +109,15 @@ The **BOOK PHOTO / VIDEO** button in the photography portfolio and the front pho
 **Cloudflare configuration:** Bind a D1 database as `DB`, execute `db/schema.sql` with Wrangler, and redeploy. The new `media_booking_requests` table stores booking enquiries. To enable optional JPG/PNG/WebP reference-photo uploads, bind a **private R2 bucket** to the Pages Functions environment as `MEDIA_UPLOADS`. Without R2, users can submit without images or provide an external reference URL; attempting to submit selected files returns an explicit error and does not claim success. Files: max 3 images, max 4MB each. Restrict D1 and R2 administrative access and establish contact-detail retention/deletion practices and Turnstile/WAF protections before launch.
 
 **GitHub Pages alone** cannot run the Cloudflare Pages Functions. Deploy through Cloudflare Pages using the connected GitHub repository and the actual D1/R2 bindings. Test at least one booking and verify the saved D1 record using a test email. Files and the booking interface are functional as code but do not prove that your live production configuration is completed.
+
+
+## Drone services — October 29, 2026
+
+- Clicking **Explore Drone Services** on the Photography & Videography card now opens a full-screen DRONE SERVICES page, embedded in the existing homepage and available directly at `drone-services.html`. It no longer opens the generic photo/video booking page.
+- Screen 1: services, illustrative gallery, service scopes, and Book Drone Services.
+- Screen 2: drone-specific project and contact form, including coverage date and duration.
+- Screen 3: editable booking summary, optional notes, delivery and future payment preferences, consent, and submit.
+- The form posts JSON to the Cloudflare Pages Function `POST /api/drone-bookings`. Apply `db/schema.sql` to the D1 database bound as `DB` before public launch. Only successful D1 insertion returns a request reference; unsuccessful requests show a clear error.
+- The form does not request or collect payment, does not send an M-Pesa prompt and does not confirm a drone booking. Flight permissions, safety, airspace restrictions, availability and final price are evaluated separately. There are no invented fixed price promises or license claims.
+- Files `assets/drone/*.webp` contain locally stored **AI-generated illustrative imagery**, NOT documentary evidence of HIT KENYA drone shoots or real booking availability. Replace with owned/approved client portfolio images when available.
+- Keep `index.html`, `drone-services.html`, `photography.html`, `assets/`, `functions/`, and `db/` at the repository root. GitHub Pages cannot execute Cloudflare Pages Functions. Use Cloudflare Pages with D1 binding `DB` to receive real enquiries.
