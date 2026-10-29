@@ -121,3 +121,26 @@ The **BOOK PHOTO / VIDEO** button in the photography portfolio and the front pho
 - The form does not request or collect payment, does not send an M-Pesa prompt and does not confirm a drone booking. Flight permissions, safety, airspace restrictions, availability and final price are evaluated separately. There are no invented fixed price promises or license claims.
 - Files `assets/drone/*.webp` contain locally stored **AI-generated illustrative imagery**, NOT documentary evidence of HIT KENYA drone shoots or real booking availability. Replace with owned/approved client portfolio images when available.
 - Keep `index.html`, `drone-services.html`, `photography.html`, `assets/`, `functions/`, and `db/` at the repository root. GitHub Pages cannot execute Cloudflare Pages Functions. Use Cloudflare Pages with D1 binding `DB` to receive real enquiries.
+
+## Brand & Social Content / Content Creation page (October 29, 2026)
+
+**This is the latest consolidated website update.** Both the standalone `photography.html` page and the embedded Photography & Videography section in `index.html` now send the **Brand & Social Content → GET A QUOTE** button to the dedicated `brand-social-content.html` page rather than the generic Photo & Video booking form.
+
+The new page has the black-and-gold hero, six service categories, six locally bundled illustrative sample thumbnails (with lightbox previews), and a customer enquiry form. All new photos are stored in `assets/brand-social/`; they are based on design concepts and must **not** be presented as verified HIT KENYA client work or actual social engagement metrics. The sample gallery displays static photographs, not playable videos. Replace those concepts with licensed/owned campaign assets when you have them.
+
+### Form setup
+
+The page uses `POST /api/content-requests`. A new Cloudflare Pages Function at `functions/api/content-requests.js` validates name, email, Kenyan phone, business name, chosen service, details, preferred date and optional budget. It writes to the new `content_requests` table in `db/schema.sql` and responds with a reference **only after the database insert succeeds**. The page displays an error if the backend is missing or fails. A submitted enquiry does not confirm a booking and **does not initiate payment**.
+
+To activate the form, deploy through **Cloudflare Pages**, create/bind a D1 database with the binding name `DB`, execute the updated `db/schema.sql` against the production database, then redeploy and submit a test enquiry. GitHub Pages alone cannot run Cloudflare Functions. For production, also configure anti-spam protections, a privacy policy, secure admin access, customer-notification workflow and data retention procedures. The form does not automatically send emails.
+
+### Included files
+
+- `index.html`: original complete homepage and all previous embedded pages, plus the Brand & Social Content click correction.
+- `photography.html`: the standalone Photography service card now links to the new Brand & Social Content page.
+- `brand-social-content.html`: the dedicated Content Creation page (services, gallery, enquiry form).
+- `assets/brand-social/`: seven local WebP images and one design reference.
+- `functions/api/content-requests.js` and `db/schema.sql`: server and database support for quote enquiries.
+- All existing site assets, merchandise/Paystack files and previous service pages remain in place.
+
+**Upload the contents of this ZIP to your GitHub repository root**, not the containing folder, so `index.html`, `photography.html`, `brand-social-content.html`, `assets/`, `functions/` and `db/` share the correct relative structure. Existing Paystack payments still require separate production configuration and verification.
