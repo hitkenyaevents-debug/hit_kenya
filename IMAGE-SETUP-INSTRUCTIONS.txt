@@ -1,0 +1,23 @@
+HIT KENYA — IMAGE DISPLAY FIX
+
+1. Extract the ZIP file. Do not upload the ZIP as an individual file to GitHub Pages.
+2. Place index.html and the assets folder in the SAME publishing directory:
+   index.html
+   photo-video-booking.html
+   photography-portfolio.html
+   assets/photo-booking/hero.webp
+   assets/photo-booking/photographer.webp
+   assets/photo-booking/concert.webp
+   assets/photo-booking/brand.webp
+   assets/photo-booking/video.webp
+   assets/photo-booking/festival.webp
+   assets/marketing/ and other subfolders ...
+3. Upload all extracted files and folders to the GitHub repository root. Commit and redeploy.
+4. If using Cloudflare Pages, check Build output directory is the directory containing index.html and assets/.
+5. Image and folder names are case sensitive. Do not rename assets to Assets or change file extensions.
+6. After deployment, refresh with Ctrl+Shift+R or open in a private window.
+7. Directly test /assets/photo-booking/hero.webp on your domain; a 404 means wrong file path/deployment.
+8. Previews in PREVIEWS/ are samples, not needed for the site to run.
+
+The zipped website was statically checked for relative image and file references. The browser testing environment blocked localhost URLs, so live tests still need to happen after deployment.
+Paystack and Cloudflare Functions require separate production configuration.
