@@ -60,3 +60,58 @@ CREATE TABLE IF NOT EXISTS quote_requests (
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 CREATE INDEX IF NOT EXISTS idx_quote_requests_email_created ON quote_requests(email,created_at);
+
+-- Photography & videography enquiries. These are booking REQUESTS, not paid or confirmed bookings.
+-- Reference images are stored in a private R2 bucket named by MEDIA_UPLOADS binding when enabled.
+CREATE TABLE IF NOT EXISTS media_booking_requests (
+  reference TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  business TEXT NOT NULL DEFAULT '',
+  event_name TEXT NOT NULL,
+  event_type TEXT NOT NULL,
+  event_date TEXT NOT NULL,
+  location TEXT NOT NULL,
+  attendance INTEGER,
+  coverage TEXT NOT NULL,
+  services_json TEXT NOT NULL,
+  style TEXT NOT NULL DEFAULT '',
+  budget_kes INTEGER,
+  notes TEXT NOT NULL DEFAULT '',
+  reference_url TEXT NOT NULL DEFAULT '',
+  reference_files_json TEXT NOT NULL DEFAULT '[]',
+  duration TEXT NOT NULL,
+  payment_preference TEXT NOT NULL,
+  consent INTEGER NOT NULL DEFAULT 1,
+  payment_status TEXT NOT NULL DEFAULT 'not_paid',
+  status TEXT NOT NULL DEFAULT 'new',
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_media_bookings_email_created ON media_booking_requests(email,created_at);
+
+
+-- Drone service booking enquiries (requests only; no payment is taken).
+CREATE TABLE IF NOT EXISTS drone_booking_requests (
+  reference TEXT PRIMARY KEY,
+  project_name TEXT NOT NULL,
+  service TEXT NOT NULL,
+  package_name TEXT NOT NULL,
+  event_date TEXT NOT NULL,
+  location TEXT NOT NULL,
+  duration TEXT NOT NULL,
+  budget_kes INTEGER,
+  customer_name TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  email TEXT NOT NULL,
+  description TEXT NOT NULL,
+  notes TEXT NOT NULL DEFAULT '',
+  special_requests TEXT NOT NULL DEFAULT '',
+  delivery TEXT NOT NULL,
+  payment_preference TEXT NOT NULL,
+  consent INTEGER NOT NULL DEFAULT 1,
+  payment_status TEXT NOT NULL DEFAULT 'not_paid',
+  status TEXT NOT NULL DEFAULT 'new',
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_drone_booking_email_date ON drone_booking_requests(email, created_at);
