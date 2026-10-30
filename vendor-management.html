@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#05070a"><meta name="description" content="Request professional event vendor sourcing, coordination and management through HIT KENYA.">
+<title>Request Vendor Management | HIT KENYA</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@500;600;700;800;900&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/vendor-management/vendor-management.css">
+<script defer src="assets/vendor-management/vendor-management.js"></script>
+</head>
+<body>
+<header class="topbar"><div class="container nav-inner">
+ <a class="brand" href="index.html#vendor-facilitation" aria-label="HIT KENYA Vendor Facilitation"><span class="crown" aria-hidden="true">♛</span><strong><em>HIT</em> KENYA</strong><small>EVENTS | PEOPLE | BRANDS | OPPORTUNITIES</small></a>
+ <nav class="nav-links" id="navLinks" aria-label="Main navigation"><a href="index.html">HOME</a><a href="index.html#events">EVENTS</a><a href="photography-portfolio.html">GALLERY</a><a href="index.html#vendor-facilitation" aria-current="page">SERVICES</a><a href="index.html#vendor-facilitation">VENDORS</a></nav>
+ <div class="nav-actions"><a class="back" href="index.html#vendor-facilitation">← BACK</a><button type="button" class="menu" id="mobileMenu" aria-label="Open navigation" aria-controls="navLinks" aria-expanded="false">☰</button></div>
+</div></header>
+<main>
+ <section class="hero" aria-labelledby="heroHeading"><div class="container hero-inner"><div class="hero-copy">
+   <div class="eyebrow">▦ &nbsp; EVENTS • VENDOR FACILITATION</div>
+   <h1 id="heroHeading">REQUEST VENDOR<br><span>MANAGEMENT</span></h1>
+   <p>Let HIT KENYA handle vendor sourcing, coordination and management for your event. Share your needs and budget, and our team will prepare a tailored proposal.</p>
+ </div><div class="hero-script" aria-hidden="true">Great Events<br>Start with<br>Great Vendors<span>〰</span></div></div></section>
+ <div class="container">
+  <nav class="progress" aria-label="Vendor management request sections"><a href="#event-details"><span class="progress-icon">01</span><span>EVENT DETAILS</span></a><span class="progress-line" aria-hidden="true"></span><a href="#requirements"><span class="progress-icon">02</span><span>VENDOR REQUIREMENTS</span></a><span class="progress-line" aria-hidden="true"></span><a href="#budget"><span class="progress-icon">03</span><span>BUDGET &amp; MORE</span></a><span class="progress-line" aria-hidden="true"></span><a href="#submit-area"><span class="progress-icon">04</span><span>REVIEW &amp; SEND</span></a></nav>
+  <p class="form-intro">Complete the details below. Fields marked <strong>*</strong> are required. Sending this form requests a proposal; it does not confirm a booking or charge you.</p>
+  <form id="vendorManagementForm" novalidate>
+   <div class="form-columns">
+    <div class="form-stack">
+     <section class="panel" id="event-details" aria-labelledby="eventTitle"><div class="panel-head"><span class="head-icon">▦</span><div><h2 id="eventTitle">EVENT DETAILS</h2><p>Tell us about your event so we understand your needs.</p></div></div>
+      <div class="fields-grid">
+       <label class="field">Full Name <b>*</b><input id="fullName" name="fullName" required maxlength="120" autocomplete="name" placeholder="Enter your full name"></label>
+       <label class="field">Company / Organisation <small>(optional)</small><input name="organisation" maxlength="120" autocomplete="organization" placeholder="Enter company or organisation"></label>
+       <label class="field">Email Address <b>*</b><input id="email" name="email" type="email" required maxlength="160" autocomplete="email" placeholder="you@example.com"></label>
+       <label class="field">WhatsApp Number <b>*</b><input name="phone" type="tel" required maxlength="30" autocomplete="tel" placeholder="+254 7XX XXX XXX"></label>
+       <label class="field">Event Name <b>*</b><input name="eventName" required maxlength="140" placeholder="Name of your event"></label>
+       <label class="field">Event Type <b>*</b><select name="eventType" required><option value="">Select event type</option><option>Concert / Festival</option><option>Corporate Event</option><option>Conference / Exhibition</option><option>Wedding / Private Celebration</option><option>Market / Pop-Up</option><option>Community Event</option><option>Other Event</option></select></label>
+       <label class="field">Event Date <b>*</b><input name="eventDate" type="date" required></label>
+       <label class="field">Alternative Date <small>(optional)</small><input name="alternativeDate" type="date"></label>
+       <label class="field">Event Location <b>*</b><input name="eventLocation" required maxlength="180" placeholder="Venue, city or county"></label>
+       <label class="field">Expected Attendance <b>*</b><select name="attendance" required><option value="">Select expected guests</option><option value="Under 100">Under 100</option><option>100–499</option><option>500–999</option><option>1,000–4,999</option><option>5,000–9,999</option><option>10,000+</option><option>Not yet confirmed</option></select></label>
+      </div>
+     </section>
+     <section class="panel" id="requirements" aria-labelledby="requirementsTitle"><div class="panel-head"><span class="head-icon">♧</span><div><h2 id="requirementsTitle">VENDOR REQUIREMENTS</h2><p>Select the vendors you need and the support you expect.</p></div></div>
+      <fieldset class="choices"><legend>Vendor Categories Needed <b>*</b> <span class="subhint">Select at least one</span></legend>
+       <div class="checkbox-grid">
+        <label><input type="checkbox" name="vendorCategories" value="Food & Beverage Vendors"><span>Food &amp; Beverage Vendors</span></label>
+        <label><input type="checkbox" name="vendorCategories" value="Security Services"><span>Security Services</span></label>
+        <label><input type="checkbox" name="vendorCategories" value="Catering Services"><span>Catering Services</span></label>
+        <label><input type="checkbox" name="vendorCategories" value="Transport & Logistics"><span>Transport &amp; Logistics</span></label>
+        <label><input type="checkbox" name="vendorCategories" value="Decoration & Event Styling"><span>Decoration &amp; Event Styling</span></label>
+        <label><input type="checkbox" name="vendorCategories" value="Printing & Branding"><span>Printing &amp; Branding</span></label>
+        <label><input type="checkbox" name="vendorCategories" value="Photography & Videography"><span>Photography &amp; Videography</span></label>
+        <label><input type="checkbox" name="vendorCategories" value="Exhibitors & Market Stalls"><span>Exhibitors &amp; Market Stalls</span></label>
+        <label><input type="checkbox" name="vendorCategories" value="Sound, Lighting & Stage Equipment"><span>Sound, Lighting &amp; Stage Equipment</span></label>
+        <label><input type="checkbox" name="vendorCategories" value="Sanitation & Cleaning"><span>Sanitation &amp; Cleaning</span></label>
+        <label><input type="checkbox" name="vendorCategories" value="Furniture & Tents"><span>Furniture &amp; Tents</span></label>
+        <label><input type="checkbox" name="vendorCategories" value="Other"><span>Other</span></label>
+       </div><label class="field other-field" id="otherCategoryWrap" hidden>Describe the other vendor category <b>*</b><input id="otherCategory" name="otherCategory" maxlength="120" placeholder="e.g. Medical team, entertainment, generators"></label>
+      </fieldset>
+      <label class="field spaced">How Many Vendors Do You Expect? <b>*</b><select name="vendorCount" required><option value="">Select number of vendors</option><option>1–5</option><option>6–10</option><option>11–20</option><option>21–50</option><option>More than 50</option><option>Not sure yet</option></select></label>
+      <fieldset class="package-fieldset"><legend>Vendor Management Package <b>*</b></legend><div class="packages">
+       <label class="package"><input type="radio" name="package" value="Vendor Sourcing" required><span><strong>⌕ &nbsp; Vendor Sourcing</strong><small>Find suitable vendors, gather quotations and compare options.</small></span></label>
+       <label class="package"><input type="radio" name="package" value="Vendor Coordination"><span><strong>▦ &nbsp; Vendor Coordination</strong><small>Coordinate communication, schedules and vendor arrangements.</small></span></label>
+       <label class="package"><input type="radio" name="package" value="Full Vendor Management"><span><strong>♢ &nbsp; Full Management</strong><small>End-to-end sourcing, allocation, setup and event-day supervision.</small></span></label>
+      </div></fieldset>
+     </section>
+    </div>
+    <div class="form-stack">
+     <section class="panel" id="budget" aria-labelledby="budgetTitle"><div class="panel-head"><span class="head-icon">◈</span><div><h2 id="budgetTitle">BUDGET &amp; ADDITIONAL INFO</h2><p>Help us plan better with a few more details.</p></div></div>
+      <label class="field spaced">Estimated Vendor Budget (KSh) <b>*</b><select name="budget" required><option value="">Select your budget range</option><option>Under KSh 25,000</option><option>KSh 25,000–99,999</option><option>KSh 100,000–249,999</option><option>KSh 250,000–499,999</option><option>KSh 500,000–999,999</option><option>KSh 1,000,000+</option><option>Not yet determined</option></select></label>
+      <fieldset class="radio-fields"><legend>Does the budget include HIT KENYA’s management fee? <b>*</b></legend><label><input type="radio" name="feeIncluded" value="Yes" required> Yes, it includes the fee</label><label><input type="radio" name="feeIncluded" value="No"> No, vendor costs only</label><label><input type="radio" name="feeIncluded" value="Not sure"> Not sure yet</label></fieldset>
+      <fieldset class="radio-fields separated"><legend>Do you already have some vendors? <b>*</b></legend><label><input type="radio" name="vendorStatus" value="I have some vendors" required> Yes, I have some vendors</label><label><input type="radio" name="vendorStatus" value="Source all vendors"> No, source all vendors for me</label><label><input type="radio" name="vendorStatus" value="Review existing vendors"> Review my existing vendors</label></fieldset>
+     </section>
+     <section class="panel" aria-labelledby="moreTitle"><div class="panel-head"><span class="head-icon">✎</span><div><h2 id="moreTitle">ADDITIONAL INFORMATION</h2><p>Describe your event requirements.</p></div></div>
+      <label class="field spaced">Project Notes <small>(optional)</small><textarea name="notes" rows="5" maxlength="2000" placeholder="Tell us about your event, special arrangements, preferred vendors or important details..."></textarea><span class="char-counter" id="notesCount">0 / 2000</span></label>
+      <div class="upload-area"><label for="supportingFile"><span class="upload-icon">⇧</span><b>Upload Supporting Document</b><small>Optional • Event brief, budget or venue plan</small><span class="upload-box">Click to choose a file (PDF, DOC, DOCX, JPG or PNG; max 10 MB)</span></label><input type="file" name="supportingFile" id="supportingFile" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" hidden><div class="file-status" id="fileStatus" aria-live="polite">No document selected</div></div>
+     </section>
+     <section class="panel submit-panel" id="submit-area"><div class="panel-head"><span class="head-icon">✓</span><div><h2>REVIEW &amp; SEND</h2><p>Your request is reviewed before any quotation or booking is confirmed.</p></div></div>
+       <label class="consent"><input name="consent" type="checkbox" required> <span>I confirm these details are accurate and agree that HIT KENYA may use them to contact me about this vendor management request. <b>*</b></span></label>
+       <label class="honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+       <button type="submit" id="submitButton" class="submit-button">➤ &nbsp; SUBMIT VENDOR MANAGEMENT REQUEST &nbsp; →</button>
+       <p class="secure-note">An enquiry is not a confirmed booking. No money is collected here.</p>
+       <div id="status" class="status" aria-live="polite" role="status" hidden></div>
+     </section>
+     <div class="reply-note"><span>◷</span><p>Our team will review your event requirements and contact you with next steps. Response times depend on request volume.</p></div>
+    </div>
+   </div>
+  </form>
+ </div>
+</main>
+<footer class="footer"><div class="footer-feature"><div class="container footer-feature-inner"><div class="footer-brand"><span class="footer-logo"><em>HIT</em> KENYA</span><p>CAPTURE &nbsp; • &nbsp; CREATE &nbsp; • &nbsp; CONNECT</p></div><div class="footer-connect"><b>YOUR EVENT. OUR NETWORK.</b><span>Professional coordination, thoughtful planning and local connections.</span></div></div></div><div class="container footer-bottom"><a class="brand mini" href="index.html"><strong><em>HIT</em> KENYA</strong><small>EVENTS | PEOPLE | BRANDS | OPPORTUNITIES</small></a><span>Vendor facilitation across Kenya</span><a href="index.html#vendor-facilitation">BACK TO VENDOR FACILITATION →</a></div></footer>
+</body></html>

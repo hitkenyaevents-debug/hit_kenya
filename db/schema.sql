@@ -132,3 +132,55 @@ CREATE TABLE IF NOT EXISTS content_requests (
  created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 CREATE INDEX IF NOT EXISTS idx_content_requests_email_date ON content_requests(email,created_at);
+
+-- HIT KENYA vendor applications. Listings are private pending manual review.
+-- Product/gallery images are stored privately in R2 (VENDOR_UPLOADS binding) if attached.
+CREATE TABLE IF NOT EXISTS vendor_applications (
+  reference TEXT PRIMARY KEY,
+  business_name TEXT NOT NULL,
+  owner_name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  county TEXT NOT NULL,
+  town TEXT NOT NULL,
+  business_type TEXT NOT NULL,
+  description TEXT NOT NULL,
+  categories_json TEXT NOT NULL,
+  products_json TEXT NOT NULL,
+  services_json TEXT NOT NULL,
+  images_json TEXT NOT NULL DEFAULT '[]',
+  consent INTEGER NOT NULL DEFAULT 0,
+  status TEXT NOT NULL DEFAULT 'pending_review',
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_vendor_applications_created ON vendor_applications(created_at);
+CREATE INDEX IF NOT EXISTS idx_vendor_applications_email_created ON vendor_applications(email, created_at);
+
+-- Private event-organiser vendor management enquiries. Not confirmed bookings.
+-- Optional supporting documents are private R2 objects (VENDOR_MANAGEMENT_UPLOADS).
+CREATE TABLE IF NOT EXISTS vendor_management_requests (
+ reference TEXT PRIMARY KEY,
+ full_name TEXT NOT NULL,
+ organisation TEXT NOT NULL DEFAULT '',
+ email TEXT NOT NULL,
+ phone TEXT NOT NULL,
+ event_name TEXT NOT NULL,
+ event_type TEXT NOT NULL,
+ event_date TEXT NOT NULL,
+ alternative_date TEXT NOT NULL DEFAULT '',
+ event_location TEXT NOT NULL,
+ attendance TEXT NOT NULL,
+ categories_json TEXT NOT NULL,
+ other_category TEXT NOT NULL DEFAULT '',
+ vendor_count TEXT NOT NULL,
+ package_name TEXT NOT NULL,
+ budget TEXT NOT NULL,
+ fee_included TEXT NOT NULL,
+ vendor_status TEXT NOT NULL,
+ notes TEXT NOT NULL DEFAULT '',
+ document_key TEXT NOT NULL DEFAULT '',
+ consent INTEGER NOT NULL DEFAULT 0,
+ status TEXT NOT NULL DEFAULT 'pending_review',
+ created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_vendor_management_email_date ON vendor_management_requests(email, created_at);
