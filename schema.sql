@@ -89,3 +89,69 @@ CREATE TABLE IF NOT EXISTS media_booking_requests (
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 CREATE INDEX IF NOT EXISTS idx_media_bookings_email_created ON media_booking_requests(email,created_at);
+
+
+-- Drone service booking enquiries (requests only; no payment is taken).
+CREATE TABLE IF NOT EXISTS drone_booking_requests (
+  reference TEXT PRIMARY KEY,
+  project_name TEXT NOT NULL,
+  service TEXT NOT NULL,
+  package_name TEXT NOT NULL,
+  event_date TEXT NOT NULL,
+  location TEXT NOT NULL,
+  duration TEXT NOT NULL,
+  budget_kes INTEGER,
+  customer_name TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  email TEXT NOT NULL,
+  description TEXT NOT NULL,
+  notes TEXT NOT NULL DEFAULT '',
+  special_requests TEXT NOT NULL DEFAULT '',
+  delivery TEXT NOT NULL,
+  payment_preference TEXT NOT NULL,
+  consent INTEGER NOT NULL DEFAULT 1,
+  payment_status TEXT NOT NULL DEFAULT 'not_paid',
+  status TEXT NOT NULL DEFAULT 'new',
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_drone_booking_email_date ON drone_booking_requests(email, created_at);
+
+-- Brand and Social Content quote enquiries (no charges or confirmed bookings).
+CREATE TABLE IF NOT EXISTS content_requests (
+ reference TEXT PRIMARY KEY,
+ name TEXT NOT NULL,
+ email TEXT NOT NULL,
+ phone TEXT NOT NULL,
+ business TEXT NOT NULL,
+ content_type TEXT NOT NULL,
+ details TEXT NOT NULL,
+ preferred_date TEXT NOT NULL,
+ budget TEXT NOT NULL DEFAULT '',
+ consent INTEGER NOT NULL DEFAULT 1,
+ status TEXT NOT NULL DEFAULT 'new',
+ created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_content_requests_email_date ON content_requests(email,created_at);
+
+-- HIT KENYA vendor applications. Listings are private pending manual review.
+-- Product/gallery images are stored privately in R2 (VENDOR_UPLOADS binding) if attached.
+CREATE TABLE IF NOT EXISTS vendor_applications (
+  reference TEXT PRIMARY KEY,
+  business_name TEXT NOT NULL,
+  owner_name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  county TEXT NOT NULL,
+  town TEXT NOT NULL,
+  business_type TEXT NOT NULL,
+  description TEXT NOT NULL,
+  categories_json TEXT NOT NULL,
+  products_json TEXT NOT NULL,
+  services_json TEXT NOT NULL,
+  images_json TEXT NOT NULL DEFAULT '[]',
+  consent INTEGER NOT NULL DEFAULT 0,
+  status TEXT NOT NULL DEFAULT 'pending_review',
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_vendor_applications_created ON vendor_applications(created_at);
+CREATE INDEX IF NOT EXISTS idx_vendor_applications_email_created ON vendor_applications(email, created_at);
