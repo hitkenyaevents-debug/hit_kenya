@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#050607">
+  <meta name="description" content="Create a professional HIT KENYA vendor profile, add services and products, and submit your application for review.">
+  <title>Vendor Registration | HIT KENYA</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/vendor/vendor-registration.css">
+  <script src="assets/vendor/vendor-registration.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="index.html#vendor-facilitation" aria-label="HIT KENYA vendor facilitation home"><span class="crown" aria-hidden="true">♛</span><span><strong><em>HIT</em> KENYA</strong><small>EVENTS | PEOPLE | BRANDS | OPPORTUNITIES</small></span></a>
+    <nav class="site-nav" id="siteNav" aria-label="Main menu"><a href="index.html">HOME</a><a href="index.html#events">EVENTS</a><a href="index.html#vendor-facilitation" class="active">VENDORS</a><a href="photography-portfolio.html">GALLERY</a><a href="quote-request.html">CONTACT</a></nav>
+    <div class="header-actions"><a class="back" href="index.html#vendor-facilitation">← BACK</a><button class="menu-button" type="button" id="menuToggle" aria-controls="siteNav" aria-expanded="false" aria-label="Open main menu">☰</button></div>
+  </div>
+</header>
+<main>
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="wrap hero-inner">
+      <div class="hero-copy"><div class="eyebrow">VENDOR REGISTRATION</div><h1 id="heroTitle">SERVICES &amp;<br><span>PRODUCTS</span></h1><p id="heroDescription">Showcase what you offer. Add services, products, pricing and images to create a professional vendor profile.</p></div>
+      <p class="hero-script" aria-hidden="true">Your Business.<br>Your Network.<br>More Opportunities.</p>
+    </div>
+  </section>
+  <div class="wrap">
+    <nav class="progress" aria-label="Vendor registration progress">
+      <button type="button" data-step-target="1" class="progress-item"><span class="bubble">1</span><span>BUSINESS PROFILE</span></button>
+      <span class="progress-line" aria-hidden="true"></span>
+      <button type="button" data-step-target="2" class="progress-item"><span class="bubble">2</span><span>SERVICES &amp; PRODUCTS</span></button>
+      <span class="progress-line" aria-hidden="true"></span>
+      <button type="button" data-step-target="3" class="progress-item"><span class="bubble">3</span><span>REVIEW &amp; SUBMIT</span></button>
+    </nav>
+    <p class="general-alert" id="generalAlert" role="status" aria-live="polite" hidden></p>
+
+    <section class="stage" id="stage1" aria-labelledby="profileTitle" hidden>
+      <div class="stage-grid">
+        <div class="panel"><div class="panel-heading"><span class="heading-icon">♙</span><div><h2 id="profileTitle">YOUR BUSINESS PROFILE</h2><p>Tell customers who you are and where your business operates.</p></div></div>
+          <form id="profileForm" class="profile-grid">
+            <label class="field">Business name <b>*</b><input name="business" id="business" required maxlength="120" placeholder="e.g. Sunrise Crafts & More" autocomplete="organization"></label>
+            <label class="field">Your full name <b>*</b><input name="owner" id="owner" required maxlength="120" placeholder="Your full name" autocomplete="name"></label>
+            <label class="field">Email address <b>*</b><input name="email" id="email" required type="email" maxlength="200" placeholder="name@example.com" autocomplete="email"></label>
+            <label class="field">Phone / WhatsApp <b>*</b><input name="phone" id="phone" required type="tel" maxlength="32" placeholder="+254 7XX XXX XXX" autocomplete="tel"></label>
+            <label class="field">County <b>*</b><select name="county" id="county" required><option value="">Select county</option><option>Nairobi</option><option>Kiambu</option><option>Mombasa</option><option>Nakuru</option><option>Kisumu</option><option>Machakos</option><option>Kajiado</option><option>Uasin Gishu</option><option>Other county</option></select></label>
+            <label class="field">Town / Area <b>*</b><input name="town" id="town" required maxlength="100" placeholder="e.g. Nairobi CBD"></label>
+            <label class="field wide">Business type <b>*</b><select name="businessType" id="businessType" required><option value="">Choose your business category</option><option>Fashion & Beauty</option><option>Food & Catering</option><option>Product Supply</option><option>Professional Services</option><option>Events & Equipment</option><option>Creative & Digital Services</option><option>Other</option></select></label>
+            <label class="field wide">Tell us about your business <b>*</b><textarea name="description" id="description" maxlength="1200" required rows="5" placeholder="Briefly describe your products, services, experience and what makes your business unique."></textarea></label>
+            <div class="wide" style="display:flex;justify-content:flex-end"><button type="button" class="btn gold" id="toServices">CONTINUE TO SERVICES &amp; PRODUCTS <span>→</span></button></div>
+          </form>
+        </div>
+        <aside class="aside-stack"><div class="panel photo-feature"><img src="assets/vendor/vendor-join.webp" alt="Vendor displaying products at a local market"><h3>YOUR BUSINESS. OUR PLATFORM.</h3><p>Build a professional profile and make it easier for event organisers and customers to discover your work.</p></div><div class="panel tip"><h3>WHY REGISTER WITH HIT KENYA?</h3><p>Share your services, display examples, receive enquiries and grow your business connections. Every vendor application is reviewed before publication.</p></div></aside>
+      </div>
+    </section>
+
+    <section class="stage" id="stage2" aria-labelledby="servicesTitle" hidden><p class="stage-instruction">New vendor? You can explore services first, then complete the <button type="button" data-step-target="1">Business Profile</button> before submitting.</p>
+      <div class="panel"><div class="panel-heading"><span class="heading-icon">♧</span><div><h2 id="servicesTitle">ADD YOUR SERVICES</h2><p>Select the services you offer. Choose one or several categories.</p></div></div>
+        <div class="category-grid" id="categoryGrid">
+          <label class="category"><input type="checkbox" name="serviceCategories" value="Product Supply"><span class="category-icon">▣</span><span><b>PRODUCT SUPPLY</b><small>Fashion, electronics, accessories and household products.</small></span><span class="tick">✓</span></label>
+          <label class="category"><input type="checkbox" name="serviceCategories" value="Professional Services"><span class="category-icon">⚒</span><span><b>PROFESSIONAL SERVICES</b><small>Beauty, repair, design, consulting and technical services.</small></span><span class="tick">✓</span></label>
+          <label class="category"><input type="checkbox" name="serviceCategories" value="Food & Catering"><span class="category-icon">♨</span><span><b>FOOD &amp; CATERING</b><small>Food, beverages and catering for events or daily orders.</small></span><span class="tick">✓</span></label>
+          <label class="category"><input type="checkbox" name="serviceCategories" value="Fashion & Beauty"><span class="category-icon">♙</span><span><b>FASHION &amp; BEAUTY</b><small>Clothing, styling, beauty products and personal care.</small></span><span class="tick">✓</span></label>
+          <label class="category"><input type="checkbox" name="serviceCategories" value="Events & Equipment"><span class="category-icon">▦</span><span><b>EVENTS &amp; EQUIPMENT</b><small>Decor, event planning, lighting, AV and rentals.</small></span><span class="tick">✓</span></label>
+          <label class="category"><input type="checkbox" name="serviceCategories" value="Other Services"><span class="category-icon">⋯</span><span><b>OTHER SERVICES</b><small>Services that do not fit the categories above.</small></span><span class="tick">✓</span></label>
+        </div>
+      </div>
+      <div class="panel"><div class="panel-heading"><span class="heading-icon">⬡</span><div><h2>ADD YOUR PRODUCTS</h2><p>Add photos, descriptions and prices. Listings will appear after approval.</p></div></div>
+        <div class="product-grid" id="productGrid" aria-live="polite"></div>
+        <div class="product-bottom"><button class="btn outline" type="button" id="addProduct">+ ADD A PRODUCT</button><span class="muted" id="productCount">Up to 8 products • 5 MB per photo</span></div>
+      </div>
+      <div class="two-panels">
+        <div class="panel"><div class="panel-heading"><span class="heading-icon">◇</span><div><h2>SERVICE DETAILS &amp; PRICING</h2><p>Add individual services with starting prices in Kenyan shillings.</p></div></div><div id="customServiceList" class="service-list" aria-live="polite"></div><button type="button" class="btn outline" id="addService">+ ADD ANOTHER SERVICE</button></div>
+        <div class="panel"><div class="panel-heading"><span class="heading-icon">▧</span><div><h2>BUSINESS GALLERY</h2><p>Upload photos of your shop, products or work.</p></div></div>
+          <div id="galleryGrid" class="gallery-grid"></div>
+          <label class="upload-tile" for="galleryInput"><span class="upload-icon">⇧</span><b>CLICK TO UPLOAD IMAGES</b><small>JPG, PNG or WebP · 5 MB each · up to 6</small></label><input type="file" id="galleryInput" accept="image/jpeg,image/png,image/webp" multiple hidden><p class="muted file-note">Files are previews until you submit your application.</p>
+        </div>
+      </div>
+      <div class="panel action-panel"><button type="button" class="btn gold wide-button" id="toReview">CONTINUE TO REVIEW &amp; SUBMIT <span>→</span></button><small>Application details are submitted securely for review. Uploads require the configured HIT KENYA storage service.</small></div>
+      <div class="panel tip"><h3>✧ PRO TIP</h3><p>Well-lit photographs and specific descriptions help customers understand your business. Only upload images you have permission to use.</p></div>
+    </section>
+
+    <section class="stage" id="stage3" aria-labelledby="reviewTitle" hidden>
+      <div class="review-grid">
+        <div class="stack">
+          <div class="panel"><div class="panel-heading with-action"><span class="heading-icon">♙</span><div><h2 id="reviewTitle">1. BUSINESS PROFILE</h2></div><button class="text-button" type="button" data-edit="1">✎ Edit</button></div><dl class="review-dl" id="profileSummary"></dl></div>
+          <div class="panel"><div class="panel-heading with-action"><span class="heading-icon">⬡</span><div><h2>2. SERVICES &amp; PRODUCTS</h2></div><button class="text-button" type="button" data-edit="2">✎ Edit</button></div><h3 class="mini-heading">SERVICES OFFERED</h3><ul class="gold-list" id="servicesSummary"></ul><h3 class="mini-heading">PRODUCTS LISTED</h3><ul class="gold-list" id="productsSummary"></ul></div>
+          <div class="panel"><div class="panel-heading with-action"><span class="heading-icon">▤</span><div><h2>3. ADDITIONAL INFORMATION</h2></div><button class="text-button" type="button" data-edit="1">✎ Edit</button></div><p id="descriptionSummary" class="review-description"></p></div>
+        </div>
+        <aside class="stack">
+          <div class="panel"><div class="panel-heading"><span class="heading-icon">♙</span><div><h2>YOUR PROFILE SUMMARY</h2></div></div><div class="summary-business"><div class="summary-avatar">♛<b>HIT<br>KENYA</b></div><div><strong id="businessSummaryName">Your business</strong><span id="summaryType">Business category</span><span id="summaryLocation">Kenya</span><span id="summaryContact">Contact details</span></div></div></div>
+          <div class="panel"><div class="panel-heading with-action"><span class="heading-icon">▧</span><div><h2>MEDIA &amp; GALLERY</h2></div><button class="text-button" type="button" data-edit="2">✎ Edit</button></div><div class="review-gallery" id="gallerySummary"></div><p class="muted">Only images you have chosen will be included.</p></div>
+          <div class="panel"><div class="panel-heading"><span class="heading-icon">✓</span><div><h2>AGREEMENT &amp; TERMS</h2></div></div><label class="consent"><input id="confirmationAccuracy" type="checkbox"> <span>I confirm that all information and images supplied are accurate and I have the right to share them.</span></label><label class="consent"><input id="confirmationContact" type="checkbox"> <span>I agree that HIT KENYA may contact me about this application and review the submitted details.</span></label><p class="muted">An application is not an approved or publicly visible vendor listing.</p></div>
+        </aside>
+      </div>
+      <div class="panel submit-panel"><div><h2>READY TO JOIN HIT KENYA?</h2><p>Submit your vendor application for review. You'll receive a reference if it saves successfully.</p></div><button type="button" id="submitApplication" class="btn gold">SUBMIT APPLICATION <span>→</span></button><p class="submission-status" role="status" aria-live="polite" id="submissionStatus" hidden></p></div>
+    </section>
+  </div>
+</main>
+<footer class="footer"><div class="wrap footer-inner"><div class="footer-brand"><b>♛ HIT</b> KENYA<small>EVENTS | PEOPLE | BRANDS | OPPORTUNITIES</small></div><p>Your Business. Our Network.<br><span>More Opportunities.</span></p><a href="index.html#vendor-facilitation">BACK TO VENDOR FACILITATION →</a></div></footer>
+<dialog id="productDialog" class="edit-dialog"><form id="productForm" method="dialog"><div class="dialog-head"><h2 id="productDialogTitle">ADD A PRODUCT</h2><button type="button" class="close-dialog" data-close-dialog="productDialog" aria-label="Close">×</button></div><label class="field">Product name <b>*</b><input name="name" maxlength="100" required placeholder="e.g. Handmade tote bag"></label><label class="field">Price in KSh <b>*</b><input name="price" type="number" min="1" max="100000000" step="1" required placeholder="e.g. 2500"></label><label class="field">Short description<input name="description" maxlength="350" placeholder="Materials, size, or other details"></label><label class="field">Product photo (optional)<input id="productPhoto" name="photo" type="file" accept="image/jpeg,image/png,image/webp"></label><p class="muted">Use your own image, JPG/PNG/WebP, up to 5 MB.</p><button class="btn gold" type="submit">SAVE PRODUCT →</button></form></dialog>
+<dialog id="serviceDialog" class="edit-dialog"><form id="serviceForm" method="dialog"><div class="dialog-head"><h2 id="serviceDialogTitle">ADD A SERVICE</h2><button type="button" class="close-dialog" data-close-dialog="serviceDialog" aria-label="Close">×</button></div><label class="field">Service name <b>*</b><input name="name" maxlength="100" required placeholder="e.g. Event Decoration"></label><label class="field">Service description <b>*</b><textarea name="description" maxlength="450" rows="3" required placeholder="What is included?"></textarea></label><label class="field">Starting price (KSh) <b>*</b><input name="price" type="number" min="1" max="100000000" step="1" required placeholder="e.g. 15000"></label><button class="btn gold" type="submit">SAVE SERVICE →</button></form></dialog>
+</body></html>

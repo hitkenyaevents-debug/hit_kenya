@@ -1,3 +1,7 @@
+# Latest update — HIT KENYA Vendor Services & Products
+
+Read **VENDOR-UPDATE-README.md** for the new vendor workflows, D1/R2 setup and verification.
+
 # HIT KENYA | Website + working quote-request integration
 
 This is the consolidated HIT KENYA site. Upload the **contents of this ZIP directly to your GitHub repository root**; `index.html`, `event-promotion.html`, `quote-request.html`, `marketing-plan.html`, `assets/`, `functions/`, and `db/` must remain at the same relative paths. Do not upload only the `index.html` or keep the files inside a second nested folder.
