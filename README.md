@@ -1,3 +1,5 @@
+> **New vendor marketplace:** See `VENDOR-MARKETPLACE-UPDATE.md` for the Explore Vendors routing correction, real photo sources, publication controls, new endpoints and D1 migration.
+
 # Latest update — HIT KENYA Vendor Services & Products
 
 Read **VENDOR-UPDATE-README.md** for the new vendor workflows, D1/R2 setup and verification.
