@@ -34,10 +34,10 @@ export async function onRequestPost({request,env}){
  if(!body||Array.isArray(body)||typeof body!=='object'||body.website)return error('Invalid request.',400);
  const name=asText(body.fullName,120),email=isEmail(body.email)?body.email.toLowerCase().trim():null,phone=isKenyanPhone(body.phone)?body.phone.replace(/[\s-]/g,''):null;
  const organisation=asText(body.organisation,120,true),eventName=asText(body.eventName,140),location=asText(body.eventLocation,180);
- const notes=asText(body.notes,2000,true),other=asText(body.otherCategory,120,true);
+ const notes=asText(body.notes,500),other=asText(body.otherCategory,120,true);
  const selected=Array.isArray(body.categories)?body.categories:null;
  const consent=body.consent===true;
- if(!name||!email||!phone||organisation===null||!eventName||!location||notes===null||other===null||!consent)return error('Please check your contact and event information.',400);
+ if(!name||!email||!phone||organisation===null||!eventName||!location||!notes||notes.length<10||other===null||!consent)return error('Please check your contact and event information.',400);
  if(!eventTypes.has(body.eventType)||!attendance.has(body.attendance)||!vendorCounts.has(body.vendorCount)||!budgets.has(body.budget)||!packages.has(body.package)||!statuses.has(body.vendorStatus)||!['Yes','No','Not sure'].includes(body.feeIncluded))return error('Please select valid event, budget and vendor options.',400);
  if(!validDate(body.eventDate)||body.alternativeDate&&(!validDate(body.alternativeDate)))return error('Please check the event date.',400);
  const today=new Date().toISOString().slice(0,10);

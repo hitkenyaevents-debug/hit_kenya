@@ -184,3 +184,64 @@ CREATE TABLE IF NOT EXISTS vendor_management_requests (
  created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 CREATE INDEX IF NOT EXISTS idx_vendor_management_email_date ON vendor_management_requests(email, created_at);
+
+-- HIT KENYA VERIFIED VENDOR MARKETPLACE
+-- Public listings must be created ONLY after manual verification and explicit publication.
+-- Never expose private application details or uploaded identity documents in this table.
+CREATE TABLE IF NOT EXISTS vendor_public_profiles (
+ id INTEGER PRIMARY KEY AUTOINCREMENT,
+ display_name TEXT NOT NULL,
+ category TEXT NOT NULL CHECK(category IN ('Food & Catering','Fashion & Beauty','Events & Equipment','Product Supply','Professional Services','Other Services')),
+ county TEXT NOT NULL,
+ town TEXT NOT NULL,
+ description TEXT NOT NULL,
+ services_json TEXT NOT NULL DEFAULT '[]',
+ cover_url TEXT NOT NULL DEFAULT '',
+ status TEXT NOT NULL DEFAULT 'pending' CHECK(status IN ('pending','approved','suspended')),
+ public_enabled INTEGER NOT NULL DEFAULT 0 CHECK(public_enabled IN (0,1)),
+ created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_public_vendor_discovery ON vendor_public_profiles(status,public_enabled,category,county);
+
+-- Customer requests for individually approved vendors; never charged or automatically confirmed.
+CREATE TABLE IF NOT EXISTS vendor_booking_enquiries (
+ reference TEXT PRIMARY KEY,
+ vendor_id INTEGER NOT NULL REFERENCES vendor_public_profiles(id),
+ customer_name TEXT NOT NULL,
+ email TEXT NOT NULL,
+ phone TEXT NOT NULL,
+ event_date TEXT NOT NULL,
+ event_location TEXT NOT NULL,
+ details TEXT NOT NULL,
+ consent INTEGER NOT NULL,
+ status TEXT NOT NULL DEFAULT 'pending_review',
+ payment_status TEXT NOT NULL DEFAULT 'not_paid',
+ created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_vendor_enquiries_email_created ON vendor_booking_enquiries(email,created_at);
+
+-- Private artist applications, never published automatically.
+CREATE TABLE IF NOT EXISTS artist_applications (
+ reference TEXT PRIMARY KEY,
+ stage_name TEXT NOT NULL,
+ legal_name TEXT NOT NULL,
+ category TEXT NOT NULL,
+ email TEXT NOT NULL,
+ phone TEXT NOT NULL,
+ county TEXT NOT NULL,
+ languages TEXT NOT NULL,
+ bio TEXT NOT NULL,
+ years_experience TEXT NOT NULL,
+ fee_range TEXT NOT NULL,
+ availability TEXT NOT NULL,
+ genres_json TEXT NOT NULL,
+ links_json TEXT NOT NULL,
+ socials_json TEXT NOT NULL,
+ additional_info TEXT NOT NULL DEFAULT '',
+ files_json TEXT NOT NULL DEFAULT '[]',
+ consent INTEGER NOT NULL,
+ status TEXT NOT NULL DEFAULT 'pending_review',
+ created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_artist_applications_created ON artist_applications(created_at);
+CREATE INDEX IF NOT EXISTS idx_artist_applications_email ON artist_applications(email,created_at);
