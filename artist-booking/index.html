@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050607">
+  <meta name="description" content="Book singers, DJs, bands, MCs and performers for your event with HIT KENYA.">
+  <title>Book an Artist | HIT KENYA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050607;
+      --panel: #090d10;
+      --panel-2: #0d1216;
+      --gold: #f4b82e;
+      --gold-2: #ffcf4b;
+      --gold-dark: #a97812;
+      --white: #f7f7f5;
+      --muted: #b7bec5;
+      --line: rgba(244,184,46,.68);
+      --soft-line: rgba(255,255,255,.13);
+      --success: #67d6a1;
+      --danger: #ff7777;
+      --radius: 16px;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--white);
+      background:
+        radial-gradient(ellipse at 82% 8%, rgba(132,77,11,.13), transparent 34rem),
+        radial-gradient(ellipse at 10% 70%, rgba(36,72,91,.10), transparent 32rem),
+        var(--bg);
+      font-family: "DM Sans", Arial, sans-serif;
+      line-height: 1.5;
+    }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    a { color: inherit; text-decoration: none; }
+    .site-header {
+      height: 78px;
+      padding: 0 5.2%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(244,184,46,.42);
+      background: rgba(3,5,6,.94);
+      position: relative;
+      z-index: 5;
+    }
+    .brand { display: inline-flex; flex-direction: column; gap: 1px; }
+    .brand-name {
+      font: 900 29px/1 "Montserrat", sans-serif;
+      letter-spacing: -1.8px;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .brand-name span { color: var(--gold); }
+    .brand-crown { color: var(--gold); font-size: 15px; line-height: .7; margin-left: 27px; }
+    .brand-tag {
+      font: 700 9px/1.4 "Montserrat", sans-serif;
+      letter-spacing: 2.1px;
+      color: #d7d9da;
+      white-space: nowrap;
+    }
+    .header-right { display: flex; align-items: center; gap: 15px; }
+    .back-link {
+      border: 1px solid var(--line);
+      color: var(--gold-2);
+      border-radius: 30px;
+      padding: 10px 20px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .5px;
+      transition: .2s ease;
+    }
+    .back-link:hover { background: var(--gold); color: #080808; }
+    .menu-mark { color: var(--gold); font-size: 25px; line-height: 1; }
+    .wrap { width: min(var(--max), 91.5%); margin: 0 auto; }
+    .hero {
+      min-height: 295px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(244,184,46,.45);
+      background:
+        linear-gradient(90deg, rgba(3,5,7,.98) 0%, rgba(3,5,7,.88) 35%, rgba(3,5,7,.28) 70%, rgba(3,5,7,.18) 100%),
+        linear-gradient(0deg, rgba(3,5,7,.35), rgba(3,5,7,.05)),
+        url("https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=2000&q=88") center 38%/cover no-repeat;
+    }
+    .hero-inner {
+      width: min(var(--max), 91.5%);
+      margin: 0 auto;
+      min-height: 295px;
+      display: flex;
+      align-items: center;
+      padding: 38px 0;
+    }
+    .hero-copy { max-width: 610px; }
+    .eyebrow {
+      color: var(--gold);
+      font: 800 11px/1.3 "Montserrat", sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .eyebrow:before { content: ""; width: 42px; height: 2px; background: var(--gold); display: inline-block; }
+    h1 {
+      font: 900 clamp(32px, 4.2vw, 54px)/.99 "Montserrat", sans-serif;
+      letter-spacing: -1.9px;
+      text-transform: uppercase;
+      margin: 0 0 13px;
+      max-width: 650px;
+    }
+    h1 span { color: var(--gold); }
+    .hero-copy p { color: #e1e4e6; font-size: 15px; max-width: 480px; margin: 0; }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      padding: 24px 0 22px;
+      border-bottom: 1px solid rgba(244,184,46,.34);
+    }
+    .step-indicator { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .step-circle {
+      width: 42px; height: 42px; flex: 0 0 42px;
+      border: 1px solid rgba(255,255,255,.46);
+      color: #d6dce0; border-radius: 50%;
+      display: grid; place-items: center;
+      font: 800 14px "Montserrat", sans-serif;
+      transition: .2s;
+    }
+    .step-indicator.active .step-circle,
+    .step-indicator.done .step-circle {
+      border-color: var(--gold); background: var(--gold); color: #080808;
+      box-shadow: 0 0 0 5px rgba(244,184,46,.10);
+    }
+    .step-label { color: #aeb7bd; font-size: 11px; font-weight: 800; letter-spacing: .8px; text-transform: uppercase; white-space: nowrap; }
+    .step-indicator.active .step-label, .step-indicator.done .step-label { color: var(--gold-2); }
+    .step-line { height: 1px; background: linear-gradient(90deg, var(--gold-dark), rgba(255,255,255,.18)); flex: 1; margin-left: 2px; }
+    main { padding-bottom: 42px; }
+    .form-stage { padding-top: 25px; }
+    .stage-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin: 0 0 17px; }
+    .stage-heading h2 { font: 800 20px/1.2 "Montserrat", sans-serif; margin: 0; }
+    .stage-heading p { margin: 5px 0 0; color: var(--muted); font-size: 13px; }
+    .required-note { color: #9ca7ae; font-size: 11px; white-space: nowrap; }
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(11,17,21,.97), rgba(5,8,10,.97));
+      box-shadow: 0 12px 35px rgba(0,0,0,.18), inset 0 1px rgba(255,255,255,.025);
+    }
+    .form-panel { padding: 24px; }
+    .fields { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 17px 20px; }
+    .field { min-width: 0; }
+    .field.full { grid-column: 1 / -1; }
+    label, .field-label {
+      display: block; margin: 0 0 7px;
+      color: #e9edf0; font-size: 11px; font-weight: 800;
+      letter-spacing: .7px; text-transform: uppercase;
+    }
+    .field label span, .field-label span { color: var(--gold); }
+    input, select, textarea {
+      width: 100%; min-height: 47px;
+      border: 1px solid rgba(179,190,199,.34);
+      border-radius: 9px;
+      color: #f5f6f6;
+      background: #080d11;
+      padding: 12px 14px;
+      outline: none;
+      transition: border .18s, box-shadow .18s;
+      font-size: 13px;
+    }
+    input::placeholder, textarea::placeholder { color: #77838b; }
+    select { color: #d8dde0; }
+    select:invalid { color: #77838b; }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(244,184,46,.10);
+    }
+    input[type="date"] { color-scheme: dark; }
+    textarea { min-height: 105px; resize: vertical; }
+    .field-hint { color: #849098; font-size: 10px; margin-top: 5px; }
+    .field-error { color: var(--danger); font-size: 11px; margin-top: 5px; display: none; }
+    .has-error input, .has-error select, .has-error textarea { border-color: var(--danger); }
+    .has-error .field-error { display: block; }
+    .actions {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; margin-top: 22px;
+    }
+    .secure-note { display: flex; align-items: center; gap: 8px; color: #9da8af; font-size: 11px; }
+    .secure-note b { color: var(--gold); font-size: 15px; }
+    .btn {
+      min-height: 48px; border: 0; border-radius: 30px;
+      padding: 0 24px; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      font: 900 11px "Montserrat", sans-serif; text-transform: uppercase; letter-spacing: .25px;
+      transition: transform .18s, box-shadow .18s, background .18s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(244,184,46,.18); }
+    .btn-primary { color: #080808; background: linear-gradient(100deg, #ffd04b, #e9a91e); }
+    .btn-secondary { color: var(--gold-2); background: transparent; border: 1px solid var(--line); }
+    .btn-secondary:hover { background: rgba(244,184,46,.09); }
+    .btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+    .artist-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 11px; }
+    .choice {
+      min-height: 82px; padding: 13px 12px;
+      display: flex; align-items: center; gap: 11px;
+      border: 1px solid rgba(255,255,255,.2); border-radius: 11px;
+      background: rgba(7,12,15,.82); color: var(--white);
+      text-align: left; transition: .18s ease; position: relative;
+    }
+    .choice:hover { border-color: rgba(244,184,46,.75); background: rgba(244,184,46,.06); }
+    .choice.selected { border: 1px solid var(--gold); background: rgba(244,184,46,.11); box-shadow: inset 0 0 0 1px rgba(244,184,46,.12); }
+    .choice-icon { width: 34px; height: 34px; flex: 0 0 34px; display: grid; place-items: center; border: 1px solid rgba(244,184,46,.65); border-radius: 50%; color: var(--gold); font-size: 17px; }
+    .choice strong { display: block; font-size: 12px; font-weight: 800; }
+    .choice small { display: block; color: #9ca8af; font-size: 10px; margin-top: 2px; }
+    .choice .tick { position: absolute; top: 7px; right: 9px; color: var(--gold); font-size: 14px; opacity: 0; }
+    .choice.selected .tick { opacity: 1; }
+    .section-block { margin-bottom: 22px; }
+    .section-title {
+      display: flex; align-items: center; gap: 12px;
+      font: 800 13px "Montserrat", sans-serif; text-transform: uppercase;
+      margin: 0 0 13px;
+    }
+    .section-title .round-icon {
+      width: 37px; height: 37px; display: grid; place-items: center;
+      color: var(--gold); border: 1px solid var(--line); border-radius: 50%; font-size: 17px;
+    }
+    .section-title small { display: block; color: #9ca7ae; font: 400 11px "DM Sans", sans-serif; text-transform: none; margin-top: 3px; }
+    .divider { height: 1px; background: rgba(255,255,255,.12); margin: 19px 0; }
+    .budget-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 9px; }
+    .budget-option {
+      min-height: 65px; border: 1px solid rgba(255,255,255,.22); border-radius: 9px;
+      color: #e9edf0; background: #080d11; padding: 9px 7px; font-size: 11px; line-height: 1.35;
+      transition: .18s;
+    }
+    .budget-option.selected { border-color: var(--gold); background: rgba(244,184,46,.12); color: var(--gold-2); }
+    .budget-option strong { display: block; font-size: 12px; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .review-grid { display: grid; grid-template-columns: minmax(0,1.65fr) minmax(260px,.9fr); gap: 16px; align-items: start; }
+    .review-card { padding: 19px; margin-bottom: 13px; }
+    .review-card-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,.13); margin-bottom: 13px; }
+    .review-card-head h3 { margin: 0; font: 800 13px "Montserrat", sans-serif; text-transform: uppercase; display: flex; gap: 9px; align-items: center; }
+    .review-card-head h3 span { color: var(--gold); font-size: 17px; }
+    .edit-btn { color: var(--gold); border: 0; background: none; font-size: 11px; font-weight: 800; }
+    .review-list { display: grid; grid-template-columns: 145px 1fr; gap: 8px 12px; font-size: 12px; }
+    .review-list dt { color: #9eabb3; }
+    .review-list dd { margin: 0; color: #f0f2f3; overflow-wrap: anywhere; }
+    .talent-card { overflow: hidden; padding: 0; }
+    .talent-photo {
+      min-height: 205px;
+      background:
+        linear-gradient(0deg, rgba(3,5,7,.9), rgba(3,5,7,0) 60%),
+        url("https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=85") center/cover no-repeat;
+    }
+    .talent-caption { padding: 0 17px 17px; margin-top: -2px; }
+    .talent-caption h3 { margin: 0; font: 900 19px "Montserrat", sans-serif; }
+    .talent-caption p { margin: 5px 0 0; color: var(--gold); font-size: 10px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+    .why-card { padding: 18px; }
+    .why-card h3 { font: 800 12px "Montserrat", sans-serif; margin: 0 0 13px; color: var(--gold-2); text-transform: uppercase; }
+    .why-card ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; }
+    .why-card li { color: #dce1e4; font-size: 11px; display: flex; gap: 9px; }
+    .why-card li:before { content: "✓"; color: var(--gold); font-weight: 900; }
+    .terms { display: flex; align-items: flex-start; gap: 10px; color: #c9d0d4; font-size: 11px; margin: 17px 0 0; }
+    .terms input { width: 17px; min-height: 17px; margin: 1px 0 0; accent-color: var(--gold); flex: 0 0 17px; }
+    .terms a { color: var(--gold); text-decoration: underline; }
+    .success-box { display: none; border: 1px solid rgba(103,214,161,.7); border-radius: 13px; padding: 22px; background: rgba(24,91,63,.12); margin-top: 18px; }
+    .success-box.show { display: block; }
+    .success-box h3 { color: var(--success); margin: 0 0 7px; font: 800 17px "Montserrat", sans-serif; }
+    .success-box p { color: #dce6e1; font-size: 13px; margin: 0; }
+    .site-footer { border-top: 1px solid rgba(244,184,46,.45); padding: 22px 0 28px; background: #030405; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer-nav { display: flex; gap: 17px; flex-wrap: wrap; color: #aeb7bd; font-size: 9px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+    .socials { color: var(--gold); display: flex; gap: 13px; font-weight: 800; font-size: 15px; }
+    .footer-bottom { text-align: center; color: #707b82; font-size: 9px; margin-top: 17px; }
+    .hidden { display: none !important; }
+    .toast {
+      position: fixed; right: 22px; bottom: 22px; z-index: 20;
+      max-width: 340px; padding: 13px 16px; border-radius: 10px;
+      background: #191f23; border: 1px solid var(--line); color: #fff;
+      box-shadow: 0 12px 35px rgba(0,0,0,.4); font-size: 12px;
+      opacity: 0; transform: translateY(12px); pointer-events: none; transition: .25s;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+    @media (max-width: 800px) {
+      .site-header { height: 70px; padding: 0 4%; }
+      .brand-name { font-size: 24px; }
+      .brand-tag { font-size: 7px; letter-spacing: 1.5px; }
+      .hero, .hero-inner { min-height: 270px; }
+      .hero { background-position: 58% center; }
+      .hero-copy { max-width: 520px; }
+      .artist-grid { grid-template-columns: repeat(2,1fr); }
+      .budget-grid { grid-template-columns: repeat(3,1fr); }
+      .review-grid { grid-template-columns: 1fr; }
+      .talent-card { display: grid; grid-template-columns: 38% 1fr; align-items: end; }
+      .talent-photo { min-height: 170px; }
+      .talent-caption { margin: 0; padding: 18px; }
+    }
+    @media (max-width: 560px) {
+      .wrap, .hero-inner { width: 92%; }
+      .site-header { padding: 0 4%; }
+      .back-link { padding: 8px 13px; font-size: 10px; }
+      .menu-mark { display: none; }
+      .hero, .hero-inner { min-height: 255px; }
+      .hero { background-image: linear-gradient(90deg, rgba(3,5,7,.97), rgba(3,5,7,.72) 58%, rgba(3,5,7,.32)), url("https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1100&q=82"); background-position: 60% center; }
+      .hero-inner { padding: 28px 0; }
+      h1 { font-size: 34px; letter-spacing: -1.3px; }
+      .hero-copy p { font-size: 13px; max-width: 340px; }
+      .steps { gap: 7px; padding: 17px 0; }
+      .step-indicator { gap: 6px; }
+      .step-circle { width: 32px; height: 32px; flex-basis: 32px; font-size: 11px; }
+      .step-label { font-size: 8px; letter-spacing: .25px; white-space: normal; line-height: 1.25; }
+      .step-line { display: none; }
+      .form-stage { padding-top: 19px; }
+      .stage-heading { align-items: flex-start; flex-direction: column; gap: 4px; }
+      .stage-heading h2 { font-size: 17px; }
+      .form-panel { padding: 16px; }
+      .fields, .two-col { grid-template-columns: 1fr; gap: 13px; }
+      input, select { min-height: 45px; }
+      .artist-grid { gap: 8px; }
+      .choice { min-height: 72px; padding: 9px; gap: 8px; }
+      .choice-icon { width: 29px; height: 29px; flex-basis: 29px; font-size: 14px; }
+      .choice strong { font-size: 11px; }
+      .choice small { font-size: 9px; }
+      .budget-grid { grid-template-columns: repeat(2,1fr); }
+      .actions { align-items: stretch; flex-direction: column-reverse; }
+      .actions .btn { width: 100%; }
+      .secure-note { justify-content: center; }
+      .review-card { padding: 15px; }
+      .review-list { grid-template-columns: 112px 1fr; font-size: 11px; gap: 7px 8px; }
+      .talent-card { grid-template-columns: 1fr; }
+      .talent-photo { min-height: 175px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+      .footer-nav { gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html" aria-label="HIT KENYA home">
+      <span class="brand-crown">♛</span>
+      <span class="brand-name">HIT <span>KENYA</span></span>
+      <span class="brand-tag">EVENTS | PEOPLE | BRANDS | OPPORTUNITIES</span>
+    </a>
+    <div class="header-right">
+      <a class="back-link" href="../index.html">← &nbsp; BACK</a>
+      <span class="menu-mark" aria-hidden="true">☰</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <div class="eyebrow">Artist booking request</div>
+        <h1>Book the <span>right talent</span><br>for your event.</h1>
+        <p>Tell us about your event and the talent you need. Our team will help coordinate your booking from the first enquiry to the final performance.</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <nav class="steps" aria-label="Booking progress">
+      <div class="step-indicator active" data-step-indicator="1">
+        <span class="step-circle">01</span><span class="step-label">Event details</span><span class="step-line"></span>
+      </div>
+      <div class="step-indicator" data-step-indicator="2">
+        <span class="step-circle">02</span><span class="step-label">Artist &amp; budget</span><span class="step-line"></span>
+      </div>
+      <div class="step-indicator" data-step-indicator="3">
+        <span class="step-circle">03</span><span class="step-label">Review &amp; submit</span>
+      </div>
+    </nav>
+
+    <form id="bookingForm" novalidate>
+      <!-- STEP 1 -->
+      <section class="form-stage" data-stage="1">
+        <div class="stage-heading">
+          <div>
+            <h2>01. Tell us about your event</h2>
+            <p>Share the essential details so we can understand what you are planning.</p>
+          </div>
+          <div class="required-note"><span style="color:var(--gold)">*</span> Required fields</div>
+        </div>
+        <div class="panel form-panel">
+          <div class="fields">
+            <div class="field full" data-field="fullName">
+              <label for="fullName">Your name <span>*</span></label>
+              <input id="fullName" name="fullName" autocomplete="name" placeholder="Enter your full name" required>
+              <div class="field-error">Please enter your name.</div>
+            </div>
+            <div class="field full">
+              <label for="organisation">Organisation / brand</label>
+              <input id="organisation" name="organisation" placeholder="Business or organisation (optional)">
+            </div>
+            <div class="field" data-field="phone">
+              <label for="phone">Phone / WhatsApp <span>*</span></label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+254 7XX XXX XXX" required>
+              <div class="field-error">Please enter a contact number.</div>
+            </div>
+            <div class="field" data-field="email">
+              <label for="email">Email address <span>*</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
+              <div class="field-error">Enter a valid email address.</div>
+            </div>
+            <div class="field full" data-field="eventName">
+              <label for="eventName">Event name <span>*</span></label>
+              <input id="eventName" name="eventName" placeholder="What is your event called?" required>
+              <div class="field-error">Please enter the event name.</div>
+            </div>
+            <div class="field" data-field="eventType">
+              <label for="eventType">Event type <span>*</span></label>
+              <select id="eventType" name="eventType" required>
+                <option value="">Select event type</option>
+                <option>Concert / Music Festival</option><option>Corporate Event</option>
+                <option>Wedding</option><option>Private Party</option><option>Product Launch</option>
+                <option>Campus / Student Event</option><option>County / Community Event</option>
+                <option>Conference / Awards</option><option>Other</option>
+              </select>
+              <div class="field-error">Please select an event type.</div>
+            </div>
+            <div class="field" data-field="eventDate">
+              <label for="eventDate">Event date <span>*</span></label>
+              <input id="eventDate" name="eventDate" type="date" required>
+              <div class="field-error">Please select your event date.</div>
+            </div>
+            <div class="field" data-field="location">
+              <label for="location">Event location / county <span>*</span></label>
+              <input id="location" name="location" placeholder="Venue, town or county" required>
+              <div class="field-error">Please enter the event location.</div>
+            </div>
+            <div class="field" data-field="attendance">
+              <label for="attendance">Expected attendance <span>*</span></label>
+              <select id="attendance" name="attendance" required>
+                <option value="">Select audience size</option>
+                <option>Below 100 people</option><option>100–300 people</option>
+                <option>301–500 people</option><option>501–1,000 people</option>
+                <option>1,001–3,000 people</option><option>3,001–5,000 people</option>
+                <option>More than 5,000 people</option>
+              </select>
+              <div class="field-error">Please select the expected audience size.</div>
+            </div>
+          </div>
+          <div class="actions">
+            <div class="secure-note"><b>♙</b> Your details are handled securely by HIT KENYA.</div>
+            <button class="btn btn-primary" type="button" id="toStep2">Continue to artist &amp; budget <span>→</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 -->
+      <section class="form-stage hidden" data-stage="2">
+        <div class="stage-heading">
+          <div>
+            <h2>02. Choose the talent you need</h2>
+            <p>Tell us the kind of performer, music style and budget you have in mind.</p>
+          </div>
+          <div class="required-note"><span style="color:var(--gold)">*</span> Required fields</div>
+        </div>
+        <div class="panel form-panel">
+          <div class="section-block" data-field="artistType">
+            <div class="section-title"><span class="round-icon">♬</span><span>1. Select artist type <small>What type of artist are you looking to book?</small></span></div>
+            <div class="artist-grid" id="artistChoices">
+              <button class="choice" type="button" data-choice="artistType" data-value="Singer"><span class="choice-icon">♫</span><span><strong>Singer</strong><small>Vocal performer</small></span><span class="tick">✓</span></button>
+              <button class="choice" type="button" data-choice="artistType" data-value="DJ"><span class="choice-icon">◖</span><span><strong>DJ</strong><small>Disc jockey</small></span><span class="tick">✓</span></button>
+              <button class="choice" type="button" data-choice="artistType" data-value="Band"><span class="choice-icon">♬</span><span><strong>Band</strong><small>Live band</small></span><span class="tick">✓</span></button>
+              <button class="choice" type="button" data-choice="artistType" data-value="MC / Host"><span class="choice-icon">♙</span><span><strong>MC / Host</strong><small>Event host</small></span><span class="tick">✓</span></button>
+              <button class="choice" type="button" data-choice="artistType" data-value="Comedian"><span class="choice-icon">☺</span><span><strong>Comedian</strong><small>Stand-up comedy</small></span><span class="tick">✓</span></button>
+              <button class="choice" type="button" data-choice="artistType" data-value="Dancer"><span class="choice-icon">✦</span><span><strong>Dancer</strong><small>Dance performance</small></span><span class="tick">✓</span></button>
+              <button class="choice" type="button" data-choice="artistType" data-value="Instrumentalist"><span class="choice-icon">♩</span><span><strong>Instrumentalist</strong><small>Live instrumentalist</small></span><span class="tick">✓</span></button>
+              <button class="choice" type="button" data-choice="artistType" data-value="Other"><span class="choice-icon">☆</span><span><strong>Other</strong><small>Specify your needs</small></span><span class="tick">✓</span></button>
+            </div>
+            <div class="field-error" id="artistTypeError">Please select an artist type.</div>
+          </div>
+          <div class="divider"></div>
+          <div class="fields">
+            <div class="field" data-field="genre">
+              <label for="genre">2. Select genre / category <span>*</span></label>
+              <select id="genre" name="genre" required>
+                <option value="">Select genre / category</option>
+                <option>Afrobeats</option><option>Gengetone</option><option>Gospel</option>
+                <option>Hip-hop / Rap</option><option>R&amp;B</option><option>Bongo Flava</option>
+                <option>Amapiano</option><option>Reggae / Dancehall</option><option>Live Covers</option>
+                <option>Comedy</option><option>Traditional / Cultural</option><option>Other / Not applicable</option>
+              </select>
+              <div class="field-error">Please select a genre or category.</div>
+            </div>
+            <div class="field">
+              <label for="preferredArtist">3. Preferred artist <small style="color:#9ca7ae;font-weight:400;text-transform:none;letter-spacing:0">(optional)</small></label>
+              <input id="preferredArtist" name="preferredArtist" placeholder="Enter artist name (optional)">
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="section-block" data-field="budget">
+            <div class="section-title"><span class="round-icon">KSh</span><span>4. Estimated budget <small>What is your budget for the artist or performance?</small></span></div>
+            <div class="budget-grid" id="budgetChoices">
+              <button type="button" class="budget-option" data-choice="budget" data-value="Under KSh 50,000">Under <strong>KSh 50,000</strong></button>
+              <button type="button" class="budget-option" data-choice="budget" data-value="KSh 50,000–100,000"><strong>KSh 50,000–</strong>100,000</button>
+              <button type="button" class="budget-option" data-choice="budget" data-value="KSh 100,000–250,000"><strong>KSh 100,000–</strong>250,000</button>
+              <button type="button" class="budget-option" data-choice="budget" data-value="KSh 250,000–500,000"><strong>KSh 250,000–</strong>500,000</button>
+              <button type="button" class="budget-option" data-choice="budget" data-value="KSh 500,000+">KSh <strong>500,000+</strong></button>
+            </div>
+            <div class="field-error" id="budgetError">Please select an estimated budget.</div>
+          </div>
+          <div class="divider"></div>
+          <div class="two-col">
+            <div class="field" data-field="duration">
+              <label for="duration">5. Performance duration <span>*</span></label>
+              <select id="duration" name="duration" required>
+                <option value="">Select duration</option>
+                <option>15–30 minutes</option><option>30–45 minutes</option>
+                <option>45–60 minutes</option><option>1–2 hours</option>
+                <option>2–3 hours</option><option>Full event / multiple sets</option>
+                <option>To be discussed</option>
+              </select>
+              <div class="field-error">Please select a performance duration.</div>
+            </div>
+            <div class="field">
+              <label for="requirements">6. Additional requirements</label>
+              <textarea id="requirements" name="requirements" maxlength="500" placeholder="Tell us about any special requests, stage setup, sound, travel, accommodation or other requirements..."></textarea>
+              <div class="field-hint"><span id="requirementsCount">0</span>/500 characters</div>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-secondary" type="button" id="backTo1">← &nbsp; Previous</button>
+            <button class="btn btn-primary" type="button" id="toStep3">Continue to review &amp; submit <span>→</span></button>
+          </div>
+          <div class="secure-note" style="justify-content:center;margin-top:13px"><b>♙</b> Your information will only be used for this booking enquiry.</div>
+        </div>
+      </section>
+
+      <!-- STEP 3 -->
+      <section class="form-stage hidden" data-stage="3">
+        <div class="stage-heading">
+          <div>
+            <h2>03. Review your booking request</h2>
+            <p>Please check your details before submitting your enquiry to HIT KENYA.</p>
+          </div>
+        </div>
+        <div class="review-grid">
+          <div>
+            <section class="panel review-card">
+              <div class="review-card-head"><h3><span>▦</span> Event details</h3><button type="button" class="edit-btn" data-edit="1">✎ Edit</button></div>
+              <dl class="review-list" id="reviewEvent"></dl>
+            </section>
+            <section class="panel review-card">
+              <div class="review-card-head"><h3><span>♫</span> Artist &amp; budget</h3><button type="button" class="edit-btn" data-edit="2">✎ Edit</button></div>
+              <dl class="review-list" id="reviewArtist"></dl>
+            </section>
+            <section class="panel review-card">
+              <div class="review-card-head"><h3><span>♙</span> Your contact details</h3><button type="button" class="edit-btn" data-edit="1">✎ Edit</button></div>
+              <dl class="review-list" id="reviewContact"></dl>
+            </section>
+          </div>
+          <aside>
+            <div class="panel talent-card">
+              <div class="talent-photo" role="img" aria-label="Live music performance photography"></div>
+              <div class="talent-caption"><h3>HIT KENYA</h3><p>Talent. Events. Experiences.</p></div>
+            </div>
+            <div class="panel why-card" style="margin-top:13px">
+              <h3>Why book through HIT KENYA?</h3>
+              <ul>
+                <li>Access to a range of professional performers</li>
+                <li>Support with artist selection and coordination</li>
+                <li>Clear communication throughout the process</li>
+                <li>One point of contact for your booking enquiry</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+        <div class="panel form-panel" style="margin-top:3px">
+          <label class="terms"><input type="checkbox" id="agree" required><span>I confirm that the information provided is accurate and agree to be contacted by HIT KENYA about this booking request. I have read the <a href="#" onclick="return false">Terms &amp; Conditions</a> and <a href="#" onclick="return false">Booking Policy</a>.</span></label>
+          <div class="field-error" id="agreeError">Please confirm before submitting your booking request.</div>
+          <div class="actions">
+            <button class="btn btn-secondary" type="button" id="backTo2">← &nbsp; Previous</button>
+            <button class="btn btn-primary" type="submit" id="submitBooking">Submit booking request <span>→</span></button>
+          </div>
+          <div class="secure-note" style="justify-content:center;margin-top:13px"><b>♙</b> Your details are kept private and used only for this enquiry.</div>
+          <div class="success-box" id="successBox" role="status" aria-live="polite">
+            <h3>Enquiry saved successfully</h3>
+            <p>Your booking details have been saved in this browser for this demonstration. To receive real customer enquiries, connect this form to your HIT KENYA email, CRM or website backend before publishing.</p>
+          </div>
+        </div>
+      </section>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-name">HIT <span>KENYA</span></span>
+        <span class="brand-tag">EVENTS | PEOPLE | BRANDS | OPPORTUNITIES</span>
+      </a>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="../index.html">Events</a><a href="../index.html">People</a><a href="../index.html">Brands</a><a href="../index.html">Opportunities</a>
+      </nav>
+      <div class="socials" aria-label="Social media">◎ &nbsp; f &nbsp; ♪ &nbsp; ▶ &nbsp; 𝕏</div>
+    </div>
+    <div class="footer-bottom">© <span id="year"></span> HIT KENYA. Capture · Create · Connect.</div>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (() => {
+      const form = document.getElementById('bookingForm');
+      const stages = [...document.querySelectorAll('[data-stage]')];
+      const indicators = [...document.querySelectorAll('[data-step-indicator]')];
+      const state = { artistType: '', budget: '' };
+      let currentStep = 1;
+
+      const $ = (id) => document.getElementById(id);
+      const value = (id) => ($(id)?.value || '').trim();
+      const showToast = (message) => {
+        const toast = $('toast');
+        toast.textContent = message;
+        toast.classList.add('show');
+        window.clearTimeout(showToast.timer);
+        showToast.timer = window.setTimeout(() => toast.classList.remove('show'), 3200);
+      };
+
+      function setStep(step) {
+        currentStep = step;
+        stages.forEach(section => section.classList.toggle('hidden', Number(section.dataset.stage) !== step));
+        indicators.forEach(item => {
+          const n = Number(item.dataset.stepIndicator);
+          item.classList.toggle('active', n === step);
+          item.classList.toggle('done', n < step);
+          const circle = item.querySelector('.step-circle');
+          if (n < step) circle.textContent = '✓';
+          else circle.textContent = String(n).padStart(2, '0');
+        });
+        window.scrollTo({ top: document.querySelector('.steps').getBoundingClientRect().top + window.scrollY - 12, behavior: 'smooth' });
+      }
+
+      function clearErrors(section) {
+        section.querySelectorAll('.has-error').forEach(el => el.classList.remove('has-error'));
+        section.querySelectorAll('.field-error').forEach(el => {
+          if (el.id === 'artistTypeError' || el.id === 'budgetError' || el.id === 'agreeError') el.style.display = 'none';
+        });
+      }
+
+      function validateFields(section) {
+        clearErrors(section);
+        let valid = true;
+        section.querySelectorAll('[required]').forEach(input => {
+          if (input.type === 'checkbox') return;
+          const field = input.closest('.field');
+          const badEmail = input.type === 'email' && input.value && !input.checkValidity();
+          if (!input.value.trim() || badEmail) {
+            valid = false;
+            if (field) field.classList.add('has-error');
+          }
+        });
+        if (!valid) {
+          const first = section.querySelector('.has-error input, .has-error select');
+          first?.focus({ preventScroll: true });
+          showToast('Please complete the required fields before continuing.');
+        }
+        return valid;
+      }
+
+      function validateStep2() {
+        const section = document.querySelector('[data-stage="2"]');
+        clearErrors(section);
+        let valid = validateFields(section);
+        if (!state.artistType) {
+          valid = false;
+          $('artistTypeError').style.display = 'block';
+        }
+        if (!state.budget) {
+          valid = false;
+          $('budgetError').style.display = 'block';
+        }
+        if (!valid) showToast('Please select an artist type and budget, and complete the required fields.');
+        return valid;
+      }
+
+      document.querySelectorAll('[data-choice="artistType"], [data-choice="budget"]').forEach(button => {
+        button.addEventListener('click', () => {
+          const key = button.dataset.choice;
+          state[key] = button.dataset.value;
+          document.querySelectorAll(`[data-choice="${key}"]`).forEach(option => option.classList.toggle('selected', option === button));
+          if (key === 'artistType') $('artistTypeError').style.display = 'none';
+          if (key === 'budget') $('budgetError').style.display = 'none';
+        });
+      });
+
+      $('toStep2').addEventListener('click', () => {
+        const section = document.querySelector('[data-stage="1"]');
+        if (validateFields(section)) setStep(2);
+      });
+      $('backTo1').addEventListener('click', () => setStep(1));
+      $('toStep3').addEventListener('click', () => {
+        if (validateStep2()) {
+          buildReview();
+          setStep(3);
+        }
+      });
+      $('backTo2').addEventListener('click', () => setStep(2));
+      document.querySelectorAll('[data-edit]').forEach(button => button.addEventListener('click', () => setStep(Number(button.dataset.edit))));
+
+      $('requirements').addEventListener('input', () => {
+        $('requirementsCount').textContent = $('requirements').value.length;
+      });
+
+      function addReviewRows(targetId, rows) {
+        const target = $(targetId);
+        target.innerHTML = '';
+        rows.forEach(([label, val]) => {
+          const dt = document.createElement('dt');
+          const dd = document.createElement('dd');
+          dt.textContent = label;
+          dd.textContent = val || 'Not provided';
+          target.append(dt, dd);
+        });
+      }
+
+      function buildReview() {
+        addReviewRows('reviewEvent', [
+          ['Event name', value('eventName')],
+          ['Event type', value('eventType')],
+          ['Event date', value('eventDate')],
+          ['Location', value('location')],
+          ['Expected attendance', value('attendance')]
+        ]);
+        addReviewRows('reviewArtist', [
+          ['Artist type', state.artistType],
+          ['Genre / category', value('genre')],
+          ['Preferred artist', value('preferredArtist') || 'No preference'],
+          ['Budget', state.budget],
+          ['Performance duration', value('duration')],
+          ['Additional requirements', value('requirements') || 'None specified']
+        ]);
+        addReviewRows('reviewContact', [
+          ['Full name', value('fullName')],
+          ['Organisation', value('organisation') || 'Not provided'],
+          ['Phone / WhatsApp', value('phone')],
+          ['Email address', value('email')]
+        ]);
+      }
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!$('agree').checked) {
+          $('agreeError').style.display = 'block';
+          showToast('Please confirm the booking declaration to continue.');
+          $('agree').focus();
+          return;
+        }
+        $('agreeError').style.display = 'none';
+        const payload = {
+          submittedAt: new Date().toISOString(),
+          event: {
+            name: value('eventName'), type: value('eventType'), date: value('eventDate'),
+            location: value('location'), attendance: value('attendance')
+          },
+          contact: {
+            name: value('fullName'), organisation: value('organisation'),
+            phone: value('phone'), email: value('email')
+          },
+          artist: {
+            type: state.artistType, genre: value('genre'), preferredArtist: value('preferredArtist'),
+            budget: state.budget, duration: value('duration'), requirements: value('requirements')
+          }
+        };
+        try {
+          const saved = JSON.parse(localStorage.getItem('hitKenyaArtistBookingRequests') || '[]');
+          saved.push(payload);
+          localStorage.setItem('hitKenyaArtistBookingRequests', JSON.stringify(saved));
+          $('successBox').classList.add('show');
+          $('submitBooking').disabled = true;
+          $('submitBooking').textContent = 'Enquiry saved';
+          showToast('Your enquiry has been saved in this browser.');
+        } catch (error) {
+          showToast('Your browser could not save this enquiry. Please try another browser.');
+        }
+      });
+
+      // Prevent selecting a date in the past.
+      const today = new Date();
+      const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+      $('eventDate').min = localToday;
+      $('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
