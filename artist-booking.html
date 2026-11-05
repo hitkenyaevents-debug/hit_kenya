@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08090b">
+  <meta name="description" content="Request an artist, DJ, band or MC for your event through HIT KENYA.">
+  <title>Request Artist Booking | HIT KENYA</title>
+  <style>
+    :root{--bg:#08090b;--panel:#111317;--panel2:#171a1f;--gold:#ffca3d;--gold2:#e9ad20;--text:#f7f7f7;--muted:#b3b6bc;--line:#38322a;--radius:16px;--max:1160px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 Arial,Helvetica,sans-serif}
+    button,input,select,textarea{font:inherit}
+    button{cursor:pointer}
+    a{color:inherit;text-decoration:none}
+    button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+    .wrap{width:min(var(--max),92%);margin:auto}
+    .topbar{background:#070809;border-bottom:1px solid #5b4617;position:relative;z-index:3}
+    .nav{min-height:77px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{display:inline-flex;flex-direction:column;line-height:1;flex-shrink:0}
+    .logo strong{font-size:27px;letter-spacing:-1.5px;font-weight:900;white-space:nowrap}
+    .logo strong em{color:var(--gold);font-style:normal}
+    .logo small{font-size:8px;letter-spacing:1.5px;margin-top:7px;color:#dadada}
+    .back{display:inline-flex;align-items:center;gap:9px;border:1px solid #7b5a1d;border-radius:30px;padding:10px 17px;color:var(--gold);font-size:12px;font-weight:700}
+    .back:hover{background:var(--gold);color:#111}
+    .hero{position:relative;overflow:hidden;border-bottom:1px solid #4a381c;background:linear-gradient(90deg,#090a0c 5%,rgba(9,10,12,.94) 42%,rgba(9,10,12,.56) 74%,rgba(9,10,12,.3)),linear-gradient(0deg,rgba(9,10,12,.6),transparent),url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1400&q=75') center 44%/cover no-repeat,#14120e}
+    .hero .wrap{min-height:263px;display:flex;align-items:center;padding:42px 0}
+    .eyebrow{color:var(--gold);font-size:12px;font-weight:800;letter-spacing:2.3px;text-transform:uppercase;margin:0 0 11px}
+    h1,h2,h3,p{margin-top:0}
+    h1{font-size:clamp(32px,4.3vw,57px);letter-spacing:-2px;line-height:1.09;margin:0 0 15px;font-weight:900;max-width:720px}
+    h1 span,.gold{color:var(--gold)}
+    .hero p:last-child{color:#e2e3e5;max-width:560px;font-size:15px;margin:0}
+    .progress-wrap{background:#0c0d0f;border-bottom:1px solid #242528}
+    .progress{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:24px 0}
+    .progress-step{display:flex;align-items:center;gap:11px;color:#91959d;min-width:0}
+    .progress-step .num{display:grid;place-items:center;width:38px;height:38px;border:1px solid #56575b;border-radius:50%;flex-shrink:0;font-size:12px;font-weight:800}
+    .progress-step .label{font-size:12px;font-weight:800;letter-spacing:.6px;text-transform:uppercase}
+    .progress-step.active,.progress-step.complete{color:var(--gold)}
+    .progress-step.active .num,.progress-step.complete .num{background:var(--gold);border-color:var(--gold);color:#111}
+    .main{padding:36px 0 66px}
+    .layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,.85fr);gap:24px;align-items:start}
+    .panel{background:var(--panel);border:1px solid #3b352b;border-radius:var(--radius);overflow:hidden}
+    .panel-header{padding:24px 27px 20px;border-bottom:1px solid #302b25}
+    .panel-header .eyebrow{font-size:10px;letter-spacing:1.7px;margin-bottom:8px}
+    h2{font-size:26px;line-height:1.22;letter-spacing:-.6px;margin:0 0 7px}
+    .panel-header p:last-child{color:var(--muted);font-size:13px;margin:0}
+    .panel-body{padding:26px 27px 24px}
+    .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+    .field{display:flex;flex-direction:column;gap:7px;margin-bottom:18px;min-width:0}
+    .grid2 .field{margin-bottom:0}
+    .section-title{color:var(--gold);font-weight:800;letter-spacing:.5px;font-size:12px;text-transform:uppercase;margin:0 0 18px;padding-bottom:10px;border-bottom:1px solid #302d27}
+    .section-title:not(:first-child){margin-top:28px}
+    label.field-label{font-size:12px;font-weight:800;color:#e6e7e9}
+    .req{color:var(--gold)}
+    input:not([type=radio]):not([type=checkbox]),select,textarea{width:100%;background:#0b0d10;border:1px solid #4b4c51;border-radius:9px;color:#fff;min-height:45px;padding:11px 12px;outline:none;transition:border-color .2s}
+    input::placeholder,textarea::placeholder{color:#838890}
+    input:not([type=radio]):not([type=checkbox]):focus,select:focus,textarea:focus{border-color:var(--gold)}
+    input[type=date]{color-scheme:dark}
+    select{color-scheme:dark}
+    textarea{min-height:104px;resize:vertical}
+    .help{font-size:11px;color:#9ea3ac}
+    .choice-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+    .choice{cursor:pointer;position:relative}
+    .choice input{position:absolute;opacity:0;width:1px;height:1px}
+    .choice span{display:flex;min-height:72px;flex-direction:column;align-items:center;justify-content:center;gap:5px;text-align:center;border:1px solid #55504a;background:#0b0d10;border-radius:10px;font-weight:800;font-size:12px;transition:.15s;padding:8px}
+    .choice .symbol{font-size:23px;color:var(--gold);line-height:1}
+    .choice input:checked+span{border-color:var(--gold);background:#2a2211;box-shadow:inset 0 0 0 1px var(--gold)}
+    .choice input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}
+    .choice:hover span{border-color:var(--gold)}
+    .actions{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-top:27px;padding-top:21px;border-top:1px solid #36312a}
+    .btn{border:0;border-radius:999px;padding:13px 23px;font-weight:900;font-size:12px;letter-spacing:.35px;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;text-align:center}
+    .btn-gold{background:var(--gold);color:#111}
+    .btn-gold:hover{background:#ffe17d}
+    .btn-outline{border:1px solid #78602d;color:var(--gold);background:transparent}
+    .btn-outline:hover{background:#2a2211}
+    .btn:disabled{opacity:.5;cursor:not-allowed}
+    .side{display:flex;flex-direction:column;gap:18px}
+    .side-card{padding:24px}
+    .side-card h3{font-size:17px;margin:0 0 15px}
+    .side-card p{color:var(--muted);font-size:13px}
+    .steps-list{list-style:none;padding:0;margin:0;display:grid;gap:17px}
+    .steps-list li{display:flex;gap:12px;font-size:13px;color:#cdd0d5}
+    .steps-list b{display:grid;place-items:center;background:#302510;color:var(--gold);border:1px solid #80611d;border-radius:50%;width:28px;height:28px;flex-shrink:0;font-size:11px}
+    .steps-list strong{display:block;color:#fff;margin-bottom:3px}
+    .feature{border:1px solid #5e4516;background:linear-gradient(135deg,#28200f,#151516);border-radius:var(--radius);padding:24px}
+    .feature .mark{font-size:26px;color:var(--gold);margin-bottom:12px}
+    .feature h3{font-size:20px;margin:0 0 9px}
+    .feature p{font-size:13px;color:#d1c6af;margin:0}
+    .side-link{display:inline-block;color:var(--gold);font-size:12px;font-weight:800;margin-top:16px;text-decoration:underline;text-underline-offset:3px}
+    .review{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .review-box{border:1px solid #3d3933;background:#0c0e10;border-radius:10px;padding:18px;min-width:0}
+    .review-box h3{font-size:12px;letter-spacing:.8px;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+    .review-line{margin-bottom:11px}
+    .review-line small{display:block;color:#9ea2a9;font-size:11px;margin-bottom:2px}
+    .review-line strong{font-size:13px;overflow-wrap:anywhere;font-weight:700}
+    .consent{display:flex;gap:11px;align-items:flex-start;margin-top:22px;color:#d4d6d9;font-size:12px;line-height:1.5;cursor:pointer}
+    .consent input{width:17px;height:17px;accent-color:var(--gold);flex-shrink:0;margin:2px 0 0}
+    .notice{margin-top:15px;border-radius:10px;padding:13px 15px;background:#1b2b22;border:1px solid #497658;color:#d4ffe0;font-size:13px}
+    .notice.error{background:#351a1a;border-color:#a64a4a;color:#ffd8d8}
+    .fineprint{font-size:11px;color:#a3a6ac;margin:14px 0 0}
+    .footer{border-top:1px solid #4b3c1c;padding:23px 0;color:#a6a8ad;font-size:12px}
+    .footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .footer strong{color:var(--gold)}
+    [hidden]{display:none!important}
+    @media(max-width:830px){.layout{grid-template-columns:1fr}.side{display:grid;grid-template-columns:1fr 1fr}.feature{height:100%}}
+    @media(max-width:600px){.nav{min-height:68px}.logo strong{font-size:22px}.logo small{font-size:6.5px;letter-spacing:1.1px}.back{font-size:11px;padding:8px 12px}.hero .wrap{min-height:224px;padding:34px 0}.hero{background-position:60% center}.hero p:last-child{font-size:13px}h1{letter-spacing:-1.3px}.progress{gap:5px;padding:16px 0}.progress-step{gap:6px}.progress-step .num{width:30px;height:30px;font-size:10px}.progress-step .label{font-size:9px;letter-spacing:0}.main{padding:22px 0 45px}.panel-header{padding:20px}.panel-body{padding:20px}.grid2{grid-template-columns:1fr;gap:15px}.grid2 .field{margin:0}.choice-grid{grid-template-columns:repeat(2,1fr)}.review{grid-template-columns:1fr}.side{grid-template-columns:1fr}.actions{flex-wrap:wrap}.actions .btn{flex:1;white-space:normal}.panel-header h2{font-size:22px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="logo" href="index.html" aria-label="HIT KENYA home"><strong><em>HIT</em> KENYA</strong><small>EVENTS | PEOPLE | BRANDS | OPPORTUNITIES</small></a>
+      <a class="back" href="index.html">← Back to HIT KENYA</a>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">HIT KENYA / ARTIST &amp; DJ BOOKING</p>
+        <h1>BOOK THE <span>RIGHT TALENT.</span><br>MAKE IT MEMORABLE.</h1>
+        <p>Tell us about your event, the artist you need and your budget. HIT KENYA will help you coordinate the next steps.</p>
+      </div>
+    </div>
+  </section>
+  <div class="progress-wrap">
+    <div class="wrap progress" aria-label="Booking request progress">
+      <div class="progress-step active" data-progress="1" aria-current="step"><span class="num">01</span><span class="label">Event details</span></div>
+      <div class="progress-step" data-progress="2"><span class="num">02</span><span class="label">Artist &amp; budget</span></div>
+      <div class="progress-step" data-progress="3"><span class="num">03</span><span class="label">Review &amp; send</span></div>
+    </div>
+  </div>
+  <main class="main wrap">
+    <div class="layout">
+      <form id="bookingForm" novalidate>
+        <section class="panel" data-stage="1" aria-labelledby="step1title">
+          <div class="panel-header"><p class="eyebrow">STEP 01 OF 03</p><h2 id="step1title">Tell us about your event</h2><p>Start with your contact information and event details.</p></div>
+          <div class="panel-body">
+            <h3 class="section-title">Your contact details</h3>
+            <div class="grid2">
+              <div class="field"><label class="field-label" for="fullName">Full name <span class="req">*</span></label><input id="fullName" name="fullName" autocomplete="name" placeholder="Your full name" maxlength="100" required></div>
+              <div class="field"><label class="field-label" for="phone">Phone / WhatsApp <span class="req">*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="e.g. +254 712 345 678" maxlength="25" required></div>
+              <div class="field"><label class="field-label" for="email">Email address <span class="req">*</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" maxlength="120" required></div>
+              <div class="field"><label class="field-label" for="organisation">Organisation <span class="help">(optional)</span></label><input id="organisation" name="organisation" placeholder="Company or organisation" maxlength="120"></div>
+            </div>
+            <h3 class="section-title">Event information</h3>
+            <div class="grid2">
+              <div class="field"><label class="field-label" for="eventName">Event name <span class="req">*</span></label><input id="eventName" name="eventName" placeholder="e.g. Annual gala night" maxlength="120" required></div>
+              <div class="field"><label class="field-label" for="eventType">Event type <span class="req">*</span></label><select id="eventType" name="eventType" required><option value="">Select event type</option><option>Corporate event</option><option>Concert / festival</option><option>Wedding</option><option>Private party</option><option>Brand activation</option><option>Club / nightlife</option><option>Church / gospel event</option><option>Other</option></select></div>
+              <div class="field"><label class="field-label" for="eventDate">Event date <span class="req">*</span></label><input id="eventDate" name="eventDate" type="date" required></div>
+              <div class="field"><label class="field-label" for="eventTime">Event start time <span class="help">(optional)</span></label><input id="eventTime" name="eventTime" type="time"></div>
+              <div class="field"><label class="field-label" for="city">Town / city <span class="req">*</span></label><input id="city" name="city" placeholder="e.g. Nairobi" maxlength="100" required></div>
+              <div class="field"><label class="field-label" for="venue">Venue <span class="help">(if known)</span></label><input id="venue" name="venue" placeholder="Event venue" maxlength="120"></div>
+              <div class="field"><label class="field-label" for="guests">Expected attendance <span class="help">(optional)</span></label><select id="guests" name="guests"><option value="">Select range</option><option>Under 50</option><option>50–100</option><option>101–300</option><option>301–1,000</option><option>Over 1,000</option></select></div>
+            </div>
+            <div class="actions"><span class="help">Fields marked * are required.</span><button class="btn btn-gold" type="button" id="next1">Continue to artist &amp; budget →</button></div>
+          </div>
+        </section>
+        <section class="panel" data-stage="2" aria-labelledby="step2title" hidden>
+          <div class="panel-header"><p class="eyebrow">STEP 02 OF 03</p><h2 id="step2title">Artist requirements &amp; budget</h2><p>Choose the kind of talent you want and share your preferences.</p></div>
+          <div class="panel-body">
+            <h3 class="section-title">What kind of talent do you need? <span class="req">*</span></h3>
+            <div class="choice-grid" id="artistChoices" role="radiogroup" aria-label="Type of artist">
+              <label class="choice"><input type="radio" name="artistType" value="Singer" required><span><b class="symbol">♫</b>Singer</span></label>
+              <label class="choice"><input type="radio" name="artistType" value="DJ"><span><b class="symbol">◉</b>DJ</span></label>
+              <label class="choice"><input type="radio" name="artistType" value="Band"><span><b class="symbol">♬</b>Live band</span></label>
+              <label class="choice"><input type="radio" name="artistType" value="MC / Host"><span><b class="symbol">♛</b>MC / Host</span></label>
+              <label class="choice"><input type="radio" name="artistType" value="Dancer"><span><b class="symbol">✦</b>Dancer</span></label>
+              <label class="choice"><input type="radio" name="artistType" value="Other performer"><span><b class="symbol">★</b>Other</span></label>
+            </div>
+            <h3 class="section-title">Your preferences</h3>
+            <div class="grid2">
+              <div class="field"><label class="field-label" for="genre">Genre / style <span class="help">(optional)</span></label><select id="genre" name="genre"><option value="">No preference</option><option>Afrobeats / Amapiano</option><option>Gospel</option><option>Hip-Hop / Rap</option><option>R&amp;B / Soul</option><option>Gengetone</option><option>Benga / Mugithi</option><option>Jazz / Acoustic</option><option>Mixed / Open format</option><option>Other</option></select></div>
+              <div class="field"><label class="field-label" for="preferredArtist">Preferred artist <span class="help">(optional)</span></label><input id="preferredArtist" name="preferredArtist" placeholder="Specific artist or DJ name" maxlength="120"></div>
+              <div class="field"><label class="field-label" for="budget">Estimated talent budget <span class="req">*</span></label><select id="budget" name="budget" required><option value="">Select budget range</option><option>Under KSh 20,000</option><option>KSh 20,000–50,000</option><option>KSh 50,001–100,000</option><option>KSh 100,001–250,000</option><option>KSh 250,001–500,000</option><option>Above KSh 500,000</option><option>Open to quotation</option></select></div>
+              <div class="field"><label class="field-label" for="duration">Performance duration <span class="req">*</span></label><select id="duration" name="duration" required><option value="">Select duration</option><option>Up to 30 minutes</option><option>30–60 minutes</option><option>1–2 hours</option><option>2–4 hours</option><option>Full event / to be agreed</option></select></div>
+            </div>
+            <div class="field" style="margin-top:19px"><label class="field-label" for="notes">Additional requirements <span class="help">(optional)</span></label><textarea id="notes" name="notes" maxlength="1200" placeholder="Tell us about your audience, performance needs, technical requirements or special requests."></textarea></div>
+            <div class="actions"><button class="btn btn-outline" type="button" id="back2">← Back</button><button class="btn btn-gold" type="button" id="next2">Review booking request →</button></div>
+          </div>
+        </section>
+        <section class="panel" data-stage="3" aria-labelledby="step3title" hidden>
+          <div class="panel-header"><p class="eyebrow">STEP 03 OF 03</p><h2 id="step3title">Review &amp; send your request</h2><p>Check your details, then open WhatsApp to send them directly to HIT KENYA.</p></div>
+          <div class="panel-body">
+            <div class="review"><div class="review-box"><h3>Event &amp; contact</h3><div id="eventReview"></div></div><div class="review-box"><h3>Talent &amp; budget</h3><div id="artistReview"></div></div></div>
+            <label class="consent"><input id="consent" name="consent" type="checkbox" required><span>I confirm the details are accurate and agree that HIT KENYA may contact me about this booking enquiry. I understand that sending an enquiry does not confirm a booking or payment.</span></label>
+            <div class="actions"><button class="btn btn-outline" type="button" id="back3">← Edit details</button><button class="btn btn-gold" type="submit" id="send">Open WhatsApp to send →</button></div>
+            <div id="status" role="status" aria-live="polite" hidden></div>
+            <a id="fallback" class="side-link" href="#" target="_blank" rel="noopener noreferrer" hidden>WhatsApp did not open? Tap here to open it again ↗</a>
+            <button id="copy" class="btn btn-outline" type="button" style="margin-top:14px" hidden>Copy booking details</button>
+            <p class="fineprint">Your message is prepared automatically. You must press <strong>Send</strong> inside WhatsApp to deliver it. No backend or account login is required.</p>
+          </div>
+        </section>
+      </form>
+      <aside class="side" aria-label="Booking information">
+        <div class="panel side-card"><h3>HOW BOOKING WORKS</h3><ol class="steps-list"><li><b>01</b><div><strong>Tell us about your event</strong>Share the date, venue, audience and contact details.</div></li><li><b>02</b><div><strong>Choose your talent</strong>Tell us the artist category, music style and budget.</div></li><li><b>03</b><div><strong>Speak to our team</strong>Send the prepared request through WhatsApp and discuss availability and next steps.</div></li></ol></div>
+        <div class="feature"><div class="mark">★ ♫ ★</div><h3>Great talent.<br><span class="gold">Better experiences.</span></h3><p>From DJs and live bands to singers and MCs, HIT KENYA helps event organisers find talent that fits their occasion.</p><a class="side-link" href="https://wa.me/254797068736" target="_blank" rel="noopener noreferrer">Ask HIT KENYA a question ↗</a></div>
+        <div class="panel side-card"><h3>BEFORE YOU BOOK</h3><p>Artist availability, performance fees, technical needs and payment terms are confirmed with our team. This form is an enquiry, not a confirmed booking.</p></div>
+      </aside>
+    </div>
+  </main>
+  <footer class="footer"><div class="wrap"><span><strong>HIT KENYA</strong> · Events | People | Brands | Opportunities</span><span>Artist &amp; DJ Booking · Kenya</span></div></footer>
+  <script>
+  (() => {
+    'use strict';
+    // Confirmed WhatsApp contact from the existing HIT KENYA website.
+    // Change this number here if the business contact changes.
+    const WHATSAPP_NUMBER = '254797068736';
+    const $ = id => document.getElementById(id);
+    const form = $('bookingForm');
+    const stages = [...document.querySelectorAll('[data-stage]')];
+    const progress = [...document.querySelectorAll('[data-progress]')];
+    let step = 1;
+    let preparedText = '';
+    function value(id){return $(id).value.trim();}
+    function choice(){return form.querySelector('input[name="artistType"]:checked')?.value || '';}
+    function showStep(number){
+      step = number;
+      stages.forEach(s => {s.hidden = Number(s.dataset.stage) !== number;});
+      progress.forEach(p => {
+        const n = Number(p.dataset.progress);
+        p.classList.toggle('active',n === number);
+        p.classList.toggle('complete',n < number);
+        if(n === number)p.setAttribute('aria-current','step');else p.removeAttribute('aria-current');
+      });
+      if(number === 3)renderReview();
+      document.querySelector('.progress-wrap').scrollIntoView({behavior:'auto',block:'start'});
+    }
+    function validateStage(n){
+      const section = stages.find(s => Number(s.dataset.stage) === n);
+      const fields = [...section.querySelectorAll('input,select,textarea')];
+      for(const field of fields){
+        if(field.type === 'radio' && field.name === 'artistType')continue;
+        if(!field.checkValidity()){field.reportValidity();field.focus();return false;}
+      }
+      if(n === 1){
+        const phone = $('phone');
+        const digits = phone.value.replace(/\D/g,'');
+        if(digits.length < 9 || digits.length > 15){
+          phone.setCustomValidity('Enter a valid phone number with 9 to 15 digits.');
+          phone.reportValidity();phone.focus();return false;
+        }
+        phone.setCustomValidity('');
+      }
+      if(n === 2 && !choice()){
+        const radio = form.querySelector('input[name="artistType"]');
+        radio.setCustomValidity('Select the type of talent you need.');
+        radio.reportValidity();
+        radio.setCustomValidity('');
+        radio.focus();return false;
+      }
+      return true;
+    }
+    function prettyDate(iso){
+      if(!iso)return 'Not specified';
+      const [y,m,d] = iso.split('-').map(Number);
+      return new Date(y,m-1,d).toLocaleDateString('en-KE',{day:'numeric',month:'long',year:'numeric'});
+    }
+    const textOrNA = text => text || 'Not specified';
+    function addReview(containerId,items){
+      const box = $(containerId);box.replaceChildren();
+      items.forEach(([label,text]) => {
+        const row = document.createElement('div');row.className = 'review-line';
+        const small = document.createElement('small');small.textContent = label;
+        const strong = document.createElement('strong');strong.textContent = textOrNA(text);
+        row.append(small,strong);box.append(row);
+      });
+    }
+    function details(){
+      return [
+        ['Full name',value('fullName')],['Phone / WhatsApp',value('phone')],['Email',value('email')],
+        ['Organisation',value('organisation')],['Event',value('eventName')],['Event type',value('eventType')],
+        ['Date',prettyDate(value('eventDate'))],['Time',value('eventTime')],['Town / city',value('city')],
+        ['Venue',value('venue')],['Guests',value('guests')]
+      ];
+    }
+    function artistDetails(){
+      return [['Artist type',choice()],['Genre / style',value('genre')],['Preferred artist',value('preferredArtist')],
+        ['Estimated budget',value('budget')],['Performance duration',value('duration')],['Other requirements',value('notes')]];
+    }
+    function renderReview(){addReview('eventReview',details());addReview('artistReview',artistDetails());}
+    function message(){
+      const format = rows => rows.map(([k,v]) => `${k}: ${textOrNA(v)}`).join('\n');
+      return `*HIT KENYA — ARTIST BOOKING ENQUIRY*\n\n*EVENT & CONTACT*\n${format(details())}\n\n*ARTIST & BUDGET*\n${format(artistDetails())}\n\nPlease advise on availability, quotation and the next steps. Thank you.`;
+    }
+    function notice(msg,isError=false){
+      const el = $('status');el.hidden=false;el.className = 'notice'+(isError?' error':'');el.textContent=msg;
+    }
+    const localToday = () => {
+      const d = new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    };
+    $('eventDate').min=localToday();
+    $('eventDate').addEventListener('change',()=>{
+      const date = $('eventDate');
+      date.setCustomValidity(date.value && date.value < localToday() ? 'Select today or a future event date.' : '');
+    });
+    $('phone').addEventListener('input',()=>{$('phone').setCustomValidity('');});
+    $('next1').addEventListener('click',()=>{if(validateStage(1))showStep(2);});
+    $('back2').addEventListener('click',()=>showStep(1));
+    $('next2').addEventListener('click',()=>{if(validateStage(2))showStep(3);});
+    $('back3').addEventListener('click',()=>showStep(2));
+    form.addEventListener('submit',e=>{
+      e.preventDefault();
+      if(!validateStage(1)){showStep(1);validateStage(1);return;}
+      if(!validateStage(2)){showStep(2);validateStage(2);return;}
+      if(!$('consent').checked){$('consent').reportValidity();$('consent').focus();return;}
+      preparedText=message();
+      const url='https://wa.me/'+WHATSAPP_NUMBER+'?text='+encodeURIComponent(preparedText);
+      $('fallback').href=url;$('fallback').hidden=false;
+      $('copy').hidden=false;
+      notice('Your booking request is ready. WhatsApp will open with your message; press Send there to deliver it to HIT KENYA.');
+      const popup=window.open(url,'_blank','noopener,noreferrer');
+      if(!popup)notice('Your request is ready. If WhatsApp did not open automatically, use the link below. Press Send inside WhatsApp to deliver it.');
+    });
+    $('copy').addEventListener('click',async()=>{
+      if(!preparedText)preparedText=message();
+      try{
+        if(navigator.clipboard && window.isSecureContext){await navigator.clipboard.writeText(preparedText);}
+        else{
+          const area=document.createElement('textarea');area.value=preparedText;area.style.position='fixed';area.style.opacity='0';document.body.append(area);area.select();
+          if(!document.execCommand('copy'))throw Error('Copy unavailable');area.remove();
+        }
+        notice('Booking details copied. You can paste them into a message.');
+      }catch(_){notice('Copy was unavailable in this browser. Use the WhatsApp link above to send your request.',true);}
+    });
+  })();
+  </script>
+</body>
+</html>
