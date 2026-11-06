@@ -1,3 +1,36 @@
+# HIT KENYA — Complete Website (GitHub Small Edition)
+
+This is a **single complete site package**, not a patch. It combines the previously assembled 89-file website with the three new **Tell Us Your Goal** pages. The existing homepage, service pages, images and backend source files are retained.
+
+## Upload to GitHub
+
+1. Download and extract `HIT-KENYA-COMPLETE-ALL-PAGES-GITHUB-SMALL.zip`.
+2. Open your GitHub repository. Upload the **extracted files and folders**, not the ZIP itself, to the repository root. `index.html` must remain in the root.
+3. Commit changes and enable GitHub Pages in repository Settings → Pages, if not already enabled.
+4. Open your site and test the **Tell us your goal → GET STARTED** button. It opens `tell-us-your-goal.html` → `project-details.html` → `review-submit.html`.
+
+## Included pages
+
+The package includes the main homepage and all previous 18 HTML pages, including Artist Booking, Artist Registration, Vendor Management, Vendor Marketplace, Content Creation, Content Request, Brand & Social Content, Marketing Plan, Photography, Drone Services, Event Promotion and the other existing pages. Three new Goal pages bring the total to **21 HTML pages**.
+
+To reduce the GitHub upload count, the Goal pages contain their own CSS, JavaScript and photographic fallbacks, rather than adding five separate files. **Total package: 92 files**.
+
+## Important hosting limitations
+
+- **GitHub Pages is static hosting.** The HTML pages and client-side form navigation work there, but GitHub Pages does not run the included `functions/` server code or the `db/` SQL migrations.
+- The Goal form opens a **pre-filled WhatsApp message**. The visitor must press **Send** in WhatsApp. Uploaded attachments must be sent separately. No request is saved on the server by this static flow.
+- Other backend operations, payment verification, live vendor management and database workflows require an appropriately configured backend (e.g., Cloudflare Pages Functions with database, secrets and webhooks). Including backend files in the ZIP does **not** mean those services are deployed or configured.
+- Some pages may use external fonts, photos or services that require internet access. The Goal pages include local embedded photo fallbacks.
+
+## Safety
+
+Keep a backup of your existing GitHub repository before replacing files. This is a full-site release; if you made new changes after the base package was assembled, compare your files before overwriting them.
+
+
+---
+
+## Previous deployment notes
+
 # HIT KENYA — Full website deployment package
 
 This release preserves the existing homepage, other service pages, vendor marketplace, artist registration, merchandise, Paystack integration files, Cloudflare Pages Functions and database schema. The only changes to the homepage are to connect **Content Creation** and **Book Through HIT KENYA** to their new pages. No homepage redesign or replacement has been introduced.
