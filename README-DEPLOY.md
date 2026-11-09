@@ -83,3 +83,10 @@ The two new Content Creation pages and the artist booking page use **external Un
 ## Safety
 
 Do not commit `.dev.vars`, `.env`, private credentials or real customer information. Avoid replacing your existing site with an HTML-only package; the complete ZIP is the deployable source.
+
+
+## Brand & Digital Growth (November 2026 update)
+
+The homepage **REQUEST A DIGITAL PACKAGE** button is now linked directly to `brand-digital-growth.html`. This page is included in the root folder and reuses the existing `assets/digital/` image files as offline fallbacks. It has package cards and a WhatsApp enquiry flow. It does not require a backend for the enquiry, but the visitor must press Send in WhatsApp.
+
+To see this update on GitHub Pages, extract the ZIP, upload the **contents** (not the ZIP) to the publishing branch and directory, commit the changes, wait for the Pages deployment to finish, and hard-refresh the site. Uploading only the new page without the updated `index.html` will not connect the homepage button. If you have newer homepage changes, merge the single booking-button change instead of overwriting your newer `index.html`.
