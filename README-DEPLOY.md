@@ -1,4 +1,8 @@
-# HIT KENYA — Social Media & Digital Campaigns release
+# HIT KENYA — Complete Website with Venue Registration
+
+**Current update (9 November 2026):** Clicking **LIST YOUR VENUE** on the HIT KENYA website now opens the new `venue-registration.html` page. The full website is preserved in this compact package. See the Venue Registration section at the end for form/backend deployment details.
+
+## Previous release notes: Social Media & Digital Campaigns
 
 This full website release preserves the previous pages and connects only the **Social Media & Digital Campaigns** card's **START A CAMPAIGN** button to `social-media-campaigns.html`. The homepage is otherwise unchanged apart from an internal deduplication of a concert image path.
 
@@ -45,3 +49,14 @@ If your repository has changed since the previous complete website ZIP, compare 
 - Existing website pages, backend functions, Paystack integration and database files are preserved.
 - Existing WebP photographs have been lossily re-encoded for smaller GitHub uploads. The large embedded merchandise reference PNG was converted to WebP in-place.
 - Extract the ZIP and upload its CONTENTS to your GitHub repository root. Do not upload the ZIP itself. If GitHub browser upload limits the number of files, use GitHub Desktop or Git; preserve all directories.
+
+## 2026-11-09 — List Your Venue / Register Your Venue
+- `venue-registration.html` is a new fully responsive, single-page venue application page matching the black-and-gold HIT KENYA design, with existing local venue photographs (no new generated imagery or external photo downloads).
+- All `LIST YOUR VENUE` / `REGISTER AS VENUE OWNER` actions that call `openPartnerFlow('venue')` now navigate to `venue-registration.html` instead of the old modal.
+- The form includes venue information, facilities and capacity, venue photos and optional video, pricing, contact details, private ID front/back/face uploads and applicant consent.
+- The frontend checks required fields, Kenyan mobile numbers, file formats and upload limits. It previews selected venue photos locally. No identity documents are stored in the browser or sent to WhatsApp.
+- A Cloudflare Pages Function is included at `functions/api/venue-applications.js` for secure application submission, with manual approval status. It requires BOTH a Cloudflare D1 binding named `DB` and a **private** R2 bucket binding named `VENUE_UPLOADS`.
+- Run `db/migrations/20261109_venue_applications.sql` on the existing D1 database before enabling the endpoint. `db/schema.sql` includes the table for new databases. Keep the R2 bucket private and restrict access to verification documents to authorised reviewers.
+- IMPORTANT: GitHub Pages hosts the frontend but **does not run Cloudflare Pages Functions**. If hosted on GitHub Pages alone, the venue page and form display correctly but secure form submission is unavailable; the form will show an honest error and will NOT pretend the application was received. Deploy the backend on Cloudflare Pages with the bindings above, or integrate your own secure backend, before accepting real applications.
+- The original website pages, assets, payment code and other existing features are preserved.
+- Extract the ZIP, upload its **contents** to the repository root. For GitHub browser upload issues use GitHub Desktop or Git; a ZIP is not itself a published website.
