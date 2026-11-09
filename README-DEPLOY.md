@@ -34,3 +34,14 @@ Unsplash (free stock photography):
 ## Note
 
 If your repository has changed since the previous complete website ZIP, compare or merge those changes before overwriting.
+
+
+## 2026-11-09 — Join as a Partner page
+- `join-as-a-partner.html` is a new responsive, single-page partner landing page.
+- The original homepage `BECOME A PARTNER` button now opens this page instead of a popup.
+- Property / Stay and Car Hire buttons link back to the existing registration modals on `index.html`.
+- Existing registration forms in this site are frontend previews; production application submission / verification requires backend implementation. No working backend is falsely claimed here.
+- No external libraries, external photo hosts, or new photo assets are needed: the page uses existing high-resolution local photographs.
+- Existing website pages, backend functions, Paystack integration and database files are preserved.
+- Existing WebP photographs have been lossily re-encoded for smaller GitHub uploads. The large embedded merchandise reference PNG was converted to WebP in-place.
+- Extract the ZIP and upload its CONTENTS to your GitHub repository root. Do not upload the ZIP itself. If GitHub browser upload limits the number of files, use GitHub Desktop or Git; preserve all directories.
