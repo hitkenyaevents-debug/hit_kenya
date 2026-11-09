@@ -1,28 +1,34 @@
-# HIT KENYA — Artist Booking Request
+# HIT KENYA — Brand & Digital Growth page
 
-This is a lightweight, responsive, three-step artist booking enquiry page.
+This is an **add-only** package. It does not contain or replace `index.html` or any existing website page.
 
-## Files
-- `index.html` — complete page. CSS and JavaScript are included in this file.
-- No build tools, package installation, or framework required.
+## Install on GitHub Pages
 
-## Add it to your existing HIT KENYA website
-1. Extract the `artist-booking` folder into the root of your website repository.
-2. Link the **REQUEST ARTIST BOOKING** card/button to:
-   `artist-booking/index.html`
+1. Extract the ZIP.
+2. Upload `brand-digital-growth.html` and the `assets/` folder into your website's main folder (alongside the existing `index.html`). Keep the `assets/` folder structure.
+3. On your existing `index.html`, find the Brand & Digital Growth card button:
 
-Example:
 ```html
-<a href="artist-booking/index.html">REQUEST ARTIST BOOKING →</a>
+<button type="button" class="hk-digital-card-action" onclick="openPartnerFlow('digital')">REQUEST A DIGITAL PACKAGE →</button>
 ```
 
-If the page is placed somewhere else, update that link to the correct relative path. The header/footer Back links currently point to `../index.html`.
+Replace **only that button** with:
 
-## Images and file size
-The page uses photographic image URLs hosted by Unsplash, rather than bundling large image files. This keeps the download small. An internet connection is required for the photos and Google Fonts to load.
+```html
+<button type="button" class="hk-digital-card-action" onclick="window.location.href='brand-digital-growth.html'">REQUEST A DIGITAL PACKAGE →</button>
+```
 
-## Important before going live
-The form validates all three steps and saves a demonstration enquiry in the visitor's browser (`localStorage`). It does not yet email HIT KENYA or send data to a server. Connect the submit handler in `index.html` to your real form endpoint, CRM, or backend before accepting live bookings.
+Do **not** replace your homepage or other pages. The brand page's Back button points to `index.html#services`.
 
-## Photo assets
-The hero and event imagery are photographic Unsplash assets (photo IDs `1493225457124-a3eb161ffa5f` and `1501386761578-eac5c94b800a`). They are loaded remotely to keep the ZIP lightweight.
+## Functionality
+
+- One responsive page with six service categories and Starter, Pro and Premium packages.
+- Package buttons and the final CTA open an enquiry form within the same page.
+- The form checks required fields and prepares a message to the HIT KENYA WhatsApp number already used on the existing site (`254797068736`). **The visitor must click Open WhatsApp and press Send**. There is no automatic backend submission or payment processing.
+- The optional detailed-brief link goes to the existing `tell-us-your-goal.html` page.
+- Real photographic images are loaded from Unsplash when online. Local compressed photographic fallbacks are included so the layout still looks complete without external images. Fonts use Google Fonts with system fallbacks.
+- The prices are transcribed from the supplied screenshot and are presented as package guide rates. Confirm rates before publishing.
+
+## Size
+
+The package is deliberately small, with one HTML page, two compressed fallback photos and this README. There are no generated preview images or duplicate website files inside the ZIP.
