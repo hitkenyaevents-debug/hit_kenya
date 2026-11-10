@@ -60,3 +60,13 @@ If your repository has changed since the previous complete website ZIP, compare 
 - IMPORTANT: GitHub Pages hosts the frontend but **does not run Cloudflare Pages Functions**. If hosted on GitHub Pages alone, the venue page and form display correctly but secure form submission is unavailable; the form will show an honest error and will NOT pretend the application was received. Deploy the backend on Cloudflare Pages with the bindings above, or integrate your own secure backend, before accepting real applications.
 - The original website pages, assets, payment code and other existing features are preserved.
 - Extract the ZIP, upload its **contents** to the repository root. For GitHub browser upload issues use GitHub Desktop or Git; a ZIP is not itself a published website.
+
+
+## 2026-11-09 — Event Ushering & Hostess Services
+- New `event-ushering-hostess.html` page with black/gold design inspired by the provided screenshot.
+- A new **Event Ushering & Hostess Services** card appears in the homepage Our Services grid and View All Services dialog. Clicking it opens the dedicated page.
+- The page has a hero, service category photo cards, service information, and a functional four-step enquiry form (event details, staffing, budget, review).
+- Form validation runs in the browser. On the final step, **Open WhatsApp** prepares an enquiry for the existing HIT KENYA number (+254 797 068 736); the customer must press Send. No server submission or booking confirmation is implied.
+- The page uses genuine existing local HIT KENYA brand and event-setting photographs, not AI-generated images. Photos are illustrative and do not establish the identities or availability of specific ushering staff.
+- Five redundant photographic copies were removed and their references updated to the retained equivalent images to reduce the GitHub file count and ZIP size. All other website pages and backend source files remain in the archive.
+- Extract the ZIP and upload **its contents** (with `index.html` at the repository root), not the ZIP itself. For GitHub browser upload issues, use GitHub Desktop or Git.
