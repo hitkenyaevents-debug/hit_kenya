@@ -577,6 +577,169 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
 <!-- HIT KENYA Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ELBKENXSKX"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-ELBKENXSKX');</script>
+<style id="hk-marketplace-v2-style">
+/* HIT KENYA Marketplace — lightweight photographic redesign, fully scoped. */
+#page-marketplace.hk-market-v2{--mk-gold:#ffca2c;--mk-line:#755717;--mk-ink:#070708;--mk-muted:#b6b6b8;--mk-panel:#101012;background:#060607;color:#f9f9fa;font-family:Inter,Arial,sans-serif;min-height:100vh;padding-bottom:25px}
+#page-marketplace.hk-market-v2 *,#page-marketplace.hk-market-v2 *:before,#page-marketplace.hk-market-v2 *:after{box-sizing:border-box}
+#page-marketplace.hk-market-v2 [hidden]{display:none!important}
+#page-marketplace.hk-market-v2 button,#page-marketplace.hk-market-v2 select{cursor:pointer}
+#page-marketplace .mk-header{height:82px;position:relative;z-index:60;border-bottom:1px solid #644c15;background:#050505;isolation:isolate}
+#page-marketplace .mk-header-photo{position:absolute;inset:0;z-index:-1;opacity:.45;background:linear-gradient(90deg,#000 0%,rgba(0,0,0,.78) 27%,rgba(0,0,0,.28) 58%,#000 100%),url('assets/drone/city.webp') center 48%/cover}
+#page-marketplace .mk-header-inner{height:100%;max-width:1400px;margin:auto;padding:10px 22px;display:flex;align-items:center;gap:22px}
+#page-marketplace .mk-brand{background:transparent;border:0;display:flex;align-items:center;gap:9px;text-align:left;color:white;white-space:nowrap;padding:0}
+#page-marketplace .mk-crown{font-size:38px;color:var(--mk-gold);line-height:1}
+#page-marketplace .mk-brand-text{display:flex;flex-direction:column;gap:4px}
+#page-marketplace .mk-brand-text strong{font:900 clamp(18px,2.2vw,29px)/.9 Montserrat,Inter,sans-serif;letter-spacing:-1.2px}
+#page-marketplace .mk-brand-text strong span{color:var(--mk-gold)}
+#page-marketplace .mk-brand-text small{font-size:7px;letter-spacing:.075em;font-weight:800;color:#e6e6e6}
+#page-marketplace .mk-header-links{display:flex;align-items:center;gap:18px;margin-left:auto}
+#page-marketplace .mk-header-links button{background:none;border:0;color:#ddd;font-size:12px;font-weight:750}
+#page-marketplace .mk-header-links button.current{color:var(--mk-gold)}
+#page-marketplace .mk-header-actions{display:flex;gap:7px;align-items:center;margin-left:auto}
+#page-marketplace .mk-icon-btn{position:relative;width:39px;height:39px;display:grid;place-items:center;border:1px solid rgba(255,204,51,.5);border-radius:50%;background:rgba(0,0,0,.68);color:white;font-size:23px;line-height:1}
+#page-marketplace .mk-icon-btn:hover{background:#2c2410;border-color:var(--mk-gold)}
+#page-marketplace .mk-save-count{position:absolute;top:-6px;right:-5px;background:var(--mk-gold);color:#090909;border-radius:20px;font-size:9px;font-weight:900;min-width:16px;padding:2px 3px}
+#page-marketplace .mk-quick-menu{position:absolute;top:77px;right:20px;min-width:185px;padding:8px;background:#121214;border:1px solid var(--mk-line);border-radius:12px;box-shadow:0 20px 50px #000}
+#page-marketplace .mk-quick-menu button{display:block;width:100%;text-align:left;border:0;background:transparent;color:#fff;padding:10px;border-radius:6px}
+#page-marketplace .mk-quick-menu button:hover{background:#2b220f}
+#page-marketplace .mk-container{max-width:1400px;margin:auto;padding:19px 22px 44px}
+#page-marketplace .mk-intro{display:flex;justify-content:space-between;gap:20px;align-items:center;margin:1px 0 17px}
+#page-marketplace .mk-kicker{font-size:10px;color:var(--mk-gold);font-weight:900;letter-spacing:.15em}
+#page-marketplace .mk-intro h1{font-size:clamp(23px,3vw,37px);line-height:1.16;margin:5px 0;letter-spacing:-.025em}
+#page-marketplace .mk-intro h1 em{font-style:normal;color:var(--mk-gold)}
+#page-marketplace .mk-intro p{font-size:13px;color:#b5b5b8;margin:5px 0}
+#page-marketplace .mk-intro-pill{border:1px solid #4d3d18;color:#e5c273;padding:9px 13px;border-radius:50px;white-space:nowrap;font-size:10px;font-weight:800}
+#page-marketplace .mk-search-panel{display:grid;grid-template-columns:minmax(0,1fr) 174px 115px;gap:8px;align-items:stretch;margin:0 0 12px}
+#page-marketplace .mk-search-field,#page-marketplace .mk-location-field{min-height:47px;display:flex;align-items:center;gap:8px;border:1px solid #9a7421;background:#0c0c0e;border-radius:50px;padding:0 15px;color:var(--mk-gold);box-shadow:inset 0 0 0 1px rgba(255,192,23,.04)}
+#page-marketplace .mk-search-field>span{font-size:25px;line-height:1}
+#page-marketplace .mk-search-field input{width:100%;min-width:0;background:transparent;border:0;outline:0;color:white;font:400 13px Inter,Arial,sans-serif}
+#page-marketplace .mk-search-field input::placeholder{color:#b4b2b5;opacity:1}
+#page-marketplace .mk-location-field{padding:0 12px;gap:4px}
+#page-marketplace .mk-location-field span{font-size:21px}
+#page-marketplace .mk-location-field select{border:0;outline:0;min-width:0;width:100%;background:transparent;color:#f6f6f6;font-size:13px;font-weight:700}
+#page-marketplace select option{background:#121212;color:white}
+#page-marketplace .mk-search-submit{border:0;border-radius:50px;background:linear-gradient(130deg,#ffda43,#f3ad18);color:#080808;font-weight:900;font-size:14px;white-space:nowrap}
+#page-marketplace .mk-search-submit span{margin-left:6px}
+#page-marketplace .mk-filter-bar{display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#7c601c transparent;padding:1px 0 9px}
+#page-marketplace .mk-filter-pill{height:36px;min-width:max-content;display:inline-flex;align-items:center;gap:7px;padding:0 12px;background:#0b0b0d;border:1px solid #6b5018;border-radius:50px;color:var(--mk-gold);font-size:13px;font-weight:700}
+#page-marketplace .mk-filter-pill select{max-width:170px;background:transparent;color:#eaeaea;border:0;outline:0;font-size:11px;font-weight:750}
+#page-marketplace .mk-sort-pill{border-color:#bc8e1f}
+#page-marketplace .mk-sort-pill select{color:#ffd44b}
+#page-marketplace .mk-map-pill{color:#fff}
+#page-marketplace .mk-categories{display:flex;gap:7px;overflow-x:auto;padding:6px 0 13px;scrollbar-width:none;border-bottom:1px solid #222}
+#page-marketplace .mk-categories::-webkit-scrollbar{display:none}
+#page-marketplace .mk-categories .market-category{flex:0 0 auto;min-height:32px;display:inline-flex;flex-direction:row;align-items:center;gap:5px;padding:6px 13px;border-radius:40px;border:1px solid #3b3b3d;background:#0e0e10;color:#d2d2d2;box-shadow:none;font-size:11px;font-weight:800;transform:none}
+#page-marketplace .mk-categories .market-category:hover,#page-marketplace .mk-categories .market-category.active{border-color:#e9b01e;background:#2d240d;color:#ffd44d}
+#page-marketplace .mk-results-head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin:17px 0 4px}
+#page-marketplace .mk-results-head h2{font-size:clamp(17px,2vw,23px);margin:0 0 5px}
+#page-marketplace .mk-results-head p{color:#aaa;font-size:11px;margin:0}
+#page-marketplace .mk-separator{color:#735d29}
+#page-marketplace .mk-clear-btn{border:0;background:none;color:#ffcc33;font-size:11px;font-weight:800;white-space:nowrap}
+#page-marketplace .mk-preview-note{color:#969696;font-size:10px;margin:5px 0 15px;line-height:1.5}
+#page-marketplace .mk-results{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;align-content:start}
+#page-marketplace .mk-card{border:1px solid #97711c;border-radius:14px;background:linear-gradient(180deg,#101011,#070708);overflow:hidden;min-width:0;position:relative;box-shadow:0 9px 23px rgba(0,0,0,.22);transition:transform .18s,border-color .18s}
+#page-marketplace .mk-card:hover{transform:translateY(-2px);border-color:#ffcb37}
+#page-marketplace .mk-photo{position:relative;height:auto;aspect-ratio:1.58;overflow:hidden;background:#161616}
+#page-marketplace .mk-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(1.04) contrast(1.04)}
+#page-marketplace .mk-photo:after{content:'';position:absolute;inset:50% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.8));pointer-events:none}
+#page-marketplace .mk-feature-tag{position:absolute;z-index:2;top:9px;left:9px;max-width:calc(100% - 54px);padding:6px 9px;border-radius:8px;background:#ffca2c;color:#15110a;font-size:10px;font-weight:900;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#page-marketplace .mk-card:nth-child(n+5) .mk-feature-tag{background:rgba(4,4,4,.8);border:1px solid #c99b29;color:#ffcb36;font-size:9px}
+#page-marketplace .mk-heart{position:absolute;z-index:4;right:8px;top:8px;width:33px;height:33px;border-radius:50%;background:rgba(0,0,0,.64);border:1px solid rgba(255,255,255,.5);color:white;font-size:24px;line-height:1}
+#page-marketplace .mk-heart.is-saved{color:#ffca2c;border-color:#ffca2c}
+#page-marketplace .mk-photo-meta{position:absolute;z-index:3;bottom:9px;left:10px;right:9px;color:#fff;font-size:10px;font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#page-marketplace .mk-card-body{padding:11px 12px 12px;display:flex;flex-direction:column;min-height:165px}
+#page-marketplace .mk-type{color:#eabf53;font-size:9px;letter-spacing:.065em;font-weight:850}
+#page-marketplace .mk-card-body h3{font-size:15px;line-height:1.25;letter-spacing:-.01em;margin:6px 0 4px;min-height:36px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#page-marketplace .mk-card-desc{color:#c5c5c5;font-size:11px;line-height:1.35;margin:0 0 7px;min-height:30px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#page-marketplace .mk-review{font-size:11px;font-weight:750;color:#f5f5f5;margin-top:auto}
+#page-marketplace .mk-star{color:#ffd131;font-size:15px}
+#page-marketplace .mk-review small{color:#a6a6a6;font-size:9px;font-weight:500}
+#page-marketplace .mk-price-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:5px;border-top:1px solid #29251b;margin-top:9px;padding-top:9px}
+#page-marketplace .mk-price{font-size:10px;color:#c5c5c5;line-height:1.25}
+#page-marketplace .mk-price strong{display:block;color:#ffca2c;font-size:15px;white-space:nowrap}
+#page-marketplace .mk-view{min-width:0;white-space:nowrap;border:0;border-radius:50px;background:linear-gradient(110deg,#ffdc46,#f3ae1e);color:#111;font-size:10px;font-weight:900;padding:8px 10px}
+#page-marketplace .mk-view span{margin-left:3px}
+#page-marketplace .mk-empty{padding:50px 16px;text-align:center;border:1px solid #6d531b;border-radius:14px;background:#101012;margin:15px 0}
+#page-marketplace .mk-empty div{font-size:38px;color:#ffd03b}
+#page-marketplace .mk-empty h3{margin:10px 0}
+#page-marketplace .mk-empty p{color:#bcbcbc}
+#page-marketplace .mk-empty button{border:0;border-radius:30px;background:#ffca2c;padding:11px 17px;font-weight:850}
+#page-marketplace .mk-bottom-cta{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-top:25px;padding:22px;border:1px solid #654d19;border-radius:14px;background:#11100c}
+#page-marketplace .mk-bottom-cta h2{font-size:18px;margin:0 0 5px}
+#page-marketplace .mk-bottom-cta p{font-size:12px;color:#bbb;margin:0}
+#page-marketplace .mk-bottom-cta button{border:0;border-radius:30px;background:#ffca2c;color:#000;font-weight:900;padding:12px 17px;white-space:nowrap}
+#page-marketplace .mk-mobile-nav{display:none}
+@media(max-width:1120px){#page-marketplace .mk-results{grid-template-columns:repeat(3,minmax(0,1fr))}#page-marketplace .mk-header-links{display:none}}
+@media(max-width:760px){
+ #page-marketplace .mk-header{height:70px}
+ #page-marketplace .mk-header-inner{padding:7px 12px;gap:6px}
+ #page-marketplace .mk-crown{font-size:30px}
+ #page-marketplace .mk-brand-text strong{font-size:20px}
+ #page-marketplace .mk-brand-text small{font-size:5.5px}
+ #page-marketplace .mk-header-actions{gap:5px}
+ #page-marketplace .mk-icon-btn{width:33px;height:33px;font-size:20px}
+ #page-marketplace .mk-container{padding:13px 12px 94px}
+ #page-marketplace .mk-intro{margin:0 0 13px}
+ #page-marketplace .mk-intro h1{font-size:22px}
+ #page-marketplace .mk-intro p{font-size:11px}
+ #page-marketplace .mk-intro-pill{display:none}
+ #page-marketplace .mk-search-panel{grid-template-columns:minmax(0,1fr) 112px 80px;gap:5px}
+ #page-marketplace .mk-search-field,#page-marketplace .mk-location-field{min-height:42px;padding:0 10px}
+ #page-marketplace .mk-search-field input{font-size:11px}
+ #page-marketplace .mk-location-field select{font-size:11px}
+ #page-marketplace .mk-search-submit{font-size:12px}
+ #page-marketplace .mk-filter-pill{height:34px;padding:0 10px}
+ #page-marketplace .mk-filter-pill select{font-size:11px}
+ #page-marketplace .mk-results{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ #page-marketplace .mk-card-body{padding:9px 9px 10px;min-height:159px}
+ #page-marketplace .mk-card-body h3{font-size:13px;min-height:32px}
+ #page-marketplace .mk-card-desc{font-size:10px;min-height:28px}
+ #page-marketplace .mk-price strong{font-size:13px}
+ #page-marketplace .mk-view{font-size:9px;padding:7px 8px}
+ #page-marketplace .mk-mobile-nav{position:fixed;bottom:0;left:0;right:0;z-index:90;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));min-height:60px;padding-bottom:env(safe-area-inset-bottom);background:rgba(3,3,3,.97);border-top:1px solid #80611b;box-shadow:0 -8px 28px rgba(0,0,0,.6)}
+ #page-marketplace .mk-mobile-nav button{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px;background:transparent;border:0;color:#d9d9d9;min-width:0}
+ #page-marketplace .mk-mobile-nav button:first-child{color:#ffcb2e}
+ #page-marketplace .mk-mobile-nav button span{font-size:21px;line-height:1}
+ #page-marketplace .mk-mobile-nav button small{font-size:9px;font-weight:700}
+ #page-marketplace .mk-bottom-cta{padding:15px}
+}
+@media(max-width:500px){
+ #page-marketplace .mk-header{height:64px}
+ #page-marketplace .mk-header-inner{padding:6px 10px}
+ #page-marketplace .mk-brand-text strong{font-size:18px}
+ #page-marketplace .mk-brand-text small{font-size:5px}
+ #page-marketplace .mk-icon-btn{width:31px;height:31px}
+ #page-marketplace .mk-intro h1{font-size:21px}
+ #page-marketplace .mk-search-panel{grid-template-columns:minmax(0,1fr) 96px 74px}
+ #page-marketplace .mk-search-field input{font-size:10px}
+ #page-marketplace .mk-search-field input::placeholder{font-size:10px}
+ #page-marketplace .mk-location-field span{font-size:17px}
+ #page-marketplace .mk-location-field select{font-size:10px}
+ #page-marketplace .mk-search-submit{font-size:11px}
+ #page-marketplace .mk-filter-bar{margin:0 -12px;padding-left:12px;padding-right:12px}
+ #page-marketplace .mk-categories{margin:0 -12px;padding-left:12px;padding-right:12px}
+ #page-marketplace .mk-feature-tag{font-size:9px;padding:5px 7px;top:6px;left:6px}
+ #page-marketplace .mk-heart{width:29px;height:29px;top:6px;right:6px;font-size:20px}
+ #page-marketplace .mk-photo-meta{font-size:9px;left:7px;bottom:7px}
+ #page-marketplace .mk-card-body h3{font-size:12px}
+ #page-marketplace .mk-type{font-size:8px}
+ #page-marketplace .mk-review small{font-size:8px}
+ #page-marketplace .mk-price strong{font-size:12px}
+ #page-marketplace .mk-price{font-size:9px}
+ #page-marketplace .mk-view{font-size:8px;padding:7px 7px}
+ #page-marketplace .mk-bottom-cta{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:370px){
+ #page-marketplace .mk-brand-text strong{font-size:16px}
+ #page-marketplace .mk-crown{font-size:25px}
+ #page-marketplace .mk-header-actions .mk-saved-top{display:none}
+ #page-marketplace .mk-search-panel{grid-template-columns:1fr 75px}
+ #page-marketplace .mk-search-field{grid-column:1/-1}
+ #page-marketplace .mk-location-field{grid-column:1}
+ #page-marketplace .mk-search-submit{grid-column:2}
+ #page-marketplace .mk-view{font-size:8px}
+}
+</style>
 </head>
 
 <body>
@@ -879,48 +1042,197 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
      Marketplace = all categories. Events = HIT KENYA ticketing/RSVP only.
      Influencer Dashboard = authenticated/approved influencer experience.
      ============================================================ -->
-<section id="page-marketplace" class="page-view marketplace-page">
-  <div class="route-topbar"><div class="route-nav">
-    <button class="route-logo" onclick="goHome()" aria-label="HIT Kenya Home">HIT<span>KENYA</span></button>
-    <div class="route-links">
-      <button onclick="goHome()">⌂ Home</button><button class="active" onclick="goRoute('marketplace')">Marketplace</button><button onclick="goRoute('events')">Events</button><button onclick="goRoute('artists')">Artists & DJs</button><button onclick="goRoute('vendors')">Vendors</button><button onclick="goRoute('venues')">Venues</button><button onclick="goRoute('cars')">Transport</button><button onclick="goRoute('stays')">Stays</button>
+<section id="page-marketplace" class="page-view marketplace-page hk-market-v2" aria-label="HIT Kenya Marketplace">
+  <div class="mk-header">
+    <div class="mk-header-photo" aria-hidden="true"></div>
+    <div class="mk-header-inner">
+      <button type="button" class="mk-brand" onclick="goHome()" aria-label="HIT Kenya homepage">
+        <span class="mk-crown" aria-hidden="true">♛</span><span class="mk-brand-text"><strong><span>HIT</span> KENYA</strong><small>EVENTS · PEOPLE · BRANDS · OPPORTUNITIES</small></span>
+      </button>
+      <nav class="mk-header-links" aria-label="Marketplace navigation">
+        <button type="button" onclick="goHome()">Home</button><button type="button" class="current" onclick="goRoute('marketplace')">Marketplace</button><button type="button" onclick="goRoute('events')">Events</button><button type="button" onclick="openModal('serviceModal')">Services</button>
+      </nav>
+      <div class="mk-header-actions">
+        <button type="button" class="mk-icon-btn" onclick="document.getElementById('marketSearch')?.focus()" aria-label="Search marketplace">⌕</button>
+        <button type="button" class="mk-icon-btn mk-saved-top" onclick="hkMarketSavedOnly()" aria-label="Show saved listings">♡<span class="mk-save-count" id="mkSaveCount" hidden>0</span></button>
+        <button type="button" class="mk-icon-btn" onclick="hkMarketMenu()" aria-label="Toggle marketplace menu" aria-expanded="false" id="mkMenuBtn">☰</button>
+      </div>
     </div>
-    <div class="route-actions"><button class="route-icon" onclick="openModal('searchModal')">⌕</button><button class="route-icon" onclick="openModal('accountModal')">♙</button></div>
-  </div></div>
-  <div class="market-page-hero"><div class="market-page-copy">
-    <div class="eyebrow">HIT KENYA MARKETPLACE</div>
-    <h1>Events, Vibes &<br><span>Everything You Need</span></h1>
-    <p>Discover and book the best events, artists, vendors, venues, transport and stays across Kenya.</p>
-    <div class="market-search"><input id="marketSearch" placeholder="Search for events, artists, vendors, venues, etc..." onkeydown="if(event.key==='Enter')filterMarketplace()"><button onclick="filterMarketplace()">→ Search</button></div>
-  </div></div>
-  <div class="market-category-bar">
-    <button class="market-category active" onclick="marketCategory('all',this)"><span class="cat-icon">▦</span>All Marketplace</button>
-    <button class="market-category" onclick="goRoute('events')"><span class="cat-icon">▣</span>Events & Tickets</button>
-    <button class="market-category" onclick="goRoute('artists')"><span class="cat-icon">♫</span>Artists & DJs</button>
-    <button class="market-category" onclick="goRoute('vendors')"><span class="cat-icon">▤</span>Vendors</button>
-    <button class="market-category" onclick="goRoute('venues')"><span class="cat-icon">⌂</span>Venues</button>
-    <button class="market-category" onclick="goRoute('cars')"><span class="cat-icon">▱</span>Transport</button>
-    <button class="market-category" onclick="goRoute('stays')"><span class="cat-icon">▰</span>Stays</button>
-    <button class="market-category" onclick="openModal('serviceModal')"><span class="cat-icon">✦</span>Services</button>
+    <div class="mk-quick-menu" id="mkQuickMenu" hidden><button onclick="goHome()">Home</button><button onclick="goRoute('events')">Events</button><button onclick="goRoute('marketplace')">Marketplace</button><button onclick="openModal('accountModal')">Account</button></div>
   </div>
-  <div class="market-toolbar"><div class="count">Showing <strong id="marketShowing">1–12</strong> of <strong id="marketTotal">48</strong> results</div><select onchange="sortMarketplace(this.value)"><option value="popular">Most Popular</option><option value="newest">Newest</option><option value="rating">Highest Rated</option><option value="low">Price: Low → High</option><option value="high">Price: High → Low</option></select></div>
-  <div class="market-body">
-    <aside class="market-filter card"><h3>Filter</h3><div class="filter-group"><div class="eyebrow">Category</div><label><input type="checkbox" checked> Concerts & Music</label><label><input type="checkbox"> Festivals</label><label><input type="checkbox"> Comedy</label><label><input type="checkbox"> Conferences</label><label><input type="checkbox"> Food & Drinks</label><label><input type="checkbox"> Sports</label></div><div class="filter-group"><div class="eyebrow">Location</div><select style="width:100%;background:#0d1116;color:#fff;border:1px solid #343a43;border-radius:9px;padding:9px"><option>All Locations</option><option>Nairobi</option><option>Mombasa</option><option>Nakuru</option><option>Kisumu</option></select></div><div class="filter-group"><div class="eyebrow">Date</div><select style="width:100%;background:#0d1116;color:#fff;border:1px solid #343a43;border-radius:9px;padding:9px"><option>Any Date</option><option>Today</option><option>This Weekend</option><option>This Month</option></select></div><div class="filter-group"><div class="eyebrow">Price Range</div><input class="range" type="range" min="0" max="50000" value="50000"></div></aside>
-    <div class="market-results" id="marketResults">
-      <article class="market-card card" data-cat="event" data-search="sunset music festival event nairobi"><button class="heart" onclick="this.textContent=this.textContent==='♡'?'♥':'♡'">♡</button><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=85" alt="Event crowd"><div class="m-body"><span class="tag">EVENTS & TICKETS</span><h3>Sunset Music Festival</h3><div class="meta">⌖ Nairobi, Uhuru Gardens</div><div class="meta">◷ 25 Oct 2026 • 4:00 PM</div><div class="meta">★ 4.8 (320 reviews)</div><div class="price">KSh 2,000 – 10,000</div><div class="m-actions"><button class="btn small" onclick="goRoute('events')">Get Tickets</button></div></div></article>
-      <article class="market-card card" data-cat="artist" data-search="dj mkenya artist dj nairobi"><button class="heart" onclick="this.textContent=this.textContent==='♡'?'♥':'♡'">♡</button><img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=900&q=85" alt="DJ"><div class="m-body"><span class="tag">ARTIST & DJ</span><h3>DJ Mkenya Live</h3><div class="meta">⌖ Nairobi</div><div class="meta">★ 4.7 (156 reviews)</div><div class="price">KSh 5,000+</div><div class="m-actions"><button class="btn small" onclick="openBookingChoice('artist')">Book Now</button></div></div></article>
-      <article class="market-card card" data-cat="vendor" data-search="royal catering vendor food nairobi"><button class="heart" onclick="this.textContent=this.textContent==='♡'?'♥':'♡'">♡</button><img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=900&q=85" alt="Catering"><div class="m-body"><span class="tag">VENDOR</span><h3>Royal Catering Services</h3><div class="meta">⌖ Nairobi</div><div class="meta">★ 4.6 (102 reviews)</div><div class="price">KSh 1,500 – 5,000 / person</div><div class="m-actions"><button class="btn small" onclick="openBookingChoice('vendor')">Book Now</button></div></div></article>
-      <article class="market-card card" data-cat="venue" data-search="grand horizon conference venue westlands"><button class="heart" onclick="this.textContent=this.textContent==='♡'?'♥':'♡'">♡</button><img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=900&q=85" alt="Venue"><div class="m-body"><span class="tag">VENUE</span><h3>The Grand Horizon Conference</h3><div class="meta">⌖ Nairobi, Westlands</div><div class="meta">★ 4.8 (87 reviews)</div><div class="price">KSh 150,000 – 500,000</div><div class="m-actions"><button class="btn small" onclick="openBookingChoice('venue')">View Details</button></div></div></article>
-      <article class="market-card card" data-cat="transport" data-search="nairobi shuttle transport car hire"><button class="heart" onclick="this.textContent=this.textContent==='♡'?'♥':'♡'">♡</button><img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=900&q=85" alt="Transport"><div class="m-body"><span class="tag">TRANSPORT</span><h3>Nairobi Shuttle Service</h3><div class="meta">⌖ Nairobi & Surrounding</div><div class="meta">★ 4.6 (64 reviews)</div><div class="price">KSh 2,000 – 8,000</div><div class="m-actions"><button class="btn small" onclick="openBookingChoice('car')">Book Ride</button></div></div></article>
-      <article class="market-card card" data-cat="stay" data-search="langata boutique hotel stay nairobi"><button class="heart" onclick="this.textContent=this.textContent==='♡'?'♥':'♡'">♡</button><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=85" alt="Stay"><div class="m-body"><span class="tag">STAYS</span><h3>The Langata Boutique Stay</h3><div class="meta">⌖ Nairobi</div><div class="meta">★ 4.7 (93 reviews)</div><div class="price">KSh 8,000 – 15,000 / night</div><div class="m-actions"><button class="btn small" onclick="openBookingChoice('stay')">Book Stay</button></div></div></article>
-      <article class="market-card card" data-cat="vendor" data-search="kenyan art crafts vendor market"><button class="heart" onclick="this.textContent=this.textContent==='♡'?'♥':'♡'">♡</button><img src="https://images.unsplash.com/photo-1577083288073-40892c0860a4?auto=format&fit=crop&w=900&q=85" alt="Arts and crafts"><div class="m-body"><span class="tag">VENDORS</span><h3>Kenyan Art & Crafts</h3><div class="meta">⌖ Nairobi, Maasai Market</div><div class="meta">★ 4.6 (74 reviews)</div><div class="price">KSh 500 – 5,000</div><div class="m-actions"><button class="btn small" onclick="goRoute('shop')">Shop Now</button></div></div></article>
-      <article class="market-card card" data-cat="event" data-search="rooftop vibes party event kilimani"><button class="heart" onclick="this.textContent=this.textContent==='♡'?'♥':'♡'">♡</button><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=85" alt="Nightlife event"><div class="m-body"><span class="tag">EVENTS & TICKETS</span><h3>Rooftop Vibes Party</h3><div class="meta">⌖ Nairobi, Kilimani</div><div class="meta">◷ 31 Oct 2026 • 6:00 PM</div><div class="meta">★ 4.4 (189 reviews)</div><div class="price">KSh 1,000 – 5,000</div><div class="m-actions"><button class="btn small" onclick="goRoute('events')">Get Tickets</button></div></div></article>
-      <article class="market-card card" data-cat="transport" data-search="safari day trip transport car kenya"><button class="heart" onclick="this.textContent=this.textContent==='♡'?'♥':'♡'">♡</button><img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=900&q=85" alt="Safari transport"><div class="m-body"><span class="tag">TRANSPORT</span><h3>Safari Day Trips</h3><div class="meta">⌖ Nairobi – Maasai Mara</div><div class="meta">★ 4.8 (120 reviews)</div><div class="price">KSh 6,000 – 15,000</div><div class="m-actions"><button class="btn small" onclick="goRoute('cars')">Book Trip</button></div></div></article>
+  <div class="mk-container">
+    <div class="mk-intro"><div><span class="mk-kicker">DISCOVER KENYA WITH HIT KENYA</span><h1>Explore the <em>Marketplace.</em></h1><p>Events, venues, artists, transport and stays, all in one place.</p></div><span class="mk-intro-pill">✦ DISCOVER · CONNECT · EXPERIENCE</span></div>
+    <div class="mk-search-panel">
+      <div class="mk-search-field"><span aria-hidden="true">⌕</span><input id="marketSearch" type="search" aria-label="Search marketplace" placeholder="Search events, venues, artists or services..." oninput="filterMarketplace()" onkeydown="if(event.key==='Enter')filterMarketplace()"></div>
+      <label class="mk-location-field"><span aria-hidden="true">⌖</span><select id="mkLocation" aria-label="Choose location" onchange="filterMarketplace()"><option value="all">All Kenya</option><option value="Nairobi" selected>Nairobi</option><option value="Mombasa">Mombasa</option><option value="Nakuru">Nakuru</option><option value="Kisumu">Kisumu</option></select></label>
+      <button type="button" class="mk-search-submit" onclick="filterMarketplace()">Search <span aria-hidden="true">→</span></button>
     </div>
+    <div class="mk-filter-bar" aria-label="Marketplace filters">
+      <label class="mk-filter-pill"><span aria-hidden="true">▦</span><select id="mkCategorySelect" aria-label="Filter by category" onchange="marketCategory(this.value)"><option value="all">All Categories</option><option value="event">Events & Tickets</option><option value="venue">Event Venues</option><option value="artist">Artists & DJs</option><option value="vendor">Vendors</option><option value="transport">Transport</option><option value="stay">Stays</option></select></label>
+      <label class="mk-filter-pill"><span aria-hidden="true">▣</span><select id="mkDateFilter" aria-label="Filter by date" onchange="filterMarketplace()"><option value="all">Any Date</option><option value="dated">Events with dates</option><option value="upcoming">Upcoming Events</option></select></label>
+      <label class="mk-filter-pill"><span aria-hidden="true">◇</span><select id="mkPriceFilter" aria-label="Filter by starting price" onchange="filterMarketplace()"><option value="all">Price Range</option><option value="5000">From under KSh 5,000</option><option value="10000">From under KSh 10,000</option><option value="20000">From under KSh 20,000</option><option value="20001">From KSh 20,000+</option></select></label>
+      <label class="mk-filter-pill mk-sort-pill"><span aria-hidden="true">★</span><select id="mkSort" aria-label="Sort listings" onchange="sortMarketplace(this.value)"><option value="popular">Most Popular</option><option value="newest">Newest</option><option value="rating">Highest Rated</option><option value="low">Price: Low → High</option><option value="high">Price: High → Low</option></select></label>
+      <button type="button" class="mk-filter-pill mk-map-pill" onclick="hkMarketOpenMap()">⌖ <span>Map</span></button>
+    </div>
+    <div class="mk-categories" aria-label="Marketplace categories">
+      <button type="button" class="market-category active" data-category="all" onclick="marketCategory('all',this)">All <span>Marketplace</span></button>
+      <button type="button" class="market-category" data-category="event" onclick="marketCategory('event',this)">♫ <span>Events</span></button>
+      <button type="button" class="market-category" data-category="venue" onclick="marketCategory('venue',this)">⌂ <span>Venues</span></button>
+      <button type="button" class="market-category" data-category="artist" onclick="marketCategory('artist',this)">♬ <span>Artists & DJs</span></button>
+      <button type="button" class="market-category" data-category="vendor" onclick="marketCategory('vendor',this)">▦ <span>Vendors</span></button>
+      <button type="button" class="market-category" data-category="transport" onclick="marketCategory('transport',this)">🚘 <span>Transport</span></button>
+      <button type="button" class="market-category" data-category="stay" onclick="marketCategory('stay',this)">▰ <span>Stays</span></button>
+      <button type="button" class="market-category" onclick="openModal('serviceModal')">✦ <span>Services</span></button>
+    </div>
+    <div class="mk-results-head"><div><h2>Explore what's on offer</h2><p><span id="marketShowing">9</span> of <span id="marketTotal">9</span> listings <span class="mk-separator">·</span> <span id="mkActiveFilter">All categories</span></p></div><button class="mk-clear-btn" type="button" onclick="hkMarketReset()">Clear filters ↺</button></div>
+    <p class="mk-preview-note">Marketplace preview: listing details, reviews and prices are illustrative. Please confirm availability and terms before booking.</p>
+    <div class="market-results mk-results" id="marketResults">
+<article class="market-card mk-card" data-cat="event" data-date="2026-10-25" data-order="0" data-price="2000" data-rating="4.8" data-location="Nairobi" data-search="sunset music festival nairobi, uhuru gardens event live music, festival atmosphere and entertainment." aria-label="Sunset Music Festival">
+    <div class="mk-photo">
+      <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=960&q=82" loading="eager" decoding="async" width="720" height="460" alt="Photograph illustrating events &amp; tickets" onerror="this.onerror=null;this.src='assets/marketing/music-stage.webp'">
+      <span class="mk-feature-tag">★ Featured</span>
+      <button type="button" class="heart mk-heart" onclick="hkMarketToggleSaved(this)" aria-pressed="false" aria-label="Save Sunset Music Festival">♡</button>
+      <div class="mk-photo-meta"><span>⌖ Nairobi, Uhuru Gardens</span></div>
+    </div>
+    <div class="m-body mk-card-body">
+      <div class="mk-type">♪ EVENTS & TICKETS</div>
+      <h3>Sunset Music Festival</h3>
+      <p class="mk-card-desc">Live music, festival atmosphere and entertainment.</p>
+      <div class="mk-review"><span class="mk-star">★</span> 4.8 <small>(320 reviews)</small></div>
+      <div class="mk-price-row"><div class="mk-price">From <strong>KSh 2,000</strong></div><button type="button" class="mk-view" onclick="goRoute('events')">View details <span aria-hidden="true">→</span></button></div>
+    </div>
+  </article>
+<article class="market-card mk-card" data-cat="venue" data-order="1" data-price="150000" data-rating="4.8" data-location="Nairobi" data-search="the grand horizon conference nairobi, westlands venue conference and event venue in westlands." aria-label="The Grand Horizon Conference">
+    <div class="mk-photo">
+      <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=960&q=82" loading="eager" decoding="async" width="720" height="460" alt="Photograph illustrating event venues" onerror="this.onerror=null;this.src='assets/venues/venue-reception.webp'">
+      <span class="mk-feature-tag">★ Featured</span>
+      <button type="button" class="heart mk-heart" onclick="hkMarketToggleSaved(this)" aria-pressed="false" aria-label="Save The Grand Horizon Conference">♡</button>
+      <div class="mk-photo-meta"><span>⌖ Nairobi, Westlands</span></div>
+    </div>
+    <div class="m-body mk-card-body">
+      <div class="mk-type">⌂ EVENT VENUES</div>
+      <h3>The Grand Horizon Conference</h3>
+      <p class="mk-card-desc">Conference and event venue in Westlands.</p>
+      <div class="mk-review"><span class="mk-star">★</span> 4.8 <small>(87 reviews)</small></div>
+      <div class="mk-price-row"><div class="mk-price">From <strong>KSh 150,000</strong></div><button type="button" class="mk-view" onclick="openBookingChoice('venue')">View details <span aria-hidden="true">→</span></button></div>
+    </div>
+  </article>
+<article class="market-card mk-card" data-cat="stay" data-order="2" data-price="8000" data-rating="4.7" data-location="Nairobi" data-search="the langata boutique stay nairobi stay a nairobi accommodation option for your stay." aria-label="The Langata Boutique Stay">
+    <div class="mk-photo">
+      <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=960&q=82" loading="lazy" decoding="async" width="720" height="460" alt="Photograph illustrating stays" onerror="this.onerror=null;this.src='assets/travel/stay-photo.webp'">
+      <span class="mk-feature-tag">★ Featured</span>
+      <button type="button" class="heart mk-heart" onclick="hkMarketToggleSaved(this)" aria-pressed="false" aria-label="Save The Langata Boutique Stay">♡</button>
+      <div class="mk-photo-meta"><span>⌖ Nairobi</span></div>
+    </div>
+    <div class="m-body mk-card-body">
+      <div class="mk-type">▰ STAYS</div>
+      <h3>The Langata Boutique Stay</h3>
+      <p class="mk-card-desc">A Nairobi accommodation option for your stay.</p>
+      <div class="mk-review"><span class="mk-star">★</span> 4.7 <small>(93 reviews)</small></div>
+      <div class="mk-price-row"><div class="mk-price">From <strong>KSh 8,000</strong></div><button type="button" class="mk-view" onclick="openBookingChoice('stay')">View details <span aria-hidden="true">→</span></button></div>
+    </div>
+  </article>
+<article class="market-card mk-card" data-cat="transport" data-order="3" data-price="2000" data-rating="4.6" data-location="Nairobi" data-search="nairobi shuttle service nairobi &amp; surrounding transport local transfers and transport enquiries." aria-label="Nairobi Shuttle Service">
+    <div class="mk-photo">
+      <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=960&q=82" loading="lazy" decoding="async" width="720" height="460" alt="Photograph illustrating transport" onerror="this.onerror=null;this.src='assets/travel/travel-hero.webp'">
+      <span class="mk-feature-tag">★ Featured</span>
+      <button type="button" class="heart mk-heart" onclick="hkMarketToggleSaved(this)" aria-pressed="false" aria-label="Save Nairobi Shuttle Service">♡</button>
+      <div class="mk-photo-meta"><span>⌖ Nairobi &amp; Surrounding</span></div>
+    </div>
+    <div class="m-body mk-card-body">
+      <div class="mk-type">🚘 TRANSPORT</div>
+      <h3>Nairobi Shuttle Service</h3>
+      <p class="mk-card-desc">Local transfers and transport enquiries.</p>
+      <div class="mk-review"><span class="mk-star">★</span> 4.6 <small>(64 reviews)</small></div>
+      <div class="mk-price-row"><div class="mk-price">From <strong>KSh 2,000</strong></div><button type="button" class="mk-view" onclick="openBookingChoice('car')">Book now <span aria-hidden="true">→</span></button></div>
+    </div>
+  </article>
+<article class="market-card mk-card" data-cat="artist" data-order="4" data-price="5000" data-rating="4.7" data-location="Nairobi" data-search="dj mkenya live nairobi artist dj performances and entertainment bookings." aria-label="DJ Mkenya Live">
+    <div class="mk-photo">
+      <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=960&q=82" loading="lazy" decoding="async" width="720" height="460" alt="Photograph illustrating artists &amp; djs" onerror="this.onerror=null;this.src='assets/artists/artists-hero-hq.webp'">
+      <span class="mk-feature-tag">ARTISTS & DJs</span>
+      <button type="button" class="heart mk-heart" onclick="hkMarketToggleSaved(this)" aria-pressed="false" aria-label="Save DJ Mkenya Live">♡</button>
+      <div class="mk-photo-meta"><span>⌖ Nairobi</span></div>
+    </div>
+    <div class="m-body mk-card-body">
+      <div class="mk-type">♫ ARTISTS & DJs</div>
+      <h3>DJ Mkenya Live</h3>
+      <p class="mk-card-desc">DJ performances and entertainment bookings.</p>
+      <div class="mk-review"><span class="mk-star">★</span> 4.7 <small>(156 reviews)</small></div>
+      <div class="mk-price-row"><div class="mk-price">From <strong>KSh 5,000</strong></div><button type="button" class="mk-view" onclick="openBookingChoice('artist')">Book now <span aria-hidden="true">→</span></button></div>
+    </div>
+  </article>
+<article class="market-card mk-card" data-cat="vendor" data-order="5" data-price="1500" data-rating="4.6" data-location="Nairobi" data-search="royal catering services nairobi vendor catering options for private and corporate events." aria-label="Royal Catering Services">
+    <div class="mk-photo">
+      <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=960&q=82" loading="lazy" decoding="async" width="720" height="460" alt="Photograph illustrating vendors" onerror="this.onerror=null;this.src='assets/venues/venue-wedding.webp'">
+      <span class="mk-feature-tag">VENDORS</span>
+      <button type="button" class="heart mk-heart" onclick="hkMarketToggleSaved(this)" aria-pressed="false" aria-label="Save Royal Catering Services">♡</button>
+      <div class="mk-photo-meta"><span>⌖ Nairobi</span></div>
+    </div>
+    <div class="m-body mk-card-body">
+      <div class="mk-type">▦ VENDORS</div>
+      <h3>Royal Catering Services</h3>
+      <p class="mk-card-desc">Catering options for private and corporate events.</p>
+      <div class="mk-review"><span class="mk-star">★</span> 4.6 <small>(102 reviews)</small></div>
+      <div class="mk-price-row"><div class="mk-price">From <strong>KSh 1,500</strong></div><button type="button" class="mk-view" onclick="openBookingChoice('vendor')">View details <span aria-hidden="true">→</span></button></div>
+    </div>
+  </article>
+<article class="market-card mk-card" data-cat="vendor" data-order="6" data-price="500" data-rating="4.6" data-location="Nairobi" data-search="kenyan art &amp; crafts nairobi, maasai market vendor local crafts, gifts and handmade products." aria-label="Kenyan Art &amp; Crafts">
+    <div class="mk-photo">
+      <img src="https://images.unsplash.com/photo-1577083288073-40892c0860a4?auto=format&fit=crop&w=960&q=82" loading="lazy" decoding="async" width="720" height="460" alt="Photograph illustrating vendors" onerror="this.onerror=null;this.src='assets/brand-social/product-photo.webp'">
+      <span class="mk-feature-tag">VENDORS</span>
+      <button type="button" class="heart mk-heart" onclick="hkMarketToggleSaved(this)" aria-pressed="false" aria-label="Save Kenyan Art &amp; Crafts">♡</button>
+      <div class="mk-photo-meta"><span>⌖ Nairobi, Maasai Market</span></div>
+    </div>
+    <div class="m-body mk-card-body">
+      <div class="mk-type">▦ VENDORS</div>
+      <h3>Kenyan Art &amp; Crafts</h3>
+      <p class="mk-card-desc">Local crafts, gifts and handmade products.</p>
+      <div class="mk-review"><span class="mk-star">★</span> 4.6 <small>(74 reviews)</small></div>
+      <div class="mk-price-row"><div class="mk-price">From <strong>KSh 500</strong></div><button type="button" class="mk-view" onclick="goRoute('shop')">View details <span aria-hidden="true">→</span></button></div>
+    </div>
+  </article>
+<article class="market-card mk-card" data-cat="event" data-date="2026-10-31" data-order="7" data-price="1000" data-rating="4.4" data-location="Nairobi" data-search="rooftop vibes party nairobi, kilimani event music and social event experiences." aria-label="Rooftop Vibes Party">
+    <div class="mk-photo">
+      <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=960&q=82" loading="lazy" decoding="async" width="720" height="460" alt="Photograph illustrating events &amp; tickets" onerror="this.onerror=null;this.src='assets/marketing/festival-crowd.webp'">
+      <span class="mk-feature-tag">EVENTS & TICKETS</span>
+      <button type="button" class="heart mk-heart" onclick="hkMarketToggleSaved(this)" aria-pressed="false" aria-label="Save Rooftop Vibes Party">♡</button>
+      <div class="mk-photo-meta"><span>⌖ Nairobi, Kilimani</span></div>
+    </div>
+    <div class="m-body mk-card-body">
+      <div class="mk-type">♪ EVENTS & TICKETS</div>
+      <h3>Rooftop Vibes Party</h3>
+      <p class="mk-card-desc">Music and social event experiences.</p>
+      <div class="mk-review"><span class="mk-star">★</span> 4.4 <small>(189 reviews)</small></div>
+      <div class="mk-price-row"><div class="mk-price">From <strong>KSh 1,000</strong></div><button type="button" class="mk-view" onclick="goRoute('events')">View details <span aria-hidden="true">→</span></button></div>
+    </div>
+  </article>
+<article class="market-card mk-card" data-cat="transport" data-order="8" data-price="6000" data-rating="4.8" data-location="Nairobi" data-search="safari day trips nairobi – maasai mara transport explore safari transport and day-trip options." aria-label="Safari Day Trips">
+    <div class="mk-photo">
+      <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=960&q=82" loading="lazy" decoding="async" width="720" height="460" alt="Photograph illustrating transport" onerror="this.onerror=null;this.src='assets/drone/landscapes.webp'">
+      <span class="mk-feature-tag">TRANSPORT</span>
+      <button type="button" class="heart mk-heart" onclick="hkMarketToggleSaved(this)" aria-pressed="false" aria-label="Save Safari Day Trips">♡</button>
+      <div class="mk-photo-meta"><span>⌖ Nairobi – Maasai Mara</span></div>
+    </div>
+    <div class="m-body mk-card-body">
+      <div class="mk-type">🚘 TRANSPORT</div>
+      <h3>Safari Day Trips</h3>
+      <p class="mk-card-desc">Explore safari transport and day-trip options.</p>
+      <div class="mk-review"><span class="mk-star">★</span> 4.8 <small>(120 reviews)</small></div>
+      <div class="mk-price-row"><div class="mk-price">From <strong>KSh 6,000</strong></div><button type="button" class="mk-view" onclick="goRoute('cars')">Book now <span aria-hidden="true">→</span></button></div>
+    </div>
+  </article>
+    </div>
+    <div class="mk-empty" id="mkEmpty" hidden><div>⌕</div><h3>No matching listings</h3><p>Try another category, search or price range.</p><button type="button" onclick="hkMarketReset()">Reset filters</button></div>
+    <div class="mk-bottom-cta"><div><h2>Have something to showcase?</h2><p>Join HIT Kenya and connect with customers across Kenya.</p></div><button type="button" onclick="window.location.href='join-as-a-partner.html'">Become a partner →</button></div>
   </div>
-  <div class="why-market"><div class="why-market-inner card"><div><h3>Why Use HIT Kenya Marketplace?</h3><p class="muted">Safe • Trusted • Local • All In One Place</p></div><div class="why-stat"><b>✓ Verified</b><span>Vendors & Artists</span></div><div class="why-stat"><b>♢ Secure</b><span>Payments</span></div><div class="why-stat"><b>◉ 24/7</b><span>Support</span></div><div class="why-stat"><b>★ Amazing</b><span>Experiences</span></div></div></div>
-  <div class="market-footer-cta"><div class="inner"><div><h3>Be part of the movement.</h3><p>Discover. Book. Support.</p></div><button class="btn" onclick="openModal('accountModal')">JOIN THE MARKETPLACE →</button></div></div>
-  <div id="routeNotice" class="result" style="max-width:500px;margin:0 auto 30px"></div>
+  <nav class="mk-mobile-nav" aria-label="Marketplace mobile navigation">
+    <button type="button" onclick="goHome()"><span>⌂</span><small>Home</small></button>
+    <button type="button" onclick="document.getElementById('mkCategorySelect')?.focus()"><span>▦</span><small>Categories</small></button>
+    <button type="button" id="mkSavedBottom" onclick="hkMarketSavedOnly()"><span>♡</span><small>Saved</small></button>
+    <button type="button" onclick="goHome();setTimeout(()=>document.querySelector('footer')?.scrollIntoView({behavior:'smooth'}),80)"><span>☏</span><small>Support</small></button>
+    <button type="button" onclick="openModal('accountModal')"><span>♙</span><small>Account</small></button>
+  </nav>
 </section>
 
 
@@ -1443,22 +1755,48 @@ function goHome(){
 }
 function routeFromHash(){
   const r=location.hash.replace('#','').trim();
-  if(r==='marketplace'||r==='events'||r==='influencer'||r==='shop'||r==='vendor-facilitation'||r==='artist-booking'||r==='content-digital'||r==='travel-hire'||r==='event-venues'||r==='fun-base')goRoute(r); else goHome();
+  if(r==='marketplace'||r==='events'||r==='influencer'||r==='shop'||r==='vendor-facilitation'||r==='artist-booking'||r==='content-digital'||r==='travel-hire'||r==='event-venues'||r==='fun-base'||r==='artists'||r==='vendors'||r==='venues'||r==='cars'||r==='stays')goRoute(r); else goHome();
 }
 window.addEventListener('hashchange',routeFromHash);
-function marketCategory(cat,btn){
- document.querySelectorAll('.market-category').forEach(x=>x.classList.remove('active')); if(btn)btn.classList.add('active');
- document.querySelectorAll('#marketResults .market-card').forEach(card=>{card.style.display=(cat==='all'||card.dataset.cat===cat)?'block':'none'});
+// Marketplace v2: functional client-side search, filters, sorting and saved listings.
+const HK_MARKET={category:'all',savedOnly:false};
+function hkMarketInit(){
+  try{const saved=JSON.parse(localStorage.getItem('hit_kenya_saved_market')||'[]');document.querySelectorAll('#marketResults .mk-card').forEach(card=>{const key=card.querySelector('h3')?.textContent||'';const b=card.querySelector('.mk-heart');if(b&&saved.includes(key)){b.classList.add('is-saved');b.textContent='♥';b.setAttribute('aria-pressed','true')}})}catch(e){}
+  hkMarketUpdateSaved();filterMarketplace();
 }
+function hkMarketSavedKeys(){return [...document.querySelectorAll('#marketResults .mk-card')].filter(c=>c.querySelector('.mk-heart')?.classList.contains('is-saved')).map(c=>c.querySelector('h3')?.textContent||'')}
+function hkMarketUpdateSaved(){const n=hkMarketSavedKeys().length;const badge=document.getElementById('mkSaveCount');if(badge){badge.textContent=n;badge.hidden=!n}const btn=document.getElementById('mkSavedBottom');if(btn)btn.setAttribute('aria-pressed',String(HK_MARKET.savedOnly))}
+function hkMarketToggleSaved(button){const isSaved=button.classList.toggle('is-saved');button.textContent=isSaved?'♥':'♡';button.setAttribute('aria-pressed',String(isSaved));try{localStorage.setItem('hit_kenya_saved_market',JSON.stringify(hkMarketSavedKeys()))}catch(e){}hkMarketUpdateSaved();if(HK_MARKET.savedOnly)filterMarketplace()}
+function hkMarketSavedOnly(){HK_MARKET.savedOnly=!HK_MARKET.savedOnly;hkMarketUpdateSaved();filterMarketplace();document.getElementById('marketResults')?.scrollIntoView({behavior:'smooth',block:'start'})}
+function marketCategory(cat,btn){HK_MARKET.category=cat||'all';const select=document.getElementById('mkCategorySelect');if(select)select.value=HK_MARKET.category;document.querySelectorAll('#page-marketplace .mk-categories .market-category').forEach(b=>b.classList.toggle('active',b.dataset.category===HK_MARKET.category));filterMarketplace()}
 function filterMarketplace(){
- const q=(document.getElementById('marketSearch')?.value||'').trim().toLowerCase(); let visible=0;
- document.querySelectorAll('#marketResults .market-card').forEach(card=>{const ok=!q||card.dataset.search.includes(q);card.style.display=ok?'block':'none';if(ok)visible++});
- const c=document.getElementById('marketShowing'),t=document.getElementById('marketTotal');if(c)c.textContent=visible?`1–${Math.min(12,visible)}`:'0';if(t)t.textContent=visible;
+ const wrap=document.getElementById('marketResults');if(!wrap)return;
+ const q=(document.getElementById('marketSearch')?.value||'').trim().toLowerCase();
+ const loc=document.getElementById('mkLocation')?.value||'all';
+ const date=document.getElementById('mkDateFilter')?.value||'all';
+ const price=document.getElementById('mkPriceFilter')?.value||'all';
+ const today=new Date();today.setHours(0,0,0,0);
+ let visible=0;const all=[...wrap.querySelectorAll('.mk-card')];
+ all.forEach(c=>{
+  const amount=Number(c.dataset.price||0);const cardDate=c.dataset.date||'';
+  const priceOk=price==='all'||(price==='20001'?amount>=20001:amount<Number(price));
+  const dateOk=date==='all'||(date==='dated'&&!!cardDate)||(date==='upcoming'&&!!cardDate&&new Date(cardDate)>=today);
+  const show=(HK_MARKET.category==='all'||c.dataset.cat===HK_MARKET.category)&&(!q||(c.dataset.search||'').includes(q))&&(loc==='all'||c.dataset.location===loc)&&priceOk&&dateOk&&(!HK_MARKET.savedOnly||c.querySelector('.mk-heart')?.classList.contains('is-saved'));
+  c.hidden=!show;if(show)visible++;
+ });
+ const shown=document.getElementById('marketShowing'),total=document.getElementById('marketTotal'),empty=document.getElementById('mkEmpty'),active=document.getElementById('mkActiveFilter');
+ if(shown)shown.textContent=visible;if(total)total.textContent=all.length;if(empty)empty.hidden=visible!==0;
+ const label={all:'All categories',event:'Events & Tickets',venue:'Venues',artist:'Artists & DJs',vendor:'Vendors',transport:'Transport',stay:'Stays'}[HK_MARKET.category]||'All categories';
+ if(active)active.textContent=(HK_MARKET.savedOnly?'Saved · ':'')+label;
 }
-function sortMarketplace(v){
- const wrap=document.getElementById('marketResults'); if(!wrap)return; const cards=[...wrap.querySelectorAll('.market-card')];
- cards.sort((a,b)=>{const pa=parseInt((a.querySelector('.price')?.textContent||'0').replace(/\D/g,''))||0;const pb=parseInt((b.querySelector('.price')?.textContent||'0').replace(/\D/g,''))||0; if(v==='low')return pa-pb;if(v==='high')return pb-pa;return 0});cards.forEach(c=>wrap.appendChild(c));
-}
+function sortMarketplace(v){const wrap=document.getElementById('marketResults');if(!wrap)return;const cards=[...wrap.querySelectorAll('.mk-card')];cards.sort((a,b)=>{
+ const pa=Number(a.dataset.price||0),pb=Number(b.dataset.price||0),ra=Number(a.dataset.rating||0),rb=Number(b.dataset.rating||0),oa=Number(a.dataset.order||0),ob=Number(b.dataset.order||0);
+ if(v==='low')return pa-pb;if(v==='high')return pb-pa;if(v==='rating')return rb-ra;if(v==='newest')return ob-oa;return oa-ob;
+});cards.forEach(c=>wrap.appendChild(c));filterMarketplace()}
+function hkMarketReset(){HK_MARKET.category='all';HK_MARKET.savedOnly=false;const vals={marketSearch:'',mkLocation:'Nairobi',mkCategorySelect:'all',mkDateFilter:'all',mkPriceFilter:'all',mkSort:'popular'};Object.entries(vals).forEach(([id,v])=>{const el=document.getElementById(id);if(el)el.value=v});sortMarketplace('popular');document.querySelectorAll('#page-marketplace .mk-categories .market-category').forEach(b=>b.classList.toggle('active',b.dataset.category==='all'));hkMarketUpdateSaved()}
+function hkMarketMenu(){const menu=document.getElementById('mkQuickMenu'),button=document.getElementById('mkMenuBtn');if(!menu)return;menu.hidden=!menu.hidden;button?.setAttribute('aria-expanded',String(!menu.hidden))}
+function hkMarketOpenMap(){const category={event:'events',venue:'event venues',artist:'artists and DJs',vendor:'event vendors',transport:'car hire',stay:'hotels'}[HK_MARKET.category]||'events and venues';const location=document.getElementById('mkLocation')?.value||'Nairobi';const where=location==='all'?'Kenya':location+', Kenya';window.open('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(category+' '+where),'_blank','noopener,noreferrer')}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',hkMarketInit)}else{hkMarketInit()}
 
 
 function submitAccountDemo(){

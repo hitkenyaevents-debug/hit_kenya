@@ -1,3 +1,15 @@
+# HIT Kenya Marketplace visual update (10 November 2026)
+
+The marketplace at `index.html#marketplace` has been redesigned to match the supplied compact black-and-gold mobile reference. It now has a compact header, search, location and category filters, price/date filters, sorting, saved listings and two-column mobile cards.
+
+Photos use genuine Unsplash photographic image URLs already present in the previous website, with bundled local WebP images as fallbacks. Photos are illustrative, not claims that a particular photo depicts the listed business or event. The demo listings, reviews and prices are examples, not verified live bookings. No payment, reservation or identity-verification backend was added.
+
+**GitHub Pages:** Extract the ZIP, upload all its contents to the repository root, and open the existing site with `#marketplace`. Keep all files and folders at their existing relative paths. External photos need an internet connection; local images display when they cannot load.
+
+**Changes:** Only the marketplace section and its related CSS/JS inside `index.html` were changed. Other pages and Cloudflare Functions are preserved.
+
+---
+
 # HIT KENYA — Complete Website with Venue Registration
 
 **Current update (9 November 2026):** Clicking **LIST YOUR VENUE** on the HIT KENYA website now opens the new `venue-registration.html` page. The full website is preserved in this compact package. See the Venue Registration section at the end for form/backend deployment details.
