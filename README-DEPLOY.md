@@ -82,3 +82,13 @@ If your repository has changed since the previous complete website ZIP, compare 
 - The page uses genuine existing local HIT KENYA brand and event-setting photographs, not AI-generated images. Photos are illustrative and do not establish the identities or availability of specific ushering staff.
 - Five redundant photographic copies were removed and their references updated to the retained equivalent images to reduce the GitHub file count and ZIP size. All other website pages and backend source files remain in the archive.
 - Extract the ZIP and upload **its contents** (with `index.html` at the repository root), not the ZIP itself. For GitHub browser upload issues, use GitHub Desktop or Git.
+
+
+## 2026-11-10 — Plan Your Guest Experience
+- New `plan-your-guest-experience.html` detailed event-team enquiry page with black/gold styling and **existing local photographic event images** (no AI-generated images).
+- On `event-ushering-hostess.html`, clicking **LET'S PLAN YOUR GUEST EXPERIENCE** or **REQUEST ASSISTANCE** opens the new page.
+- Sections: client details, event details, assistance services, staff quantities, uniform preference/reference preview, working arrangements, budget, notes and review.
+- Front-end validation, review dialog, WhatsApp message preparation to the existing HIT KENYA contact +254 797 068 736, and copy fallback. No enquiry is sent automatically; visitors must press **Send** in WhatsApp. Uniform images are previews only and must be sent separately.
+- Static GitHub Pages cannot securely store submissions or uploaded files. A backend is required for that.
+- To stay at **92 files**, `assets/vendor-management/vendor-management.js` was inlined unchanged into its only consuming page, `vendor-management.html`. Its functionality is preserved.
+- Extract the ZIP and upload the contents to your GitHub repository root; do not upload the ZIP itself.
