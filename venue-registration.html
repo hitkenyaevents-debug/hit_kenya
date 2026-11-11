@@ -34,6 +34,13 @@
     @media(max-width:820px){.layout{grid-template-columns:1fr;max-width:660px;padding:17px 14px 26px}.intro{padding:4px 3px 0}.intro h1{font-size:52px;margin:13px 0}.intro .lead{font-size:16px}.benefits{grid-template-columns:1fr 1fr;gap:9px 14px}.benefits li{font-size:12px}.photo-feature img{height:230px}.photo-pair img{height:140px}.city-strip{height:65px}.scriptline{margin:16px 0}.toplinks a:not(.pill){display:none}.registration{padding:22px}.trust-inner{gap:14px}.trust-item{font-size:10px;gap:6px}}
     @media(max-width:500px){.topbar{height:64px;padding:0 15px}.logo strong{font-size:23px}.logo{min-width:135px}.logo small{font-size:6px;letter-spacing:1.3px}.pill{padding:11px 13px;font-size:10px}.intro h1{font-size:44px}.intro-tag{font-size:13px}.photo-feature img{height:185px}.photo-pair img{height:105px}.registration{padding:17px 13px;border-radius:15px}.form-heading h2{font-size:23px}.form-sub{margin-left:0}.two-col{grid-template-columns:1fr}.facility-grid{grid-template-columns:1fr 1fr}.identity-grid{gap:5px}.identity-grid .upload{min-height:89px;padding:8px 4px}.identity-grid .upload span{font-size:10px}.step{font-size:9px}.trust-inner{grid-template-columns:1fr;gap:12px;padding:16px 24px}.trust-item{justify-content:start;border:0;font-size:12px}.section-title h3{font-size:14px}.upload-grid{gap:8px}.upload{padding:9px 5px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+    .static-notice[hidden],.static-identity-note[hidden]{display:none!important}
+    .static-notice{border:1px solid #ffca27;background:#231b0a;color:#f5e9cc;border-radius:12px;padding:13px 15px;margin:12px 0 17px;font-size:13px;line-height:1.5}
+    .static-notice strong{display:block;color:#ffca27;margin-bottom:4px}
+    .static-notice p{margin:0}
+    .static-host #section-identity .identity-grid,.static-host #section-identity .helper,.static-host #section-media .upload-grid,.static-host #photosPreview{display:none!important}
+    .static-identity-note{color:#ead49e;background:#1d170b;border:1px solid #71531c;border-radius:8px;padding:12px;font-size:12px;line-height:1.5}
   </style>
 </head>
 <body>
@@ -70,6 +77,7 @@
         <h2>REGISTER YOUR VENUE</h2>
       </div>
       <p class="form-sub">Join HIT KENYA and help more people discover your venue for events and bookings. Applications are reviewed before publication.</p>
+      <div id="staticHostNotice" class="static-notice" role="status" hidden><strong>Venue enquiries on GitHub Pages</strong><p>Secure identity-document uploads are not available on this static website. Complete your venue details to prepare a WhatsApp enquiry. Do not send ID photos through WhatsApp. HIT KENYA can advise on a secure verification process later.</p></div>
       <form id="venueForm" novalidate enctype="multipart/form-data">
         <div class="field" style="position:absolute;left:-9999px" aria-hidden="true"><label for="website">Website</label><input type="text" name="website" id="website" tabindex="-1" autocomplete="off"></div>
         <section class="section" id="section-venue" aria-labelledby="venueTitle">
@@ -101,6 +109,7 @@
           <div class="field"><label for="ownerName">Your Full Legal Name <span class="required">*</span></label><input id="ownerName" name="ownerName" autocomplete="name" maxlength="120" placeholder="Name as shown on your ID" required></div>
           <div class="two-col"><div class="field"><label for="email">Email Address <span class="required">*</span></label><input id="email" name="email" type="email" autocomplete="email" maxlength="160" placeholder="you@example.com" required></div><div class="field"><label for="phone">WhatsApp Number <span class="required">*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+254 7XX XXX XXX" title="Use a valid Kenyan mobile number" required></div></div>
           <p class="helper">For partner verification, upload clear photographs of both sides of your ID and a recent face photo. These are private documents and are never displayed in public venue listings.</p>
+          <p id="staticIdentityNote" class="static-identity-note" hidden>For your security, identity photos are not collected here on GitHub Pages. HIT KENYA will discuss verification privately through a suitable secure channel.</p>
           <div class="identity-grid">
             <label class="upload" id="idFrontBox" for="idFront"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6 16c1-2 5-2 6 0m2-6h4m-4 3h4"/></svg><span>ID Front <span class="required">*</span></span><small id="idFrontStatus">Choose image</small><input id="idFront" name="idFront" type="file" accept="image/jpeg,image/png,image/webp" required></label>
             <label class="upload" id="idBackBox" for="idBack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M6 9h12M6 13h12M6 16h8"/></svg><span>ID Back <span class="required">*</span></span><small id="idBackStatus">Choose image</small><input id="idBack" name="idBack" type="file" accept="image/jpeg,image/png,image/webp" required></label>
@@ -120,6 +129,14 @@
   (()=>{
     'use strict';
     const form=document.getElementById('venueForm'),message=document.getElementById('formMessage'),submitButton=document.getElementById('submitButton'),submitText=document.getElementById('submitText');
+    const staticHost=/(^|\.)github\.io$/i.test(window.location.hostname)||window.location.protocol==='file:';
+    if(staticHost){
+      document.body.classList.add('static-host');
+      document.getElementById('staticHostNotice').hidden=false;
+      document.getElementById('staticIdentityNote').hidden=false;
+      for(const id of ['photos','video','idFront','idBack','face']){const field=document.getElementById(id);field.required=false;field.disabled=true;}
+      submitText.textContent='PREPARE WHATSAPP ENQUIRY';
+    }
     const steps=[...document.querySelectorAll('.step')];
     steps.forEach((step,index)=>step.addEventListener('click',()=>{document.getElementById(step.dataset.target).scrollIntoView({behavior:'smooth',block:'start'});setActive(index)}));
     function setActive(index){steps.forEach((step,i)=>{step.classList.toggle('active',i===index);step.classList.toggle('complete',i<index);if(i===index)step.setAttribute('aria-current','step');else step.removeAttribute('aria-current')})}
@@ -136,6 +153,28 @@
       if(!form.checkValidity()){const bad=form.querySelector(':invalid');showMessage('Please complete all required fields and check the information entered.');if(bad){bad.scrollIntoView({behavior:'smooth',block:'center'});if(bad.type!=='file')bad.focus({preventScroll:true})}return}
       for(const id of Object.keys(fileRules)){const err=validateFiles(id);if(err){showMessage(err);return}}
       const payload=collectPayload();if(!/^(?:\+254|0)[17]\d{8}$/.test(payload.phone)){showMessage('Enter a valid Kenyan WhatsApp number, such as +254712345678.');document.getElementById('phone').focus();return}
+      if(staticHost){
+        const enquiry=[
+          'Hello HIT KENYA, I would like to register an event venue.',
+          'Venue: '+payload.venueName,
+          'Category: '+payload.category,
+          'County: '+payload.county,
+          'Town: '+payload.town,
+          'Description: '+payload.description,
+          'Capacity: '+payload.capacity,
+          'Facilities: '+(payload.facilities?.join(', ')||'Not specified'),
+          'Indicative venue rental price (KSh): '+payload.price,
+          'Contact name: '+payload.ownerName,
+          'Email: '+payload.email,
+          'Phone: '+payload.phone,
+          'I understand this is an enquiry only, not a completed or verified application.'
+        ].join('\n');
+        const url='https://wa.me/254797068736?text='+encodeURIComponent(enquiry);
+        const tab=window.open(url,'_blank','noopener,noreferrer');
+        showMessage('Venue enquiry prepared. Press Send in WhatsApp to contact HIT KENYA. No photos or identity documents were uploaded.',false);
+        if(!tab){const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='Open WhatsApp manually';link.style.color='#ffca27';message.append(' ',link);}
+        return;
+      }
       const fd=new FormData();fd.append('payload',JSON.stringify(payload));for(const id of Object.keys(fileRules))for(const file of document.getElementById(id).files)fd.append(id,file,file.name);
       let total=0;for(const id of Object.keys(fileRules))for(const file of document.getElementById(id).files)total+=file.size;if(total>27*1024*1024){showMessage('The files exceed 27 MB in total. Please upload smaller files.');return}
       submitButton.disabled=true;submitText.textContent='SUBMITTING SECURELY…';
