@@ -760,7 +760,125 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
 #page-marketplace .mk-review{font-size:11px;color:#c5b99e}
 #page-marketplace .mk-price{font-size:10px}
 #page-marketplace .mk-price strong{font-size:15px}
-</style></head>
+</style>
+<style id="hk-foundation-redesign-20261111">
+/* Homepage teaser mirrors the supplied reference and opens the dedicated route. */
+#foundation.foundation-teaser{padding:18px;justify-content:flex-start;min-height:260px;background:#08090b;border:1px solid #d6a326}
+#foundation.foundation-teaser::before{display:none}
+#foundation.foundation-teaser .eyebrow{color:#ffc42d;letter-spacing:.16em;font-weight:800;font-size:.7rem}
+#foundation.foundation-teaser h3{font-size:1.15rem;font-weight:900;line-height:1.2;margin:6px 0 4px}
+#foundation.foundation-teaser p{font-size:.75rem;margin-bottom:10px;color:#bfc0c4}
+.foundation-teaser-actions{display:flex;gap:8px;flex-wrap:wrap}
+.foundation-teaser-actions .btn{min-height:33px}
+.foundation-teaser-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:13px}
+.foundation-teaser-tile{min-width:0;text-align:left;display:flex;gap:10px;align-items:flex-start;background:linear-gradient(130deg,#101113,#050506);border:1px solid #d2a229;border-radius:10px;padding:11px 10px;color:#fff;cursor:pointer;transition:border-color .2s,transform .2s}
+.foundation-teaser-tile:hover,.foundation-teaser-tile:focus-visible{border-color:#ffce37;transform:translateY(-2px)}
+.foundation-teaser-icon{font-size:1.8rem;line-height:1;color:#ffcc33;min-width:30px}
+.foundation-teaser-copy{display:flex;flex-direction:column;gap:4px;min-width:0}
+.foundation-teaser-copy strong{font-size:.66rem;line-height:1.22;font-weight:900}
+.foundation-teaser-copy small{font-size:.6rem;color:#c6c6c9;line-height:1.4}
+.foundation-teaser-copy em{font-size:.59rem;font-style:normal;color:#ffca35;font-weight:900;margin-top:4px}
+@media(max-width:600px){.foundation-teaser-grid{grid-template-columns:1fr}.foundation-teaser-tile{padding:12px}.foundation-teaser-copy strong{font-size:.76rem}.foundation-teaser-copy small{font-size:.67rem}}
+/* Foundation single-page experience; scoped so all existing routes remain untouched. */
+#page-foundation.foundation-page{--fd-gold:#ffc62d;--fd-line:#7b5b20;--fd-muted:#bcbcc0;background:#050506;color:#fff;font-family:Inter,Arial,sans-serif;overflow-x:hidden}
+#page-foundation *{box-sizing:border-box}
+#page-foundation button,#page-foundation select{font-family:inherit;cursor:pointer}
+#page-foundation .fd-topbar{height:76px;position:sticky;top:0;z-index:90;background:rgba(5,5,6,.96);border-bottom:1px solid #5a431c;display:flex;align-items:center;gap:26px;padding:10px max(24px,calc((100vw - 1220px)/2))}
+#page-foundation .fd-brand{display:flex;align-items:center;gap:10px;color:#fff;background:none;border:0;text-align:left;white-space:nowrap;padding:0}
+#page-foundation .fd-crown{color:var(--fd-gold);font-size:2.3rem;line-height:1}
+#page-foundation .fd-brand strong{font-size:1.3rem;font-weight:900;letter-spacing:-.05em;display:block;line-height:1}
+#page-foundation .fd-brand strong b{color:var(--fd-gold)}
+#page-foundation .fd-brand small{display:block;font-size:.43rem;letter-spacing:.11em;color:#d3d3d4;margin-top:5px}
+#page-foundation .fd-nav{display:flex;align-items:center;justify-content:center;flex:1;gap:22px}
+#page-foundation .fd-nav button{background:none;border:0;color:#dedee0;font-size:.7rem;font-weight:800;letter-spacing:.05em;padding:8px 0;white-space:nowrap}
+#page-foundation .fd-nav button:hover,#page-foundation .fd-nav button:focus-visible{color:var(--fd-gold)}
+#page-foundation .fd-btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(110deg,#ffd247,#f0a91b);color:#080808;border:1px solid #eeb326;border-radius:10px;padding:12px 20px;min-height:43px;font-size:.76rem;font-weight:900;letter-spacing:.01em;line-height:1.2;text-decoration:none;transition:filter .2s,transform .2s}
+#page-foundation .fd-btn:hover,#page-foundation .fd-btn:focus-visible{filter:brightness(1.1);transform:translateY(-1px)}
+#page-foundation .fd-btn-small{font-size:.68rem;min-height:38px;padding:9px 15px;white-space:nowrap}
+#page-foundation .fd-btn-outline{color:#fff;background:rgba(4,4,4,.56);border-color:var(--fd-gold)}
+#page-foundation .fd-hero{height:clamp(380px,42vw,550px);position:relative;display:flex;align-items:center;background:#121313;overflow:hidden}
+#page-foundation .fd-hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%}
+#page-foundation .fd-hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.98) 0%,rgba(0,0,0,.85) 36%,rgba(0,0,0,.15) 100%),linear-gradient(0deg,rgba(0,0,0,.35),transparent 60%)}
+#page-foundation .fd-hero-content{position:relative;z-index:1;max-width:1200px;width:100%;margin:auto;padding:42px 28px}
+#page-foundation .fd-kicker{color:var(--fd-gold);font-size:.73rem;font-weight:900;letter-spacing:.18em}
+#page-foundation .fd-hero h1{font-size:clamp(2.05rem,4.4vw,4.3rem);line-height:1.09;letter-spacing:-.045em;font-weight:900;margin:15px 0 14px;max-width:770px}
+#page-foundation .fd-hero h1 span,#page-foundation .fd-section-head h2 span{color:var(--fd-gold)}
+#page-foundation .fd-hero-content>p{color:#e1e1e3;font-size:clamp(.9rem,1.2vw,1.1rem);line-height:1.65;max-width:600px}
+#page-foundation .fd-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+#page-foundation .fd-photo-note{font-size:.63rem;color:#bdbdbd;margin-top:22px}
+#page-foundation .fd-shell{max-width:1220px;padding:0 24px 50px;margin:auto}
+#page-foundation .fd-feature-panel{margin:-30px 0 10px;position:relative;z-index:2;border:1px solid var(--fd-gold);border-radius:19px;background:linear-gradient(140deg,#111112,#030303);padding:25px 27px 22px;box-shadow:0 16px 35px #0009}
+#page-foundation .fd-feature-panel h2{font-size:clamp(1.5rem,2.6vw,2.4rem);font-weight:900;letter-spacing:-.03em;margin:7px 0 4px}
+#page-foundation .fd-feature-panel>p{font-size:.88rem;color:#c4c4c8}
+#page-foundation .fd-panel-actions{display:flex;gap:10px;flex-wrap:wrap;margin:17px 0}
+#page-foundation .fd-feature-tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+#page-foundation .fd-feature-tile{border:1px solid #b58a27;border-radius:12px;padding:17px 20px;display:flex;gap:17px;align-items:flex-start;text-align:left;color:#fff;background:linear-gradient(130deg,#0e0f10,#060606);min-width:0}
+#page-foundation .fd-feature-tile:hover,#page-foundation .fd-feature-tile:focus-visible{border-color:#ffcb37;background:#15130e}
+#page-foundation .fd-tile-icon{font-size:2.4rem;line-height:1;color:var(--fd-gold);min-width:45px}
+#page-foundation .fd-feature-tile strong{display:block;font-size:.9rem;line-height:1.25;margin-bottom:5px}
+#page-foundation .fd-feature-tile small{display:block;color:#c9c9cc;font-size:.74rem;line-height:1.45}
+#page-foundation .fd-feature-tile em{display:block;font-style:normal;color:var(--fd-gold);font-size:.74rem;font-weight:900;margin-top:13px}
+#page-foundation .fd-section{padding:67px 0 0;scroll-margin-top:86px}
+#page-foundation .fd-section-head{max-width:790px;margin-bottom:26px}
+#page-foundation .fd-section-head h2{font-size:clamp(1.7rem,3.2vw,2.7rem);font-weight:900;letter-spacing:-.04em;line-height:1.16;margin:9px 0 11px}
+#page-foundation .fd-section-head p{font-size:.9rem;line-height:1.65;color:var(--fd-muted)}
+#page-foundation .fd-mission-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:24px;align-items:stretch}
+#page-foundation .fd-mission-photo{position:relative;min-height:320px;border:1px solid #61491e;border-radius:15px;overflow:hidden;background:#151515}
+#page-foundation .fd-mission-photo img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+#page-foundation .fd-mission-photo:after{content:"";position:absolute;inset:40% 0 0;background:linear-gradient(transparent,#000b)}
+#page-foundation .fd-mission-photo span{position:absolute;bottom:19px;left:20px;z-index:2;font-size:1.15rem;font-weight:900}
+#page-foundation .fd-mission-text{background:#101113;border:1px solid #483817;border-radius:15px;padding:30px;display:flex;flex-direction:column;justify-content:center}
+#page-foundation .fd-mission-text h3{font-size:1.6rem;line-height:1.2;margin:10px 0 15px}
+#page-foundation .fd-mission-text p{font-size:.88rem;color:#bfc0c4;line-height:1.65;margin:0 0 14px}
+#page-foundation .fd-text-link{align-self:flex-start;background:none;border:0;padding:9px 0;color:var(--fd-gold);font-weight:900;font-size:.76rem}
+#page-foundation .fd-focus-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+#page-foundation .fd-focus-card{border:1px solid #57411c;border-radius:13px;overflow:hidden;background:#101113}
+#page-foundation .fd-focus-card img{display:block;width:100%;height:190px;object-fit:cover}
+#page-foundation .fd-focus-card>div{padding:19px}
+#page-foundation .fd-focus-card span{color:var(--fd-gold);font-weight:900;font-size:.66rem;letter-spacing:.08em}
+#page-foundation .fd-focus-card h3{font-size:1.12rem;margin:8px 0}
+#page-foundation .fd-focus-card p{color:#bcbec2;font-size:.8rem;line-height:1.6}
+#page-foundation .fd-project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+#page-foundation .fd-project-card{padding:24px;border:1px solid #a27b27;border-radius:13px;background:linear-gradient(150deg,#151412,#090909);min-height:218px;display:flex;flex-direction:column;align-items:flex-start}
+#page-foundation .fd-status{color:#ffca37;background:#29200d;border:1px solid #6d5423;border-radius:30px;padding:5px 10px;font-size:.63rem;font-weight:900;letter-spacing:.08em}
+#page-foundation .fd-project-card h3{font-size:1.18rem;margin:15px 0 8px}
+#page-foundation .fd-project-card p{color:#bcbec2;font-size:.8rem;line-height:1.5;flex:1}
+#page-foundation .fd-project-card button{border:0;background:none;color:var(--fd-gold);font-size:.72rem;font-weight:900;padding:14px 0 0}
+#page-foundation .fd-form-grid,#page-foundation .fd-support-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:20px;align-items:stretch}
+#page-foundation .fd-form-aside{border:1px solid #76571d;border-radius:14px;overflow:hidden;min-height:460px;position:relative;background:#111}
+#page-foundation .fd-form-aside img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover}
+#page-foundation .fd-form-aside:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#000d,transparent 75%)}
+#page-foundation .fd-aside-caption{position:absolute;bottom:23px;left:23px;z-index:1;display:flex;flex-direction:column;gap:8px}
+#page-foundation .fd-aside-caption strong{color:var(--fd-gold);font-size:1.2rem}
+#page-foundation .fd-aside-caption span{font-size:.82rem;color:#fff}
+#page-foundation .fd-form{background:#101113;border:1px solid #9b7526;border-radius:14px;padding:25px}
+#page-foundation .fd-form h3{font-size:1.24rem;margin:0 0 7px}
+#page-foundation .fd-form>p{color:#c2c2c4;font-size:.78rem;line-height:1.55;margin-bottom:18px}
+#page-foundation .fd-field{display:flex;flex-direction:column;gap:7px;margin-bottom:13px;min-width:0}
+#page-foundation .fd-field label{font-size:.74rem;font-weight:800;color:#e9e9ea}
+#page-foundation .fd-field input,#page-foundation .fd-field select,#page-foundation .fd-field textarea{width:100%;background:#08090a;color:#fff;border:1px solid #48484a;border-radius:8px;padding:12px 13px;font-size:.82rem;outline:none;min-height:42px}
+#page-foundation .fd-field input:focus,#page-foundation .fd-field select:focus,#page-foundation .fd-field textarea:focus{border-color:var(--fd-gold);box-shadow:0 0 0 2px #eeb32630}
+#page-foundation .fd-field input::placeholder,#page-foundation .fd-field textarea::placeholder{color:#8e8f92}
+#page-foundation .fd-field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#page-foundation .fd-submit{width:100%;margin-top:6px}
+#page-foundation .fd-form-note{font-size:.7rem!important;color:#b9b9bd!important;margin:11px 0 0!important;line-height:1.5}
+#page-foundation .fd-support-options{display:grid;gap:12px}
+#page-foundation .fd-support-option{display:flex;align-items:flex-start;gap:15px;border:1px solid #61491e;border-radius:11px;padding:19px;background:#101113}
+#page-foundation .fd-support-option>b{color:var(--fd-gold);font-size:1.5rem}
+#page-foundation .fd-support-option strong{display:block;font-size:.95rem;margin-bottom:5px}
+#page-foundation .fd-support-option small{font-size:.77rem;color:#c1c1c3}
+#page-foundation .fd-credit{font-size:.65rem;color:#8d8d92;margin-top:40px;line-height:1.5}
+#page-foundation .fd-credit a{color:#d1aa51}
+#page-foundation .fd-footer{background:#0d0d0f;border-top:1px solid #6d5221;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:25px max(24px,calc((100vw - 1200px)/2))}
+#page-foundation .fd-footer strong{color:var(--fd-gold);font-size:1.4rem;display:block}
+#page-foundation .fd-footer small{font-size:.55rem;color:#bcbec0;display:block;letter-spacing:.08em}
+#page-foundation .fd-footer p{font-size:.85rem;color:#d5d5d7}
+#page-foundation .fd-footer button,#page-foundation .fd-footer a{background:none;border:0;color:var(--fd-gold);font-size:.72rem;font-weight:900;text-decoration:none;margin-left:14px}
+@media(max-width:1050px){#page-foundation .fd-nav{gap:11px}#page-foundation .fd-nav button{font-size:.64rem}#page-foundation .fd-topbar{padding:10px 18px;gap:14px}}
+@media(max-width:800px){#page-foundation .fd-nav{display:none}#page-foundation .fd-topbar{justify-content:space-between}#page-foundation .fd-hero{height:490px}#page-foundation .fd-hero-shade{background:linear-gradient(90deg,#000e,#0007),linear-gradient(0deg,#0008,transparent)}#page-foundation .fd-mission-grid,#page-foundation .fd-form-grid,#page-foundation .fd-support-layout{grid-template-columns:1fr}#page-foundation .fd-mission-photo{min-height:290px}#page-foundation .fd-form-aside{min-height:280px}#page-foundation .fd-focus-grid,#page-foundation .fd-project-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:570px){#page-foundation .fd-topbar{height:64px;padding:8px 12px}#page-foundation .fd-brand strong{font-size:1.05rem}#page-foundation .fd-brand small{font-size:.36rem}#page-foundation .fd-crown{font-size:1.8rem}#page-foundation .fd-btn-small{font-size:.6rem;padding:8px 9px;min-height:34px;max-width:150px}#page-foundation .fd-hero{height:480px}#page-foundation .fd-hero-content{padding:28px 20px}#page-foundation .fd-hero h1{font-size:clamp(2rem,8.3vw,2.9rem)}#page-foundation .fd-hero-content>p{font-size:.86rem}#page-foundation .fd-shell{padding:0 12px 35px}#page-foundation .fd-feature-panel{padding:20px 15px;margin-top:-20px}#page-foundation .fd-feature-tiles,#page-foundation .fd-focus-grid,#page-foundation .fd-project-grid{grid-template-columns:1fr}#page-foundation .fd-feature-tile{padding:14px}#page-foundation .fd-feature-tile strong{font-size:.8rem}#page-foundation .fd-feature-tile small{font-size:.7rem}#page-foundation .fd-panel-actions .fd-btn{flex:1;min-width:0;padding:10px 8px;font-size:.64rem}#page-foundation .fd-section{padding-top:50px}#page-foundation .fd-mission-text{padding:22px}#page-foundation .fd-field-row{grid-template-columns:1fr;gap:0}#page-foundation .fd-form{padding:19px}#page-foundation .fd-footer{padding:20px 14px;flex-wrap:wrap}#page-foundation .fd-footer p{display:none}#page-foundation .fd-footer button,#page-foundation .fd-footer a{margin-left:0;margin-right:12px}}
+</style>
+</head>
 
 <body>
 
@@ -773,7 +891,7 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
       <a href="#marketplace" onclick="goRoute('marketplace');return false">MARKETPLACE</a>
       <a href="#services" onclick="document.getElementById('services')?.scrollIntoView({behavior:'smooth'});return false">SERVICES</a>
       <a href="#media" onclick="document.getElementById('media')?.scrollIntoView({behavior:'smooth'});return false">MEDIA</a>
-      <a href="#foundation" onclick="openModal('foundationModal');return false">FOUNDATION</a>
+      <a href="#foundation" onclick="goRoute('foundation');return false">FOUNDATION</a>
       <a href="#shop" onclick="goRoute('shop');return false">MERCH</a>
       <a href="#work">VENDORS</a>
       <a href="#more">MORE</a>
@@ -792,7 +910,7 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
     <a href="#marketplace" onclick="goRoute('marketplace');toggleMobile();return false">Marketplace</a>
     <a href="#services" onclick="toggleMobile();document.getElementById('services')?.scrollIntoView({behavior:'smooth'});return false">Services</a>
     <a href="#media" onclick="toggleMobile();document.getElementById('media')?.scrollIntoView({behavior:'smooth'});return false">Media</a>
-    <a href="#foundation" onclick="toggleMobile();openModal('foundationModal');return false">Foundation</a>
+    <a href="#foundation" onclick="toggleMobile();goRoute('foundation');return false">Foundation</a>
     <a href="#shop" onclick="toggleMobile();goRoute('shop');return false">Merchandise</a>
     <a href="#work" onclick="toggleMobile();document.getElementById('work')?.scrollIntoView({behavior:'smooth'});return false">Vendors / Influencers / Organisers</a>
     <a href="#verify" onclick="toggleMobile();document.getElementById('ticketId')?.scrollIntoView({behavior:'smooth'});return false">Verify Ticket</a>
@@ -894,11 +1012,24 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
         <article class="card side-card merch-showcase-card" id="shop">
           <div class="eyebrow">HIT KENYA MERCHANDISE</div><h3>WEAR THE MOVEMENT.</h3><p>Explore the HIT KENYA merchandise store — collections, sizes, colours, stock and checkout.</p><button class="btn small" onclick="goRoute('shop')">SHOP NOW →</button>
         </article>
-        <article class="card side-card" id="foundation" style="--bgimg:url('assets/process/discover-work.webp')">
-          <div class="eyebrow">HIT KENYA FOUNDATION</div><h3>SUPPORT THE MISSION.</h3><p>Education, opportunity, community and youth programmes.</p><div style="display:flex;gap:7px;flex-wrap:wrap">
-<button class="btn small" onclick="openModal('foundationModal')">LEARN MORE →</button>
-<button class="btn small secondary" onclick="openModal('foundationModal')">＋ SUPPORT THE MISSION</button>
-</div>
+        <article class="card side-card foundation-teaser" id="foundation" aria-label="HIT Kenya Foundation">
+          <div class="eyebrow">HIT KENYA FOUNDATION</div>
+          <h3>SUPPORT THE MISSION.</h3>
+          <p>Education, opportunity, community and youth programmes.</p>
+          <div class="foundation-teaser-actions">
+            <button class="btn small" type="button" onclick="goRoute('foundation')">LEARN MORE →</button>
+            <button class="btn small secondary" type="button" onclick="goRoute('foundation')">＋ SUPPORT THE MISSION</button>
+          </div>
+          <div class="foundation-teaser-grid">
+            <button type="button" class="foundation-teaser-tile" onclick="openFoundationSection('coordinators')" aria-label="Become a foundation coordinator">
+              <span class="foundation-teaser-icon" aria-hidden="true">♛</span>
+              <span class="foundation-teaser-copy"><strong>FOUNDATION COORDINATORS</strong><small>Join our network and help lead community programmes, events and initiatives.</small><em>BECOME A COORDINATOR →</em></span>
+            </button>
+            <button type="button" class="foundation-teaser-tile" onclick="openFoundationSection('projects')" aria-label="Explore upcoming foundation projects">
+              <span class="foundation-teaser-icon" aria-hidden="true">▦</span>
+              <span class="foundation-teaser-copy"><strong>UPCOMING PROJECTS</strong><small>Explore upcoming Foundation events, campaigns and community projects.</small><em>VIEW PROJECTS →</em></span>
+            </button>
+          </div>
         </article>
       </div>
     </div>
@@ -1047,7 +1178,7 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
 <a href="https://youtube.com/@hitkenyamedia?si=T_YhTzPIAkrMSMlu" target="_blank" rel="noopener noreferrer" aria-label="HIT Kenya Media YouTube" title="HIT Kenya Media YouTube">YT</a>
 </div>
       </div>
-      <div><h4>QUICK LINKS</h4><a href="#events" onclick="goRoute('events');return false">Events</a><a href="#marketplace" onclick="goRoute('marketplace');return false">Marketplace</a><a href="#services" onclick="document.getElementById('services')?.scrollIntoView({behavior:'smooth'});return false">Services</a><a href="#media" onclick="document.getElementById('media')?.scrollIntoView({behavior:'smooth'});return false">Media</a><a href="#foundation" onclick="openModal('foundationModal');return false">Foundation</a><a href="#shop" onclick="goRoute('shop');return false">Merchandise</a></div>
+      <div><h4>QUICK LINKS</h4><a href="#events" onclick="goRoute('events');return false">Events</a><a href="#marketplace" onclick="goRoute('marketplace');return false">Marketplace</a><a href="#services" onclick="document.getElementById('services')?.scrollIntoView({behavior:'smooth'});return false">Services</a><a href="#media" onclick="document.getElementById('media')?.scrollIntoView({behavior:'smooth'});return false">Media</a><a href="#foundation" onclick="goRoute('foundation');return false">Foundation</a><a href="#shop" onclick="goRoute('shop');return false">Merchandise</a></div>
       <div><h4>SUPPORT</h4><a href="#verify" onclick="document.getElementById('ticketId')?.scrollIntoView({behavior:'smooth'});return false">Verify Ticket</a><a href="https://wa.me/254797068736?text=Hello%20HIT%20KENYA%2C%20I%20need%20ticket%20support." target="_blank" rel="noopener noreferrer">Ticket Support</a><a href="https://wa.me/254797068736?text=Hello%20HIT%20KENYA%2C%20please%20share%20your%20current%20terms%20and%20conditions." target="_blank" rel="noopener noreferrer">Request Terms & Conditions</a><a href="https://wa.me/254797068736?text=Hello%20HIT%20KENYA%2C%20please%20share%20your%20privacy%20information." target="_blank" rel="noopener noreferrer">Request Privacy Information</a><a href="https://wa.me/254797068736?text=Hello%20HIT%20KENYA%2C%20I%20need%20help%20with%20your%20website." target="_blank" rel="noopener noreferrer">Help Centre</a></div>
       <div><h4>STAY CONNECTED</h4><p>Get updates on events, entertainment, new stories and exclusive HIT KENYA experiences.</p><div class="newsletter"><input id="newsletterEmail" type="email" placeholder="Enter your email"><button class="btn small" onclick="subscribeNewsletter()">→</button></div><p id="newsletterMessage" class="result" aria-live="polite"></p></div>
     </div>
@@ -1062,6 +1193,106 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
      Marketplace = all categories. Events = HIT KENYA ticketing/RSVP only.
      Influencer Dashboard = authenticated/approved influencer experience.
      ============================================================ -->
+
+<section id="page-foundation" class="page-view foundation-page" aria-label="HIT Kenya Foundation">
+  <div class="fd-topbar">
+    <button type="button" class="fd-brand" onclick="goHome()" aria-label="Return to HIT KENYA homepage"><span class="fd-crown">♛</span><span><strong>HIT <b>KENYA</b></strong><small>EVENTS · PEOPLE · BRANDS · OPPORTUNITIES</small></span></button>
+    <nav class="fd-nav" aria-label="Foundation navigation">
+      <button type="button" onclick="goHome()">HOME</button>
+      <button type="button" onclick="openFoundationSection('mission')">OUR MISSION</button>
+      <button type="button" onclick="openFoundationSection('projects')">PROJECTS</button>
+      <button type="button" onclick="openFoundationSection('coordinators')">COORDINATORS</button>
+    </nav>
+    <button type="button" class="fd-btn fd-btn-small" onclick="openFoundationSection('support')">SUPPORT THE MISSION →</button>
+  </div>
+
+  <div class="fd-hero">
+    <img class="fd-hero-image" src="https://images.unsplash.com/photo-1637148659333-aa7f09fc2d13?auto=format&amp;fit=crop&amp;w=1800&amp;q=85" alt="Children studying together in Mwingi, Kenya; documentary photograph by Oscar Omondi" onerror="this.onerror=null;this.src='assets/marketing/brand-experience.webp'" fetchpriority="high">
+    <div class="fd-hero-shade"></div>
+    <div class="fd-hero-content">
+      <div class="fd-kicker">HIT KENYA FOUNDATION</div>
+      <h1>TOGETHER, WE CAN<br><span>CREATE OPPORTUNITY.</span></h1>
+      <p>Supporting education, young people and community-led opportunities through meaningful connections and shared action.</p>
+      <div class="fd-hero-actions"><button class="fd-btn" onclick="openFoundationSection('support')">SUPPORT OUR MISSION →</button><button class="fd-btn fd-btn-outline" onclick="openFoundationSection('mission')">DISCOVER OUR FOCUS</button></div>
+      <div class="fd-photo-note">Illustrative documentary photograph, not a HIT KENYA project record.</div>
+    </div>
+  </div>
+
+  <div class="fd-shell">
+    <section class="fd-feature-panel" aria-labelledby="fd-panel-title">
+      <div class="fd-kicker">HIT KENYA FOUNDATION</div>
+      <h2 id="fd-panel-title">SUPPORT THE MISSION.</h2>
+      <p>Education, opportunity, community and youth programmes.</p>
+      <div class="fd-panel-actions"><button class="fd-btn" onclick="openFoundationSection('mission')">LEARN MORE →</button><button class="fd-btn fd-btn-outline" onclick="openFoundationSection('support')">＋ SUPPORT THE MISSION</button></div>
+      <div class="fd-feature-tiles">
+        <button type="button" class="fd-feature-tile" onclick="openFoundationSection('coordinators')"><span class="fd-tile-icon">♛</span><span><strong>FOUNDATION COORDINATORS</strong><small>Join our network and help lead community programmes, events and initiatives.</small><em>BECOME A COORDINATOR →</em></span></button>
+        <button type="button" class="fd-feature-tile" onclick="openFoundationSection('projects')"><span class="fd-tile-icon">▦</span><span><strong>UPCOMING PROJECTS</strong><small>Explore upcoming Foundation events, campaigns and community projects.</small><em>VIEW PROJECTS →</em></span></button>
+      </div>
+    </section>
+
+    <section class="fd-section fd-mission" id="foundation-mission">
+      <div class="fd-section-head"><span class="fd-kicker">OUR PURPOSE</span><h2>Small actions. <span>Lasting possibilities.</span></h2><p>The Foundation's focus is on bringing people together around learning, youth development and community opportunity.</p></div>
+      <div class="fd-mission-grid">
+        <div class="fd-mission-photo"><img loading="lazy" src="https://images.unsplash.com/photo-1637148778990-621fbe8a8358?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="Teacher with children in a classroom in Mwingi, Kenya; photograph by Oscar Omondi" onerror="this.onerror=null;this.src='assets/vendor/vendor-hero.webp'"><span>Education opens doors.</span></div>
+        <div class="fd-mission-text"><div class="fd-kicker">WHY THE FOUNDATION MATTERS</div><h3>Stronger communities begin with shared opportunity.</h3><p>HIT KENYA Foundation aims to connect volunteers, coordinators, supporters and organisations around initiatives that make participation and opportunity more accessible.</p><p>Our focus is on responsible collaboration, practical community engagement and programmes that respond to real needs.</p><button class="fd-text-link" type="button" onclick="openFoundationSection('coordinators')">GET INVOLVED AS A COORDINATOR →</button></div>
+      </div>
+    </section>
+
+    <section class="fd-section" aria-labelledby="fd-focus-title">
+      <div class="fd-section-head"><span class="fd-kicker">AREAS OF FOCUS</span><h2 id="fd-focus-title">Where we aim to <span>make a difference.</span></h2></div>
+      <div class="fd-focus-grid">
+        <article class="fd-focus-card"><img loading="lazy" src="https://images.unsplash.com/photo-1637148659333-aa7f09fc2d13?auto=format&amp;fit=crop&amp;w=900&amp;q=82" alt="Children learning together in Kenya" onerror="this.onerror=null;this.src='assets/marketing/brand-experience.webp'"><div><span>01 · EDUCATION</span><h3>Learning &amp; Access</h3><p>Helping create pathways for education, knowledge-sharing and skills development.</p></div></article>
+        <article class="fd-focus-card"><img loading="lazy" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&amp;fit=crop&amp;w=900&amp;q=82" alt="Young adults collaborating in a learning environment" onerror="this.onerror=null;this.src='assets/digital/digital-content.webp'"><div><span>02 · YOUTH</span><h3>Skills &amp; Opportunity</h3><p>Encouraging mentorship, creativity, leadership and pathways to opportunity.</p></div></article>
+        <article class="fd-focus-card"><img loading="lazy" src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&amp;fit=crop&amp;w=900&amp;q=82" alt="Community volunteers collaborating around a table" onerror="this.onerror=null;this.src='assets/marketing/brand-experience.webp'"><div><span>03 · COMMUNITY</span><h3>People &amp; Partnerships</h3><p>Connecting communities, organisations and volunteers to work towards shared goals.</p></div></article>
+      </div>
+    </section>
+
+    <section class="fd-section" id="foundation-projects">
+      <div class="fd-section-head"><span class="fd-kicker">WHAT'S AHEAD</span><h2>Upcoming <span>projects &amp; initiatives.</span></h2><p>These are proposed areas of activity, not confirmed event announcements. Dates, locations and participation details will be published when available.</p></div>
+      <div class="fd-project-grid">
+        <article class="fd-project-card"><span class="fd-status">PROGRAMME AREA</span><h3>Education Outreach</h3><p>Community learning, educational support and practical access to resources.</p><button type="button" onclick="openFoundationEnquiry('Education Outreach')">EXPRESS INTEREST →</button></article>
+        <article class="fd-project-card"><span class="fd-status">PROGRAMME AREA</span><h3>Youth Mentorship</h3><p>Skills-sharing, career conversations, creativity and young people's development.</p><button type="button" onclick="openFoundationEnquiry('Youth Mentorship')">EXPRESS INTEREST →</button></article>
+        <article class="fd-project-card"><span class="fd-status">PROGRAMME AREA</span><h3>Community Initiatives</h3><p>Local partnerships, volunteer-led activities and collaborative community programmes.</p><button type="button" onclick="openFoundationEnquiry('Community Initiatives')">EXPRESS INTEREST →</button></article>
+      </div>
+    </section>
+
+    <section class="fd-section fd-coordinator-section" id="foundation-coordinators">
+      <div class="fd-section-head"><span class="fd-kicker">GROW THE NETWORK</span><h2>Become a <span>Foundation Coordinator.</span></h2><p>Interested in mobilising people, supporting initiatives or helping organise community activities? Tell us about yourself.</p></div>
+      <div class="fd-form-grid">
+        <div class="fd-form-aside"><img loading="lazy" src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&amp;fit=crop&amp;w=1100&amp;q=82" alt="Volunteers working together" onerror="this.onerror=null;this.src='assets/marketing/brand-experience.webp'"><div class="fd-aside-caption"><strong>LEAD. CONNECT. CONTRIBUTE.</strong><span>Community work starts with people who care.</span></div></div>
+        <form class="fd-form" id="foundationCoordinatorForm" onsubmit="submitFoundationCoordinator(event)">
+          <h3>COORDINATOR INTEREST FORM</h3><p>Complete the details below. We will prepare your enquiry for WhatsApp.</p>
+          <div class="fd-field"><label for="fdCoordinatorName">Full name *</label><input id="fdCoordinatorName" name="fullName" autocomplete="name" required maxlength="100" placeholder="Your full name"></div>
+          <div class="fd-field-row"><div class="fd-field"><label for="fdCoordinatorPhone">Phone / WhatsApp *</label><input id="fdCoordinatorPhone" name="phone" type="tel" required maxlength="25" placeholder="07XX XXX XXX"></div><div class="fd-field"><label for="fdCoordinatorCounty">County / Location *</label><input id="fdCoordinatorCounty" name="county" required maxlength="100" placeholder="e.g. Nairobi"></div></div>
+          <div class="fd-field"><label for="fdCoordinatorEmail">Email address</label><input id="fdCoordinatorEmail" name="email" type="email" autocomplete="email" maxlength="150" placeholder="you@example.com"></div>
+          <div class="fd-field"><label for="fdCoordinatorSkills">How would you like to contribute?</label><textarea id="fdCoordinatorSkills" name="skills" rows="3" maxlength="600" placeholder="Community organising, mentoring, events, outreach…"></textarea></div>
+          <button class="fd-btn fd-submit" type="submit">SEND COORDINATOR ENQUIRY →</button>
+          <p class="fd-form-note" id="fdCoordinatorNotice" aria-live="polite">WhatsApp will open with a prepared message. Press Send to submit it.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="fd-section fd-support-section" id="foundation-support">
+      <div class="fd-section-head"><span class="fd-kicker">JOIN THE MISSION</span><h2>Your support can <span>open new possibilities.</span></h2><p>There are several ways to contribute. Share your interest and our team can discuss appropriate next steps with you.</p></div>
+      <div class="fd-support-layout">
+        <div class="fd-support-options"><div class="fd-support-option"><b>01</b><span><strong>Volunteer your time</strong><small>Offer skills, mentorship or practical help.</small></span></div><div class="fd-support-option"><b>02</b><span><strong>Support a programme</strong><small>Discuss opportunities to contribute resources.</small></span></div><div class="fd-support-option"><b>03</b><span><strong>Become a partner</strong><small>Explore collaboration as a business or organisation.</small></span></div><div class="fd-support-option"><b>04</b><span><strong>Financial contribution enquiry</strong><small>Request verified payment instructions from the team.</small></span></div></div>
+        <form class="fd-form" id="foundationSupportForm" onsubmit="submitFoundationSupport(event)">
+          <h3>SUPPORT THE MISSION</h3><p>Tell us how you would like to help.</p>
+          <div class="fd-field"><label for="fdSupportName">Full name / Organisation *</label><input id="fdSupportName" name="fullName" required maxlength="120" placeholder="Name or organisation"></div>
+          <div class="fd-field-row"><div class="fd-field"><label for="fdSupportPhone">Phone / WhatsApp *</label><input id="fdSupportPhone" name="phone" type="tel" required maxlength="25" placeholder="07XX XXX XXX"></div><div class="fd-field"><label for="fdSupportEmail">Email address</label><input id="fdSupportEmail" name="email" type="email" maxlength="150" placeholder="you@example.com"></div></div>
+          <div class="fd-field"><label for="fdSupportType">I would like to *</label><select id="fdSupportType" name="supportType" required><option value="">Select an option</option><option>Volunteer my time</option><option>Support a programme</option><option>Explore an organisational partnership</option><option>Request verified contribution instructions</option></select></div>
+          <div class="fd-field"><label for="fdSupportMessage">Message (optional)</label><textarea id="fdSupportMessage" name="message" rows="3" maxlength="600" placeholder="Tell us about your interest"></textarea></div>
+          <button class="fd-btn fd-submit" type="submit">REQUEST SUPPORT INFORMATION →</button>
+          <p class="fd-form-note" id="fdSupportNotice" aria-live="polite">This form does not process payments. WhatsApp will open with your enquiry; press Send to submit.</p>
+        </form>
+      </div>
+    </section>
+
+    <div class="fd-credit">Documentary education photography: <a href="https://unsplash.com/@xodusdigitals" target="_blank" rel="noopener noreferrer">Oscar Omondi / Unsplash</a>. All photographs are illustrative; no HIT KENYA Foundation activity is implied.</div>
+  </div>
+  <div class="fd-footer"><div><strong>♛ HIT KENYA</strong><small>FOUNDATION · PEOPLE · OPPORTUNITY · COMMUNITY</small></div><p>Growing together. Creating opportunity.</p><div><button onclick="goHome()">BACK TO HOME →</button><a href="https://www.instagram.com/hitkenyafoundation/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a></div></div>
+</section>
+
 <section id="page-marketplace" class="page-view marketplace-page hk-market-v2" aria-label="HIT Kenya Marketplace">
   <div class="mk-header">
     <div class="mk-header-photo" aria-hidden="true"></div>
@@ -1726,7 +1957,7 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
    Production can map these same destinations to /marketplace,
    /events and /dashboard/influencer on Firebase Hosting.
    ============================================================ */
-const HK_ROUTES={marketplace:'page-marketplace',events:'page-events',influencer:'page-influencer',shop:'page-shop','vendor-facilitation':'page-vendor-facilitation','artist-booking':'page-artist-booking','content-digital':'page-content-digital','travel-hire':'page-travel-hire','event-venues':'page-event-venues','fun-base':'page-fun-base'};
+const HK_ROUTES={foundation:'page-foundation',marketplace:'page-marketplace',events:'page-events',influencer:'page-influencer',shop:'page-shop','vendor-facilitation':'page-vendor-facilitation','artist-booking':'page-artist-booking','content-digital':'page-content-digital','travel-hire':'page-travel-hire','event-venues':'page-event-venues','fun-base':'page-fun-base'};
 function goRoute(route){
   const marketplaceCats={artists:'artist',vendors:'vendor',venues:'venue',cars:'transport',stays:'stay'};
   if(marketplaceCats[route]){
@@ -1778,7 +2009,7 @@ function goHome(){
 }
 function routeFromHash(){
   const r=location.hash.replace('#','').trim();
-  if(r==='marketplace'||r==='events'||r==='influencer'||r==='shop'||r==='vendor-facilitation'||r==='artist-booking'||r==='content-digital'||r==='travel-hire'||r==='event-venues'||r==='fun-base'||r==='artists'||r==='vendors'||r==='venues'||r==='cars'||r==='stays')goRoute(r); else goHome();
+  if(r==='foundation'||r==='marketplace'||r==='events'||r==='influencer'||r==='shop'||r==='vendor-facilitation'||r==='artist-booking'||r==='content-digital'||r==='travel-hire'||r==='event-venues'||r==='fun-base'||r==='artists'||r==='vendors'||r==='venues'||r==='cars'||r==='stays')goRoute(r); else goHome();
 }
 window.addEventListener('hashchange',routeFromHash);
 // Marketplace v2: functional client-side search, filters, sorting and saved listings.
@@ -2194,6 +2425,34 @@ document.addEventListener('click',function(e){
 })();
 </script>
 
+
+<script id="hk-foundation-workflows-20261111">
+function openFoundationSection(section){
+  goRoute('foundation');
+  if(section){setTimeout(function(){document.getElementById('foundation-'+section)?.scrollIntoView({behavior:'smooth',block:'start'});},90);}
+}
+function foundationMessage(message,noticeId){
+  const url='https://wa.me/254797068736?text='+encodeURIComponent(message);
+  const w=window.open(url,'_blank','noopener,noreferrer');
+  const note=document.getElementById(noticeId);
+  if(note){note.textContent='Your enquiry is ready in WhatsApp. Please press Send there to submit it.';}
+  if(!w && note){const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=' Open WhatsApp';a.style.color='#ffc62d';note.appendChild(a);}
+}
+function foundationPhoneValid(v){return /^(?:\+254|254|0)[17]\d{8}$/.test(v.replace(/[\s()-]/g,''));}
+function submitFoundationCoordinator(event){
+  event.preventDefault();const f=event.currentTarget;const d=new FormData(f);
+  const name=String(d.get('fullName')||'').trim(),phone=String(d.get('phone')||'').trim(),county=String(d.get('county')||'').trim();
+  if(!name||!county||!foundationPhoneValid(phone)){document.getElementById('fdCoordinatorNotice').textContent='Please provide your name, county and a valid Kenyan phone number.';return;}
+  foundationMessage('Hello HIT KENYA Foundation, I would like to become a Foundation Coordinator.\nName: '+name+'\nPhone: '+phone+'\nCounty: '+county+'\nEmail: '+String(d.get('email')||'').trim()+'\nHow I can contribute: '+String(d.get('skills')||'').trim(),'fdCoordinatorNotice');
+}
+function submitFoundationSupport(event){
+  event.preventDefault();const f=event.currentTarget;const d=new FormData(f);
+  const name=String(d.get('fullName')||'').trim(),phone=String(d.get('phone')||'').trim(),type=String(d.get('supportType')||'').trim();
+  if(!name||!type||!foundationPhoneValid(phone)){document.getElementById('fdSupportNotice').textContent='Please enter your name, select a support option and provide a valid Kenyan phone number.';return;}
+  foundationMessage('Hello HIT KENYA Foundation, I would like to support the mission.\nName / Organisation: '+name+'\nPhone: '+phone+'\nEmail: '+String(d.get('email')||'').trim()+'\nSupport interest: '+type+'\nMessage: '+String(d.get('message')||'').trim(),'fdSupportNotice');
+}
+function openFoundationEnquiry(topic){foundationMessage('Hello HIT KENYA Foundation, I would like information about the proposed '+topic+' programme. Please let me know when details are confirmed.','fdSupportNotice');}
+</script>
 </body></html></template>
 <template id="hk-photo-portfolio-template"><!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet"><style>
 :root {--bg:#050506;--panel:#0b0c0f;--gold:#f3b71e;--gold-soft:#dfa022;--white:#fcfcfd;--muted:#babcc5;--line:rgba(243,183,30,.55)}
