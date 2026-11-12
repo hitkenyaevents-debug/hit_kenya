@@ -1021,7 +1021,7 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
             <button class="btn small secondary" type="button" onclick="goRoute('foundation')">＋ SUPPORT THE MISSION</button>
           </div>
           <div class="foundation-teaser-grid">
-            <button type="button" class="foundation-teaser-tile" onclick="openFoundationSection('coordinators')" aria-label="Become a foundation coordinator">
+            <button type="button" class="foundation-teaser-tile" onclick="window.location.href='foundation-coordinator.html'" aria-label="Become a foundation coordinator">
               <span class="foundation-teaser-icon" aria-hidden="true">♛</span>
               <span class="foundation-teaser-copy"><strong>FOUNDATION COORDINATORS</strong><small>Join our network and help lead community programmes, events and initiatives.</small><em>BECOME A COORDINATOR →</em></span>
             </button>
@@ -1201,7 +1201,7 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
       <button type="button" onclick="goHome()">HOME</button>
       <button type="button" onclick="openFoundationSection('mission')">OUR MISSION</button>
       <button type="button" onclick="openFoundationSection('projects')">PROJECTS</button>
-      <button type="button" onclick="openFoundationSection('coordinators')">COORDINATORS</button>
+      <button type="button" onclick="window.location.href='foundation-coordinator.html'">COORDINATORS</button>
     </nav>
     <button type="button" class="fd-btn fd-btn-small" onclick="openFoundationSection('support')">SUPPORT THE MISSION →</button>
   </div>
@@ -1225,7 +1225,7 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
       <p>Education, opportunity, community and youth programmes.</p>
       <div class="fd-panel-actions"><button class="fd-btn" onclick="openFoundationSection('mission')">LEARN MORE →</button><button class="fd-btn fd-btn-outline" onclick="openFoundationSection('support')">＋ SUPPORT THE MISSION</button></div>
       <div class="fd-feature-tiles">
-        <button type="button" class="fd-feature-tile" onclick="openFoundationSection('coordinators')"><span class="fd-tile-icon">♛</span><span><strong>FOUNDATION COORDINATORS</strong><small>Join our network and help lead community programmes, events and initiatives.</small><em>BECOME A COORDINATOR →</em></span></button>
+        <button type="button" class="fd-feature-tile" onclick="window.location.href='foundation-coordinator.html'"><span class="fd-tile-icon">♛</span><span><strong>FOUNDATION COORDINATORS</strong><small>Join our network and help lead community programmes, events and initiatives.</small><em>BECOME A COORDINATOR →</em></span></button>
         <button type="button" class="fd-feature-tile" onclick="openFoundationSection('projects')"><span class="fd-tile-icon">▦</span><span><strong>UPCOMING PROJECTS</strong><small>Explore upcoming Foundation events, campaigns and community projects.</small><em>VIEW PROJECTS →</em></span></button>
       </div>
     </section>
@@ -1234,7 +1234,7 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
       <div class="fd-section-head"><span class="fd-kicker">OUR PURPOSE</span><h2>Small actions. <span>Lasting possibilities.</span></h2><p>The Foundation's focus is on bringing people together around learning, youth development and community opportunity.</p></div>
       <div class="fd-mission-grid">
         <div class="fd-mission-photo"><img loading="lazy" src="https://images.unsplash.com/photo-1637148778990-621fbe8a8358?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="Teacher with children in a classroom in Mwingi, Kenya; photograph by Oscar Omondi" onerror="this.onerror=null;this.src='assets/vendor/vendor-hero.webp'"><span>Education opens doors.</span></div>
-        <div class="fd-mission-text"><div class="fd-kicker">WHY THE FOUNDATION MATTERS</div><h3>Stronger communities begin with shared opportunity.</h3><p>HIT KENYA Foundation aims to connect volunteers, coordinators, supporters and organisations around initiatives that make participation and opportunity more accessible.</p><p>Our focus is on responsible collaboration, practical community engagement and programmes that respond to real needs.</p><button class="fd-text-link" type="button" onclick="openFoundationSection('coordinators')">GET INVOLVED AS A COORDINATOR →</button></div>
+        <div class="fd-mission-text"><div class="fd-kicker">WHY THE FOUNDATION MATTERS</div><h3>Stronger communities begin with shared opportunity.</h3><p>HIT KENYA Foundation aims to connect volunteers, coordinators, supporters and organisations around initiatives that make participation and opportunity more accessible.</p><p>Our focus is on responsible collaboration, practical community engagement and programmes that respond to real needs.</p><button class="fd-text-link" type="button" onclick="window.location.href='foundation-coordinator.html'">GET INVOLVED AS A COORDINATOR →</button></div>
       </div>
     </section>
 
@@ -3167,6 +3167,17 @@ window.addEventListener('load', function () {
     window.history.replaceState(null, '', window.location.pathname);
   }
 });
+</script>
+
+<script id="hk-foundation-section-navigation-fix-20261112">
+window.openFoundationSection = function(section) {
+  if (section === 'coordinators') { window.location.href = 'foundation-coordinator.html'; return; }
+  if (typeof goRoute === 'function') goRoute('foundation');
+  if (section) window.setTimeout(function () {
+    var target = document.getElementById('foundation-' + section);
+    if (target) target.scrollIntoView({behavior:'smooth',block:'start'});
+  }, 100);
+};
 </script>
 </body>
 </html>
