@@ -772,10 +772,9 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
   z-index:0;
   opacity:1;
   background-image:
-    linear-gradient(180deg,rgba(2,4,5,.62) 0%,rgba(2,4,5,.78) 42%,rgba(2,4,5,.95) 100%),
-    url("https://images.unsplash.com/photo-1637148659333-aa7f09fc2d13?auto=format&fit=crop&w=1200&q=85"),
+    linear-gradient(100deg,rgba(2,4,5,.87) 0%,rgba(2,4,5,.72) 48%,rgba(2,4,5,.65) 100%),
     url("assets/marketing/brand-experience.webp");
-  background-position:center,center 36%,center 48%;
+  background-position:center,center 52%;
   background-size:cover;
   background-repeat:no-repeat;
 }
@@ -893,12 +892,144 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
 @media(max-width:570px){#page-foundation .fd-topbar{height:64px;padding:8px 12px}#page-foundation .fd-brand strong{font-size:1.05rem}#page-foundation .fd-brand small{font-size:.36rem}#page-foundation .fd-crown{font-size:1.8rem}#page-foundation .fd-btn-small{font-size:.6rem;padding:8px 9px;min-height:34px;max-width:150px}#page-foundation .fd-hero{height:480px}#page-foundation .fd-hero-content{padding:28px 20px}#page-foundation .fd-hero h1{font-size:clamp(2rem,8.3vw,2.9rem)}#page-foundation .fd-hero-content>p{font-size:.86rem}#page-foundation .fd-shell{padding:0 12px 35px}#page-foundation .fd-feature-panel{padding:20px 15px;margin-top:-20px}#page-foundation .fd-feature-tiles,#page-foundation .fd-focus-grid,#page-foundation .fd-project-grid{grid-template-columns:1fr}#page-foundation .fd-feature-tile{padding:14px}#page-foundation .fd-feature-tile strong{font-size:.8rem}#page-foundation .fd-feature-tile small{font-size:.7rem}#page-foundation .fd-panel-actions .fd-btn{flex:1;min-width:0;padding:10px 8px;font-size:.64rem}#page-foundation .fd-section{padding-top:50px}#page-foundation .fd-mission-text{padding:22px}#page-foundation .fd-field-row{grid-template-columns:1fr;gap:0}#page-foundation .fd-form{padding:19px}#page-foundation .fd-footer{padding:20px 14px;flex-wrap:wrap}#page-foundation .fd-footer p{display:none}#page-foundation .fd-footer button,#page-foundation .fd-footer a{margin-left:0;margin-right:12px}}
 </style>
 
-<style id="hit-foundation-photo-teaser-20261113">
-#foundation.foundation-teaser{isolation:isolate;background:#08090b;}
-#foundation.foundation-teaser > *{position:relative;z-index:1;}
-#foundation.foundation-teaser .foundation-teaser-tile{background:rgba(5,6,8,.84);backdrop-filter:blur(2px);}
-#foundation.foundation-teaser .foundation-teaser-tile:hover{background:rgba(10,10,11,.94);}
-@media (max-width:600px){#foundation.foundation-teaser::before{background-position:center,center 28%,center 45%;}}
+
+<style id="hit-foundation-teaser-legibility-and-photos-20261113">
+/* This card lives in a narrow sidebar on desktop as well as on mobile.
+   Grid auto-fitting responds to the card's real width, not only viewport width. */
+#foundation.foundation-teaser {
+  box-sizing:border-box;
+  min-width:0;
+  width:100%;
+  padding:clamp(14px,2vw,20px);
+  background-color:#08090b;
+  isolation:isolate;
+  overflow:hidden;
+}
+#foundation.foundation-teaser > * {position:relative;z-index:1;min-width:0;}
+#foundation.foundation-teaser .foundation-teaser-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,215px),1fr));
+  width:100%;
+  gap:12px;
+  margin-top:16px;
+  align-items:stretch;
+}
+#foundation.foundation-teaser .foundation-teaser-tile {
+  box-sizing:border-box;
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  min-width:0;
+  min-height:205px;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:flex-end;
+  gap:0;
+  padding:14px;
+  border:1px solid rgba(255,198,42,.84);
+  border-radius:13px;
+  color:#fff;
+  background-color:#111316;
+  background-image:
+    linear-gradient(180deg,rgba(2,3,5,.06) 0%,rgba(2,3,5,.40) 32%,rgba(2,3,5,.93) 66%,rgba(2,3,5,.97) 100%),
+    url('assets/brand-social/hero-creator.webp');
+  background-size:cover;
+  background-position:center,58% center;
+  background-repeat:no-repeat;
+  box-shadow:inset 0 -50px 55px rgba(0,0,0,.3);
+  text-align:left;
+  transition:transform .2s ease,border-color .2s ease,filter .2s ease;
+}
+#foundation.foundation-teaser .foundation-teaser-tile:nth-child(2) {
+  background-image:
+    linear-gradient(180deg,rgba(2,3,5,.05) 0%,rgba(2,3,5,.45) 32%,rgba(2,3,5,.94) 67%,rgba(2,3,5,.98) 100%),
+    url('assets/marketing/festival-crowd.webp');
+  background-position:center,center 47%;
+}
+#foundation.foundation-teaser .foundation-teaser-tile:hover,
+#foundation.foundation-teaser .foundation-teaser-tile:focus-visible {
+  background-color:#111316;
+  border-color:#ffe08b;
+  transform:translateY(-2px);
+  filter:brightness(1.07);
+  outline-offset:2px;
+}
+#foundation.foundation-teaser .foundation-teaser-icon {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 38px;
+  width:38px;
+  height:38px;
+  min-width:0;
+  border-radius:10px;
+  border:1px solid rgba(255,206,65,.65);
+  background:rgba(2,3,5,.72);
+  color:#ffcc33;
+  font-size:1.55rem;
+  line-height:1;
+  margin-bottom:auto;
+}
+#foundation.foundation-teaser .foundation-teaser-copy {
+  box-sizing:border-box;
+  width:100%;
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin-top:14px;
+  text-align:left;
+}
+#foundation.foundation-teaser .foundation-teaser-copy strong,
+#foundation.foundation-teaser .foundation-teaser-copy small,
+#foundation.foundation-teaser .foundation-teaser-copy em {
+  display:block;
+  max-width:100%;
+  white-space:normal;
+  overflow-wrap:break-word;
+  word-break:normal;
+}
+#foundation.foundation-teaser .foundation-teaser-copy strong {
+  font-size:clamp(12px,1.1vw,14px);
+  line-height:1.24;
+  font-weight:900;
+  letter-spacing:.01em;
+  text-shadow:0 1px 3px rgba(0,0,0,.9);
+}
+#foundation.foundation-teaser .foundation-teaser-copy small {
+  font-size:11px;
+  line-height:1.5;
+  color:#f0f0f2;
+  text-shadow:0 1px 3px rgba(0,0,0,.9);
+}
+#foundation.foundation-teaser .foundation-teaser-copy em {
+  font-size:11px;
+  line-height:1.4;
+  color:#ffd14d;
+  font-weight:900;
+  margin-top:3px;
+}
+#foundation.foundation-teaser .foundation-teaser-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  max-width:100%;
+}
+#foundation.foundation-teaser .foundation-teaser-actions .btn {
+  max-width:100%;
+  min-width:0;
+  height:auto;
+  white-space:normal;
+  text-align:center;
+  line-height:1.25;
+  padding:10px 12px;
+}
+@media(max-width:360px) {
+  #foundation.foundation-teaser .foundation-teaser-tile {min-height:200px;}
+  #foundation.foundation-teaser .foundation-teaser-copy strong {font-size:13px;}
+}
 </style>
 </head>
 
