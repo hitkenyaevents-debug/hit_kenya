@@ -14,6 +14,7 @@
 @media(max-width:460px){.hero{min-height:395px}.hero-copy{padding-top:195px}.hero h1{font-size:31px}.cat{height:86px}.cat .cat-content{font-size:9px}.story.feature{min-height:290px}.story.feature h3{font-size:21px}.story:not(.feature) img{height:94px}.story:not(.feature) p{display:none}.side{grid-template-columns:1fr}.side .video-panel{min-height:205px}.video-inner{min-height:175px}.quick-grid{grid-template-columns:repeat(3,1fr)}.section-title h2{font-size:16px}.actions .round{width:34px;height:34px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
  .categories a.cat{display:block;text-decoration:none;color:#fff}
+.cat--events .cat-content{align-items:flex-end;gap:5px}.cat--events .cat-label{display:block;line-height:1.15;letter-spacing:0}.cat--events .cat-content b{flex-shrink:0}@media(max-width:760px){.cat--events .cat-content{inset:auto 4px 6px;gap:3px}.cat--events .cat-label{font-size:9px;line-height:1.13}}@media(max-width:460px){.cat--events .cat-label{font-size:8.5px}}
 </style>
 </head>
 <body>
@@ -30,7 +31,7 @@
 <button class="cat" data-filter="music"><img data-photo="stage" alt="Live music performance" loading="lazy"><span class="cat-content"><b>♫</b> MUSIC →</span></button>
 <button class="cat" data-filter="culture"><img data-photo="culture" alt="Event venue and cultural gathering" loading="lazy"><span class="cat-content"><b>✦</b> CULTURE →</span></button>
 <button class="cat" data-filter="trends"><img data-photo="crowd" alt="Concert audience" loading="lazy"><span class="cat-content"><b>↗</b> TRENDS →</span></button>
-<button class="cat" data-filter="videos"><img data-photo="camera" alt="Video camera filming a concert" loading="lazy"><span class="cat-content"><b>▣</b> VIDEOS →</span></button>
+<button class="cat cat--events" data-filter="events" aria-label="Events, Concerts and Nightlife"><img data-photo="camera" alt="Camera recording a live concert" loading="lazy"><span class="cat-content"><b>▣</b><span class="cat-label">EVENTS, CONCERTS &amp;<br>NIGHTLIFE →</span></span></button>
 <a class="cat" href="creator-hub.html" aria-label="Open HIT KENYA Creator Hub"><img data-photo="creator" alt="Content creator at work" loading="lazy"><span class="cat-content"><b>♙</b> CREATORS →</span></a>
 </section>
 <section id="stories" aria-label="Featured media stories"><div class="section-title"><div><h2>★ Featured Stories</h2><small id="sectionCaption">Culture, entertainment and creative stories</small></div><div><button id="resetFilter" class="filter-reset">Show all</button><button class="view-all" id="viewAll">View All →</button></div></div>
