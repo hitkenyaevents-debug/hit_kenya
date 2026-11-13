@@ -1044,7 +1044,7 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
         <h2>NEWS • GOSSIP • CULTURE • TRENDS</h2>
         <p class="muted">Entertainment news, celebrity stories, gossip, interviews, photo stories, videos and quick updates.</p>
       </div>
-      <button class="btn secondary small" onclick="openModal('mediaAccessModal')">ENTER MEDIA →</button>
+      <button class="btn secondary small" onclick="window.location.href='media.html'">ENTER MEDIA →</button>
     </div>
 
     <div class="media-wrap">
@@ -1054,7 +1054,7 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
           <span class="tag red">FEATURED STORY</span>
           <h3>THE STORIES BEHIND KENYA'S ENTERTAINMENT SCENE</h3>
           <p>Discover the people, moments, trends, music, nightlife and culture shaping the entertainment conversation.</p>
-          <button class="btn small" style="margin-top:11px" onclick="openModal('mediaAccessModal')">READ STORY →</button>
+          <button class="btn small" style="margin-top:11px" onclick="window.location.href='media.html#feature'">READ STORY →</button>
         </div>
       </article>
 
@@ -1076,9 +1076,9 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
 
     <div class="card media-bottom">
       <div class="media-cats">
-        <span>Music</span><span>Celebrity & Gossip</span><span>Film & TV</span><span>Events & Nightlife</span><span>Fashion & Lifestyle</span><span>Kenyan Entertainment</span><span>Africa & Global</span>
+        <span role="link" tabindex="0" onclick="window.location.href='media.html#music'" onkeydown="if(event.key==='Enter')window.location.href='media.html#music'" style="cursor:pointer">Music</span><span role="link" tabindex="0" onclick="window.location.href='media.html#gossip'" onkeydown="if(event.key==='Enter')window.location.href='media.html#gossip'" style="cursor:pointer">Celebrity & Gossip</span><span role="link" tabindex="0" onclick="window.location.href='media.html#culture'" onkeydown="if(event.key==='Enter')window.location.href='media.html#culture'" style="cursor:pointer">Film & TV</span><span role="link" tabindex="0" onclick="window.location.href='media.html#music'" onkeydown="if(event.key==='Enter')window.location.href='media.html#music'" style="cursor:pointer">Events & Nightlife</span><span role="link" tabindex="0" onclick="window.location.href='media.html#trends'" onkeydown="if(event.key==='Enter')window.location.href='media.html#trends'" style="cursor:pointer">Fashion & Lifestyle</span><span role="link" tabindex="0" onclick="window.location.href='media.html#culture'" onkeydown="if(event.key==='Enter')window.location.href='media.html#culture'" style="cursor:pointer">Kenyan Entertainment</span><span role="link" tabindex="0" onclick="window.location.href='media.html#news'" onkeydown="if(event.key==='Enter')window.location.href='media.html#news'" style="cursor:pointer">Africa & Global</span>
       </div>
-      <button class="btn small" onclick="openModal('mediaAccessModal')">VIEW ALL MEDIA →</button>
+      <button class="btn small" onclick="window.location.href='media.html#stories'">VIEW ALL MEDIA →</button>
     </div>
   </div>
 </section>
