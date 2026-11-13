@@ -1018,7 +1018,7 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
           <p>Education, opportunity, community and youth programmes.</p>
           <div class="foundation-teaser-actions">
             <button class="btn small" type="button" onclick="goRoute('foundation')">LEARN MORE →</button>
-            <button class="btn small secondary" type="button" onclick="goRoute('foundation')">＋ SUPPORT THE MISSION</button>
+            <button class="btn small secondary" type="button" onclick="window.location.href='foundation-support.html'">＋ SUPPORT THE MISSION</button>
           </div>
           <div class="foundation-teaser-grid">
             <button type="button" class="foundation-teaser-tile" onclick="window.location.href='foundation-coordinator.html'" aria-label="Become a foundation coordinator">
@@ -3171,7 +3171,7 @@ window.addEventListener('load', function () {
 
 <script id="hk-foundation-section-navigation-fix-20261112">
 window.openFoundationSection = function(section) {
-  if (section === 'coordinators') { window.location.href = 'foundation-coordinator.html'; return; }
+  if (section === 'coordinators') { window.location.href = 'foundation-coordinator.html'; return; } if (section === 'projects') { window.location.href = 'foundation-projects.html'; return; } if (section === 'support') { window.location.href = 'foundation-support.html'; return; }
   if (typeof goRoute === 'function') goRoute('foundation');
   if (section) window.setTimeout(function () {
     var target = document.getElementById('foundation-' + section);
