@@ -1031,6 +1031,124 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
   #foundation.foundation-teaser .foundation-teaser-copy strong {font-size:13px;}
 }
 </style>
+
+<style id="hk-home-tours-plus-update">
+/* High-resolution, photo-first HIT KENYA Marketplace; isolated to the home section. */
+#marketplace .market-layout{grid-template-columns:minmax(210px,1.02fr) minmax(0,2.05fr) minmax(250px,.98fr);gap:10px;align-items:stretch}
+#marketplace .market-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(205px,1fr);gap:10px}
+#marketplace .market-hero{min-height:100%;border:1px solid #b98a26;border-radius:14px}
+#marketplace .hk-market-hero:before{background:linear-gradient(0deg,rgba(0,0,0,.95),rgba(0,0,0,.02) 70%);z-index:1}
+#marketplace .hk-market-hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;filter:none}
+#marketplace .hk-market-hero>*:not(.hk-market-hero-photo){position:relative;z-index:2}
+#marketplace .market-hero h3{font-weight:950;line-height:1.03;text-wrap:balance}
+#marketplace .hk-photo-card{display:block;position:relative;min-width:0;min-height:205px;border:1px solid #a97d24;border-radius:12px;overflow:hidden;color:#fff;text-decoration:none;isolation:isolate}
+#marketplace .hk-photo-card img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:none;transition:transform .35s ease}
+#marketplace .hk-photo-card:hover img,#marketplace .hk-photo-card:focus-visible img{transform:scale(1.045)}
+#marketplace .hk-photo-card .overlay{background:linear-gradient(0deg,rgba(0,0,0,.94),rgba(0,0,0,.16) 75%)}
+#marketplace .hk-photo-card .content{display:flex;flex-direction:column;gap:3px;left:12px;right:12px;bottom:12px;padding-right:26px}
+#marketplace .hk-photo-card .tag{align-self:flex-start;font-size:9px;letter-spacing:.03em;font-weight:900}
+#marketplace .hk-card-heading{font:900 clamp(12px,1.12vw,16px)/1.15 Inter,Arial,sans-serif;color:white;letter-spacing:-.02em}
+#marketplace .hk-card-desc{font:500 10px/1.4 Inter,Arial,sans-serif;color:#e2e2e2}
+#marketplace .hk-card-arrow{position:absolute;right:0;bottom:2px;display:grid;place-items:center;width:27px;height:27px;border-radius:50%;background:#f9be25;color:#0a0a0a;font-weight:900;font-size:16px}
+#marketplace .side-stack{display:flex;flex-direction:column;gap:10px;min-width:0}
+#marketplace .side-stack>.side-card{flex:0 0 auto;min-height:190px;border:1px solid #a97d24;border-radius:12px}
+#marketplace .side-stack>.foundation-teaser{min-height:0}
+#marketplace .foundation-teaser-grid{grid-template-columns:1fr;gap:8px}
+#marketplace .foundation-teaser-tile{min-width:0;overflow-wrap:anywhere}
+#marketplace .foundation-teaser-copy strong{font-size:11px}
+#marketplace .foundation-teaser-copy small{font-size:10px}
+#marketplace .foundation-teaser-copy em{font-size:10px}
+#marketplace .foundation-teaser-actions{display:flex;flex-wrap:wrap;gap:7px}
+#marketplace .foundation-teaser-actions .btn{min-width:0;max-width:100%;white-space:normal;line-height:1.25}
+#marketplace .hk-tours-card{min-height:230px;isolation:isolate;justify-content:end}
+#marketplace .hk-tours-card:before{background:linear-gradient(0deg,rgba(0,0,0,.96),rgba(0,0,0,.04) 85%);opacity:1;z-index:1}
+#marketplace .hk-tours-card-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
+#marketplace .hk-tours-card>*:not(.hk-tours-card-photo){z-index:2}
+#marketplace .hk-tours-card h3{font-size:clamp(16px,1.5vw,22px);line-height:1.12}
+#marketplace .hk-tours-card p{font-size:11px;line-height:1.45;color:#f0f0f0}
+#marketplace .hk-tours-card-actions{display:flex;flex-wrap:wrap;gap:7px}
+#marketplace .hk-tours-card-actions a{font-size:10px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;white-space:normal;min-height:35px}
+#marketplace .side-card .eyebrow{font-size:10px}
+@media(max-width:1190px){#marketplace .market-layout{grid-template-columns:minmax(200px,.95fr) minmax(0,1.8fr)}#marketplace .side-stack{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}#marketplace .side-stack>.side-card{height:100%}#marketplace .foundation-teaser-grid{grid-template-columns:1fr}}
+@media(max-width:800px){#marketplace .market-layout{grid-template-columns:1fr}#marketplace .market-hero{min-height:330px}#marketplace .side-stack{grid-column:auto;grid-template-columns:1fr 1fr}#marketplace .side-stack>.foundation-teaser{grid-column:1/-1;grid-row:2}#marketplace .side-stack>.hk-tours-card{grid-column:2;grid-row:1}#marketplace .side-stack>.merch-showcase-card{grid-column:1;grid-row:1}#marketplace .foundation-teaser-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){#marketplace .market-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(170px,1fr);gap:7px}#marketplace .hk-photo-card{min-height:170px}#marketplace .hk-photo-card .content{left:9px;right:9px;bottom:10px;padding-right:18px}#marketplace .hk-card-heading{font-size:11px}#marketplace .hk-card-desc{font-size:9px}#marketplace .hk-card-arrow{width:22px;height:22px;font-size:12px}#marketplace .side-stack{display:grid;grid-template-columns:1fr;gap:9px}#marketplace .side-stack>.side-card{grid-column:auto!important;grid-row:auto!important;min-height:190px}#marketplace .foundation-teaser-grid{grid-template-columns:1fr}#marketplace .foundation-teaser-actions .btn{font-size:10px}#marketplace .hk-market-hero{min-height:300px}}
+@media(prefers-reduced-motion:reduce){#marketplace .hk-photo-card img{transition:none}}
+</style>
+
+<style id="hit-marketplace-photographic-hero-20261117">
+/* HIT KENYA Marketplace: genuine concert photography, readable overlay, compact mobile layout. */
+#page-marketplace.hk-market-v2{
+  background:radial-gradient(ellipse at 88% 11%,rgba(130,88,21,.12),transparent 37%),#060607;
+}
+#page-marketplace .mk-container{padding:0 22px 46px;}
+#page-marketplace .mk-hero-stage{
+  position:relative;
+  isolation:isolate;
+  margin:0 -22px 16px;
+  padding:34px max(22px,calc((100vw - 1400px)/2 + 22px)) 18px;
+  min-height:320px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  background-color:#19120b;
+  background-image:
+    linear-gradient(90deg,rgba(3,4,7,.88) 0%,rgba(4,4,7,.66) 35%,rgba(4,4,7,.24) 74%,rgba(4,4,7,.46) 100%),
+    linear-gradient(0deg,rgba(5,5,7,.96) 0%,rgba(5,5,7,.27) 35%,rgba(5,5,7,.12) 100%),
+    url('assets/marketplace/marketplace-hero.webp');
+  background-size:cover;
+  background-position:center,center,center 45%;
+  border-bottom:1px solid rgba(247,189,38,.65);
+  box-shadow:inset 0 -35px 44px -25px rgba(0,0,0,.85),0 16px 35px -28px rgba(247,189,38,.32);
+}
+#page-marketplace .mk-hero-stage::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(255,198,51,.72),transparent);
+  pointer-events:none;
+}
+#page-marketplace .mk-hero-stage .mk-intro{margin:0 0 22px;align-items:end;}
+#page-marketplace .mk-hero-stage .mk-kicker{color:#ffd65b;font-size:11px;letter-spacing:.15em;text-shadow:0 2px 8px #000;}
+#page-marketplace .mk-hero-stage .mk-intro h1{font-size:clamp(29px,3.5vw,49px);font-weight:900;line-height:1.08;margin:9px 0 10px;text-shadow:0 2px 18px rgba(0,0,0,.75);}
+#page-marketplace .mk-hero-stage .mk-intro h1 em{color:#ffd13d;}
+#page-marketplace .mk-hero-stage .mk-intro p{color:#f5efe6;font-size:clamp(13px,1.25vw,16px);text-shadow:0 2px 8px #000;}
+#page-marketplace .mk-hero-stage .mk-intro-pill{background:rgba(9,9,11,.68);border-color:rgba(245,191,53,.82);color:#ffe19a;backdrop-filter:blur(5px);}
+#page-marketplace .mk-hero-stage .mk-search-panel{margin-bottom:12px;}
+#page-marketplace .mk-hero-stage .mk-search-field,
+#page-marketplace .mk-hero-stage .mk-location-field{background:rgba(7,8,11,.84);backdrop-filter:blur(8px);border-color:#c29226;}
+#page-marketplace .mk-hero-stage .mk-filter-pill{background:rgba(8,9,12,.82);backdrop-filter:blur(7px);border-color:#a17b2b;}
+#page-marketplace .mk-hero-stage .mk-categories{border-bottom:0;padding-bottom:3px;}
+#page-marketplace .mk-hero-stage .mk-categories .market-category{background:rgba(7,8,11,.86);border-color:#8b743e;color:#f3f0e8;}
+#page-marketplace .mk-hero-stage .mk-categories .market-category.active{background:#3e2d08;color:#ffd34a;border-color:#ffd34a;}
+#page-marketplace .mk-results-head{margin:8px 0 15px;padding-bottom:10px;border-bottom:1px solid rgba(202,159,58,.26);}
+#page-marketplace .mk-results-head h2{font-size:clamp(20px,2vw,27px);}
+@media(max-width:800px){
+ #page-marketplace .mk-container{padding:0 12px 92px;}
+ #page-marketplace .mk-hero-stage{margin:0 -12px 15px;padding:23px 12px 16px;min-height:330px;background-position:center,center,59% center;}
+ #page-marketplace .mk-hero-stage .mk-intro{margin-bottom:20px;}
+ #page-marketplace .mk-hero-stage .mk-intro h1{font-size:clamp(25px,5vw,34px);}
+ #page-marketplace .mk-hero-stage .mk-intro p{font-size:12px;max-width:370px;}
+ #page-marketplace .mk-hero-stage .mk-filter-bar{padding-bottom:10px;}
+}
+@media(max-width:520px){
+ #page-marketplace .mk-hero-stage{min-height:355px;padding-top:27px;background-image:
+  linear-gradient(90deg,rgba(3,4,7,.81),rgba(3,4,7,.49)),
+  linear-gradient(0deg,rgba(5,5,7,.98) 0%,rgba(5,5,7,.28) 58%,rgba(5,5,7,.13) 100%),
+  url('assets/marketplace/marketplace-hero.webp');
+  background-position:center,center,55% center;}
+ #page-marketplace .mk-hero-stage .mk-intro{margin-bottom:14px;}
+ #page-marketplace .mk-hero-stage .mk-intro h1{font-size:27px;}
+ #page-marketplace .mk-hero-stage .mk-intro p{font-size:12px;}
+ #page-marketplace .mk-hero-stage .mk-kicker{font-size:9px;}
+ #page-marketplace .mk-hero-stage .mk-categories{padding-bottom:3px;}
+ #page-marketplace .mk-results-head{margin-top:7px;}
+}
+@media(prefers-reduced-transparency:reduce){
+ #page-marketplace .mk-hero-stage .mk-search-field,
+ #page-marketplace .mk-hero-stage .mk-location-field,
+ #page-marketplace .mk-hero-stage .mk-filter-pill{backdrop-filter:none;background:#0b0b0e;}
+}
+</style>
 </head>
 
 <body>
@@ -1042,6 +1160,7 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
     <nav class="nav-links">
       <a href="#events" onclick="goRoute('events');return false">EVENTS</a>
       <a href="#marketplace" onclick="goRoute('marketplace');return false">MARKETPLACE</a>
+      <a href="hit-kenya-tours.html">TOURS+</a>
       <a href="#services" onclick="document.getElementById('services')?.scrollIntoView({behavior:'smooth'});return false">SERVICES</a>
       <a href="#media" onclick="document.getElementById('media')?.scrollIntoView({behavior:'smooth'});return false">MEDIA</a>
       <a href="#foundation" onclick="goRoute('foundation');return false">FOUNDATION</a>
@@ -1061,6 +1180,7 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
   <div id="mobilePanel" class="mobile-panel">
     <a href="#events" onclick="goRoute('events');toggleMobile();return false">Events</a>
     <a href="#marketplace" onclick="goRoute('marketplace');toggleMobile();return false">Marketplace</a>
+    <a href="hit-kenya-tours.html">HIT KENYA Tours+</a>
     <a href="#services" onclick="toggleMobile();document.getElementById('services')?.scrollIntoView({behavior:'smooth'});return false">Services</a>
     <a href="#media" onclick="toggleMobile();document.getElementById('media')?.scrollIntoView({behavior:'smooth'});return false">Media</a>
     <a href="#foundation" onclick="toggleMobile();goRoute('foundation');return false">Foundation</a>
@@ -1140,25 +1260,44 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
 <section class="section" id="marketplace">
   <div class="container">
     <div class="section-head">
-      <div><div class="eyebrow">HIT KENYA MARKETPLACE</div><h2>DISCOVER. BOOK. EXPERIENCE.</h2><p class="muted">One connected marketplace for events, artists, vendors, venues, transport and stays.</p></div>
+      <div><div class="eyebrow">HIT KENYA MARKETPLACE</div><h2>DISCOVER. BOOK. EXPERIENCE.</h2><p class="muted">Explore events, entertainment, food, venues, transport, stays and HIT KENYA Tours+.</p></div>
       <button class="btn small" onclick="goRoute('marketplace')">EXPLORE MARKETPLACE →</button>
     </div>
 
     <div class="market-layout">
-      <article class="card market-hero">
-        <div class="eyebrow">THE PLATFORM</div>
+      <article class="card market-hero hk-market-hero" aria-label="Explore HIT KENYA Marketplace">
+        <img class="hk-market-hero-photo" src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&amp;fit=crop&amp;w=1600&amp;q=90" alt="Live concert audience and stage lighting" decoding="async" onerror="this.onerror=null;this.src='assets/marketing/concert-hero-full-resolution.webp'">
+        <div class="eyebrow">THE HOME OF EXPERIENCES</div>
         <h3>HIT KENYA<br>MARKETPLACE</h3>
-        <p>Discover experiences, book services and connect with trusted people and businesses across the HIT KENYA ecosystem.</p>
+        <p>Discover real experiences, explore services and connect with the HIT KENYA network.</p>
         <button class="btn small" onclick="goRoute('marketplace')">EXPLORE NOW →</button>
       </article>
 
-      <div class="market-grid">
-        <article class="card market-item"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=700&q=85" alt="" onerror="this.onerror=null;this.src='assets/marketing/music-stage.webp'"><div class="overlay"></div><div class="content"><span class="tag">DISCOVER</span><h3>EVENTS & TICKETS</h3><p>Concerts, festivals, nightlife and more.</p></div></article>
-        <article class="card market-item"><img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=700&q=85" alt="" onerror="this.onerror=null;this.src='assets/marketing/festival-crowd.webp'"><div class="overlay"></div><div class="content"><span class="tag">BOOK</span><h3>ARTISTS & DJs</h3><p>Find entertainment talent.</p></div></article>
-        <article class="card market-item"><img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=700&q=85" alt="" onerror="this.onerror=null;this.src='assets/brand-social/brand-food.webp'"><div class="overlay"></div><div class="content"><span class="tag">BOOK</span><h3>VENDORS</h3><p>Catering, decor, media and supplies.</p></div></article>
-        <article class="card market-item"><img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=700&q=85" alt="" onerror="this.onerror=null;this.src='assets/venues/venue-wedding.webp'"><div class="overlay"></div><div class="content"><span class="tag">VENUES</span><h3>EVENT VENUES</h3><p>Spaces for weddings, parties and events.</p></div></article>
-        <article class="card market-item"><img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=700&q=85" alt="" onerror="this.onerror=null;this.src='assets/travel/travel-hero.webp'"><div class="overlay"></div><div class="content"><span class="tag">TRANSPORT</span><h3>CAR HIRE</h3><p>Cars, vans, buses and more.</p></div></article>
-        <article class="card market-item"><img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=700&q=85" alt="" onerror="this.onerror=null;this.src='assets/travel/stay-photo.webp'"><div class="overlay"></div><div class="content"><span class="tag">STAYS</span><h3>STAYS</h3><p>Accommodation and Airbnb options.</p></div></article>
+      <div class="market-grid hk-photo-grid" aria-label="Marketplace categories">
+        <a class="card market-item hk-photo-card" href="#events" onclick="goRoute('events');return false;" aria-label="Open LIVE EVENTS &amp; CONCERTS">
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&amp;fit=crop&amp;w=1200&amp;q=88" alt="Concert crowd under colourful stage lighting" decoding="async" onerror="this.onerror=null;this.src='assets/marketing/concert-hero-full-resolution.webp'">
+          <span class="overlay" aria-hidden="true"></span><span class="content"><span class="tag">EVENTS</span><strong class="hk-card-heading">LIVE EVENTS & CONCERTS</strong><span class="hk-card-desc">Experience events across Kenya.</span><span class="hk-card-arrow" aria-hidden="true">↗</span></span>
+        </a>
+        <a class="card market-item hk-photo-card" href="media.html" aria-label="Open MUSIC &amp; ENTERTAINMENT">
+          <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&amp;fit=crop&amp;w=1200&amp;q=88" alt="Live music audience with bright concert lights" decoding="async" onerror="this.onerror=null;this.src='assets/marketing/music-stage.webp'">
+          <span class="overlay" aria-hidden="true"></span><span class="content"><span class="tag">ENTERTAINMENT</span><strong class="hk-card-heading">MUSIC & ENTERTAINMENT</strong><span class="hk-card-desc">Discover artists, music and culture.</span><span class="hk-card-arrow" aria-hidden="true">↗</span></span>
+        </a>
+        <a class="card market-item hk-photo-card" href="vendor-marketplace.html" aria-label="Open FOOD &amp; BEVERAGE">
+          <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&amp;fit=crop&amp;w=1200&amp;q=88" alt="Professional event catering and buffet" decoding="async" onerror="this.onerror=null;this.src='assets/brand-social/brand-food.webp'">
+          <span class="overlay" aria-hidden="true"></span><span class="content"><span class="tag">FOOD</span><strong class="hk-card-heading">FOOD & BEVERAGE</strong><span class="hk-card-desc">Explore catering and event food.</span><span class="hk-card-arrow" aria-hidden="true">↗</span></span>
+        </a>
+        <a class="card market-item hk-photo-card" href="#event-venues" onclick="goRoute('event-venues');return false;" aria-label="Open VENUE BOOKING">
+          <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&amp;fit=crop&amp;w=1200&amp;q=88" alt="Elegant wedding and reception venue" decoding="async" onerror="this.onerror=null;this.src='assets/venues/venue-wedding.webp'">
+          <span class="overlay" aria-hidden="true"></span><span class="content"><span class="tag">VENUES</span><strong class="hk-card-heading">VENUE BOOKING</strong><span class="hk-card-desc">Find a space for your occasion.</span><span class="hk-card-arrow" aria-hidden="true">↗</span></span>
+        </a>
+        <a class="card market-item hk-photo-card" href="#travel-hire" onclick="goRoute('travel-hire');return false;" aria-label="Open CAR HIRE SERVICES">
+          <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&amp;fit=crop&amp;w=1200&amp;q=88" alt="Car available for travel and transport" decoding="async" onerror="this.onerror=null;this.src='assets/travel/travel-hero.webp'">
+          <span class="overlay" aria-hidden="true"></span><span class="content"><span class="tag">TRANSPORT</span><strong class="hk-card-heading">CAR HIRE SERVICES</strong><span class="hk-card-desc">Travel in comfort and style.</span><span class="hk-card-arrow" aria-hidden="true">↗</span></span>
+        </a>
+        <a class="card market-item hk-photo-card" href="#stays" onclick="goRoute('stays');return false;" aria-label="Open AIRBNB &amp; STAYS">
+          <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&amp;fit=crop&amp;w=1200&amp;q=88" alt="Contemporary hotel guest room" decoding="async" onerror="this.onerror=null;this.src='assets/travel/stay-photo.webp'">
+          <span class="overlay" aria-hidden="true"></span><span class="content"><span class="tag">STAYS</span><strong class="hk-card-heading">AIRBNB & STAYS</strong><span class="hk-card-desc">Find accommodation options in Kenya.</span><span class="hk-card-arrow" aria-hidden="true">↗</span></span>
+        </a>
       </div>
 
       <div class="side-stack">
@@ -1183,6 +1322,13 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
               <span class="foundation-teaser-copy"><strong>UPCOMING PROJECTS</strong><small>Explore upcoming Foundation events, campaigns and community projects.</small><em>VIEW PROJECTS →</em></span>
             </button>
           </div>
+        </article>
+        <article class="card side-card hk-tours-card" aria-label="HIT KENYA Tours Plus">
+          <img class="hk-tours-card-photo" src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&amp;fit=crop&amp;w=1300&amp;q=88" alt="Authentic wildlife safari vehicle at sunset" decoding="async" onerror="this.onerror=null;this.src='assets/drone/hero.webp'">
+          <div class="eyebrow">HIT KENYA TOURS+</div>
+          <h3>DISCOVER KENYA'S BEAUTY.</h3>
+          <p>Safaris, scenic escapes, cultural experiences and coastal getaways.</p>
+          <div class="hk-tours-card-actions"><a class="btn small" href="hit-kenya-tours.html">EXPLORE TOURS →</a><a class="btn small secondary" href="hit-kenya-tours.html#tour-enquiry">PLAN A TOUR</a></div>
         </article>
       </div>
     </div>
@@ -1465,6 +1611,7 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
     <div class="mk-quick-menu" id="mkQuickMenu" hidden><button onclick="goHome()">Home</button><button onclick="goRoute('events')">Events</button><button onclick="goRoute('marketplace')">Marketplace</button><button onclick="openModal('accountModal')">Account</button></div>
   </div>
   <div class="mk-container">
+    <div class="mk-hero-stage">
     <div class="mk-intro"><div><span class="mk-kicker">DISCOVER KENYA WITH HIT KENYA</span><h1>Explore the <em>Marketplace.</em></h1><p>Events, venues, artists, transport and stays, all in one place.</p></div><span class="mk-intro-pill">✦ DISCOVER · CONNECT · EXPERIENCE</span></div>
     <div class="mk-search-panel">
       <div class="mk-search-field"><span aria-hidden="true">⌕</span><input id="marketSearch" type="search" aria-label="Search marketplace" placeholder="Search events, venues, artists or services..." oninput="filterMarketplace()" onkeydown="if(event.key==='Enter')filterMarketplace()"></div>
@@ -1488,8 +1635,8 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
       <button type="button" class="market-category" data-category="stay" onclick="marketCategory('stay',this)">▰ <span>Stays</span></button>
       <button type="button" class="market-category" onclick="openModal('serviceModal')">✦ <span>Services</span></button>
     </div>
+    </div><!-- /marketplace photographic hero -->
     <div class="mk-results-head"><div><h2>Explore what's on offer</h2><p><span id="marketShowing">9</span> of <span id="marketTotal">9</span> listings <span class="mk-separator">·</span> <span id="mkActiveFilter">All categories</span></p></div><button class="mk-clear-btn" type="button" onclick="hkMarketReset()">Clear filters ↺</button></div>
-    <p class="mk-preview-note">Marketplace preview: these are illustrative examples, not verified providers or live bookings. Prices are indicative. Contact HIT KENYA for real options and availability.</p>
     <div class="market-results mk-results" id="marketResults">
 <article class="market-card mk-card" data-cat="event" data-date="" data-order="0" data-price="2000" data-rating="4.8" data-location="Nairobi" data-search="sunset music festival nairobi, uhuru gardens event live music, festival atmosphere and entertainment." aria-label="Sunset Music Festival">
     <div class="mk-photo">
