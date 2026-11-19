@@ -1,19 +1,12 @@
-HIT KENYA EVENTS, CONCERTS & NIGHTLIFE — SMALL GITHUB UPDATE
-
-This is an update package, not a complete website replacement.
+HIT KENYA MEDIA — ARTICLES & BLOGS UPDATE
 
 1. Extract this ZIP.
-2. Upload media.html and media-events-nightlife.html to the ROOT of your existing GitHub Pages repository.
-3. Upload the assets/events-nightlife/ folder to the same repository, preserving the folder path.
-4. Commit and wait for GitHub Pages to deploy.
-5. Open your Media page and click EVENTS, CONCERTS & NIGHTLIFE.
+2. Upload media.html, media-articles-blogs.html and the entire assets/articles-blogs folder to the ROOT of your existing HIT KENYA GitHub Pages website repository.
+3. Preserve folder names exactly, then commit your changes.
+4. Open media.html and click the new eighth tile: ARTICLES & BLOGS.
+5. The new page contains six complete evergreen editorial guides, topic filters, search, and a full-article reader. It is responsive on phones and desktops.
 
-What changed:
-- Media tile now opens a dedicated Events, Concerts & Nightlife page.
-- New responsive event page follows the supplied black-and-gold design reference.
-- Photographic assets are locally bundled as compressed WebP for fast mobile loading.
-- Enquiry buttons open a form that prepares a WhatsApp message to the HIT KENYA contact number found in the existing website.
-- No tickets, dates, prices, venue availability or bookings are claimed as confirmed.
-- Other website pages are not replaced.
-
-If your repository has newer edits to media.html since the Trends update, back up or merge those changes before replacing it.
+Existing seven media tiles, other site pages, navigation, and content are preserved.
+This is an ADDITIVE PATCH, not a complete website replacement.
+Images are bundled locally to avoid third-party hotlink failures; the source files were already present in earlier HIT KENYA site updates.
+The guides are editorial content, not live news, verified event listings or booking inventory.
