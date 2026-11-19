@@ -587,6 +587,15 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
 .hk-premium-shop .hk-collection-card>img{top:0;left:0;display:block;object-fit:cover;object-position:50% 22%}
 .hk-premium-shop .hk-collection-shade{background:linear-gradient(to top,rgba(0,0,0,.95),rgba(0,0,0,.44) 43%,rgba(0,0,0,.03) 85%)}
 .hk-premium-shop .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* HIT KENYA Media: additional Content Creators story, November 2026 */
+#media .media-list{grid-template-rows:repeat(4,minmax(0,1fr))}
+#media .media-item{min-height:0;align-items:center}
+#media .media-item img{width:100%;height:82px;object-fit:cover}
+#media .media-creators-item{color:inherit;text-decoration:none;cursor:pointer;transition:border-color .2s ease,transform .2s ease}
+#media .media-creators-item:hover,#media .media-creators-item:focus-visible{border-color:#ffcf35;transform:translateY(-2px);outline:none}
+#media .media-creators-item .tag{color:#ffcb2c}
+@media(max-width:650px){#media .media-list{grid-template-rows:none}#media .media-item{min-height:98px}#media .media-item img{height:82px}}
 </style>
 <!-- HIT KENYA Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ELBKENXSKX"></script>
@@ -1376,12 +1385,16 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
           <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=500&q=80" alt="" onerror="this.onerror=null;this.src='assets/marketing/brand-experience.webp'">
           <div><div class="media-meta"><span class="tag">MUSIC</span><span>FEATURE</span></div><h3>NEW MUSIC, ARTISTS & CULTURE</h3><p>Music updates, interviews and creative stories.</p></div>
         </article>
+        <a class="card media-item media-creators-item" href="creator-hub.html" aria-label="Explore HIT KENYA content creators">
+          <img src="assets/media/content-creators.webp" alt="Video editor working on digital content" loading="lazy" decoding="async" width="520" height="320">
+          <div><div class="media-meta"><span class="tag">CREATORS</span><span>SPOTLIGHT</span></div><h3>MEET KENYA’S CONTENT CREATORS</h3><p>Discover creators, their work and new opportunities.</p></div>
+        </a>
       </div>
     </div>
 
     <div class="card media-bottom">
       <div class="media-cats">
-        <span role="link" tabindex="0" onclick="window.location.href='hit-kenya-music.html'" onkeydown="if(event.key==='Enter')window.location.href='hit-kenya-music.html'" style="cursor:pointer">Music</span><span role="link" tabindex="0" onclick="window.location.href='media.html#gossip'" onkeydown="if(event.key==='Enter')window.location.href='media.html#gossip'" style="cursor:pointer">Celebrity & Gossip</span><span role="link" tabindex="0" onclick="window.location.href='media.html#culture'" onkeydown="if(event.key==='Enter')window.location.href='media.html#culture'" style="cursor:pointer">Film & TV</span><span role="link" tabindex="0" onclick="window.location.href='hit-kenya-music.html'" onkeydown="if(event.key==='Enter')window.location.href='hit-kenya-music.html'" style="cursor:pointer">Events & Nightlife</span><span role="link" tabindex="0" onclick="window.location.href='media.html#trends'" onkeydown="if(event.key==='Enter')window.location.href='media.html#trends'" style="cursor:pointer">Fashion & Lifestyle</span><span role="link" tabindex="0" onclick="window.location.href='media.html#culture'" onkeydown="if(event.key==='Enter')window.location.href='media.html#culture'" style="cursor:pointer">Kenyan Entertainment</span><span role="link" tabindex="0" onclick="window.location.href='media.html#news'" onkeydown="if(event.key==='Enter')window.location.href='media.html#news'" style="cursor:pointer">Africa & Global</span>
+        <span role="link" tabindex="0" onclick="window.location.href='hit-kenya-music.html'" onkeydown="if(event.key==='Enter')window.location.href='hit-kenya-music.html'" style="cursor:pointer">Music</span><span role="link" tabindex="0" onclick="window.location.href='media.html#gossip'" onkeydown="if(event.key==='Enter')window.location.href='media.html#gossip'" style="cursor:pointer">Celebrity & Gossip</span><span role="link" tabindex="0" onclick="window.location.href='media.html#culture'" onkeydown="if(event.key==='Enter')window.location.href='media.html#culture'" style="cursor:pointer">Film & TV</span><span role="link" tabindex="0" onclick="window.location.href='hit-kenya-music.html'" onkeydown="if(event.key==='Enter')window.location.href='hit-kenya-music.html'" style="cursor:pointer">Events & Nightlife</span><span role="link" tabindex="0" onclick="window.location.href='media.html#trends'" onkeydown="if(event.key==='Enter')window.location.href='media.html#trends'" style="cursor:pointer">Fashion & Lifestyle</span><span role="link" tabindex="0" onclick="window.location.href='media.html#culture'" onkeydown="if(event.key==='Enter')window.location.href='media.html#culture'" style="cursor:pointer">Kenyan Entertainment</span><span role="link" tabindex="0" onclick="window.location.href='media.html#news'" onkeydown="if(event.key==='Enter')window.location.href='media.html#news'" style="cursor:pointer">Africa & Global</span><span role="link" tabindex="0" onclick="window.location.href='creator-hub.html'" onkeydown="if(event.key==='Enter')window.location.href='creator-hub.html'" style="cursor:pointer">Content Creators</span>
       </div>
       <button class="btn small" onclick="window.location.href='media.html#stories'">VIEW ALL MEDIA →</button>
     </div>

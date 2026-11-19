@@ -1,12 +1,22 @@
-HIT KENYA MEDIA — ARTICLES & BLOGS UPDATE
+HIT KENYA — CONTENT CREATORS MEDIA COLUMN (SMALL UPDATE)
 
-1. Extract this ZIP.
-2. Upload media.html, media-articles-blogs.html and the entire assets/articles-blogs folder to the ROOT of your existing HIT KENYA GitHub Pages website repository.
-3. Preserve folder names exactly, then commit your changes.
-4. Open media.html and click the new eighth tile: ARTICLES & BLOGS.
-5. The new page contains six complete evergreen editorial guides, topic filters, search, and a full-article reader. It is responsive on phones and desktops.
+WHAT CHANGED
+- Added a fourth CONTENT CREATORS story card beneath Music in the right-hand Media column on the homepage.
+- The new card links to creator-hub.html (the existing Creator Hub page).
+- Added Content Creators to the Media category shortcuts.
+- Kept the original headline, featured story, other three story cards, colours and other homepage sections.
+- Added one locally hosted, optimised photographic image from the existing HIT KENYA site assets.
 
-Existing seven media tiles, other site pages, navigation, and content are preserved.
-This is an ADDITIVE PATCH, not a complete website replacement.
-Images are bundled locally to avoid third-party hotlink failures; the source files were already present in earlier HIT KENYA site updates.
-The guides are editorial content, not live news, verified event listings or booking inventory.
+INSTALL
+1. Make a backup of your current index.html.
+2. Extract this ZIP.
+3. Upload index.html and assets/media/content-creators.webp to the same paths in your GitHub Pages repository.
+4. Commit and refresh your live page (Ctrl + F5).
+5. Confirm that creator-hub.html already exists in the same folder as index.html.
+
+IMPORTANT
+This index.html was edited from the latest locally available HIT KENYA homepage version.
+If you have made newer changes to your live homepage since that version, DO NOT overwrite those changes.
+Instead, provide your current index.html and we can merge this card into that exact file.
+
+The image is an existing HIT KENYA asset; its camera provenance has not been independently authenticated.
