@@ -1,11 +1,15 @@
-HIT KENYA — VENDOR FACILITATION: CORRECTED INDEX
+HIT KENYA CULTURE — FASTER MOBILE PHOTOS (SMALL UPDATE)
 
-1. Replace your existing homepage index.html with the index.html at the ROOT of this ZIP.
-2. Clicking anywhere on either Vendor Facilitation card, including the gold arrow, opens the built-in WEAR THE MOVEMENT merchandise page.
-3. It no longer opens the PROMOTE OR LET US MANAGE YOUR VENDORS popup from these cards.
-4. Shop uses the existing in-page merchandise store and cart. The source screenshot is a visual reference; the underlying store layout and product content are not fully identical to that screenshot.
-5. Event Promotion Strategy and Photography & Videography click fixes remain as in the previously supplied index.
-6. The rest of the original HTML and Paystack front-end add-on remain intact; Paystack will not automatically become live as a result of this change.
-7. To deploy, upload root index.html and assets directory without deleting already-deployed payment functions. Then hard-refresh with Ctrl+Shift+R.
+Upload ONLY hit-kenya-culture.html to your existing GitHub Pages repository, replacing the existing file of the same name.
+Do NOT replace index.html, media.html or any other page.
 
-IMPORTANT: Any existing website cache/CDN may need invalidating after upload.
+What changed:
+- Responsive srcset/sizes on all 14 real Wikimedia Commons photographs, so phones can select smaller files while high-density displays retain sharp detail.
+- Main hero photo has eager/high-priority loading; other photos lazy-load as they approach the screen.
+- Repeated photos share matching responsive URLs for browser cache reuse.
+- Preconnect to Wikimedia image host; add image dimensions to avoid layout jumps.
+- Small blurred gold/black placeholder shows immediately while photographs download.
+- Larger images remain available in existing on-click gallery and experience lightboxes.
+- Existing photography, credits, navigation, design and content retained.
+
+Note: Images remain hosted by Wikimedia Commons; actual speeds depend on mobile connection and Wikimedia response times. No offline image copies are included. Live speed was not benchmarked against Wikimedia due to network restrictions in this workspace.
