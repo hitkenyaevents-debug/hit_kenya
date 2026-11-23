@@ -1,22 +1,29 @@
-HIT KENYA — CONTENT CREATORS MEDIA COLUMN (SMALL UPDATE)
+HIT KENYA MEDIA — BECOME A WRITER UPDATE
+=========================================
 
-WHAT CHANGED
-- Added a fourth CONTENT CREATORS story card beneath Music in the right-hand Media column on the homepage.
-- The new card links to creator-hub.html (the existing Creator Hub page).
-- Added Content Creators to the Media category shortcuts.
-- Kept the original headline, featured story, other three story cards, colours and other homepage sections.
-- Added one locally hosted, optimised photographic image from the existing HIT KENYA site assets.
+INCLUDED FILES
+- media-articles-blogs.html : Updates the CTA from BECOME A PARTNER to BECOME A WRITER
+- media-become-a-writer.html : New writer / entertainment article submission page
+- assets/articles-blogs/editorial.webp : Local editorial photograph for the writer page
 
-INSTALL
-1. Make a backup of your current index.html.
-2. Extract this ZIP.
-3. Upload index.html and assets/media/content-creators.webp to the same paths in your GitHub Pages repository.
-4. Commit and refresh your live page (Ctrl + F5).
-5. Confirm that creator-hub.html already exists in the same folder as index.html.
+INSTALL ON GITHUB PAGES
+1. Extract this ZIP.
+2. Upload the two HTML files to the same folder as your existing media-articles-blogs.html.
+3. Upload assets/articles-blogs/editorial.webp preserving the directory structure.
+4. Commit changes. Refresh the published site after GitHub Pages deploys.
+5. All other pages and navigation are untouched.
 
-IMPORTANT
-This index.html was edited from the latest locally available HIT KENYA homepage version.
-If you have made newer changes to your live homepage since that version, DO NOT overwrite those changes.
-Instead, provide your current index.html and we can merge this card into that exact file.
+IMPORTANT: ARTICLE UPLOADS
+The page has working local file selection, validation and a downloadable submission summary.
+It DOES NOT deliver articles online until a verified, HTTPS file-upload backend is connected.
+GitHub Pages is static hosting; it cannot accept submitted files by itself.
 
-The image is an existing HIT KENYA asset; its camera provenance has not been independently authenticated.
+To enable actual uploads:
+- Set SUBMISSION_ENDPOINT in media-become-a-writer.html to an HTTPS endpoint that accepts multipart/form-data (including files), sends it to your editorial team and supports browser cross-origin requests.
+- Test it end-to-end with a sample article and attachment before announcing submissions.
+- Configure your privacy policy, spam protection, consent and secure file retention on that backend.
+- Never paste API secrets into client-side HTML or JavaScript.
+
+The "DOWNLOAD MY SUBMISSION" button downloads writer details and pasted article text only; uploaded file attachments remain on the visitor's device.
+
+No existing website backend, email address or published articles were changed.
