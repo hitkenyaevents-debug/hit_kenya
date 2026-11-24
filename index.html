@@ -1166,6 +1166,7 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
 @media(max-width:440px){#marketplace .hk-tours-card{min-height:290px}#marketplace .hk-tours-card-actions a{flex:1 1 100%;min-height:31px}}
 </style><style>#media .media-list{grid-template-rows:repeat(5,minmax(98px,1fr))}#media a.media-item,#media a.media-feature{color:inherit;text-decoration:none;cursor:pointer}#media a.media-item:hover,#media a.media-feature:hover{border-color:#ffc43d}#media a:focus-visible{outline:2px solid #ffc43d;outline-offset:3px}#media .media-cats a{color:inherit;text-decoration:none;border:1px solid #383838;border-radius:999px;padding:5px 8px;font-size:.62rem}#media .media-cats a:hover{border-color:#ffc43d;color:#ffc43d}#media .brand-cta{display:inline-block;color:#ffc43d;font-size:.68rem;font-weight:800;margin-top:5px}@media(max-width:650px){#media .media-list{grid-template-rows:none}}</style>
 <style>main > .hero{grid-template-columns:1fr} main > .section > .ticket-demo{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch} .ticket-demo > .verify-card{width:100%;margin:0;min-width:0;padding:21px;scroll-margin-top:90px} @media(max-width:1000px){main > .section > .ticket-demo{grid-template-columns:repeat(2,minmax(0,1fr))}.ticket-demo > .demo-card{grid-column:1/-1}} @media(max-width:620px){main > .section > .ticket-demo{grid-template-columns:1fr}.ticket-demo > .demo-card{grid-column:auto}}</style>
+<style>main > .hero{display:grid;grid-template-columns:1.02fr .98fr;align-items:center} main > .hero > .hero-demo-slot{position:relative;z-index:2;width:min(100%,400px);justify-self:center;padding:20px 12px} main > .hero > .hero-demo-slot > .demo-card{background:rgba(13,14,16,.96);width:100%} main > .hero > .hero-demo-slot h2{font-size:clamp(1.2rem,2vw,1.8rem)} main > .section > .ticket-demo{grid-template-columns:repeat(2,minmax(0,1fr))} @media(max-width:760px){main > .hero{grid-template-columns:1fr;height:auto} main > .hero > .hero-demo-slot{width:min(94%,430px);padding:12px 0 24px} } @media(max-width:620px){main > .section > .ticket-demo{grid-template-columns:1fr}}</style>
 </head>
 
 <body>
@@ -1222,7 +1223,6 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
       <p>HIT KENYA is a premium event, entertainment, media and marketplace platform connecting people, brands, creators, experiences and culture.</p>
       <div class="hero-actions">
         <button class="btn" onclick="goRoute('events')">EXPLORE EVENTS →</button>
-        <button class="btn secondary" onclick="openModal('demoModal')">BOOK A DEMO →</button>
       </div>
       <div class="socials" aria-label="HIT Kenya social media">
 <a href="https://www.instagram.com/carhirehitkenya?stkn=MnMxNjZ6Mm10NmF2" target="_blank" rel="noopener noreferrer" aria-label="Car Hire HIT Kenya Instagram" title="@carhirehitkenya">🚗</a>
@@ -1237,8 +1237,21 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
 </div>
     </div>
   </div>
-
-
+  <div class="hero-demo-slot">
+    <article class="card demo-card">
+      <div class="eyebrow">BOOK A DEMO</div>
+      <h2 style="margin-top:6px">SEE HOW HIT KENYA WORKS.</h2>
+      <div class="demo-list">
+        <div class="check">Event creation & management</div>
+        <div class="check">Ticketing & access control</div>
+        <div class="check">Influencer campaigns & performance</div>
+        <div class="check">Vendor marketplace & bookings</div>
+        <div class="check">Analytics, payments & payouts</div>
+        <div class="check">Private QR gate validation</div>
+      </div>
+      <button class="btn" onclick="openModal('demoModal')">SCHEDULE A DEMO →</button>
+    </article>
+  </div>
 </section>
 
 <section class="section" id="services">
@@ -1418,19 +1431,7 @@ body.route-view #page-fun-base .fun-header{display:flex!important}
       <div class="privacy">🔒 QR code hidden for fraud prevention. The buyer sees the private QR only after purchase/login; gate staff access scanning tools separately.</div>
     </article>
 
-    <article class="card demo-card">
-      <div class="eyebrow">BOOK A DEMO</div>
-      <h2 style="margin-top:6px">SEE HOW HIT KENYA WORKS.</h2>
-      <div class="demo-list">
-        <div class="check">Event creation & management</div>
-        <div class="check">Ticketing & access control</div>
-        <div class="check">Influencer campaigns & performance</div>
-        <div class="check">Vendor marketplace & bookings</div>
-        <div class="check">Analytics, payments & payouts</div>
-        <div class="check">Private QR gate validation</div>
-      </div>
-      <button class="btn" onclick="openModal('demoModal')">SCHEDULE A DEMO →</button>
-    </article>
+
   </div>
 </section>
 
