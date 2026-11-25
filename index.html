@@ -1203,6 +1203,39 @@ main > .hero:has(.hk-paused) .hero-media img,main > .hero .hk-paused .hk-motion 
 </style>
 
 <style id="hk-compact-covers">#work .work-grid{gap:10px;max-width:1100px;margin-inline:auto}#work .work-card{padding:10px}#work .work-card .work-cover{height:clamp(105px,11vw,150px);margin-bottom:8px;border-radius:7px;object-fit:cover;filter:none;opacity:1}#work .work-card h3{margin:4px 0}#work .work-card p{line-height:1.4}#work .work-card .btn{margin-top:8px}#work .work-cover[src*="vendors"]{object-position:center 35%}#work .work-cover[src*="community"]{object-position:center 35%}#work .work-cover[src*="travel"]{object-position:center 55%}@media(max-width:600px){#work .work-card .work-cover{height:140px}#work .work-card{padding:10px}}</style>
+<style id="hk-community-review-style">
+#hk-community-reviews{padding:56px 0 48px;background:transparent;scroll-margin-top:90px}
+#hk-community-reviews .hk-rev-head{text-align:center;margin:0 auto 32px;max-width:760px}
+#hk-community-reviews h2{font-size:clamp(25px,3.3vw,42px);line-height:1.15;letter-spacing:-.035em;margin:0 0 12px;color:#fff;font-weight:850}
+#hk-community-reviews .hk-rev-intro{color:#b5b5ba;font-size:clamp(13px,1.4vw,16px);line-height:1.6;margin:0 0 22px}
+#hk-community-reviews .hk-rev-button{background:linear-gradient(110deg,#ffd05b,#e7a31d);color:#101010;border:1px solid #e4a32c;border-radius:999px;padding:13px 25px;font:inherit;font-size:14px;font-weight:800;cursor:pointer;transition:transform .2s,box-shadow .2s}
+#hk-community-reviews .hk-rev-button:hover{transform:translateY(-2px);box-shadow:0 6px 22px #f7bd3430}
+#hk-community-reviews .hk-rev-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+#hk-community-reviews .hk-rev-card{background:#0c0d0f;border:1px solid #343024;border-radius:17px;padding:23px;min-width:0;display:flex;flex-direction:column;gap:15px;transition:border-color .2s,transform .2s}
+#hk-community-reviews .hk-rev-card:hover{border-color:#a37928;transform:translateY(-3px)}
+#hk-community-reviews .hk-rev-stars{color:#ffc54b;font-size:20px;letter-spacing:3px;line-height:1}
+#hk-community-reviews .hk-rev-copy{font-size:14px;line-height:1.7;color:#f1f1f1;margin:0;overflow-wrap:anywhere;white-space:pre-wrap;flex:1}
+#hk-community-reviews .hk-rev-person{display:flex;align-items:center;gap:11px;margin-top:6px;min-width:0}
+#hk-community-reviews .hk-rev-avatar{display:grid;place-items:center;width:42px;height:42px;flex:0 0 42px;background:#292219;border:1px solid #604a22;color:#ffd05b;border-radius:50%;font-weight:800;font-size:13px}
+#hk-community-reviews .hk-rev-name{color:#fff;font-size:14px;font-weight:750;overflow-wrap:anywhere}
+#hk-community-reviews .hk-rev-role,#hk-community-reviews .hk-rev-note{color:#a5a5ad;font-size:12px;line-height:1.5}
+#hk-community-reviews .hk-rev-note{text-align:center;margin:14px 0 0}
+#hk-community-reviews .hk-rev-form{max-width:620px;margin:0 auto 26px;padding:22px;background:#111215;border:1px solid #55431f;border-radius:16px;display:grid;gap:13px}
+#hk-community-reviews .hk-rev-form[hidden]{display:none!important}
+#hk-community-reviews .hk-rev-form label,#hk-community-reviews .hk-rev-form legend{display:block;color:#eee;font-size:13px;font-weight:700}
+#hk-community-reviews .hk-rev-form input,#hk-community-reviews .hk-rev-form select,#hk-community-reviews .hk-rev-form textarea{display:block;width:100%;box-sizing:border-box;margin-top:7px;padding:10px 12px;background:#090a0c;border:1px solid #444;border-radius:8px;color:#fff;font:inherit;font-size:14px}
+#hk-community-reviews .hk-rev-form textarea{min-height:100px;resize:vertical}
+#hk-community-reviews .hk-rev-form fieldset{border:0;margin:0;padding:0}
+#hk-community-reviews .hk-rev-rate{display:flex;gap:5px;margin-top:7px}
+#hk-community-reviews .hk-rev-rate button{background:transparent;border:0;color:#828282;font-size:30px;cursor:pointer;padding:2px 5px;line-height:1.1}
+#hk-community-reviews .hk-rev-rate button[aria-pressed=true]{color:#ffc54b}
+#hk-community-reviews .hk-rev-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+#hk-community-reviews .hk-rev-cancel{border:1px solid #555;border-radius:999px;color:#eee;background:transparent;padding:12px 20px;cursor:pointer;font:inherit;font-size:14px}
+#hk-community-reviews :focus-visible{outline:2px solid #ffc54b;outline-offset:4px}
+#hk-community-reviews .hk-rev-status{color:#ffc54b;text-align:center;font-size:13px;margin:0 0 12px}
+@media(max-width:760px){#hk-community-reviews{padding:38px 0}#hk-community-reviews .hk-rev-grid{grid-template-columns:1fr;gap:12px}#hk-community-reviews .hk-rev-card{padding:18px}#hk-community-reviews .hk-rev-head{margin-bottom:24px}}
+@media(prefers-reduced-motion:reduce){#hk-community-reviews *{transition:none!important;animation:none!important}}
+</style>
 </head>
 
 <body>
@@ -1515,6 +1548,25 @@ main > .hero:has(.hk-paused) .hero-media img,main > .hero .hk-paused .hk-motion 
       <span>Safaricom</span><span>Coca-Cola</span><span>Red Bull</span><span>Hennessy</span><span>Johnnie Walker</span><span>Jameson</span><span>Heineken</span><span>CIROC</span>
     </div>
   </div>
+</section>
+
+<section id="hk-community-reviews" aria-labelledby="hk-review-title">
+ <div class="container">
+  <div class="hk-rev-head"><h2 id="hk-review-title">What our community is saying.</h2><p class="hk-rev-intro">Experiences powered by HIT KENYA, shared by the people who live them.</p><button type="button" id="hk-review-open" class="hk-rev-button" aria-expanded="false" aria-controls="hk-review-form">Leave a review <span aria-hidden="true">↗</span></button></div>
+  <form id="hk-review-form" class="hk-rev-form" hidden>
+   <fieldset><legend>Your rating</legend><div class="hk-rev-rate" role="group" aria-label="Choose a star rating"><button type="button" data-score="1" aria-label="1 star" aria-pressed="false">★</button><button type="button" data-score="2" aria-label="2 stars" aria-pressed="false">★</button><button type="button" data-score="3" aria-label="3 stars" aria-pressed="false">★</button><button type="button" data-score="4" aria-label="4 stars" aria-pressed="false">★</button><button type="button" data-score="5" aria-label="5 stars" aria-pressed="false">★</button></div></fieldset>
+   <label>Display name<input name="name" maxlength="50" required autocomplete="nickname" placeholder="Your name"></label>
+   <label>Your experience<select name="role" required><option value="">Select your experience</option><option>Event attendee</option><option>Event organiser</option><option>Vendor</option><option>Content creator</option><option>Brand partner</option><option>Community member</option><option>Traveller</option><option>Other</option></select></label>
+   <label>Your review<textarea name="review" minlength="10" maxlength="500" required placeholder="Tell us about your experience with HIT KENYA."></textarea></label>
+   <p class="hk-rev-role">Reviews are saved on this browser only. Public submissions are not enabled yet.</p><div class="hk-rev-actions"><button type="submit" class="hk-rev-button">Save review</button><button type="button" id="hk-review-cancel" class="hk-rev-cancel">Cancel</button></div><p id="hk-review-error" class="hk-rev-role" role="alert" hidden></p>
+  </form>
+  <p id="hk-review-status" class="hk-rev-status" role="status" hidden></p>
+  <div id="hk-review-grid" class="hk-rev-grid" aria-label="Community reviews">
+   <article class="hk-rev-card"><div class="hk-rev-stars" aria-label="No rating yet">☆☆☆☆☆</div><p class="hk-rev-copy">Been to an event through HIT KENYA? Share how it went.</p><div class="hk-rev-person"><span class="hk-rev-avatar" aria-hidden="true">E</span><div><div class="hk-rev-name">Event experiences</div><div class="hk-rev-role">Awaiting community reviews</div></div></div></article>
+   <article class="hk-rev-card"><div class="hk-rev-stars" aria-label="No rating yet">☆☆☆☆☆</div><p class="hk-rev-copy">Tell us about organising, booking or working with our event community.</p><div class="hk-rev-person"><span class="hk-rev-avatar" aria-hidden="true">P</span><div><div class="hk-rev-name">Partners &amp; organisers</div><div class="hk-rev-role">Awaiting community reviews</div></div></div></article>
+   <article class="hk-rev-card"><div class="hk-rev-stars" aria-label="No rating yet">☆☆☆☆☆</div><p class="hk-rev-copy">Discovered something new? Let the community know about your experience.</p><div class="hk-rev-person"><span class="hk-rev-avatar" aria-hidden="true">C</span><div><div class="hk-rev-name">Community discoveries</div><div class="hk-rev-role">Awaiting community reviews</div></div></div></article>
+  </div><p class="hk-rev-note">Be the first to share your experience. No public reviews have been added yet.</p>
+ </div>
 </section>
 
 </main>
@@ -3554,6 +3606,14 @@ window.openFoundationSection = function(section) {
  requestAnimationFrame(tick);}
  if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){observer.disconnect();run();}},{threshold:0.2});observer.observe(section);}else run();
 })();
+</script>
+<script id="hk-community-review-script">
+(()=>{const root=document.getElementById('hk-community-reviews');if(!root)return;const form=root.querySelector('form'),open=root.querySelector('#hk-review-open'),cancel=root.querySelector('#hk-review-cancel'),grid=root.querySelector('#hk-review-grid'),status=root.querySelector('#hk-review-status'),err=root.querySelector('#hk-review-error'),note=root.querySelector('.hk-rev-note'),stars=[...root.querySelectorAll('[data-score]')],key='hit_kenya_local_community_reviews_v1';let rating=0,reviews=[];const initial=[...grid.children].map(x=>x.cloneNode(true));try{const saved=JSON.parse(localStorage.getItem(key)||'[]');if(Array.isArray(saved))reviews=saved.filter(r=>r&&typeof r.name==='string'&&typeof r.role==='string'&&typeof r.review==='string'&&Number.isInteger(r.rating)&&r.rating>=1&&r.rating<=5).slice(0,30)}catch(e){}
+function el(tag,cls,text){const x=document.createElement(tag);x.className=cls;if(text!==undefined)x.textContent=text;return x}
+function render(){grid.replaceChildren();reviews.forEach(r=>{const card=el('article','hk-rev-card'),s=el('div','hk-rev-stars','★'.repeat(r.rating)+'☆'.repeat(5-r.rating));s.setAttribute('aria-label',r.rating+' out of 5 stars');const person=el('div','hk-rev-person'),avatar=el('span','hk-rev-avatar',r.name.trim().split(/\s+/).slice(0,2).map(t=>t[0]||'').join('').toUpperCase()||'?'),who=el('div','');avatar.setAttribute('aria-hidden','true');who.append(el('div','hk-rev-name',r.name),el('div','hk-rev-role',r.role+' · Saved on this device'));person.append(avatar,who);card.append(s,el('p','hk-rev-copy',r.review),person);grid.append(card)});if(!reviews.length)grid.append(...initial.map(x=>x.cloneNode(true)));note.textContent=reviews.length?'Showing reviews saved in this browser. Public reviews are not enabled yet.':'Be the first to share your experience. No public reviews have been added yet.'}
+function setRating(n){rating=n;stars.forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.score)<=n)))}
+function toggle(show){form.hidden=!show;open.setAttribute('aria-expanded',String(show));if(show){status.hidden=true;err.hidden=true;stars[0].focus()}else open.focus()}
+open.addEventListener('click',()=>toggle(form.hidden));cancel.addEventListener('click',()=>toggle(false));stars.forEach(b=>b.addEventListener('click',()=>{setRating(Number(b.dataset.score));err.hidden=true}));form.addEventListener('submit',e=>{e.preventDefault();const data=new FormData(form),name=String(data.get('name')||'').trim(),role=String(data.get('role')||''),review=String(data.get('review')||'').trim();if(!rating||!name||review.length<10){err.textContent='Please choose a rating and enter your name and review.';err.hidden=false;return}reviews.unshift({name,role,review,rating});reviews=reviews.slice(0,30);let stored=true;try{localStorage.setItem(key,JSON.stringify(reviews))}catch(e){stored=false}render();form.reset();setRating(0);toggle(false);status.textContent=stored?'Thank you! Your review has been saved on this device.':'Your review is visible for this session, but browser storage is unavailable.';status.hidden=false});render()})();
 </script>
 </body>
 </html>
