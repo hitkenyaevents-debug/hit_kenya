@@ -1,0 +1,11 @@
+HIT KENYA — contact page update
+Extract and upload all files to the same root as index.html, keeping folders. Existing website assets remain untouched.
+
+1. At https://formspree.io/ create a form whose verified notification recipient is hitkenyaevents@gmail.com. Copy its public https://formspree.io/f/... endpoint into assets/contact/contact.js replacing [ADD FORMSPREE ENDPOINT]. Do not publish passwords or secret API keys. The email and WhatsApp draft options work even before setup.
+2. In Formspree Workflow configure email notifications with the submitted subject field; use email as reply-to. Enable the Auto Response action if your plan supports it, with a HIT KENYA confirmation message. Test actual delivery and autoresponse before announcing the form.
+3. Fill [DAYS AND HOURS], [OFFICE ADDRESS], and [REPLY HOURS] after confirming them; change city map and directions to the verified office address. The existing hero photo is externally hosted with credit and fallback dark gradient. [HERO PHOTO] is an optional rights-cleared replacement.
+4. New floating WhatsApp button is included on all nine HTML pages in this update. For other standalone service pages in the GitHub repository, add <script src="assets/contact/floating-whatsapp.js" defer></script> before the final </body> (use ../ prefix if one folder deep). These older pages have not been overwritten.
+5. The form sends personal data to Formspree only after endpoint activation and submission. Review the privacy policy and provider terms before activation. No email receipt is claimed if the message was not submitted successfully.
+
+Formspree docs: https://help.formspree.io/articles/plugins/sending-a-confirmation-or-response-email/
+https://help.formspree.io/articles/building-your-form/email-subject-line/
