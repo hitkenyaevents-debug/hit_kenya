@@ -8,7 +8,12 @@ src=root/'legal-source'
 ft=(src/'footer.html').read_text().strip(); layout=(src/'layout.html').read_text(); policies=json.loads((src/'policies.json').read_text()); extra=(src/'footer-extra.html').read_text()
 def footer(prefix,home=False):
     x=extra.replace('{{ROOT}}',prefix)
-    if home: x+=(src/'homepage-extra.html').read_text()
+    if home:
+        home_top, credits = (src/'homepage-extra.html').read_text().split('<details class="hk-photo-credits">', 1)
+        credits = '<details class="hk-photo-credits">' + credits
+        return (ft.replace('{{ROOT}}',prefix).replace('{{EXTRA}}','')
+            .replace('<div class="hkf-wrap">','<div class="hkf-wrap">'+home_top+x+'<div class="hkf-legal-band">',1)
+            .replace('<div class="hkf-bottom">','</div>'+credits+'<div class="hkf-bottom">',1))
     return ft.replace('{{ROOT}}',prefix).replace('{{EXTRA}}',x)
 def replace_first_footer(s,f):
     # Original primary footer has nested details, but not nested footer elements.
