@@ -1,0 +1,16 @@
+HIT KENYA About Us update
+Base: HIT-KENYA-LEGAL-FOOTER-UPDATE.zip
+Only about.html was edited. All original archive files, except about.html, are byte-identical.
+The supplied recordings are website reference screen recordings, not event footage. Existing site illustrations are used in the hero, gallery and services, not asserted to be authentic event documentation. The hero is a CSS slideshow with pause control; the video feature links to the official HIT KENYA Media YouTube channel. No new AI images or fake aftermovie were created.
+Existing stats remain subject to business confirmation. Company history, app URLs and legal placeholders are not independently verified.
+Assets copied from original repository:
+assets/about/concert.webp <- assets/marketing/concert-hero-full-resolution.webp
+assets/about/stage.webp <- assets/marketing/music-stage.webp
+assets/about/festival.webp <- assets/marketing/festival-crowd.webp
+assets/about/production.webp <- assets/media/content-creators.webp
+assets/about/social.webp <- assets/funbase/fun-people-left.webp
+assets/about/venue.webp <- assets/venues/venue-wedding.webp
+assets/about/creator.webp <- assets/brand-social/hero-creator.webp
+assets/about/travel.webp <- assets/travel/travel-hero.webp
+assets/about/vendor.webp <- assets/vendor/vendor-hero.webp
+assets/about/shop.webp <- assets/merch/hero-cap.webp
